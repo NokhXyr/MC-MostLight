@@ -33,7 +33,8 @@ Le verre est translucide : on voit l'ampoule à filament ou la flamme à l'inté
   - Casser un interrupteur garde ses liaisons dans l'objet.
 - **Télécommande** : se lie aux lampes de la même façon. Ensuite, clic droit dans le vide pour allumer / éteindre, accroupi pour la luminosité.
 - Bougies, flambeaux et braseros font des flammes et de la fumée quand ils sont allumés.
-- Les lampes acceptent l'eau. Les lampes suspendues et murales tombent si on retire leur support.
+- Les lampes acceptent l'eau. Elles se posent sur n'importe quel bloc qui a une forme : escalier à l'envers, dalle, barrière, tête de joueur, vitre… Elles tombent si on retire leur support.
+- **Bandes LED** : elles se posent en position basse, milieu ou haute de la face, selon l'endroit visé. Accroupi, on les pose à la verticale ; au sol, elles suivent le regard. En bord de face, deux bandes sur des faces voisines forment un angle.
 
 ## Les lampes
 
@@ -65,6 +66,8 @@ Pour refaire le test :
 3. Lance `./gradlew runShowcaseShaders`.
 
 Les captures arrivent dans `run-shaders/screenshots/`.
+
+Voir aussi [COMPATIBILITE.md](COMPATIBILITE.md) : mods d'optimisation et lumière colorée sous shaders.
 
 ## Compiler
 

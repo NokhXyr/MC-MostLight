@@ -51,7 +51,8 @@ public final class ShowcaseBuilder {
     /** Lampe posée à vérifier : position du bloc qui éclaire, lumière attendue. */
     public record Check(BlockPos pos, String label, int expectedLight) {}
 
-    public record Result(List<View> views, List<Check> checks) {}
+    /** views : galerie (vue d'ensemble + rangées) ; closeups : un gros plan par modèle. */
+    public record Result(List<View> views, List<View> closeups, List<Check> checks) {}
 
     private record Entry(LampType type, DyeColor color, LampFinish finish, LightTone tone) {}
 
@@ -111,6 +112,7 @@ public final class ShowcaseBuilder {
 
         List<Check> checks = new ArrayList<>();
         List<View> views = new ArrayList<>();
+        List<View> closeups = new ArrayList<>();
         views.add(new View(center.getX(), ground + 45, origin.getZ() - 30, 0, 42, null));
         for (int c = 0; c < columns.size(); c++) {
             List<List<Entry>> column = columns.get(c);
@@ -121,6 +123,9 @@ public final class ShowcaseBuilder {
                     place(level, rowStart.east(i), row.get(i), checks);
                 }
                 views.add(rowView(rowStart, ground));
+                if (c < columns.size() - 1) {
+                    closeups.add(closeView(rowStart, row.get(0).type(), ground));
+                }
             }
         }
         BlockPos demo = origin.offset((columns.size() - 1) * COLUMN_SPACING, 0, extras.size() * ROW_SPACING);
@@ -128,7 +133,25 @@ public final class ShowcaseBuilder {
         views.add(rowView(demo, ground));
 
         LOGGER.info("[MostLight showcase] {} colonnes, {} lampes posées, {} vues", columns.size(), checks.size(), views.size());
-        return new Result(views, checks);
+        return new Result(views, closeups, checks);
+    }
+
+    /** Gros plan de trois quarts sur la première lampe de la rangée (blanche), visée en son centre. */
+    private static View closeView(BlockPos rowStart, LampType type, int ground) {
+        double centerY = switch (type.placement()) {
+            case HANGING -> ground + 2.45;
+            case WALL, OMNI -> ground + 1.5;
+            case TALL -> ground + 1.1;
+            case STANDING -> type.category() == LampCategory.TABLE ? ground + 1.45 : ground + 0.5;
+            case CUBE -> ground + 0.5;
+        };
+        double tx = rowStart.getX() + 0.5, tz = rowStart.getZ() + 0.5;
+        double distance = type.placement() == Placement.TALL ? 3.4 : 2.0;
+        double cx = tx - distance * 0.55, cz = tz - distance, eye = centerY + distance * 0.25;
+        float yaw = (float) Math.toDegrees(Math.atan2(-(tx - cx), tz - cz));
+        float pitch = (float) Math.toDegrees(Math.atan2(eye - centerY, Math.hypot(tx - cx, tz - cz)));
+        // la position téléportée est celle des pieds : les yeux sont 1,62 bloc plus haut
+        return new View(cx, eye - 1.62, cz, yaw, pitch, rowStart);
     }
 
     /** Caméra à hauteur d'yeux, face à la rangée qui commence en {@code rowStart}. */

@@ -1,0 +1,12 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "com.nokhxyr.mostlight.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "IrisWorldRenderingSettingsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

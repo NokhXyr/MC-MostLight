@@ -50,13 +50,13 @@ public class HorizontalLampBlock extends LampBlock {
     @Override
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         return switch (type().placement()) {
-            case HANGING -> Block.canSupportCenter(level, pos.above(), Direction.DOWN);
+            case HANGING -> hasSupport(level, pos.above(), Direction.DOWN);
             case WALL -> {
                 Direction facing = state.getValue(FACING);
                 BlockPos wall = pos.relative(facing.getOpposite());
-                yield level.getBlockState(wall).isFaceSturdy(level, wall, facing);
+                yield hasSupport(level, wall, facing);
             }
-            default -> Block.canSupportCenter(level, pos.below(), Direction.UP);
+            default -> hasSupport(level, pos.below(), Direction.UP);
         };
     }
 

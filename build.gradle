@@ -33,6 +33,20 @@ neoForge {
             systemProperty 'mostlight.showcase', 'true'
             programArguments.addAll '--width', '1600', '--height', '900'
         }
+        // ./gradlew runShowcaseCloseups : un gros plan par modèle (contrôle des modèles, run/screenshots/closeup_*)
+        showcaseCloseups {
+            client()
+            systemProperty 'mostlight.showcase', 'true'
+            systemProperty 'mostlight.showcase.closeups', 'true'
+            programArguments.addAll '--width', '1600', '--height', '900'
+        }
+        // ./gradlew runShowcaseOpti : même galerie avec une pile de mods d'optimisation (dossier run-opti, voir COMPATIBILITE.md)
+        showcaseOpti {
+            client()
+            gameDirectory = project.file('run-opti')
+            systemProperty 'mostlight.showcase', 'true'
+            programArguments.addAll '--width', '1600', '--height', '900'
+        }
         gameTestServer {
             type = 'gameTestServer'
             gameDirectory = project.file('run-gametest')

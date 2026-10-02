@@ -10,3 +10,4 @@ out/
 .eclipse/
 run-gametest/
 run-shaders/
+run-opti/

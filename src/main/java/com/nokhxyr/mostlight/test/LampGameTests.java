@@ -5,6 +5,7 @@ import com.nokhxyr.mostlight.block.HorizontalLampBlock;
 import com.nokhxyr.mostlight.block.LampBlock;
 import com.nokhxyr.mostlight.block.LampType;
 import com.nokhxyr.mostlight.block.LampFinish;
+import com.nokhxyr.mostlight.block.LightStripBlock;
 import com.nokhxyr.mostlight.block.LightTone;
 import com.nokhxyr.mostlight.block.TallLampBlock;
 import com.nokhxyr.mostlight.block.entity.LampBlockEntity;
@@ -23,6 +24,8 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -198,6 +201,59 @@ public class LampGameTests {
         player.setShiftKeyDown(true);
         place(helper, player, remote, new BlockPos(2, 2, 1), Direction.NORTH);
         helper.assertTrue(LampLinks.get(remote).size() == 1, "télécommande liée");
+        helper.succeed();
+    }
+
+    /** Pose en visant un point précis de la face (coordonnées 0..1 dans le bloc support). */
+    private static void placeAt(GameTestHelper helper, Player player, ItemStack stack, BlockPos target, Direction face, Vec3 local) {
+        player.setItemInHand(InteractionHand.MAIN_HAND, stack);
+        BlockPos abs = helper.absolutePos(target);
+        Vec3 hit = Vec3.atLowerCornerOf(abs).add(local);
+        stack.useOn(new UseOnContext(player, InteractionHand.MAIN_HAND, new BlockHitResult(hit, face, abs, false)));
+    }
+
+    @GameTest(template = "empty")
+    public static void ledStripSlotsAndRotation(GameTestHelper helper) {
+        BlockPos wall = new BlockPos(4, 2, 4);
+        helper.setBlock(wall, Blocks.STONE);
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+
+        // face nord du mur, visée près du bas : bande horizontale en position basse
+        placeAt(helper, player, new ItemStack(ModBlocks.item(LampType.LIGHT_STRIP, DyeColor.CYAN)), wall, Direction.NORTH, new Vec3(0.5, 0.1, 0));
+        BlockState low = helper.getBlockState(wall.north());
+        helper.assertTrue(low.getValue(LightStripBlock.SLOT) == LightStripBlock.Slot.LOW && !low.getValue(LightStripBlock.ROTATED),
+                "bande basse horizontale");
+
+        // face sud, accroupi, visée en haut à droite : verticale
+        player.setShiftKeyDown(true);
+        placeAt(helper, player, new ItemStack(ModBlocks.item(LampType.LIGHT_STRIP, DyeColor.CYAN)), wall, Direction.SOUTH, new Vec3(0.9, 0.5, 1));
+        player.setShiftKeyDown(false);
+        BlockState vertical = helper.getBlockState(wall.south());
+        helper.assertTrue(vertical.getValue(LightStripBlock.ROTATED), "accroupi : bande verticale");
+        helper.assertTrue(vertical.getValue(LightStripBlock.SLOT) != LightStripBlock.Slot.MIDDLE, "position latérale selon la visée");
+        helper.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void placeOnPartialBlocks(GameTestHelper helper) {
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        // escalier à l'envers : LED collée dessous
+        BlockPos stairs = new BlockPos(2, 3, 2);
+        helper.setBlock(stairs, Blocks.OAK_STAIRS.defaultBlockState().setValue(BlockStateProperties.HALF, Half.TOP));
+        placeAt(helper, player, new ItemStack(ModBlocks.item(LampType.LIGHT_STRIP, DyeColor.WHITE)), stairs, Direction.DOWN, new Vec3(0.5, 0, 0.5));
+        helper.assertBlockPresent(ModBlocks.lamp(LampType.LIGHT_STRIP, DyeColor.WHITE), stairs.below());
+
+        // tête de joueur : spot encastré sur le côté, lampe de table dessus
+        BlockPos head = new BlockPos(6, 1, 6);
+        helper.setBlock(head, Blocks.PLAYER_HEAD);
+        placeAt(helper, player, new ItemStack(ModBlocks.item(LampType.FLUSH_LIGHT, DyeColor.RED)), head, Direction.EAST, new Vec3(1, 0.3, 0.5));
+        helper.assertBlockPresent(ModBlocks.lamp(LampType.FLUSH_LIGHT, DyeColor.RED), head.east());
+        placeAt(helper, player, new ItemStack(ModBlocks.item(LampType.TABLE_LAMP, DyeColor.RED)), head, Direction.UP, new Vec3(0.5, 0.5, 0.5));
+        helper.assertBlockPresent(ModBlocks.lamp(LampType.TABLE_LAMP, DyeColor.RED), head.above());
+
+        // l'air ne porte rien
+        helper.setBlock(stairs, Blocks.AIR);
+        helper.assertBlockPresent(Blocks.AIR, stairs.below());
         helper.succeed();
     }
 

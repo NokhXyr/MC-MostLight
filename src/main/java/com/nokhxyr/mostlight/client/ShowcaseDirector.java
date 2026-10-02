@@ -42,6 +42,7 @@ import org.slf4j.Logger;
 public final class ShowcaseDirector {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final boolean ENABLED = Boolean.getBoolean("mostlight.showcase");
+    private static final boolean CLOSEUPS = Boolean.getBoolean("mostlight.showcase.closeups");
     private static final String WORLD = "mostlight_showcase";
     private static final BlockPos ORIGIN = new BlockPos(0, -60, 0);
 
@@ -108,7 +109,7 @@ public final class ShowcaseDirector {
                     return;
                 }
                 viewIndex = 0;
-                teleport(mc, RESULT.get().views().get(0));
+                teleport(mc, views().get(0));
                 stage = Stage.SHOOTING;
                 wait = 200;
             }
@@ -119,7 +120,7 @@ public final class ShowcaseDirector {
                     wait = 10;
                     return;
                 }
-                List<ShowcaseBuilder.View> views = RESULT.get().views();
+                List<ShowcaseBuilder.View> views = views();
                 ShowcaseBuilder.View current = views.get(viewIndex);
                 if (night && current.row() != null) {
                     MinecraftServer server = mc.getSingleplayerServer();
@@ -130,7 +131,7 @@ public final class ShowcaseDirector {
                         CHECKED.addAndGet(row.size());
                     });
                 }
-                String name = String.format("showcase_%02d_%s.png", viewIndex, night ? "night" : "day");
+                String name = String.format("%s_%02d_%s.png", CLOSEUPS ? "closeup" : "showcase", viewIndex, night ? "night" : "day");
                 Screenshot.grab(mc.gameDirectory, name, mc.getMainRenderTarget(), message -> {});
                 viewIndex++;
                 if (viewIndex >= views.size()) {
@@ -172,6 +173,11 @@ public final class ShowcaseDirector {
             music.set(0.0);
         }
         mc.getMusicManager().stopPlaying();
+    }
+
+    /** Vues à photographier : la galerie, ou les gros plans avec -Dmostlight.showcase.closeups=true. */
+    private static List<ShowcaseBuilder.View> views() {
+        return CLOSEUPS ? RESULT.get().closeups() : RESULT.get().views();
     }
 
     private static void teleport(Minecraft mc, ShowcaseBuilder.View view) {

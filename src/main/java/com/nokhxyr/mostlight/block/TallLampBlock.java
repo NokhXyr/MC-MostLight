@@ -92,7 +92,7 @@ public class TallLampBlock extends LampBlock {
         if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
             return isPartner(level.getBlockState(pos.below()), DoubleBlockHalf.LOWER);
         }
-        return Block.canSupportCenter(level, pos.below(), Direction.UP);
+        return hasSupport(level, pos.below(), Direction.UP);
     }
 
     @Override

@@ -8,7 +8,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.SupportType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -50,7 +49,7 @@ public class OmniLampBlock extends LampBlock {
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         Direction facing = state.getValue(FACING);
         BlockPos support = pos.relative(facing.getOpposite());
-        return level.getBlockState(support).isFaceSturdy(level, support, facing, SupportType.CENTER);
+        return hasSupport(level, support, facing);
     }
 
     @Override

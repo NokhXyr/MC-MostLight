@@ -233,30 +233,21 @@
     {
       "from": [
         7.5,
-        9,
-        14
+        10.5,
+        13.5
       ],
       "to": [
         8.5,
-        13.5,
+        12.5,
         15
       ],
-      "rotation": {
-        "angle": -45,
-        "axis": "x",
-        "origin": [
-          8,
-          9,
-          15
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
             7.5,
-            2.5,
+            3.5,
             8.5,
-            7
+            5.5
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -264,9 +255,9 @@
         "south": {
           "uv": [
             7.5,
-            2.5,
+            3.5,
             8.5,
-            7
+            5.5
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -274,19 +265,19 @@
         "east": {
           "uv": [
             1,
+            3.5,
             2.5,
-            2,
-            7
+            5.5
           ],
           "texture": "#frame",
           "tintindex": 3
         },
         "west": {
           "uv": [
-            14,
-            2.5,
+            13.5,
+            3.5,
             15,
-            7
+            5.5
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -294,7 +285,7 @@
         "up": {
           "uv": [
             7.5,
-            14,
+            13.5,
             8.5,
             15
           ],
@@ -306,7 +297,81 @@
             7.5,
             1,
             8.5,
-            2
+            2.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        7.5,
+        11.5,
+        12.5
+      ],
+      "to": [
+        8.5,
+        12.5,
+        13.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.5,
+            3.5,
+            8.5,
+            4.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            7.5,
+            3.5,
+            8.5,
+            4.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            2.5,
+            3.5,
+            3.5,
+            4.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            12.5,
+            3.5,
+            13.5,
+            4.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            7.5,
+            12.5,
+            8.5,
+            13.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            7.5,
+            2.5,
+            8.5,
+            3.5
           ],
           "texture": "#frame",
           "tintindex": 3

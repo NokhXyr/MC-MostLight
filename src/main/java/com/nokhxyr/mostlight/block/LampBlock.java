@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.SupportType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -83,6 +84,20 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock,
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new LampBlockEntity(pos, state);
+    }
+
+    /**
+     * Vrai si le bloc {@code support} peut porter une lampe sur sa face {@code face} : pas besoin d'une face pleine,
+     * tout bloc ayant une forme convient (escalier à l'envers, dalle, tête de joueur, barrière, vitre...).
+     */
+    public static boolean hasSupport(LevelReader level, BlockPos support, Direction face) {
+        BlockState state = level.getBlockState(support);
+        if (state.isAir()) {
+            return false;
+        }
+        return state.isFaceSturdy(level, support, face, SupportType.CENTER)
+                || !state.getCollisionShape(level, support).isEmpty()
+                || !state.getShape(level, support).isEmpty() && !state.canBeReplaced();
     }
 
     /** État commun à la pose : eau, alimentation redstone. */
