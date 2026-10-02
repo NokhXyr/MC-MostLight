@@ -1,12 +1,15 @@
 package com.nokhxyr.mostlight.block;
 
 import com.nokhxyr.mostlight.MostLight;
+import com.nokhxyr.mostlight.block.entity.LampBlockEntity;
 import com.nokhxyr.mostlight.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -18,9 +21,12 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -34,9 +40,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
  * Base de toutes les lampes : allumage manuel ou redstone, 4 niveaux de luminosité,
- * recoloration avec un colorant et support de l'eau.
+ * recoloration avec un colorant, finition et teinte de lumière (block entity), support de l'eau.
  */
-public abstract class LampBlock extends Block implements SimpleWaterloggedBlock {
+public abstract class LampBlock extends Block implements SimpleWaterloggedBlock, EntityBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -74,6 +80,11 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock 
         builder.add(LIT, POWERED, BRIGHTNESS, WATERLOGGED);
     }
 
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new LampBlockEntity(pos, state);
+    }
+
     /** État commun à la pose : eau, alimentation redstone. */
     protected BlockState placementState(BlockPlaceContext context) {
         Level level = context.getLevel();
@@ -88,13 +99,45 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock 
         level.setBlock(pos, state, Block.UPDATE_ALL);
     }
 
+    /** Allume ou éteint (utilisé par les interrupteurs liés). */
+    public void setLit(Level level, BlockPos pos, BlockState state, boolean lit) {
+        if (state.getValue(LIT) != lit) {
+            applyState(level, pos, state.setValue(LIT, lit));
+        }
+    }
+
+    /** Règle la luminosité (0 = la plus forte) et allume. */
+    public void setBrightness(Level level, BlockPos pos, BlockState state, int brightness) {
+        applyState(level, pos, state.setValue(BRIGHTNESS, Math.floorMod(brightness, LIGHT_LEVELS.length)).setValue(LIT, true));
+    }
+
     protected boolean isPowered(Level level, BlockPos pos, BlockState state) {
         return level.hasNeighborSignal(pos);
     }
 
-    /** Remplace la lampe par la même dans une autre couleur. */
+    /** Change finition et teinte (les lampes hautes le recopient sur l'autre moitié). */
+    public void setLook(Level level, BlockPos pos, BlockState state, LampFinish finish, LightTone tone) {
+        if (level.getBlockEntity(pos) instanceof LampBlockEntity lamp) {
+            lamp.setLook(finish, tone);
+        }
+    }
+
+    /** Remplace le bloc par la même lampe dans une autre couleur en gardant finition et teinte. */
+    protected static void replaceKeepingLook(Level level, BlockPos pos, BlockState state, Block target) {
+        LampFinish finish = null;
+        LightTone tone = null;
+        if (level.getBlockEntity(pos) instanceof LampBlockEntity lamp) {
+            finish = lamp.finish();
+            tone = lamp.tone();
+        }
+        level.setBlock(pos, target.withPropertiesOf(state), Block.UPDATE_ALL);
+        if (finish != null && level.getBlockEntity(pos) instanceof LampBlockEntity lamp) {
+            lamp.setLook(finish, tone);
+        }
+    }
+
     protected void recolor(Level level, BlockPos pos, BlockState state, DyeColor newColor) {
-        level.setBlock(pos, ModBlocks.lamp(type, newColor).withPropertiesOf(state), Block.UPDATE_ALL);
+        replaceKeepingLook(level, pos, state, ModBlocks.lamp(type, newColor));
     }
 
     @Override
@@ -127,7 +170,7 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock 
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
-        // la main vide allume/éteint ; avec un objet en main on laisse le jeu poser le bloc
+        // la main vide allume/éteint ; avec un objet en main on laisse l'objet agir (pose, clé...)
         return stack.isEmpty()
                 ? ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION
                 : ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
@@ -161,7 +204,42 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock 
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
-    /** Nom du modèle dont dérive la hitbox de cet état. */
+    @Override
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+        ItemStack stack = super.getCloneItemStack(level, pos, state);
+        if (level.getBlockEntity(pos) instanceof LampBlockEntity lamp) {
+            stack.applyComponents(lamp.collectComponents());
+        }
+        return stack;
+    }
+
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        if (!state.getValue(LIT) || state.getValue(WATERLOGGED)) {
+            return;
+        }
+        double[][] points = LampShapes.flames(shapeModel(state));
+        if (points == null) {
+            return;
+        }
+        boolean omni = type.placement() == Placement.OMNI;
+        for (double[] p : points) {
+            boolean big = p[3] > 0;
+            if (random.nextInt(big ? 2 : 4) != 0) {
+                continue;
+            }
+            double[] r = LampShapes.rotate(p[0], p[1], p[2], shapeFacing(state), omni);
+            double x = pos.getX() + r[0] / 16.0;
+            double y = pos.getY() + r[1] / 16.0;
+            double z = pos.getZ() + r[2] / 16.0;
+            level.addParticle(big ? ParticleTypes.FLAME : ParticleTypes.SMALL_FLAME, x, y, z, 0, big ? 0.01 : 0, 0);
+            if (random.nextInt(big ? 3 : 8) == 0) {
+                level.addParticle(ParticleTypes.SMOKE, x, y + 0.05, z, 0, 0.02, 0);
+            }
+        }
+    }
+
+    /** Nom du modèle dont dérivent la hitbox et les flammes de cet état. */
     protected String shapeModel(BlockState state) {
         return type.id();
     }

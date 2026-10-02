@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_salt_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:salt_lamp"
+    },
+    {
+      "tag": "c:dyes/gray"
+    }
+  ],
+  "result": {
+    "id": "mostlight:salt_lamp_gray",
+    "count": 1
+  }
+}

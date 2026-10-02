@@ -1,5 +1,7 @@
 package com.nokhxyr.mostlight;
 
+import com.nokhxyr.mostlight.component.ModComponents;
+import com.nokhxyr.mostlight.registry.ModBlockEntities;
 import com.nokhxyr.mostlight.registry.ModBlocks;
 import com.nokhxyr.mostlight.registry.ModTabs;
 import net.neoforged.bus.api.IEventBus;
@@ -12,6 +14,8 @@ public class MostLight {
     public MostLight(IEventBus modBus) {
         ModBlocks.BLOCKS.register(modBus);
         ModBlocks.ITEMS.register(modBus);
+        ModBlockEntities.BLOCK_ENTITIES.register(modBus);
+        ModComponents.COMPONENTS.register(modBus);
         ModTabs.TABS.register(modBus);
     }
 }

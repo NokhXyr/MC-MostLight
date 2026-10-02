@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_double_sconce_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:double_sconce"
+    },
+    {
+      "tag": "c:dyes/orange"
+    }
+  ],
+  "result": {
+    "id": "mostlight:double_sconce_orange",
+    "count": 1
+  }
+}

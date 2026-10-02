@@ -4,7 +4,11 @@ import com.nokhxyr.mostlight.MostLight;
 import com.nokhxyr.mostlight.block.HorizontalLampBlock;
 import com.nokhxyr.mostlight.block.LampBlock;
 import com.nokhxyr.mostlight.block.LampType;
+import com.nokhxyr.mostlight.block.LampFinish;
+import com.nokhxyr.mostlight.block.LightTone;
 import com.nokhxyr.mostlight.block.TallLampBlock;
+import com.nokhxyr.mostlight.block.entity.LampBlockEntity;
+import com.nokhxyr.mostlight.link.LampLinks;
 import com.nokhxyr.mostlight.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -132,6 +136,68 @@ public class LampGameTests {
         helper.assertBlockPresent(Blocks.AIR, ceiling.below());
         helper.assertBlockPresent(Blocks.AIR, ceiling.east());
         helper.assertBlockPresent(Blocks.AIR, ceiling.west());
+        helper.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void wrenchAndDyeKeepLook(GameTestHelper helper) {
+        helper.setBlock(GROUND, Blocks.STONE);
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        place(helper, player, new ItemStack(ModBlocks.item(LampType.FLOOR_LAMP, DyeColor.WHITE)), GROUND, Direction.UP);
+        BlockPos upper = LAMP.above();
+
+        place(helper, player, new ItemStack(ModBlocks.DESIGNER_WRENCH.get()), LAMP, Direction.NORTH);
+        LampBlockEntity lower = (LampBlockEntity) helper.getBlockEntity(LAMP);
+        LampBlockEntity top = (LampBlockEntity) helper.getBlockEntity(upper);
+        helper.assertTrue(lower.finish() == LampType.FLOOR_LAMP.defaultFinish().next() && top.finish() == lower.finish(),
+                "la clé change la finition des deux moitiés");
+
+        player.setShiftKeyDown(true);
+        place(helper, player, new ItemStack(ModBlocks.DESIGNER_WRENCH.get()), upper, Direction.NORTH);
+        helper.assertTrue(lower.tone() == LightTone.COLORED && top.tone() == LightTone.COLORED, "accroupi : teinte suivante");
+        player.setShiftKeyDown(false);
+
+        LampFinish finish = lower.finish();
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.PURPLE_DYE));
+        helper.useBlock(LAMP, player);
+        LampBlockEntity recolored = (LampBlockEntity) helper.getBlockEntity(upper);
+        helper.assertTrue(helper.getBlockState(upper).getBlock() == ModBlocks.lamp(LampType.FLOOR_LAMP, DyeColor.PURPLE)
+                && recolored.finish() == finish && recolored.tone() == LightTone.COLORED, "le colorant garde finition et teinte");
+        helper.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void switchControlsLinkedLamps(GameTestHelper helper) {
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        player.setShiftKeyDown(true);
+        ItemStack switchItem = new ItemStack(ModBlocks.LIGHT_SWITCH_ITEM.get());
+        for (int x = 1; x <= 3; x++) {
+            helper.setBlock(new BlockPos(x, 1, 1), Blocks.STONE);
+            helper.setBlock(new BlockPos(x, 2, 1), ModBlocks.lamp(LampType.LAVA_LAMP, DyeColor.ORANGE));
+            place(helper, player, switchItem, new BlockPos(x, 2, 1), Direction.NORTH);
+        }
+        helper.assertTrue(LampLinks.get(switchItem).size() == 3, "3 lampes liées");
+        player.setShiftKeyDown(false);
+
+        helper.setBlock(new BlockPos(6, 1, 6), Blocks.STONE);
+        place(helper, player, switchItem, new BlockPos(6, 1, 6), Direction.UP);
+        BlockPos switchPos = new BlockPos(6, 2, 6);
+        helper.assertBlockPresent(ModBlocks.LIGHT_SWITCH.get(), switchPos);
+
+        player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+        helper.useBlock(switchPos, player);
+        for (int x = 1; x <= 3; x++) {
+            helper.assertTrue(!helper.getBlockState(new BlockPos(x, 2, 1)).getValue(LampBlock.LIT), "interrupteur : tout éteint");
+        }
+        helper.useBlock(switchPos, player);
+        for (int x = 1; x <= 3; x++) {
+            helper.assertTrue(helper.getBlockState(new BlockPos(x, 2, 1)).getValue(LampBlock.LIT), "interrupteur : tout rallumé");
+        }
+
+        ItemStack remote = new ItemStack(ModBlocks.LAMP_REMOTE.get());
+        player.setShiftKeyDown(true);
+        place(helper, player, remote, new BlockPos(2, 2, 1), Direction.NORTH);
+        helper.assertTrue(LampLinks.get(remote).size() == 1, "télécommande liée");
         helper.succeed();
     }
 

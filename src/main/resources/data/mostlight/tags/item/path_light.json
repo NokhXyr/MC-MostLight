@@ -1,0 +1,20 @@
+{
+  "values": [
+    "mostlight:path_light_white",
+    "mostlight:path_light_orange",
+    "mostlight:path_light_magenta",
+    "mostlight:path_light_light_blue",
+    "mostlight:path_light_yellow",
+    "mostlight:path_light_lime",
+    "mostlight:path_light_pink",
+    "mostlight:path_light_gray",
+    "mostlight:path_light_light_gray",
+    "mostlight:path_light_cyan",
+    "mostlight:path_light_purple",
+    "mostlight:path_light_blue",
+    "mostlight:path_light_brown",
+    "mostlight:path_light_green",
+    "mostlight:path_light_red",
+    "mostlight:path_light_black"
+  ]
+}

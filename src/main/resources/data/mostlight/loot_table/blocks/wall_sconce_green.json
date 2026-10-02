@@ -7,7 +7,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mostlight:wall_sconce_green"
+          "name": "mostlight:wall_sconce_green",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "source": "block_entity",
+              "include": [
+                "mostlight:finish",
+                "mostlight:light_tone"
+              ]
+            }
+          ]
         }
       ],
       "conditions": [

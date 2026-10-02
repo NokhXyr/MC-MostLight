@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "aD",
+    "a "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:gold_nugget"
+    },
+    "D": {
+      "item": "minecraft:candle"
+    }
+  },
+  "result": {
+    "id": "mostlight:wall_candle_white",
+    "count": 2
+  }
+}

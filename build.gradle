@@ -19,6 +19,12 @@ neoForge {
         client {
             client()
         }
+        // ./gradlew runShowcase : construit la galerie, vérifie l'éclairage et prend des captures (run/screenshots)
+        showcase {
+            client()
+            systemProperty 'mostlight.showcase', 'true'
+            programArguments.addAll '--width', '1600', '--height', '900'
+        }
         gameTestServer {
             type = 'gameTestServer'
             gameDirectory = project.file('run-gametest')

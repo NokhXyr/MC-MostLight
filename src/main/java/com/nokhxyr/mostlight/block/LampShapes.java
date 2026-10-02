@@ -6,6 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Construit les hitbox à partir des boîtes générées, tournées comme dans les blockstates :
@@ -18,6 +19,11 @@ public final class LampShapes {
 
     public static VoxelShape get(String model, Direction facing, boolean omni) {
         return CACHE.computeIfAbsent(model + "/" + facing.getName() + "/" + omni, k -> build(model, facing, omni));
+    }
+
+    /** Points de flamme du modèle (orientation de référence), ou null. */
+    public static double @Nullable [][] flames(String model) {
+        return GeneratedShapes.FLAMES.get(model);
     }
 
     private static VoxelShape build(String model, Direction facing, boolean omni) {
@@ -36,7 +42,8 @@ public final class LampShapes {
         return shape.optimize();
     }
 
-    private static double[] rotate(double x, double y, double z, Direction facing, boolean omni) {
+    /** Tourne un point (en pixels) comme le blockstate tourne le modèle. */
+    public static double[] rotate(double x, double y, double z, Direction facing, boolean omni) {
         if (omni) {
             if (facing == Direction.UP) {
                 return new double[] {x, y, z};

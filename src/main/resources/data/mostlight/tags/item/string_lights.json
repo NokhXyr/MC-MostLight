@@ -1,0 +1,20 @@
+{
+  "values": [
+    "mostlight:string_lights_white",
+    "mostlight:string_lights_orange",
+    "mostlight:string_lights_magenta",
+    "mostlight:string_lights_light_blue",
+    "mostlight:string_lights_yellow",
+    "mostlight:string_lights_lime",
+    "mostlight:string_lights_pink",
+    "mostlight:string_lights_gray",
+    "mostlight:string_lights_light_gray",
+    "mostlight:string_lights_cyan",
+    "mostlight:string_lights_purple",
+    "mostlight:string_lights_blue",
+    "mostlight:string_lights_brown",
+    "mostlight:string_lights_green",
+    "mostlight:string_lights_red",
+    "mostlight:string_lights_black"
+  ]
+}

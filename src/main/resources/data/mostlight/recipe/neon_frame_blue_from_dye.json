@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_neon_frame_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:neon_frame"
+    },
+    {
+      "tag": "c:dyes/blue"
+    }
+  ],
+  "result": {
+    "id": "mostlight:neon_frame_blue",
+    "count": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " H ",
+    " N ",
+    " X "
+  ],
+  "key": {
+    "H": {
+      "item": "minecraft:string"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "X": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "id": "mostlight:bulb_pendant_white",
+    "count": 2
+  }
+}

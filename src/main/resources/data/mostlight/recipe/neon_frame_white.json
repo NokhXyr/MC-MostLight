@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "GIG",
+    "I I",
+    "GIG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "mostlight:neon_frame_white",
+    "count": 4
+  }
+}

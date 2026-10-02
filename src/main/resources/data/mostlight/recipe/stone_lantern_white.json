@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ZGZ",
+    " Z ",
+    "ZZZ"
+  ],
+  "key": {
+    "Z": {
+      "item": "minecraft:stone_bricks"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "id": "mostlight:stone_lantern_white",
+    "count": 1
+  }
+}

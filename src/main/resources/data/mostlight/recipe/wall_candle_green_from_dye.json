@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_wall_candle_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:wall_candle"
+    },
+    {
+      "tag": "c:dyes/green"
+    }
+  ],
+  "result": {
+    "id": "mostlight:wall_candle_green",
+    "count": 1
+  }
+}

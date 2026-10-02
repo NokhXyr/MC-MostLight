@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "BPB",
+    "PGP",
+    "BPB"
+  ],
+  "key": {
+    "B": {
+      "tag": "minecraft:planks"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "id": "mostlight:shoji_block_white",
+    "count": 4
+  }
+}

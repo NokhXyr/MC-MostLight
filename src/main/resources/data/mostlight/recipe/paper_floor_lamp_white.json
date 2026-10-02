@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "PSP",
+    "PGP",
+    "PSP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "id": "mostlight:paper_floor_lamp_white",
+    "count": 1
+  }
+}

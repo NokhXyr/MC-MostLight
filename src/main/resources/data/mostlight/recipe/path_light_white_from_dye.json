@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_path_light_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:path_light"
+    },
+    {
+      "tag": "c:dyes/white"
+    }
+  ],
+  "result": {
+    "id": "mostlight:path_light_white",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_moroccan_lantern_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:moroccan_lantern"
+    },
+    {
+      "tag": "c:dyes/cyan"
+    }
+  ],
+  "result": {
+    "id": "mostlight:moroccan_lantern_cyan",
+    "count": 1
+  }
+}

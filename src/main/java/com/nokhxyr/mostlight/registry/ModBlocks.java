@@ -8,7 +8,12 @@ import com.nokhxyr.mostlight.block.LampType;
 import com.nokhxyr.mostlight.block.OmniLampBlock;
 import com.nokhxyr.mostlight.block.Placement;
 import com.nokhxyr.mostlight.block.TallLampBlock;
+import com.nokhxyr.mostlight.item.DesignerWrenchItem;
 import com.nokhxyr.mostlight.item.LampItem;
+import com.nokhxyr.mostlight.link.DimmerSwitchBlock;
+import com.nokhxyr.mostlight.link.LampRemoteItem;
+import com.nokhxyr.mostlight.link.LightSwitchBlock;
+import com.nokhxyr.mostlight.link.SwitchItem;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -16,7 +21,9 @@ import java.util.List;
 import java.util.Map;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -47,7 +54,25 @@ public final class ModBlocks {
         }
     }
 
+    public static final DeferredBlock<LightSwitchBlock> LIGHT_SWITCH = BLOCKS.register("light_switch",
+            () -> new LightSwitchBlock(switchProperties()));
+    public static final DeferredBlock<DimmerSwitchBlock> DIMMER_SWITCH = BLOCKS.register("dimmer_switch",
+            () -> new DimmerSwitchBlock(switchProperties()));
+    public static final DeferredItem<SwitchItem> LIGHT_SWITCH_ITEM = ITEMS.register("light_switch",
+            () -> new SwitchItem(LIGHT_SWITCH.get(), new Item.Properties(), "switch_usage"));
+    public static final DeferredItem<SwitchItem> DIMMER_SWITCH_ITEM = ITEMS.register("dimmer_switch",
+            () -> new SwitchItem(DIMMER_SWITCH.get(), new Item.Properties(), "dimmer_usage"));
+    public static final DeferredItem<LampRemoteItem> LAMP_REMOTE = ITEMS.register("lamp_remote",
+            () -> new LampRemoteItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<DesignerWrenchItem> DESIGNER_WRENCH = ITEMS.register("designer_wrench",
+            () -> new DesignerWrenchItem(new Item.Properties().stacksTo(1)));
+
     private ModBlocks() {}
+
+    private static BlockBehaviour.Properties switchProperties() {
+        return BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(0.5F).sound(SoundType.STONE)
+                .noCollission().pushReaction(PushReaction.DESTROY);
+    }
 
     private static LampBlock create(LampType type, DyeColor color) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.of()

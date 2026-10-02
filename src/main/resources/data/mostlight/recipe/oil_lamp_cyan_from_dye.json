@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_oil_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:oil_lamp"
+    },
+    {
+      "tag": "c:dyes/cyan"
+    }
+  ],
+  "result": {
+    "id": "mostlight:oil_lamp_cyan",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_double_street_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:double_street_lamp"
+    },
+    {
+      "tag": "c:dyes/light_blue"
+    }
+  ],
+  "result": {
+    "id": "mostlight:double_street_lamp_light_blue",
+    "count": 1
+  }
+}

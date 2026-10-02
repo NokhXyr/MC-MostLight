@@ -7,7 +7,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mostlight:candle_holder_pink"
+          "name": "mostlight:candle_holder_pink",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "source": "block_entity",
+              "include": [
+                "mostlight:finish",
+                "mostlight:light_tone"
+              ]
+            }
+          ]
         }
       ],
       "conditions": [

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_bulb_pendant_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:bulb_pendant"
+    },
+    {
+      "tag": "c:dyes/yellow"
+    }
+  ],
+  "result": {
+    "id": "mostlight:bulb_pendant_yellow",
+    "count": 1
+  }
+}

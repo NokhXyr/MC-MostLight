@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "mostlight:block/honeycomb_lamp"
+    },
+    "lit=true": {
+      "model": "mostlight:block/honeycomb_lamp_on"
+    }
+  }
+}

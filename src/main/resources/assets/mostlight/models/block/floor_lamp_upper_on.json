@@ -1,93 +1,2921 @@
 {
   "parent": "minecraft:block/block",
-  "render_type": "minecraft:cutout",
+  "render_type": "minecraft:translucent",
   "textures": {
-    "particle": "mostlight:block/dark_metal",
-    "dark": "mostlight:block/dark_metal",
-    "bulb": "mostlight:block/bulb_on",
+    "particle": "mostlight:block/frame",
+    "frame": "mostlight:block/frame",
+    "filament": "mostlight:block/filament_on",
     "shade": "mostlight:block/shade"
   },
   "elements": [
     {
       "from": [
-        7.5,
+        7.652,
         0,
-        7.5
+        7.4
       ],
       "to": [
-        8.5,
-        6,
-        8.5
-      ],
-      "faces": {
-        "north": {
-          "uv": [
-            7.5,
-            10,
-            8.5,
-            16
-          ],
-          "texture": "#dark"
-        },
-        "south": {
-          "uv": [
-            7.5,
-            10,
-            8.5,
-            16
-          ],
-          "texture": "#dark"
-        },
-        "east": {
-          "uv": [
-            7.5,
-            10,
-            8.5,
-            16
-          ],
-          "texture": "#dark"
-        },
-        "west": {
-          "uv": [
-            7.5,
-            10,
-            8.5,
-            16
-          ],
-          "texture": "#dark"
-        },
-        "up": {
-          "uv": [
-            7.5,
-            7.5,
-            8.5,
-            8.5
-          ],
-          "texture": "#dark"
-        },
-        "down": {
-          "uv": [
-            7.5,
-            7.5,
-            8.5,
-            8.5
-          ],
-          "texture": "#dark"
-        }
-      }
-    },
-    {
-      "from": [
-        7,
+        8.348,
         5,
-        7
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.652,
+            11,
+            8.348,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            7.652,
+            11,
+            8.348,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.4,
+            11,
+            8.6,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.4,
+            11,
+            8.6,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            7.652,
+            7.4,
+            8.348,
+            8.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            7.652,
+            7.4,
+            8.348,
+            8.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        7.4,
+        0,
+        7.652
       ],
       "to": [
+        7.652,
+        5,
+        8.348
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.348,
+            11,
+            8.6,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            7.4,
+            11,
+            7.652,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.652,
+            11,
+            8.348,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.652,
+            11,
+            8.348,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            7.4,
+            7.652,
+            7.652,
+            8.348
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            7.4,
+            7.652,
+            7.652,
+            8.348
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        8.348,
+        0,
+        7.652
+      ],
+      "to": [
+        8.6,
+        5,
+        8.348
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.4,
+            11,
+            7.652,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            8.348,
+            11,
+            8.6,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.652,
+            11,
+            8.348,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.652,
+            11,
+            8.348,
+            16
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            8.348,
+            7.652,
+            8.6,
+            8.348
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            8.348,
+            7.652,
+            8.6,
+            8.348
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        7.5534,
+        7.38,
+        7.23
+      ],
+      "to": [
+        8.4466,
+        8.22,
+        8.77
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.5534,
+            7.78,
+            8.4466,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            7.5534,
+            7.78,
+            8.4466,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.23,
+            7.78,
+            8.77,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.23,
+            7.78,
+            8.77,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            7.5534,
+            7.23,
+            8.4466,
+            8.77
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            7.5534,
+            7.23,
+            8.4466,
+            8.77
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        7.23,
+        7.38,
+        7.5534
+      ],
+      "to": [
+        7.5534,
+        8.22,
+        8.4466
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.4466,
+            7.78,
+            8.77,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            7.23,
+            7.78,
+            7.5534,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.5534,
+            7.78,
+            8.4466,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.5534,
+            7.78,
+            8.4466,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            7.23,
+            7.5534,
+            7.5534,
+            8.4466
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            7.23,
+            7.5534,
+            7.5534,
+            8.4466
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        8.4466,
+        7.38,
+        7.5534
+      ],
+      "to": [
+        8.77,
+        8.22,
+        8.4466
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.23,
+            7.78,
+            7.5534,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            8.4466,
+            7.78,
+            8.77,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.5534,
+            7.78,
+            8.4466,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.5534,
+            7.78,
+            8.4466,
+            8.62
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            8.4466,
+            7.5534,
+            8.77,
+            8.4466
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            8.4466,
+            7.5534,
+            8.77,
+            8.4466
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        7.4966,
+        5,
+        7.132
+      ],
+      "to": [
+        8.5034,
+        5.532,
+        8.868
+      ],
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            7.4966,
+            10.468,
+            8.5034,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            7.4966,
+            10.468,
+            8.5034,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            7.132,
+            10.468,
+            8.868,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            7.132,
+            10.468,
+            8.868,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            7.4966,
+            7.132,
+            8.5034,
+            8.868
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            7.4966,
+            7.132,
+            8.5034,
+            8.868
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "from": [
+        7.132,
+        5,
+        7.4966
+      ],
+      "to": [
+        7.4966,
+        5.532,
+        8.5034
+      ],
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            8.5034,
+            10.468,
+            8.868,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            7.132,
+            10.468,
+            7.4966,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            7.4966,
+            10.468,
+            8.5034,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            7.4966,
+            10.468,
+            8.5034,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            7.132,
+            7.4966,
+            7.4966,
+            8.5034
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            7.132,
+            7.4966,
+            7.4966,
+            8.5034
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "from": [
+        8.5034,
+        5,
+        7.4966
+      ],
+      "to": [
+        8.868,
+        5.532,
+        8.5034
+      ],
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            7.132,
+            10.468,
+            7.4966,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            8.5034,
+            10.468,
+            8.868,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            7.4966,
+            10.468,
+            8.5034,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            7.4966,
+            10.468,
+            8.5034,
+            11
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            8.5034,
+            7.4966,
+            8.868,
+            8.5034
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            8.5034,
+            7.4966,
+            8.868,
+            8.5034
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "from": [
+        7.188,
+        5.532,
+        6.6
+      ],
+      "to": [
+        8.812,
+        7.268,
+        9.4
+      ],
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            7.188,
+            8.732,
+            8.812,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            7.188,
+            8.732,
+            8.812,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            6.6,
+            8.732,
+            9.4,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            6.6,
+            8.732,
+            9.4,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            7.188,
+            6.6,
+            8.812,
+            9.4
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            7.188,
+            6.6,
+            8.812,
+            9.4
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "from": [
+        6.6,
+        5.532,
+        7.188
+      ],
+      "to": [
+        7.188,
+        7.268,
+        8.812
+      ],
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            8.812,
+            8.732,
+            9.4,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            6.6,
+            8.732,
+            7.188,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            7.188,
+            8.732,
+            8.812,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            7.188,
+            8.732,
+            8.812,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            6.6,
+            7.188,
+            7.188,
+            8.812
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            6.6,
+            7.188,
+            7.188,
+            8.812
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "from": [
+        8.812,
+        5.532,
+        7.188
+      ],
+      "to": [
+        9.4,
+        7.268,
+        8.812
+      ],
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            6.6,
+            8.732,
+            7.188,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            8.812,
+            8.732,
+            9.4,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            7.188,
+            8.732,
+            8.812,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            7.188,
+            8.732,
+            8.812,
+            10.468
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            8.812,
+            7.188,
+            9.4,
+            8.812
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            8.812,
+            7.188,
+            9.4,
+            8.812
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "from": [
+        7.4966,
+        7.268,
+        7.132
+      ],
+      "to": [
+        8.5034,
+        7.8,
+        8.868
+      ],
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            7.4966,
+            8.2,
+            8.5034,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            7.4966,
+            8.2,
+            8.5034,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            7.132,
+            8.2,
+            8.868,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            7.132,
+            8.2,
+            8.868,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            7.4966,
+            7.132,
+            8.5034,
+            8.868
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            7.4966,
+            7.132,
+            8.5034,
+            8.868
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "from": [
+        7.132,
+        7.268,
+        7.4966
+      ],
+      "to": [
+        7.4966,
+        7.8,
+        8.5034
+      ],
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            8.5034,
+            8.2,
+            8.868,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            7.132,
+            8.2,
+            7.4966,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            7.4966,
+            8.2,
+            8.5034,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            7.4966,
+            8.2,
+            8.5034,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            7.132,
+            7.4966,
+            7.4966,
+            8.5034
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            7.132,
+            7.4966,
+            7.4966,
+            8.5034
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "from": [
+        8.5034,
+        7.268,
+        7.4966
+      ],
+      "to": [
+        8.868,
+        7.8,
+        8.5034
+      ],
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            7.132,
+            8.2,
+            7.4966,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "south": {
+          "uv": [
+            8.5034,
+            8.2,
+            8.868,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "east": {
+          "uv": [
+            7.4966,
+            8.2,
+            8.5034,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "west": {
+          "uv": [
+            7.4966,
+            8.2,
+            8.5034,
+            8.732
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "up": {
+          "uv": [
+            8.5034,
+            7.4966,
+            8.868,
+            8.5034
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        },
+        "down": {
+          "uv": [
+            8.5034,
+            7.4966,
+            8.868,
+            8.5034
+          ],
+          "texture": "#filament",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "from": [
+        4,
+        11.25,
+        7.875
+      ],
+      "to": [
+        12,
+        11.5,
+        8.125
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4.5,
+            12,
+            4.75
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            4,
+            4.5,
+            12,
+            4.75
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.875,
+            4.5,
+            8.125,
+            4.75
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.875,
+            4.5,
+            8.125,
+            4.75
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            4,
+            7.875,
+            12,
+            8.125
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            4,
+            7.875,
+            12,
+            8.125
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        6.0549,
+        11.5,
+        4.6464
+      ],
+      "to": [
+        9.9451,
+        12,
+        11.3536
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            6.0549,
+            4,
+            9.9451,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            6.0549,
+            4,
+            9.9451,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.6464,
+            4,
+            11.3536,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.6464,
+            4,
+            11.3536,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            6.0549,
+            4.6464,
+            9.9451,
+            11.3536
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            6.0549,
+            4.6464,
+            9.9451,
+            11.3536
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        4.6464,
+        11.5,
+        6.0549
+      ],
+      "to": [
+        6.0549,
+        12,
+        9.9451
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            9.9451,
+            4,
+            11.3536,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.6464,
+            4,
+            6.0549,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            6.0549,
+            4,
+            9.9451,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            6.0549,
+            4,
+            9.9451,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.6464,
+            6.0549,
+            6.0549,
+            9.9451
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.6464,
+            6.0549,
+            6.0549,
+            9.9451
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        9.9451,
+        11.5,
+        6.0549
+      ],
+      "to": [
+        11.3536,
+        12,
+        9.9451
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.6464,
+            4,
+            6.0549,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            9.9451,
+            4,
+            11.3536,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            6.0549,
+            4,
+            9.9451,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            6.0549,
+            4,
+            9.9451,
+            4.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            9.9451,
+            6.0549,
+            11.3536,
+            9.9451
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            9.9451,
+            6.0549,
+            11.3536,
+            9.9451
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        5.9348,
+        11,
+        4.4393
+      ],
+      "to": [
+        10.0652,
+        11.5,
+        11.5607
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.9348,
+            4.5,
+            10.0652,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            5.9348,
+            4.5,
+            10.0652,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.4393,
+            4.5,
+            11.5607,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.4393,
+            4.5,
+            11.5607,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            5.9348,
+            4.4393,
+            10.0652,
+            11.5607
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            5.9348,
+            4.4393,
+            10.0652,
+            11.5607
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        4.4393,
+        11,
+        5.9348
+      ],
+      "to": [
+        5.9348,
+        11.5,
+        10.0652
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            10.0652,
+            4.5,
+            11.5607,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.4393,
+            4.5,
+            5.9348,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.9348,
+            4.5,
+            10.0652,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.9348,
+            4.5,
+            10.0652,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.4393,
+            5.9348,
+            5.9348,
+            10.0652
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.4393,
+            5.9348,
+            5.9348,
+            10.0652
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        10.0652,
+        11,
+        5.9348
+      ],
+      "to": [
+        11.5607,
+        11.5,
+        10.0652
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.4393,
+            4.5,
+            5.9348,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            10.0652,
+            4.5,
+            11.5607,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.9348,
+            4.5,
+            10.0652,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.9348,
+            4.5,
+            10.0652,
+            5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            10.0652,
+            5.9348,
+            11.5607,
+            10.0652
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            10.0652,
+            5.9348,
+            11.5607,
+            10.0652
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        5.8147,
+        10.5,
+        4.2322
+      ],
+      "to": [
+        10.1853,
+        11,
+        11.7678
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.8147,
+            5,
+            10.1853,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            5.8147,
+            5,
+            10.1853,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.2322,
+            5,
+            11.7678,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.2322,
+            5,
+            11.7678,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            5.8147,
+            4.2322,
+            10.1853,
+            11.7678
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            5.8147,
+            4.2322,
+            10.1853,
+            11.7678
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        4.2322,
+        10.5,
+        5.8147
+      ],
+      "to": [
+        5.8147,
+        11,
+        10.1853
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            10.1853,
+            5,
+            11.7678,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.2322,
+            5,
+            5.8147,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.8147,
+            5,
+            10.1853,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.8147,
+            5,
+            10.1853,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.2322,
+            5.8147,
+            5.8147,
+            10.1853
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.2322,
+            5.8147,
+            5.8147,
+            10.1853
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        10.1853,
+        10.5,
+        5.8147
+      ],
+      "to": [
+        11.7678,
+        11,
+        10.1853
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.2322,
+            5,
+            5.8147,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            10.1853,
+            5,
+            11.7678,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.8147,
+            5,
+            10.1853,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.8147,
+            5,
+            10.1853,
+            5.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            10.1853,
+            5.8147,
+            11.7678,
+            10.1853
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            10.1853,
+            5.8147,
+            11.7678,
+            10.1853
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        5.6946,
+        10,
+        4.0251
+      ],
+      "to": [
+        10.3054,
+        10.5,
+        11.9749
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.6946,
+            5.5,
+            10.3054,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            5.6946,
+            5.5,
+            10.3054,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.0251,
+            5.5,
+            11.9749,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.0251,
+            5.5,
+            11.9749,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            5.6946,
+            4.0251,
+            10.3054,
+            11.9749
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            5.6946,
+            4.0251,
+            10.3054,
+            11.9749
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        4.0251,
+        10,
+        5.6946
+      ],
+      "to": [
+        5.6946,
+        10.5,
+        10.3054
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            10.3054,
+            5.5,
+            11.9749,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.0251,
+            5.5,
+            5.6946,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.6946,
+            5.5,
+            10.3054,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.6946,
+            5.5,
+            10.3054,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.0251,
+            5.6946,
+            5.6946,
+            10.3054
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.0251,
+            5.6946,
+            5.6946,
+            10.3054
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        10.3054,
+        10,
+        5.6946
+      ],
+      "to": [
+        11.9749,
+        10.5,
+        10.3054
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.0251,
+            5.5,
+            5.6946,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            10.3054,
+            5.5,
+            11.9749,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.6946,
+            5.5,
+            10.3054,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.6946,
+            5.5,
+            10.3054,
+            6
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            10.3054,
+            5.6946,
+            11.9749,
+            10.3054
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            10.3054,
+            5.6946,
+            11.9749,
+            10.3054
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        5.5745,
+        9.5,
+        3.818
+      ],
+      "to": [
+        10.4255,
+        10,
+        12.182
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.5745,
+            6,
+            10.4255,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            5.5745,
+            6,
+            10.4255,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            3.818,
+            6,
+            12.182,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            3.818,
+            6,
+            12.182,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            5.5745,
+            3.818,
+            10.4255,
+            12.182
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            5.5745,
+            3.818,
+            10.4255,
+            12.182
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        3.818,
+        9.5,
+        5.5745
+      ],
+      "to": [
+        5.5745,
+        10,
+        10.4255
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            10.4255,
+            6,
+            12.182,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            3.818,
+            6,
+            5.5745,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.5745,
+            6,
+            10.4255,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.5745,
+            6,
+            10.4255,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            3.818,
+            5.5745,
+            5.5745,
+            10.4255
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            3.818,
+            5.5745,
+            5.5745,
+            10.4255
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        10.4255,
+        9.5,
+        5.5745
+      ],
+      "to": [
+        12.182,
+        10,
+        10.4255
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3.818,
+            6,
+            5.5745,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            10.4255,
+            6,
+            12.182,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.5745,
+            6,
+            10.4255,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.5745,
+            6,
+            10.4255,
+            6.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            10.4255,
+            5.5745,
+            12.182,
+            10.4255
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            10.4255,
+            5.5745,
+            12.182,
+            10.4255
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        5.4543,
         9,
+        3.6109
+      ],
+      "to": [
+        10.5457,
+        9.5,
+        12.3891
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.4543,
+            6.5,
+            10.5457,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            5.4543,
+            6.5,
+            10.5457,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            3.6109,
+            6.5,
+            12.3891,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            3.6109,
+            6.5,
+            12.3891,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            5.4543,
+            3.6109,
+            10.5457,
+            12.3891
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            5.4543,
+            3.6109,
+            10.5457,
+            12.3891
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        3.6109,
+        9,
+        5.4543
+      ],
+      "to": [
+        5.4543,
+        9.5,
+        10.5457
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            10.5457,
+            6.5,
+            12.3891,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            3.6109,
+            6.5,
+            5.4543,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.4543,
+            6.5,
+            10.5457,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.4543,
+            6.5,
+            10.5457,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            3.6109,
+            5.4543,
+            5.4543,
+            10.5457
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            3.6109,
+            5.4543,
+            5.4543,
+            10.5457
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        10.5457,
+        9,
+        5.4543
+      ],
+      "to": [
+        12.3891,
+        9.5,
+        10.5457
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3.6109,
+            6.5,
+            5.4543,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            10.5457,
+            6.5,
+            12.3891,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.4543,
+            6.5,
+            10.5457,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.4543,
+            6.5,
+            10.5457,
+            7
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            10.5457,
+            5.4543,
+            12.3891,
+            10.5457
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            10.5457,
+            5.4543,
+            12.3891,
+            10.5457
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        5.3342,
+        8.5,
+        3.4038
+      ],
+      "to": [
+        10.6658,
+        9,
+        12.5962
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.3342,
+            7,
+            10.6658,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            5.3342,
+            7,
+            10.6658,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            3.4038,
+            7,
+            12.5962,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            3.4038,
+            7,
+            12.5962,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            5.3342,
+            3.4038,
+            10.6658,
+            12.5962
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            5.3342,
+            3.4038,
+            10.6658,
+            12.5962
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        3.4038,
+        8.5,
+        5.3342
+      ],
+      "to": [
+        5.3342,
+        9,
+        10.6658
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            10.6658,
+            7,
+            12.5962,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            3.4038,
+            7,
+            5.3342,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.3342,
+            7,
+            10.6658,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.3342,
+            7,
+            10.6658,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            3.4038,
+            5.3342,
+            5.3342,
+            10.6658
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            3.4038,
+            5.3342,
+            5.3342,
+            10.6658
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        10.6658,
+        8.5,
+        5.3342
+      ],
+      "to": [
+        12.5962,
+        9,
+        10.6658
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3.4038,
+            7,
+            5.3342,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            10.6658,
+            7,
+            12.5962,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.3342,
+            7,
+            10.6658,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.3342,
+            7,
+            10.6658,
+            7.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            10.6658,
+            5.3342,
+            12.5962,
+            10.6658
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            10.6658,
+            5.3342,
+            12.5962,
+            10.6658
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        5.2141,
         8,
-        9
+        3.1967
       ],
-      "shade": false,
+      "to": [
+        10.7859,
+        8.5,
+        12.8033
+      ],
       "neoforge_data": {
         "block_light": 15,
         "sky_light": 15,
@@ -96,134 +2924,534 @@
       "faces": {
         "north": {
           "uv": [
-            7,
-            8,
-            9,
-            11
+            5.2141,
+            7.5,
+            10.7859,
+            8
           ],
-          "texture": "#bulb"
+          "texture": "#shade",
+          "tintindex": 0
         },
         "south": {
           "uv": [
-            7,
-            8,
-            9,
-            11
+            5.2141,
+            7.5,
+            10.7859,
+            8
           ],
-          "texture": "#bulb"
+          "texture": "#shade",
+          "tintindex": 0
         },
         "east": {
           "uv": [
-            7,
-            8,
-            9,
-            11
+            3.1967,
+            7.5,
+            12.8033,
+            8
           ],
-          "texture": "#bulb"
+          "texture": "#shade",
+          "tintindex": 0
         },
         "west": {
           "uv": [
-            7,
-            8,
-            9,
-            11
+            3.1967,
+            7.5,
+            12.8033,
+            8
           ],
-          "texture": "#bulb"
+          "texture": "#shade",
+          "tintindex": 0
         },
         "up": {
           "uv": [
-            7,
-            7,
-            9,
+            5.2141,
+            3.1967,
+            10.7859,
+            12.8033
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            5.2141,
+            3.1967,
+            10.7859,
+            12.8033
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        3.1967,
+        8,
+        5.2141
+      ],
+      "to": [
+        5.2141,
+        8.5,
+        10.7859
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            10.7859,
+            7.5,
+            12.8033,
+            8
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            3.1967,
+            7.5,
+            5.2141,
+            8
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.2141,
+            7.5,
+            10.7859,
+            8
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.2141,
+            7.5,
+            10.7859,
+            8
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            3.1967,
+            5.2141,
+            5.2141,
+            10.7859
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            3.1967,
+            5.2141,
+            5.2141,
+            10.7859
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        10.7859,
+        8,
+        5.2141
+      ],
+      "to": [
+        12.8033,
+        8.5,
+        10.7859
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3.1967,
+            7.5,
+            5.2141,
+            8
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            10.7859,
+            7.5,
+            12.8033,
+            8
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.2141,
+            7.5,
+            10.7859,
+            8
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.2141,
+            7.5,
+            10.7859,
+            8
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            10.7859,
+            5.2141,
+            12.8033,
+            10.7859
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            10.7859,
+            5.2141,
+            12.8033,
+            10.7859
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        5.094,
+        7.5,
+        2.9896
+      ],
+      "to": [
+        10.906,
+        8,
+        13.0104
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.094,
+            8,
+            10.906,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            5.094,
+            8,
+            10.906,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            2.9896,
+            8,
+            13.0104,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            2.9896,
+            8,
+            13.0104,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            5.094,
+            2.9896,
+            10.906,
+            13.0104
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            5.094,
+            2.9896,
+            10.906,
+            13.0104
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        2.9896,
+        7.5,
+        5.094
+      ],
+      "to": [
+        5.094,
+        8,
+        10.906
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            10.906,
+            8,
+            13.0104,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            2.9896,
+            8,
+            5.094,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.094,
+            8,
+            10.906,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.094,
+            8,
+            10.906,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            2.9896,
+            5.094,
+            5.094,
+            10.906
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            2.9896,
+            5.094,
+            5.094,
+            10.906
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        10.906,
+        7.5,
+        5.094
+      ],
+      "to": [
+        13.0104,
+        8,
+        10.906
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            2.9896,
+            8,
+            5.094,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            10.906,
+            8,
+            13.0104,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            5.094,
+            8,
+            10.906,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            5.094,
+            8,
+            10.906,
+            8.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            10.906,
+            5.094,
+            13.0104,
+            10.906
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            10.906,
+            5.094,
+            13.0104,
+            10.906
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        4.9738,
+        7,
+        2.7825
+      ],
+      "to": [
+        11.0262,
+        7.5,
+        13.2175
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.9738,
+            8.5,
+            11.0262,
             9
           ],
-          "texture": "#bulb"
+          "texture": "#shade",
+          "tintindex": 0
         },
-        "down": {
+        "south": {
           "uv": [
-            7,
-            7,
-            9,
+            4.9738,
+            8.5,
+            11.0262,
             9
           ],
-          "texture": "#bulb"
-        }
-      }
-    },
-    {
-      "from": [
-        3,
-        4,
-        3
-      ],
-      "to": [
-        13,
-        12,
-        4
-      ],
-      "shade": false,
-      "neoforge_data": {
-        "block_light": 15,
-        "sky_light": 15,
-        "ambient_occlusion": false
-      },
-      "faces": {
-        "north": {
-          "uv": [
-            3,
-            4,
-            13,
-            12
-          ],
-          "texture": "#shade",
-          "tintindex": 0
-        },
-        "south": {
-          "uv": [
-            3,
-            4,
-            13,
-            12
-          ],
           "texture": "#shade",
           "tintindex": 0
         },
         "east": {
           "uv": [
-            12,
-            4,
-            13,
-            12
+            2.7825,
+            8.5,
+            13.2175,
+            9
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "west": {
           "uv": [
-            3,
-            4,
-            4,
-            12
+            2.7825,
+            8.5,
+            13.2175,
+            9
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "up": {
           "uv": [
-            3,
-            3,
-            13,
-            4
+            4.9738,
+            2.7825,
+            11.0262,
+            13.2175
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "down": {
           "uv": [
-            3,
-            12,
-            13,
-            13
+            4.9738,
+            2.7825,
+            11.0262,
+            13.2175
           ],
           "texture": "#shade",
           "tintindex": 0
@@ -232,16 +3460,15 @@
     },
     {
       "from": [
-        3,
-        4,
-        12
+        2.7825,
+        7,
+        4.9738
       ],
       "to": [
-        13,
-        12,
-        13
+        4.9738,
+        7.5,
+        11.0262
       ],
-      "shade": false,
       "neoforge_data": {
         "block_light": 15,
         "sky_light": 15,
@@ -250,60 +3477,60 @@
       "faces": {
         "north": {
           "uv": [
-            3,
-            4,
-            13,
-            12
+            11.0262,
+            8.5,
+            13.2175,
+            9
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "south": {
           "uv": [
-            3,
-            4,
-            13,
-            12
+            2.7825,
+            8.5,
+            4.9738,
+            9
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "east": {
           "uv": [
-            3,
-            4,
-            4,
-            12
+            4.9738,
+            8.5,
+            11.0262,
+            9
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "west": {
           "uv": [
-            12,
-            4,
-            13,
-            12
+            4.9738,
+            8.5,
+            11.0262,
+            9
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "up": {
           "uv": [
-            3,
-            12,
-            13,
-            13
+            2.7825,
+            4.9738,
+            4.9738,
+            11.0262
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "down": {
           "uv": [
-            3,
-            3,
-            13,
-            4
+            2.7825,
+            4.9738,
+            4.9738,
+            11.0262
           ],
           "texture": "#shade",
           "tintindex": 0
@@ -312,16 +3539,15 @@
     },
     {
       "from": [
-        3,
-        4,
-        4
+        11.0262,
+        7,
+        4.9738
       ],
       "to": [
-        4,
-        12,
-        12
+        13.2175,
+        7.5,
+        11.0262
       ],
-      "shade": false,
       "neoforge_data": {
         "block_light": 15,
         "sky_light": 15,
@@ -330,60 +3556,60 @@
       "faces": {
         "north": {
           "uv": [
-            12,
-            4,
-            13,
-            12
+            2.7825,
+            8.5,
+            4.9738,
+            9
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "south": {
           "uv": [
-            3,
-            4,
-            4,
-            12
+            11.0262,
+            8.5,
+            13.2175,
+            9
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "east": {
           "uv": [
-            4,
-            4,
-            12,
-            12
+            4.9738,
+            8.5,
+            11.0262,
+            9
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "west": {
           "uv": [
-            4,
-            4,
-            12,
-            12
+            4.9738,
+            8.5,
+            11.0262,
+            9
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "up": {
           "uv": [
-            3,
-            4,
-            4,
-            12
+            11.0262,
+            4.9738,
+            13.2175,
+            11.0262
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "down": {
           "uv": [
-            3,
-            4,
-            4,
-            12
+            11.0262,
+            4.9738,
+            13.2175,
+            11.0262
           ],
           "texture": "#shade",
           "tintindex": 0
@@ -392,16 +3618,15 @@
     },
     {
       "from": [
-        12,
-        4,
-        4
+        4.8537,
+        6.5,
+        2.5754
       ],
       "to": [
-        13,
-        12,
-        12
+        11.1463,
+        7,
+        13.4246
       ],
-      "shade": false,
       "neoforge_data": {
         "block_light": 15,
         "sky_light": 15,
@@ -410,9 +3635,1194 @@
       "faces": {
         "north": {
           "uv": [
-            3,
-            4,
-            4,
+            4.8537,
+            9,
+            11.1463,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.8537,
+            9,
+            11.1463,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            2.5754,
+            9,
+            13.4246,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            2.5754,
+            9,
+            13.4246,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.8537,
+            2.5754,
+            11.1463,
+            13.4246
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.8537,
+            2.5754,
+            11.1463,
+            13.4246
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        2.5754,
+        6.5,
+        4.8537
+      ],
+      "to": [
+        4.8537,
+        7,
+        11.1463
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            11.1463,
+            9,
+            13.4246,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            2.5754,
+            9,
+            4.8537,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.8537,
+            9,
+            11.1463,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.8537,
+            9,
+            11.1463,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            2.5754,
+            4.8537,
+            4.8537,
+            11.1463
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            2.5754,
+            4.8537,
+            4.8537,
+            11.1463
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        11.1463,
+        6.5,
+        4.8537
+      ],
+      "to": [
+        13.4246,
+        7,
+        11.1463
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            2.5754,
+            9,
+            4.8537,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            11.1463,
+            9,
+            13.4246,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.8537,
+            9,
+            11.1463,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.8537,
+            9,
+            11.1463,
+            9.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            11.1463,
+            4.8537,
+            13.4246,
+            11.1463
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            11.1463,
+            4.8537,
+            13.4246,
+            11.1463
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        4.7336,
+        6,
+        2.3683
+      ],
+      "to": [
+        11.2664,
+        6.5,
+        13.6317
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.7336,
+            9.5,
+            11.2664,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.7336,
+            9.5,
+            11.2664,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            2.3683,
+            9.5,
+            13.6317,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            2.3683,
+            9.5,
+            13.6317,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.7336,
+            2.3683,
+            11.2664,
+            13.6317
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.7336,
+            2.3683,
+            11.2664,
+            13.6317
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        2.3683,
+        6,
+        4.7336
+      ],
+      "to": [
+        4.7336,
+        6.5,
+        11.2664
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            11.2664,
+            9.5,
+            13.6317,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            2.3683,
+            9.5,
+            4.7336,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.7336,
+            9.5,
+            11.2664,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.7336,
+            9.5,
+            11.2664,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            2.3683,
+            4.7336,
+            4.7336,
+            11.2664
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            2.3683,
+            4.7336,
+            4.7336,
+            11.2664
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        11.2664,
+        6,
+        4.7336
+      ],
+      "to": [
+        13.6317,
+        6.5,
+        11.2664
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            2.3683,
+            9.5,
+            4.7336,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            11.2664,
+            9.5,
+            13.6317,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.7336,
+            9.5,
+            11.2664,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.7336,
+            9.5,
+            11.2664,
+            10
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            11.2664,
+            4.7336,
+            13.6317,
+            11.2664
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            11.2664,
+            4.7336,
+            13.6317,
+            11.2664
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        4.6135,
+        5.5,
+        2.1612
+      ],
+      "to": [
+        11.3865,
+        6,
+        13.8388
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.6135,
+            10,
+            11.3865,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.6135,
+            10,
+            11.3865,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            2.1612,
+            10,
+            13.8388,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            2.1612,
+            10,
+            13.8388,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.6135,
+            2.1612,
+            11.3865,
+            13.8388
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.6135,
+            2.1612,
+            11.3865,
+            13.8388
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        2.1612,
+        5.5,
+        4.6135
+      ],
+      "to": [
+        4.6135,
+        6,
+        11.3865
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            11.3865,
+            10,
+            13.8388,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            2.1612,
+            10,
+            4.6135,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.6135,
+            10,
+            11.3865,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.6135,
+            10,
+            11.3865,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            2.1612,
+            4.6135,
+            4.6135,
+            11.3865
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            2.1612,
+            4.6135,
+            4.6135,
+            11.3865
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        11.3865,
+        5.5,
+        4.6135
+      ],
+      "to": [
+        13.8388,
+        6,
+        11.3865
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            2.1612,
+            10,
+            4.6135,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            11.3865,
+            10,
+            13.8388,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.6135,
+            10,
+            11.3865,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.6135,
+            10,
+            11.3865,
+            10.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            11.3865,
+            4.6135,
+            13.8388,
+            11.3865
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            11.3865,
+            4.6135,
+            13.8388,
+            11.3865
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        4.4934,
+        5,
+        1.9541
+      ],
+      "to": [
+        11.5066,
+        5.5,
+        14.0459
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.4934,
+            10.5,
+            11.5066,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.4934,
+            10.5,
+            11.5066,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            1.9541,
+            10.5,
+            14.0459,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            1.9541,
+            10.5,
+            14.0459,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.4934,
+            1.9541,
+            11.5066,
+            14.0459
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.4934,
+            1.9541,
+            11.5066,
+            14.0459
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        1.9541,
+        5,
+        4.4934
+      ],
+      "to": [
+        4.4934,
+        5.5,
+        11.5066
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            11.5066,
+            10.5,
+            14.0459,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            1.9541,
+            10.5,
+            4.4934,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.4934,
+            10.5,
+            11.5066,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.4934,
+            10.5,
+            11.5066,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            1.9541,
+            4.4934,
+            4.4934,
+            11.5066
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            1.9541,
+            4.4934,
+            4.4934,
+            11.5066
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        11.5066,
+        5,
+        4.4934
+      ],
+      "to": [
+        14.0459,
+        5.5,
+        11.5066
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            1.9541,
+            10.5,
+            4.4934,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            11.5066,
+            10.5,
+            14.0459,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.4934,
+            10.5,
+            11.5066,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.4934,
+            10.5,
+            11.5066,
+            11
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            11.5066,
+            4.4934,
+            14.0459,
+            11.5066
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            11.5066,
+            4.4934,
+            14.0459,
+            11.5066
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        4.3732,
+        4.5,
+        1.747
+      ],
+      "to": [
+        11.6268,
+        5,
+        14.253
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.3732,
+            11,
+            11.6268,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            4.3732,
+            11,
+            11.6268,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            1.747,
+            11,
+            14.253,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            1.747,
+            11,
+            14.253,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            4.3732,
+            1.747,
+            11.6268,
+            14.253
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            4.3732,
+            1.747,
+            11.6268,
+            14.253
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        1.747,
+        4.5,
+        4.3732
+      ],
+      "to": [
+        4.3732,
+        5,
+        11.6268
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            11.6268,
+            11,
+            14.253,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            1.747,
+            11,
+            4.3732,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.3732,
+            11,
+            11.6268,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.3732,
+            11,
+            11.6268,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            1.747,
+            4.3732,
+            4.3732,
+            11.6268
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            1.747,
+            4.3732,
+            4.3732,
+            11.6268
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        11.6268,
+        4.5,
+        4.3732
+      ],
+      "to": [
+        14.253,
+        5,
+        11.6268
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            1.747,
+            11,
+            4.3732,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            11.6268,
+            11,
+            14.253,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.3732,
+            11,
+            11.6268,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.3732,
+            11,
+            11.6268,
+            11.5
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            11.6268,
+            4.3732,
+            14.253,
+            11.6268
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            11.6268,
+            4.3732,
+            14.253,
+            11.6268
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        4.2531,
+        4,
+        1.5398
+      ],
+      "to": [
+        11.7469,
+        4.5,
+        14.4602
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4.2531,
+            11.5,
+            11.7469,
             12
           ],
           "texture": "#shade",
@@ -420,9 +4830,9 @@
         },
         "south": {
           "uv": [
-            12,
-            4,
-            13,
+            4.2531,
+            11.5,
+            11.7469,
             12
           ],
           "texture": "#shade",
@@ -430,9 +4840,9 @@
         },
         "east": {
           "uv": [
-            4,
-            4,
-            12,
+            1.5398,
+            11.5,
+            14.4602,
             12
           ],
           "texture": "#shade",
@@ -440,9 +4850,9 @@
         },
         "west": {
           "uv": [
-            4,
-            4,
-            12,
+            1.5398,
+            11.5,
+            14.4602,
             12
           ],
           "texture": "#shade",
@@ -450,23 +4860,847 @@
         },
         "up": {
           "uv": [
-            12,
-            4,
-            13,
-            12
+            4.2531,
+            1.5398,
+            11.7469,
+            14.4602
           ],
           "texture": "#shade",
           "tintindex": 0
         },
         "down": {
           "uv": [
-            12,
-            4,
-            13,
+            4.2531,
+            1.5398,
+            11.7469,
+            14.4602
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        1.5398,
+        4,
+        4.2531
+      ],
+      "to": [
+        4.2531,
+        4.5,
+        11.7469
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            11.7469,
+            11.5,
+            14.4602,
             12
           ],
           "texture": "#shade",
           "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            1.5398,
+            11.5,
+            4.2531,
+            12
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.2531,
+            11.5,
+            11.7469,
+            12
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.2531,
+            11.5,
+            11.7469,
+            12
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            1.5398,
+            4.2531,
+            4.2531,
+            11.7469
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            1.5398,
+            4.2531,
+            4.2531,
+            11.7469
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        11.7469,
+        4,
+        4.2531
+      ],
+      "to": [
+        14.4602,
+        4.5,
+        11.7469
+      ],
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15,
+        "ambient_occlusion": false
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            1.5398,
+            11.5,
+            4.2531,
+            12
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            11.7469,
+            11.5,
+            14.4602,
+            12
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "east": {
+          "uv": [
+            4.2531,
+            11.5,
+            11.7469,
+            12
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "west": {
+          "uv": [
+            4.2531,
+            11.5,
+            11.7469,
+            12
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "up": {
+          "uv": [
+            11.7469,
+            4.2531,
+            14.4602,
+            11.7469
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            11.7469,
+            4.2531,
+            14.4602,
+            11.7469
+          ],
+          "texture": "#shade",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        7.7842,
+        11.4,
+        7.628
+      ],
+      "to": [
+        8.2158,
+        11.628,
+        8.372
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.7842,
+            4.372,
+            8.2158,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            7.7842,
+            4.372,
+            8.2158,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.628,
+            4.372,
+            8.372,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.628,
+            4.372,
+            8.372,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            7.7842,
+            7.628,
+            8.2158,
+            8.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            7.7842,
+            7.628,
+            8.2158,
+            8.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        7.628,
+        11.4,
+        7.7842
+      ],
+      "to": [
+        7.7842,
+        11.628,
+        8.2158
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.2158,
+            4.372,
+            8.372,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            7.628,
+            4.372,
+            7.7842,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.7842,
+            4.372,
+            8.2158,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.7842,
+            4.372,
+            8.2158,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            7.628,
+            7.7842,
+            7.7842,
+            8.2158
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            7.628,
+            7.7842,
+            7.7842,
+            8.2158
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        8.2158,
+        11.4,
+        7.7842
+      ],
+      "to": [
+        8.372,
+        11.628,
+        8.2158
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.628,
+            4.372,
+            7.7842,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            8.2158,
+            4.372,
+            8.372,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.7842,
+            4.372,
+            8.2158,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.7842,
+            4.372,
+            8.2158,
+            4.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            8.2158,
+            7.7842,
+            8.372,
+            8.2158
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            8.2158,
+            7.7842,
+            8.372,
+            8.2158
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        7.652,
+        11.628,
+        7.4
+      ],
+      "to": [
+        8.348,
+        12.372,
+        8.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.652,
+            3.628,
+            8.348,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            7.652,
+            3.628,
+            8.348,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.4,
+            3.628,
+            8.6,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.4,
+            3.628,
+            8.6,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            7.652,
+            7.4,
+            8.348,
+            8.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            7.652,
+            7.4,
+            8.348,
+            8.6
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        7.4,
+        11.628,
+        7.652
+      ],
+      "to": [
+        7.652,
+        12.372,
+        8.348
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.348,
+            3.628,
+            8.6,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            7.4,
+            3.628,
+            7.652,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.652,
+            3.628,
+            8.348,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.652,
+            3.628,
+            8.348,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            7.4,
+            7.652,
+            7.652,
+            8.348
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            7.4,
+            7.652,
+            7.652,
+            8.348
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        8.348,
+        11.628,
+        7.652
+      ],
+      "to": [
+        8.6,
+        12.372,
+        8.348
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.4,
+            3.628,
+            7.652,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            8.348,
+            3.628,
+            8.6,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.652,
+            3.628,
+            8.348,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.652,
+            3.628,
+            8.348,
+            4.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            8.348,
+            7.652,
+            8.6,
+            8.348
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            8.348,
+            7.652,
+            8.6,
+            8.348
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        7.7842,
+        12.372,
+        7.628
+      ],
+      "to": [
+        8.2158,
+        12.6,
+        8.372
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.7842,
+            3.4,
+            8.2158,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            7.7842,
+            3.4,
+            8.2158,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.628,
+            3.4,
+            8.372,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.628,
+            3.4,
+            8.372,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            7.7842,
+            7.628,
+            8.2158,
+            8.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            7.7842,
+            7.628,
+            8.2158,
+            8.372
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        7.628,
+        12.372,
+        7.7842
+      ],
+      "to": [
+        7.7842,
+        12.6,
+        8.2158
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.2158,
+            3.4,
+            8.372,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            7.628,
+            3.4,
+            7.7842,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.7842,
+            3.4,
+            8.2158,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.7842,
+            3.4,
+            8.2158,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            7.628,
+            7.7842,
+            7.7842,
+            8.2158
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            7.628,
+            7.7842,
+            7.7842,
+            8.2158
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        8.2158,
+        12.372,
+        7.7842
+      ],
+      "to": [
+        8.372,
+        12.6,
+        8.2158
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.628,
+            3.4,
+            7.7842,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            8.2158,
+            3.4,
+            8.372,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            7.7842,
+            3.4,
+            8.2158,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            7.7842,
+            3.4,
+            8.2158,
+            3.628
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            8.2158,
+            7.7842,
+            8.372,
+            8.2158
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            8.2158,
+            7.7842,
+            8.372,
+            8.2158
+          ],
+          "texture": "#frame",
+          "tintindex": 3
         }
       }
     }

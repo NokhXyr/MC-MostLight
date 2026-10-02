@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "XGX",
+    "G G",
+    "XGX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:glass"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "id": "mostlight:neon_ring_white",
+    "count": 2
+  }
+}

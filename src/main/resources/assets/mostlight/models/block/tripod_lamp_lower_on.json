@@ -2,8 +2,8 @@
   "parent": "minecraft:block/block",
   "render_type": "minecraft:cutout",
   "textures": {
-    "particle": "mostlight:block/wood",
-    "wood": "mostlight:block/wood",
+    "particle": "mostlight:block/frame",
+    "frame": "mostlight:block/frame",
     "dark": "mostlight:block/dark_metal"
   },
   "elements": [
@@ -35,7 +35,8 @@
             15,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "south": {
           "uv": [
@@ -44,7 +45,8 @@
             2,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "east": {
           "uv": [
@@ -53,7 +55,8 @@
             6.5,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "west": {
           "uv": [
@@ -62,7 +65,8 @@
             10.5,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "up": {
           "uv": [
@@ -71,7 +75,8 @@
             2,
             10.5
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "down": {
           "uv": [
@@ -80,7 +85,8 @@
             2,
             6.5
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         }
       }
     },
@@ -112,7 +118,8 @@
             2,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "south": {
           "uv": [
@@ -121,7 +128,8 @@
             15,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "east": {
           "uv": [
@@ -130,7 +138,8 @@
             6.5,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "west": {
           "uv": [
@@ -139,7 +148,8 @@
             10.5,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "up": {
           "uv": [
@@ -148,7 +158,8 @@
             15,
             10.5
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "down": {
           "uv": [
@@ -157,7 +168,8 @@
             15,
             6.5
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         }
       }
     },
@@ -189,7 +201,8 @@
             8.5,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "south": {
           "uv": [
@@ -198,7 +211,8 @@
             8.5,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "east": {
           "uv": [
@@ -207,7 +221,8 @@
             15,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "west": {
           "uv": [
@@ -216,7 +231,8 @@
             2,
             16
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "up": {
           "uv": [
@@ -225,7 +241,8 @@
             8.5,
             2
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "down": {
           "uv": [
@@ -234,7 +251,8 @@
             8.5,
             15
           ],
-          "texture": "#wood"
+          "texture": "#frame",
+          "tintindex": 3
         }
       }
     },

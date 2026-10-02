@@ -2,8 +2,8 @@
   "parent": "minecraft:block/block",
   "render_type": "minecraft:cutout",
   "textures": {
-    "particle": "mostlight:block/dark_metal",
-    "dark": "mostlight:block/dark_metal",
+    "particle": "mostlight:block/frame",
+    "frame": "mostlight:block/frame",
     "paint": "mostlight:block/paint",
     "bulb": "mostlight:block/bulb_on"
   },
@@ -27,7 +27,8 @@
             10,
             10
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "south": {
           "uv": [
@@ -36,7 +37,8 @@
             10,
             10
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "east": {
           "uv": [
@@ -45,7 +47,8 @@
             1,
             10
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "west": {
           "uv": [
@@ -54,7 +57,8 @@
             16,
             10
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "up": {
           "uv": [
@@ -63,7 +67,8 @@
             10,
             16
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "down": {
           "uv": [
@@ -72,7 +77,8 @@
             10,
             1
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         }
       }
     },
@@ -95,7 +101,8 @@
             8.5,
             8.5
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "south": {
           "uv": [
@@ -104,7 +111,8 @@
             8.5,
             8.5
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "east": {
           "uv": [
@@ -113,7 +121,8 @@
             4,
             8.5
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "west": {
           "uv": [
@@ -122,7 +131,8 @@
             15,
             8.5
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "up": {
           "uv": [
@@ -131,7 +141,8 @@
             8.5,
             15
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         },
         "down": {
           "uv": [
@@ -140,7 +151,8 @@
             8.5,
             4
           ],
-          "texture": "#dark"
+          "texture": "#frame",
+          "tintindex": 3
         }
       }
     },
@@ -261,7 +273,8 @@
             9.5,
             9.5
           ],
-          "texture": "#bulb"
+          "texture": "#bulb",
+          "tintindex": 2
         },
         "south": {
           "uv": [
@@ -270,7 +283,8 @@
             9.5,
             9.5
           ],
-          "texture": "#bulb"
+          "texture": "#bulb",
+          "tintindex": 2
         },
         "east": {
           "uv": [
@@ -279,7 +293,8 @@
             9.5,
             9.5
           ],
-          "texture": "#bulb"
+          "texture": "#bulb",
+          "tintindex": 2
         },
         "west": {
           "uv": [
@@ -288,7 +303,8 @@
             7,
             9.5
           ],
-          "texture": "#bulb"
+          "texture": "#bulb",
+          "tintindex": 2
         },
         "up": {
           "uv": [
@@ -297,7 +313,8 @@
             9.5,
             7
           ],
-          "texture": "#bulb"
+          "texture": "#bulb",
+          "tintindex": 2
         },
         "down": {
           "uv": [
@@ -306,7 +323,91 @@
             9.5,
             9.5
           ],
-          "texture": "#bulb"
+          "texture": "#bulb",
+          "tintindex": 2
+        }
+      }
+    },
+    {
+      "from": [
+        5.75,
+        5.75,
+        6.75
+      ],
+      "to": [
+        10.25,
+        6.25,
+        7.5
+      ],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "x",
+        "origin": [
+          8,
+          8,
+          12
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.75,
+            9.75,
+            10.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.75,
+            9.75,
+            10.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            8.5,
+            9.75,
+            9.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            6.75,
+            9.75,
+            7.5,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.75,
+            6.75,
+            10.25,
+            7.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.75,
+            8.5,
+            10.25,
+            9.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
         }
       }
     }

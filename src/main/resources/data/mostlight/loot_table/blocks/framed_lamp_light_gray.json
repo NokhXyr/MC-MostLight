@@ -7,7 +7,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mostlight:framed_lamp_light_gray"
+          "name": "mostlight:framed_lamp_light_gray",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "source": "block_entity",
+              "include": [
+                "mostlight:finish",
+                "mostlight:light_tone"
+              ]
+            }
+          ]
         }
       ],
       "conditions": [

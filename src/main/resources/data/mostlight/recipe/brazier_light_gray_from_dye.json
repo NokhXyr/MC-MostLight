@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_brazier_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:brazier"
+    },
+    {
+      "tag": "c:dyes/light_gray"
+    }
+  ],
+  "result": {
+    "id": "mostlight:brazier_light_gray",
+    "count": 1
+  }
+}

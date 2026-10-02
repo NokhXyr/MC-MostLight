@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " C ",
+    "YAY",
+    "YGY"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "Y": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "id": "mostlight:crystal_chandelier_white",
+    "count": 1
+  }
+}

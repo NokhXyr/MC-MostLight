@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_orb_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:orb_lamp"
+    },
+    {
+      "tag": "c:dyes/orange"
+    }
+  ],
+  "result": {
+    "id": "mostlight:orb_lamp_orange",
+    "count": 1
+  }
+}

@@ -7,7 +7,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mostlight:table_lantern_magenta"
+          "name": "mostlight:table_lantern_magenta",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "source": "block_entity",
+              "include": [
+                "mostlight:finish",
+                "mostlight:light_tone"
+              ]
+            }
+          ]
         }
       ],
       "conditions": [

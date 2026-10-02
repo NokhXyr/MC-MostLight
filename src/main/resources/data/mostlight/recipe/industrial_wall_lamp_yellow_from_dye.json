@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_industrial_wall_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:industrial_wall_lamp"
+    },
+    {
+      "tag": "c:dyes/yellow"
+    }
+  ],
+  "result": {
+    "id": "mostlight:industrial_wall_lamp_yellow",
+    "count": 1
+  }
+}

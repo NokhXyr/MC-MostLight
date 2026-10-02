@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " C ",
+    "aGa",
+    "aQa"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "a": {
+      "item": "minecraft:gold_nugget"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "Q": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "result": {
+    "id": "mostlight:moroccan_lantern_white",
+    "count": 1
+  }
+}

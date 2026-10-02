@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "pattern": [
+    "  I",
+    " K ",
+    "I  "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "K": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "id": "mostlight:designer_wrench",
+    "count": 1
+  }
+}

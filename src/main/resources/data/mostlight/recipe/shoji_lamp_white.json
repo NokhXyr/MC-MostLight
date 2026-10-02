@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SPS",
+    "PGP",
+    "SPS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "id": "mostlight:shoji_lamp_white",
+    "count": 1
+  }
+}

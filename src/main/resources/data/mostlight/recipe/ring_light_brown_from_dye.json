@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_ring_light_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:ring_light"
+    },
+    {
+      "tag": "c:dyes/brown"
+    }
+  ],
+  "result": {
+    "id": "mostlight:ring_light_brown",
+    "count": 1
+  }
+}

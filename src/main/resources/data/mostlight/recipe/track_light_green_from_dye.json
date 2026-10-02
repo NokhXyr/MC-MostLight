@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_track_light_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:track_light"
+    },
+    {
+      "tag": "c:dyes/green"
+    }
+  ],
+  "result": {
+    "id": "mostlight:track_light_green",
+    "count": 1
+  }
+}

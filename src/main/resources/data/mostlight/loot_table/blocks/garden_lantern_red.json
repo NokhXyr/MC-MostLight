@@ -7,7 +7,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mostlight:garden_lantern_red"
+          "name": "mostlight:garden_lantern_red",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "source": "block_entity",
+              "include": [
+                "mostlight:finish",
+                "mostlight:light_tone"
+              ]
+            }
+          ]
         }
       ],
       "conditions": [

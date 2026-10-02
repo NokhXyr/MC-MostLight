@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "mostlight:block/shoji_block"
+    },
+    "lit=true": {
+      "model": "mostlight:block/shoji_block_on"
+    }
+  }
+}

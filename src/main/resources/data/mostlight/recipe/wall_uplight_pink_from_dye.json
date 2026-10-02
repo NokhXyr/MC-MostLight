@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_wall_uplight_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:wall_uplight"
+    },
+    {
+      "tag": "c:dyes/pink"
+    }
+  ],
+  "result": {
+    "id": "mostlight:wall_uplight_pink",
+    "count": 1
+  }
+}

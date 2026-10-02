@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IFI",
+    "I I",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "F": {
+      "item": "minecraft:netherrack"
+    }
+  },
+  "result": {
+    "id": "mostlight:brazier_white",
+    "count": 1
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "NEN"
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "E": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "mostlight:light_switch",
+    "count": 2
+  }
+}

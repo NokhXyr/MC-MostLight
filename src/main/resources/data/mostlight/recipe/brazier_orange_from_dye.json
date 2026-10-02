@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_brazier_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:brazier"
+    },
+    {
+      "tag": "c:dyes/orange"
+    }
+  ],
+  "result": {
+    "id": "mostlight:brazier_orange",
+    "count": 1
+  }
+}

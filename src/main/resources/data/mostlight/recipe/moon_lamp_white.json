@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " c ",
+    "cGc",
+    " B "
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:clay_ball"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "B": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "id": "mostlight:moon_lamp_white",
+    "count": 1
+  }
+}

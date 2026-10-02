@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "mostlight:stone_lantern_gray",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "source": "block_entity",
+              "include": [
+                "mostlight:finish",
+                "mostlight:light_tone"
+              ]
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "mostlight:stone_lantern_gray",
+          "properties": {
+            "half": "lower"
+          }
+        }
+      ]
+    }
+  ],
+  "random_sequence": "mostlight:blocks/stone_lantern_gray"
+}

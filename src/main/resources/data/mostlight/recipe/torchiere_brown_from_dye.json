@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_torchiere_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:torchiere"
+    },
+    {
+      "tag": "c:dyes/brown"
+    }
+  ],
+  "result": {
+    "id": "mostlight:torchiere_brown",
+    "count": 1
+  }
+}

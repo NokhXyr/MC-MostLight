@@ -1,0 +1,20 @@
+{
+  "values": [
+    "mostlight:fan_light_white",
+    "mostlight:fan_light_orange",
+    "mostlight:fan_light_magenta",
+    "mostlight:fan_light_light_blue",
+    "mostlight:fan_light_yellow",
+    "mostlight:fan_light_lime",
+    "mostlight:fan_light_pink",
+    "mostlight:fan_light_gray",
+    "mostlight:fan_light_light_gray",
+    "mostlight:fan_light_cyan",
+    "mostlight:fan_light_purple",
+    "mostlight:fan_light_blue",
+    "mostlight:fan_light_brown",
+    "mostlight:fan_light_green",
+    "mostlight:fan_light_red",
+    "mostlight:fan_light_black"
+  ]
+}

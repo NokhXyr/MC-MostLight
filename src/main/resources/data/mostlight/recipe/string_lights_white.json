@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "HHH",
+    "GXG"
+  ],
+  "key": {
+    "H": {
+      "item": "minecraft:string"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "X": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "id": "mostlight:string_lights_white",
+    "count": 4
+  }
+}

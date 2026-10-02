@@ -1,0 +1,20 @@
+{
+  "values": [
+    "mostlight:neon_frame_white",
+    "mostlight:neon_frame_orange",
+    "mostlight:neon_frame_magenta",
+    "mostlight:neon_frame_light_blue",
+    "mostlight:neon_frame_yellow",
+    "mostlight:neon_frame_lime",
+    "mostlight:neon_frame_pink",
+    "mostlight:neon_frame_gray",
+    "mostlight:neon_frame_light_gray",
+    "mostlight:neon_frame_cyan",
+    "mostlight:neon_frame_purple",
+    "mostlight:neon_frame_blue",
+    "mostlight:neon_frame_brown",
+    "mostlight:neon_frame_green",
+    "mostlight:neon_frame_red",
+    "mostlight:neon_frame_black"
+  ]
+}

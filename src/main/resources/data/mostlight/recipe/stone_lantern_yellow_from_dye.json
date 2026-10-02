@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_stone_lantern_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:stone_lantern"
+    },
+    {
+      "tag": "c:dyes/yellow"
+    }
+  ],
+  "result": {
+    "id": "mostlight:stone_lantern_yellow",
+    "count": 1
+  }
+}

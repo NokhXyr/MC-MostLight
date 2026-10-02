@@ -1,6 +1,10 @@
 package com.nokhxyr.mostlight.item;
 
 import com.nokhxyr.mostlight.MostLight;
+import com.nokhxyr.mostlight.block.LampBlock;
+import com.nokhxyr.mostlight.block.LampFinish;
+import com.nokhxyr.mostlight.block.LightTone;
+import com.nokhxyr.mostlight.component.ModComponents;
 import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -10,16 +14,20 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.Block;
 
 public class LampItem extends BlockItem {
-    private static final String[] HINTS = {"toggle", "brightness", "dye"};
-
     public LampItem(Block block, Properties properties) {
         super(block, properties);
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
-        for (String key : HINTS) {
-            tooltip.add(Component.translatable("tooltip." + MostLight.MOD_ID + "." + key).withStyle(ChatFormatting.GRAY));
-        }
+        LampFinish finish = stack.getOrDefault(ModComponents.FINISH.get(), ((LampBlock) getBlock()).type().defaultFinish());
+        LightTone tone = stack.getOrDefault(ModComponents.LIGHT_TONE.get(), LightTone.AUTO);
+        String ns = MostLight.MOD_ID;
+        tooltip.add(Component.translatable("tooltip." + ns + ".finish",
+                Component.translatable("finish." + ns + "." + finish.getSerializedName())).withStyle(ChatFormatting.GOLD));
+        tooltip.add(Component.translatable("tooltip." + ns + ".tone",
+                Component.translatable("tone." + ns + "." + tone.getSerializedName())).withStyle(ChatFormatting.YELLOW));
+        tooltip.add(Component.translatable("tooltip." + ns + ".toggle").withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable("tooltip." + ns + ".dye").withStyle(ChatFormatting.GRAY));
     }
 }

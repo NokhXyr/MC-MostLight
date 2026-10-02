@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "mostlight:block/neon_frame"
+    },
+    "lit=true": {
+      "model": "mostlight:block/neon_frame_on"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_shoji_block_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:shoji_block"
+    },
+    {
+      "tag": "c:dyes/blue"
+    }
+  ],
+  "result": {
+    "id": "mostlight:shoji_block_blue",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_dome_pendant_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:dome_pendant"
+    },
+    {
+      "tag": "c:dyes/lime"
+    }
+  ],
+  "result": {
+    "id": "mostlight:dome_pendant_lime",
+    "count": 1
+  }
+}

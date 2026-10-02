@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "CCC",
+    "NGN",
+    "XXX"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "X": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "id": "mostlight:cluster_pendant_white",
+    "count": 1
+  }
+}

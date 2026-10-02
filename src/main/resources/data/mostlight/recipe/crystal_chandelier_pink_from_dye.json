@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_crystal_chandelier_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:crystal_chandelier"
+    },
+    {
+      "tag": "c:dyes/pink"
+    }
+  ],
+  "result": {
+    "id": "mostlight:crystal_chandelier_pink",
+    "count": 1
+  }
+}

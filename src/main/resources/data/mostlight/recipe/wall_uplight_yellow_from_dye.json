@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_wall_uplight_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:wall_uplight"
+    },
+    {
+      "tag": "c:dyes/yellow"
+    }
+  ],
+  "result": {
+    "id": "mostlight:wall_uplight_yellow",
+    "count": 1
+  }
+}

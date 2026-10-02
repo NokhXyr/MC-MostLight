@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " C ",
+    "IGI",
+    "I I"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "id": "mostlight:dome_pendant_white",
+    "count": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "IGI",
+    " S ",
+    "S S"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "mostlight:studio_light_white",
+    "count": 1
+  }
+}

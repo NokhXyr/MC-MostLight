@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_cluster_pendant_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:cluster_pendant"
+    },
+    {
+      "tag": "c:dyes/white"
+    }
+  ],
+  "result": {
+    "id": "mostlight:cluster_pendant_white",
+    "count": 1
+  }
+}

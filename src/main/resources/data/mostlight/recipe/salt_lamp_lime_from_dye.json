@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_salt_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:salt_lamp"
+    },
+    {
+      "tag": "c:dyes/lime"
+    }
+  ],
+  "result": {
+    "id": "mostlight:salt_lamp_lime",
+    "count": 1
+  }
+}

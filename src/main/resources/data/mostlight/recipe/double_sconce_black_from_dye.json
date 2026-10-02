@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_double_sconce_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:double_sconce"
+    },
+    {
+      "tag": "c:dyes/black"
+    }
+  ],
+  "result": {
+    "id": "mostlight:double_sconce_black",
+    "count": 1
+  }
+}

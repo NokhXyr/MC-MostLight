@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " X ",
+    "XGX",
+    "aMa"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:glass"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "a": {
+      "item": "minecraft:gold_nugget"
+    },
+    "M": {
+      "item": "minecraft:magma_cream"
+    }
+  },
+  "result": {
+    "id": "mostlight:oil_lamp_white",
+    "count": 1
+  }
+}

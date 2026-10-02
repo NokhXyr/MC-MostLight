@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "XN",
+    "GX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:glass"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "id": "mostlight:wall_globe_white",
+    "count": 2
+  }
+}

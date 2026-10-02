@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_crystal_chandelier_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:crystal_chandelier"
+    },
+    {
+      "tag": "c:dyes/red"
+    }
+  ],
+  "result": {
+    "id": "mostlight:crystal_chandelier_red",
+    "count": 1
+  }
+}

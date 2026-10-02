@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "sGs",
+    " B "
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:sand"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "B": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "id": "mostlight:salt_lamp_white",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_candle_jar_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:candle_jar"
+    },
+    {
+      "tag": "c:dyes/lime"
+    }
+  ],
+  "result": {
+    "id": "mostlight:candle_jar_lime",
+    "count": 1
+  }
+}

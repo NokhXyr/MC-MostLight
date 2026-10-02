@@ -1,5 +1,6 @@
 package com.nokhxyr.mostlight.block;
 
+import com.nokhxyr.mostlight.block.entity.LampBlockEntity;
 import com.nokhxyr.mostlight.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -72,6 +73,18 @@ public class TallLampBlock extends LampBlock {
         BlockPos above = pos.above();
         level.setBlock(above, state.setValue(HALF, DoubleBlockHalf.UPPER)
                 .setValue(WATERLOGGED, level.getFluidState(above).getType() == Fluids.WATER), Block.UPDATE_ALL);
+        if (level.getBlockEntity(pos) instanceof LampBlockEntity lower && level.getBlockEntity(above) instanceof LampBlockEntity upper) {
+            upper.setLook(lower.finish(), lower.tone());
+        }
+    }
+
+    @Override
+    public void setLook(Level level, BlockPos pos, BlockState state, LampFinish finish, LightTone tone) {
+        super.setLook(level, pos, state, finish, tone);
+        BlockPos other = otherHalf(pos, state);
+        if (level.getBlockState(other).getBlock() instanceof TallLampBlock) {
+            super.setLook(level, other, level.getBlockState(other), finish, tone);
+        }
     }
 
     @Override
@@ -137,9 +150,9 @@ public class TallLampBlock extends LampBlock {
         Block target = ModBlocks.lamp(type(), newColor);
         BlockPos other = otherHalf(pos, state);
         BlockState otherState = level.getBlockState(other);
-        level.setBlock(pos, target.withPropertiesOf(state), Block.UPDATE_ALL);
+        replaceKeepingLook(level, pos, state, target);
         if (otherState.getBlock() instanceof TallLampBlock) {
-            level.setBlock(other, target.withPropertiesOf(otherState), Block.UPDATE_ALL);
+            replaceKeepingLook(level, other, otherState, target);
         }
     }
 

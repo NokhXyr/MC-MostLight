@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_string_lights_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:string_lights"
+    },
+    {
+      "tag": "c:dyes/orange"
+    }
+  ],
+  "result": {
+    "id": "mostlight:string_lights_orange",
+    "count": 1
+  }
+}

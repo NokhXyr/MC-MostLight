@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_torchiere_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:torchiere"
+    },
+    {
+      "tag": "c:dyes/magenta"
+    }
+  ],
+  "result": {
+    "id": "mostlight:torchiere_magenta",
+    "count": 1
+  }
+}

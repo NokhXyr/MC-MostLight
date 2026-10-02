@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_neon_ring_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:neon_ring"
+    },
+    {
+      "tag": "c:dyes/red"
+    }
+  ],
+  "result": {
+    "id": "mostlight:neon_ring_red",
+    "count": 1
+  }
+}

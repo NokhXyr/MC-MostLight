@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_shoji_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:shoji_lamp"
+    },
+    {
+      "tag": "c:dyes/purple"
+    }
+  ],
+  "result": {
+    "id": "mostlight:shoji_lamp_purple",
+    "count": 1
+  }
+}
