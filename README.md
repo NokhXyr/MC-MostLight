@@ -50,6 +50,22 @@ Le verre est translucide : on voit l'ampoule à filament ou la flamme à l'inté
 - En jeu : `/mostlight showcase` (opérateur) construit au sud de toi une galerie de toutes les lampes, de leurs finitions et teintes, avec un interrupteur et un variateur déjà liés.
 - En dev : `./gradlew runShowcase` crée un monde plat, construit la galerie et vérifie que chaque lampe tient et éclaire. Il prend des captures de jour et de nuit (`run/screenshots/`), musique coupée, puis se ferme. Le monde reste dans `run/saves/mostlight_showcase`.
 
+## Shaders
+
+Testé avec Sodium 0.8.13, Iris 1.8.14-beta.1 et Complementary Reimagined r5.9.3. Les 1 177 lampes de la galerie passent la vérification, et rendent correctement de jour comme de nuit :
+
+- parties lumineuses ;
+- verre translucide ;
+- couleurs, finitions et teintes.
+
+Pour refaire le test :
+
+1. Dépose les jars de Sodium et d'Iris (NeoForge 1.21.1) dans `run-shaders/mods/`.
+2. Dépose un pack de shaders dans `run-shaders/shaderpacks/`.
+3. Lance `./gradlew runShowcaseShaders`.
+
+Les captures arrivent dans `run-shaders/screenshots/`.
+
 ## Compiler
 
 ```

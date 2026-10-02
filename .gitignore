@@ -9,3 +9,4 @@ out/
 .vscode/
 .eclipse/
 run-gametest/
+run-shaders/

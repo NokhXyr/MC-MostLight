@@ -25,6 +25,14 @@ neoForge {
             systemProperty 'mostlight.showcase', 'true'
             programArguments.addAll '--width', '1600', '--height', '900'
         }
+        // ./gradlew runShowcaseShaders : même galerie avec Sodium + Iris + un pack de shaders (dossier run-shaders,
+        // mods et shaderpack à déposer soi-même dans run-shaders/mods et run-shaders/shaderpacks)
+        showcaseShaders {
+            client()
+            gameDirectory = project.file('run-shaders')
+            systemProperty 'mostlight.showcase', 'true'
+            programArguments.addAll '--width', '1600', '--height', '900'
+        }
         gameTestServer {
             type = 'gameTestServer'
             gameDirectory = project.file('run-gametest')
