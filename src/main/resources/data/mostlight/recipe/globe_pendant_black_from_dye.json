@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_globe_pendant_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:globe_pendant"
+    },
+    {
+      "tag": "c:dyes/black"
+    }
+  ],
+  "result": {
+    "id": "mostlight:globe_pendant_black",
+    "count": 1
+  }
+}

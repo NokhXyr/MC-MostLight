@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_chandelier_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:chandelier"
+    },
+    {
+      "tag": "c:dyes/blue"
+    }
+  ],
+  "result": {
+    "id": "mostlight:chandelier_blue",
+    "count": 1
+  }
+}

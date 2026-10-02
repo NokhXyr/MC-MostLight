@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_paper_lantern_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:paper_lantern"
+    },
+    {
+      "tag": "c:dyes/light_gray"
+    }
+  ],
+  "result": {
+    "id": "mostlight:paper_lantern_light_gray",
+    "count": 1
+  }
+}

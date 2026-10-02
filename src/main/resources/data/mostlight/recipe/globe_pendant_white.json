@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " C ",
+    "XGX",
+    " X "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "X": {
+      "item": "minecraft:glass"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "id": "mostlight:globe_pendant_white",
+    "count": 1
+  }
+}

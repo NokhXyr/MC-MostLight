@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_table_lantern_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:table_lantern"
+    },
+    {
+      "tag": "c:dyes/blue"
+    }
+  ],
+  "result": {
+    "id": "mostlight:table_lantern_blue",
+    "count": 1
+  }
+}

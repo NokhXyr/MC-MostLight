@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " O ",
+    "OGO",
+    " O "
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:smooth_stone_slab"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "id": "mostlight:garden_lantern_white",
+    "count": 1
+  }
+}

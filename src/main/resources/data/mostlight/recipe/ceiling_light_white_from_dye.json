@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_ceiling_light_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:ceiling_light"
+    },
+    {
+      "tag": "c:dyes/white"
+    }
+  ],
+  "result": {
+    "id": "mostlight:ceiling_light_white",
+    "count": 1
+  }
+}

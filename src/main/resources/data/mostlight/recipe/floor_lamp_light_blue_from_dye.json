@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_floor_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:floor_lamp"
+    },
+    {
+      "tag": "c:dyes/light_blue"
+    }
+  ],
+  "result": {
+    "id": "mostlight:floor_lamp_light_blue",
+    "count": 1
+  }
+}

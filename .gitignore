@@ -1,0 +1,11 @@
+.gradle/
+build/
+run/
+run-server/
+runs/
+out/
+.idea/
+*.iml
+.vscode/
+.eclipse/
+run-gametest/

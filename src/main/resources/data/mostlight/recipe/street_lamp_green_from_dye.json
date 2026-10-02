@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_street_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:street_lamp"
+    },
+    {
+      "tag": "c:dyes/green"
+    }
+  ],
+  "result": {
+    "id": "mostlight:street_lamp_green",
+    "count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " C ",
+    "DAD",
+    "aAa"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "D": {
+      "item": "minecraft:candle"
+    },
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "a": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "id": "mostlight:chandelier_white",
+    "count": 1
+  }
+}

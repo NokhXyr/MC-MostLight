@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_wall_torch_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:wall_torch_lamp"
+    },
+    {
+      "tag": "c:dyes/cyan"
+    }
+  ],
+  "result": {
+    "id": "mostlight:wall_torch_lamp_cyan",
+    "count": 1
+  }
+}

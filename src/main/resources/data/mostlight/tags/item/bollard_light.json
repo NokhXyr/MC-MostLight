@@ -1,0 +1,20 @@
+{
+  "values": [
+    "mostlight:bollard_light_white",
+    "mostlight:bollard_light_orange",
+    "mostlight:bollard_light_magenta",
+    "mostlight:bollard_light_light_blue",
+    "mostlight:bollard_light_yellow",
+    "mostlight:bollard_light_lime",
+    "mostlight:bollard_light_pink",
+    "mostlight:bollard_light_gray",
+    "mostlight:bollard_light_light_gray",
+    "mostlight:bollard_light_cyan",
+    "mostlight:bollard_light_purple",
+    "mostlight:bollard_light_blue",
+    "mostlight:bollard_light_brown",
+    "mostlight:bollard_light_green",
+    "mostlight:bollard_light_red",
+    "mostlight:bollard_light_black"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_lava_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:lava_lamp"
+    },
+    {
+      "tag": "c:dyes/green"
+    }
+  ],
+  "result": {
+    "id": "mostlight:lava_lamp_green",
+    "count": 1
+  }
+}

@@ -1,0 +1,116 @@
+MOSTLIGHT PROPRIETARY LICENSE — ALL RIGHTS RESERVED
+Version 1.0 — 2026-10-04
+
+Copyright (c) 2026 NokhXyr. All rights reserved.
+
+1. Scope
+
+This license applies to MostLight's original source code, compiled mod,
+models, textures, artwork, translations, and documentation (the "Mod"). It
+does not apply to Minecraft, NeoForge, the Gradle wrapper files (gradlew,
+gradlew.bat and gradle/wrapper, distributed by Gradle under the Apache License
+2.0), or third-party mods and assets. Those works remain subject to their own
+licenses.
+
+2. Permissions
+
+You may view and study the publicly available source, download and run an
+unmodified official release for personal use, and make private backup or test
+copies. You may modify a private copy for your own use. You may fork the
+repository solely to prepare and submit a contribution to the official
+MostLight repository. Keep copyright and license notices in these copies.
+
+You may include and redistribute an official, unmodified MostLight JAR in a
+Minecraft modpack or launcher, including a publicly distributed modpack,
+provided that you:
+
+  (a) obtain the JAR from an official NokhXyr release and do not modify,
+      recompile, or repackage it;
+  (b) preserve its copyright and license notices and identify NokhXyr as the
+      author, with a link to the official repository in the pack's mod list or
+      documentation where such a list exists; and
+  (c) do not sell or paywall MostLight as a separate product, or present the
+      mod as your own work.
+
+The modpack or launcher may be distributed free of charge or as part of a
+monetized offering, but this permission does not grant rights over Minecraft,
+NeoForge, or any other included mod or asset. You are responsible for their
+separate license terms.
+
+Builds, screenshots and videos made in game with the Mod, including servers,
+maps and creations that use its blocks, are yours to share.
+
+3. Restrictions
+
+Except for the modpack and launcher permission in Section 2, without prior
+written permission from NokhXyr, you may not publish, redistribute, mirror,
+sell, sublicense, or rebrand the Mod or a modified build; use its original
+source code, models, textures or other assets in another project; or remove
+authorship and license notices. Linking to the official repository or
+official release is allowed. Public repository visibility does not grant
+open-source rights.
+
+4. Contributions
+
+By submitting code, assets, translations, or documentation for inclusion in
+MostLight, you confirm that you have the right to submit them and grant
+NokhXyr a perpetual, worldwide, non-exclusive, irrevocable, royalty-free,
+transferable and sublicensable license to use, modify, publish, distribute,
+and relicense that contribution as part of MostLight. You retain ownership
+of your original contribution. See .github/CONTRIBUTING.md.
+
+5. Termination and warranty
+
+The permissions above end if you violate these terms. The Mod is provided
+"as is", without warranty of any kind, to the extent permitted by law.
+NokhXyr is not liable for damages arising from its use to the extent
+permitted by law.
+
+6. Contact and third-party rights
+
+Request additional permissions through the official repository:
+https://github.com/NokhXyr/MC-MostLight/issues
+
+Minecraft is a trademark of Mojang Studios. MostLight is an independent
+fan-made mod and is not affiliated with Mojang Studios, Microsoft, NeoForged,
+or the authors of compatible third-party mods (GeckoLib, JEI, Create, Iris,
+Sodium).
+
+The English text above is authoritative. The French summary below is provided
+for convenience.
+
+--- RÉSUMÉ FRANÇAIS ---
+
+Copyright (c) 2026 NokhXyr. Tous droits réservés.
+
+Cette licence couvre le code, le JAR, les modèles, les textures, les
+traductions et la documentation originaux de MostLight. Elle ne couvre pas
+Minecraft, NeoForge, les fichiers du wrapper Gradle (licence Apache 2.0) ni les
+contenus de tiers, qui conservent leurs propres licences.
+
+Vous pouvez consulter le code, utiliser une version officielle non modifiée,
+faire des sauvegardes et des modifications privées, et créer un fork uniquement
+pour proposer une contribution au dépôt officiel. Vous devez conserver les
+mentions de droit d'auteur et de licence.
+
+Vous pouvez intégrer et redistribuer le JAR officiel non modifié de MostLight
+dans un modpack ou launcher Minecraft, y compris public, sous réserve de le
+télécharger depuis une publication officielle de NokhXyr, de conserver les
+mentions de licence et de créditer NokhXyr avec un lien vers le dépôt officiel
+dans la liste ou documentation des mods lorsqu'elle existe. Le mod ne doit pas
+être vendu ou placé derrière un accès payant en tant que produit séparé. Un
+modpack gratuit ou monétisé peut l'inclure, sous réserve des droits applicables
+aux autres contenus.
+
+Les constructions, captures et vidéos réalisées en jeu avec le mod, y compris
+les serveurs et cartes qui utilisent ses blocs, vous appartiennent.
+
+En dehors de l'autorisation d'intégration aux modpacks et launchers ci-dessus,
+la publication, la redistribution, la vente, le changement de marque et la
+réutilisation du code, des modèles, des textures ou des autres ressources
+originaux dans un autre projet exigent l'autorisation écrite préalable de
+NokhXyr. Vous pouvez partager un lien vers le dépôt ou une version officielle.
+
+En soumettant une contribution, vous confirmez détenir les droits nécessaires
+et accordez à NokhXyr les droits décrits à la section 4 ci-dessus. Le mod est
+fourni en l'état, sans garantie dans les limites prévues par la loi.

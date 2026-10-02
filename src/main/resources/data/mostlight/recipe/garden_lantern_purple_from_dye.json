@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_garden_lantern_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:garden_lantern"
+    },
+    {
+      "tag": "c:dyes/purple"
+    }
+  ],
+  "result": {
+    "id": "mostlight:garden_lantern_purple",
+    "count": 1
+  }
+}

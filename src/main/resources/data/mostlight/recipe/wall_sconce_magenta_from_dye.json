@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_wall_sconce_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:wall_sconce"
+    },
+    {
+      "tag": "c:dyes/magenta"
+    }
+  ],
+  "result": {
+    "id": "mostlight:wall_sconce_magenta",
+    "count": 1
+  }
+}

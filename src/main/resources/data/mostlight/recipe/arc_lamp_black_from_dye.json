@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_arc_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:arc_lamp"
+    },
+    {
+      "tag": "c:dyes/black"
+    }
+  ],
+  "result": {
+    "id": "mostlight:arc_lamp_black",
+    "count": 1
+  }
+}

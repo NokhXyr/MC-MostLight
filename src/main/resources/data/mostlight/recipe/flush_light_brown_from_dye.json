@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_flush_light_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:flush_light"
+    },
+    {
+      "tag": "c:dyes/brown"
+    }
+  ],
+  "result": {
+    "id": "mostlight:flush_light_brown",
+    "count": 1
+  }
+}

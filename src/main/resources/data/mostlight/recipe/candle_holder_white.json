@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "DDD",
+    "aAa"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:candle"
+    },
+    "a": {
+      "item": "minecraft:gold_nugget"
+    },
+    "A": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "id": "mostlight:candle_holder_white",
+    "count": 1
+  }
+}

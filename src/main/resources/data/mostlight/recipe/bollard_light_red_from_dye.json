@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_bollard_light_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:bollard_light"
+    },
+    {
+      "tag": "c:dyes/red"
+    }
+  ],
+  "result": {
+    "id": "mostlight:bollard_light_red",
+    "count": 1
+  }
+}

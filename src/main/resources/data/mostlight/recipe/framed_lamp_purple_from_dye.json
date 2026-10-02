@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_framed_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:framed_lamp"
+    },
+    {
+      "tag": "c:dyes/purple"
+    }
+  ],
+  "result": {
+    "id": "mostlight:framed_lamp_purple",
+    "count": 1
+  }
+}

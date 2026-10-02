@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_tripod_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:tripod_lamp"
+    },
+    {
+      "tag": "c:dyes/red"
+    }
+  ],
+  "result": {
+    "id": "mostlight:tripod_lamp_red",
+    "count": 1
+  }
+}

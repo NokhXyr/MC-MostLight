@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_table_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:table_lamp"
+    },
+    {
+      "tag": "c:dyes/yellow"
+    }
+  ],
+  "result": {
+    "id": "mostlight:table_lamp_yellow",
+    "count": 1
+  }
+}

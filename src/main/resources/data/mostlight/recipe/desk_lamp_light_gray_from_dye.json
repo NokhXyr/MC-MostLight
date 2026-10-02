@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_desk_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:desk_lamp"
+    },
+    {
+      "tag": "c:dyes/light_gray"
+    }
+  ],
+  "result": {
+    "id": "mostlight:desk_lamp_light_gray",
+    "count": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " U ",
+    " G ",
+    " B "
+  ],
+  "key": {
+    "U": {
+      "item": "minecraft:brown_mushroom"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "B": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "id": "mostlight:mushroom_lamp_white",
+    "count": 1
+  }
+}

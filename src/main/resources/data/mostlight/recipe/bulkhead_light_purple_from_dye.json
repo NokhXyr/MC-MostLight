@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_bulkhead_light_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:bulkhead_light"
+    },
+    {
+      "tag": "c:dyes/purple"
+    }
+  ],
+  "result": {
+    "id": "mostlight:bulkhead_light_purple",
+    "count": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "WGW",
+    " a "
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:white_wool"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "a": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "id": "mostlight:wall_sconce_white",
+    "count": 2
+  }
+}

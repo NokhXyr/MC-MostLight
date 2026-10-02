@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "mostlight:block/lamp_block"
+    },
+    "lit=true": {
+      "model": "mostlight:block/lamp_block_on"
+    }
+  }
+}

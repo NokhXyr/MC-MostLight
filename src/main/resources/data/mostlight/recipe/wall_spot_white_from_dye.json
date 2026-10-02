@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_wall_spot_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:wall_spot"
+    },
+    {
+      "tag": "c:dyes/white"
+    }
+  ],
+  "result": {
+    "id": "mostlight:wall_spot_white",
+    "count": 1
+  }
+}

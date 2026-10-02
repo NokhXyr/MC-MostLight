@@ -1,0 +1,20 @@
+{
+  "values": [
+    "mostlight:spotlight_white",
+    "mostlight:spotlight_orange",
+    "mostlight:spotlight_magenta",
+    "mostlight:spotlight_light_blue",
+    "mostlight:spotlight_yellow",
+    "mostlight:spotlight_lime",
+    "mostlight:spotlight_pink",
+    "mostlight:spotlight_gray",
+    "mostlight:spotlight_light_gray",
+    "mostlight:spotlight_cyan",
+    "mostlight:spotlight_purple",
+    "mostlight:spotlight_blue",
+    "mostlight:spotlight_brown",
+    "mostlight:spotlight_green",
+    "mostlight:spotlight_red",
+    "mostlight:spotlight_black"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_floor_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:floor_lamp"
+    },
+    {
+      "tag": "c:dyes/green"
+    }
+  ],
+  "result": {
+    "id": "mostlight:floor_lamp_green",
+    "count": 1
+  }
+}

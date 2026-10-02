@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_spotlight_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:spotlight"
+    },
+    {
+      "tag": "c:dyes/cyan"
+    }
+  ],
+  "result": {
+    "id": "mostlight:spotlight_cyan",
+    "count": 1
+  }
+}

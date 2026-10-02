@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_light_strip_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:light_strip"
+    },
+    {
+      "tag": "c:dyes/gray"
+    }
+  ],
+  "result": {
+    "id": "mostlight:light_strip_gray",
+    "count": 1
+  }
+}

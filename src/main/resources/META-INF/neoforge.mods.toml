@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="MIT"
+issueTrackerURL="https://github.com/NokhXyr/MC-MostLight/issues"
+
+[[mods]]
+modId="mostlight"
+version="1.0.0"
+displayName="MostLight"
+authors="NokhXyr"
+description='''
+Des centaines de lampes décoratives : plafond, mur, table, sol et blocs.
+16 couleurs, allumage au clic ou par redstone, 4 niveaux de luminosité, recoloration au colorant.
+'''
+
+[[dependencies.mostlight]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.0,21.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.mostlight]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,1.21.2)"
+ordering="NONE"
+side="BOTH"

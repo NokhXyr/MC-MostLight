@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_industrial_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:industrial_lamp"
+    },
+    {
+      "tag": "c:dyes/magenta"
+    }
+  ],
+  "result": {
+    "id": "mostlight:industrial_lamp_magenta",
+    "count": 1
+  }
+}

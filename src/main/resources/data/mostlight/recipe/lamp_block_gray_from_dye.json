@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_lamp_block_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:lamp_block"
+    },
+    {
+      "tag": "c:dyes/gray"
+    }
+  ],
+  "result": {
+    "id": "mostlight:lamp_block_gray",
+    "count": 1
+  }
+}

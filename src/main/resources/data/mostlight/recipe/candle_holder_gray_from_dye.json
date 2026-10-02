@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_candle_holder_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:candle_holder"
+    },
+    {
+      "tag": "c:dyes/gray"
+    }
+  ],
+  "result": {
+    "id": "mostlight:candle_holder_gray",
+    "count": 1
+  }
+}

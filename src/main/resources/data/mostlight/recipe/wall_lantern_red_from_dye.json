@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_wall_lantern_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:wall_lantern"
+    },
+    {
+      "tag": "c:dyes/red"
+    }
+  ],
+  "result": {
+    "id": "mostlight:wall_lantern_red",
+    "count": 1
+  }
+}

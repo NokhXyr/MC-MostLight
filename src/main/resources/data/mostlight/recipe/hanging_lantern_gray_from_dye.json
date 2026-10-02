@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_hanging_lantern_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:hanging_lantern"
+    },
+    {
+      "tag": "c:dyes/gray"
+    }
+  ],
+  "result": {
+    "id": "mostlight:hanging_lantern_gray",
+    "count": 1
+  }
+}
