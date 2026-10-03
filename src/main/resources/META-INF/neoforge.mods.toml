@@ -7,6 +7,7 @@ issueTrackerURL="https://github.com/NokhXyr/MC-MostLight/issues"
 modId="mostlight"
 version="1.1.0"
 displayName="MostLight"
+logoFile="logo.png"
 authors="NokhXyr"
 description='''
 Des centaines de lampes décoratives : plafond, mur, table, sol et blocs.
