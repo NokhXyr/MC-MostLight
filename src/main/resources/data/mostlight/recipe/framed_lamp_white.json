@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "NXN",
-    "XGX",
-    "NXN"
-  ],
-  "key": {
-    "N": {
-      "item": "minecraft:iron_nugget"
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 4
     },
-    "X": {
-      "item": "minecraft:glass"
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 4
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:framed_lamp_white",
     "count": 4

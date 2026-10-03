@@ -1,20 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "III",
-    "QGQ"
-  ],
-  "key": {
-    "I": {
-      "item": "minecraft:iron_ingot"
+  "type": "mostlight:workbench",
+  "category": "ceiling",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 3
     },
-    "Q": {
-      "item": "minecraft:glass_pane"
+    {
+      "ingredient": {
+        "item": "minecraft:glass_pane"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:ceiling_light_white",
     "count": 2

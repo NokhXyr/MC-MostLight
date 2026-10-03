@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "  E",
-    " K ",
-    "N  "
-  ],
-  "key": {
-    "E": {
-      "item": "minecraft:redstone"
+  "type": "mostlight:workbench",
+  "category": "tools",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:redstone"
+      },
+      "count": 1
     },
-    "K": {
-      "item": "minecraft:copper_ingot"
+    {
+      "ingredient": {
+        "item": "minecraft:copper_ingot"
+      },
+      "count": 1
     },
-    "N": {
-      "item": "minecraft:iron_nugget"
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:led_connector",
     "count": 1

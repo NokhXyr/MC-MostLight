@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    " H ",
-    "PGP",
-    " P "
-  ],
-  "key": {
-    "H": {
-      "item": "minecraft:string"
+  "type": "mostlight:workbench",
+  "category": "ceiling",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:string"
+      },
+      "count": 1
     },
-    "P": {
-      "item": "minecraft:paper"
+    {
+      "ingredient": {
+        "item": "minecraft:paper"
+      },
+      "count": 3
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:paper_lantern_white",
     "count": 2

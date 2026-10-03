@@ -1,20 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "GEG",
-    "NNN"
-  ],
-  "key": {
-    "G": {
-      "item": "minecraft:glowstone_dust"
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 2
     },
-    "E": {
-      "item": "minecraft:redstone"
+    {
+      "ingredient": {
+        "item": "minecraft:redstone"
+      },
+      "count": 1
     },
-    "N": {
-      "item": "minecraft:iron_nugget"
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 3
     }
-  },
+  ],
   "result": {
     "id": "mostlight:light_strip_white",
     "count": 8

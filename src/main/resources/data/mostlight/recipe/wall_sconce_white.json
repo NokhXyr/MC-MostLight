@@ -1,20 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "WGW",
-    " a "
-  ],
-  "key": {
-    "W": {
-      "item": "minecraft:white_wool"
+  "type": "mostlight:workbench",
+  "category": "wall",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:white_wool"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "a": {
-      "item": "minecraft:gold_nugget"
+    {
+      "ingredient": {
+        "item": "minecraft:gold_nugget"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:wall_sconce_white",
     "count": 2

@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    " X ",
-    "XGX",
-    " O "
-  ],
-  "key": {
-    "X": {
-      "item": "minecraft:glass"
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 3
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "O": {
-      "item": "minecraft:smooth_stone_slab"
+    {
+      "ingredient": {
+        "item": "minecraft:smooth_stone_slab"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:orb_lamp_white",
     "count": 1

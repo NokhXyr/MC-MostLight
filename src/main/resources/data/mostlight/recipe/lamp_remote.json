@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "E",
-    "I",
-    "e"
-  ],
-  "key": {
-    "E": {
-      "item": "minecraft:redstone"
+  "type": "mostlight:workbench",
+  "category": "tools",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:redstone"
+      },
+      "count": 1
     },
-    "I": {
-      "item": "minecraft:iron_ingot"
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 1
     },
-    "e": {
-      "item": "minecraft:ender_pearl"
+    {
+      "ingredient": {
+        "item": "minecraft:ender_pearl"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:lamp_remote",
     "count": 1

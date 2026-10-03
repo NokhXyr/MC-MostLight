@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "BPB",
-    "PGP",
-    "BPB"
-  ],
-  "key": {
-    "B": {
-      "tag": "minecraft:planks"
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "tag": "minecraft:planks"
+      },
+      "count": 4
     },
-    "P": {
-      "item": "minecraft:paper"
+    {
+      "ingredient": {
+        "item": "minecraft:paper"
+      },
+      "count": 4
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:shoji_block_white",
     "count": 4

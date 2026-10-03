@@ -1,24 +1,32 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    " C ",
-    "aGa",
-    "aQa"
-  ],
-  "key": {
-    "C": {
-      "item": "minecraft:chain"
+  "type": "mostlight:workbench",
+  "category": "ceiling",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:chain"
+      },
+      "count": 1
     },
-    "a": {
-      "item": "minecraft:gold_nugget"
+    {
+      "ingredient": {
+        "item": "minecraft:gold_nugget"
+      },
+      "count": 4
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "Q": {
-      "item": "minecraft:glass_pane"
+    {
+      "ingredient": {
+        "item": "minecraft:glass_pane"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:moroccan_lantern_white",
     "count": 1

@@ -1,27 +1,38 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "KGK",
-    "IEI",
-    " B "
-  ],
-  "key": {
-    "K": {
-      "item": "minecraft:copper_ingot"
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:copper_ingot"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "I": {
-      "item": "minecraft:iron_ingot"
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 2
     },
-    "E": {
-      "item": "minecraft:redstone"
+    {
+      "ingredient": {
+        "item": "minecraft:redstone"
+      },
+      "count": 1
     },
-    "B": {
-      "tag": "minecraft:planks"
+    {
+      "ingredient": {
+        "tag": "minecraft:planks"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:gear_lamp_white",
     "count": 1

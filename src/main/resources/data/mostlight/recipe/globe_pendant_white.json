@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    " C ",
-    "XGX",
-    " X "
-  ],
-  "key": {
-    "C": {
-      "item": "minecraft:chain"
+  "type": "mostlight:workbench",
+  "category": "ceiling",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:chain"
+      },
+      "count": 1
     },
-    "X": {
-      "item": "minecraft:glass"
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 3
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:globe_pendant_white",
     "count": 1

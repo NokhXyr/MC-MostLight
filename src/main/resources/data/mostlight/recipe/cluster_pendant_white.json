@@ -1,24 +1,32 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "CCC",
-    "NGN",
-    "XXX"
-  ],
-  "key": {
-    "C": {
-      "item": "minecraft:chain"
+  "type": "mostlight:workbench",
+  "category": "ceiling",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:chain"
+      },
+      "count": 3
     },
-    "N": {
-      "item": "minecraft:iron_nugget"
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "X": {
-      "item": "minecraft:glass"
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 3
     }
-  },
+  ],
   "result": {
     "id": "mostlight:cluster_pendant_white",
     "count": 1

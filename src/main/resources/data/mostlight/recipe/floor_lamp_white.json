@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "WGW",
-    " I ",
-    " I "
-  ],
-  "key": {
-    "W": {
-      "item": "minecraft:white_wool"
+  "type": "mostlight:workbench",
+  "category": "floor",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:white_wool"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "I": {
-      "item": "minecraft:iron_ingot"
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 2
     }
-  },
+  ],
   "result": {
     "id": "mostlight:floor_lamp_white",
     "count": 1

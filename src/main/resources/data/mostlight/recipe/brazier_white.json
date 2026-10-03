@@ -1,18 +1,20 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "IFI",
-    "I I",
-    "I I"
-  ],
-  "key": {
-    "I": {
-      "item": "minecraft:iron_ingot"
+  "type": "mostlight:workbench",
+  "category": "floor",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 6
     },
-    "F": {
-      "item": "minecraft:netherrack"
+    {
+      "ingredient": {
+        "item": "minecraft:netherrack"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:brazier_white",
     "count": 1

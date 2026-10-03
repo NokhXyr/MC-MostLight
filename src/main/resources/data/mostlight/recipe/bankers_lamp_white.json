@@ -1,24 +1,32 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "XGX",
-    " a ",
-    "aAa"
-  ],
-  "key": {
-    "X": {
-      "item": "minecraft:glass"
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "a": {
-      "item": "minecraft:gold_nugget"
+    {
+      "ingredient": {
+        "item": "minecraft:gold_nugget"
+      },
+      "count": 3
     },
-    "A": {
-      "item": "minecraft:gold_ingot"
+    {
+      "ingredient": {
+        "item": "minecraft:gold_ingot"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:bankers_lamp_white",
     "count": 1

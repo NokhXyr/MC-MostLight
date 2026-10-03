@@ -1,24 +1,32 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    " C ",
-    "DAD",
-    "aAa"
-  ],
-  "key": {
-    "C": {
-      "item": "minecraft:chain"
+  "type": "mostlight:workbench",
+  "category": "ceiling",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:chain"
+      },
+      "count": 1
     },
-    "D": {
-      "item": "minecraft:candle"
+    {
+      "ingredient": {
+        "item": "minecraft:candle"
+      },
+      "count": 2
     },
-    "A": {
-      "item": "minecraft:gold_ingot"
+    {
+      "ingredient": {
+        "item": "minecraft:gold_ingot"
+      },
+      "count": 2
     },
-    "a": {
-      "item": "minecraft:gold_nugget"
+    {
+      "ingredient": {
+        "item": "minecraft:gold_nugget"
+      },
+      "count": 2
     }
-  },
+  ],
   "result": {
     "id": "mostlight:chandelier_white",
     "count": 1

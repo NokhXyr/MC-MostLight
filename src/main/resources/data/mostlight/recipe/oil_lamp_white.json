@@ -1,24 +1,32 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    " X ",
-    "XGX",
-    "aMa"
-  ],
-  "key": {
-    "X": {
-      "item": "minecraft:glass"
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 3
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "a": {
-      "item": "minecraft:gold_nugget"
+    {
+      "ingredient": {
+        "item": "minecraft:gold_nugget"
+      },
+      "count": 2
     },
-    "M": {
-      "item": "minecraft:magma_cream"
+    {
+      "ingredient": {
+        "item": "minecraft:magma_cream"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:oil_lamp_white",
     "count": 1

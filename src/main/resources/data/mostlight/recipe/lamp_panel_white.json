@@ -1,20 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "QGQ",
-    "III"
-  ],
-  "key": {
-    "Q": {
-      "item": "minecraft:glass_pane"
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glass_pane"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "I": {
-      "item": "minecraft:iron_ingot"
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 3
     }
-  },
+  ],
   "result": {
     "id": "mostlight:lamp_panel_white",
     "count": 2

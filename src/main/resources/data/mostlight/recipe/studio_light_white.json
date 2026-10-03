@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "IGI",
-    " S ",
-    "S S"
-  ],
-  "key": {
-    "I": {
-      "item": "minecraft:iron_ingot"
+  "type": "mostlight:workbench",
+  "category": "floor",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "S": {
-      "item": "minecraft:stick"
+    {
+      "ingredient": {
+        "item": "minecraft:stick"
+      },
+      "count": 3
     }
-  },
+  ],
   "result": {
     "id": "mostlight:studio_light_white",
     "count": 1

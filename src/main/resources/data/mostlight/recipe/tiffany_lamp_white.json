@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "QQQ",
-    "QGQ",
-    " A "
-  ],
-  "key": {
-    "Q": {
-      "item": "minecraft:glass_pane"
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glass_pane"
+      },
+      "count": 5
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "A": {
-      "item": "minecraft:gold_ingot"
+    {
+      "ingredient": {
+        "item": "minecraft:gold_ingot"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:tiffany_lamp_white",
     "count": 1

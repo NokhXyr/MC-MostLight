@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "SPS",
-    "PGP",
-    "SPS"
-  ],
-  "key": {
-    "S": {
-      "item": "minecraft:stick"
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:stick"
+      },
+      "count": 4
     },
-    "P": {
-      "item": "minecraft:paper"
+    {
+      "ingredient": {
+        "item": "minecraft:paper"
+      },
+      "count": 4
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:shoji_lamp_white",
     "count": 1

@@ -18,8 +18,6 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
-import mezz.jei.api.registration.IRecipeTransferRegistration;
-import com.nokhxyr.mostlight.crafting.LampWorkbenchMenu;
 import com.nokhxyr.mostlight.crafting.ModRecipes;
 import com.nokhxyr.mostlight.crafting.WorkbenchRecipe;
 import net.minecraft.client.Minecraft;
@@ -33,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * Compatibilité JEI (optionnelle : chargée seulement si JEI est installé) : catégorie « Établi de luminaire » avec
- * toutes les recettes du mod (et remplissage de la grille depuis JEI), variantes de finition / teinte de lumière
+ * toutes les recettes du mod (matériaux et quantités), variantes de finition / teinte de lumière
  * comme objets distincts, fiche d'explication pour chaque lampe, outil et interrupteur.
  */
 @JeiPlugin
@@ -51,12 +49,6 @@ public class MostLightJeiPlugin implements IModPlugin {
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalysts(WORKBENCH, ModBlocks.LAMP_WORKBENCH_ITEM.get());
-    }
-
-    @Override
-    public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
-        registration.addRecipeTransferHandler(LampWorkbenchMenu.class, ModRecipes.WORKBENCH_MENU.get(), WORKBENCH,
-                LampWorkbenchMenu.GRID_START, 9, LampWorkbenchMenu.INVENTORY_START, 36);
     }
 
     @Override

@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "PSP",
-    "PGP",
-    "PSP"
-  ],
-  "key": {
-    "P": {
-      "item": "minecraft:paper"
+  "type": "mostlight:workbench",
+  "category": "floor",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:paper"
+      },
+      "count": 6
     },
-    "S": {
-      "item": "minecraft:stick"
+    {
+      "ingredient": {
+        "item": "minecraft:stick"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:paper_floor_lamp_white",
     "count": 1

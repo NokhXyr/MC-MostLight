@@ -1,24 +1,32 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "WGW",
-    " S ",
-    " A "
-  ],
-  "key": {
-    "W": {
-      "item": "minecraft:white_wool"
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:white_wool"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "S": {
-      "item": "minecraft:stick"
+    {
+      "ingredient": {
+        "item": "minecraft:stick"
+      },
+      "count": 1
     },
-    "A": {
-      "item": "minecraft:gold_ingot"
+    {
+      "ingredient": {
+        "item": "minecraft:gold_ingot"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:table_lamp_white",
     "count": 1

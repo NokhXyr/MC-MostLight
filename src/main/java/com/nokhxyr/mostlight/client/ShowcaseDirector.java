@@ -46,7 +46,9 @@ public final class ShowcaseDirector {
     private static final String WORLD = "mostlight_showcase";
     private static final BlockPos ORIGIN = new BlockPos(0, -60, 0);
 
-    private enum Stage { START, LOADING, BUILDING, SHOOTING, LEAVING, DONE }
+    private enum Stage { START, LOADING, BUILDING, SHOOTING, WORKBENCH, LEAVING, DONE }
+    /** MOSTLIGHT_SHOWCASE_WORKBENCH=1 : capture de l'écran de l'établi de luminaire au lieu de la galerie. */
+    private static final boolean WORKBENCH_ONLY = "1".equals(System.getenv("MOSTLIGHT_SHOWCASE_WORKBENCH"));
 
     private static Stage stage = Stage.START;
     private static int wait;
@@ -116,7 +118,7 @@ public final class ShowcaseDirector {
                 }
                 viewIndex = 0;
                 teleport(mc, views().get(0));
-                stage = Stage.SHOOTING;
+                stage = WORKBENCH_ONLY ? Stage.WORKBENCH : Stage.SHOOTING;
                 wait = 200;
             }
             case SHOOTING -> {
@@ -157,6 +159,24 @@ public final class ShowcaseDirector {
                 }
                 teleport(mc, views.get(viewIndex));
                 wait = viewIndex <= 1 ? 120 : 40;
+            }
+            case WORKBENCH -> {
+                if (!(mc.screen instanceof LampWorkbenchScreen)) {
+                    var inventory = mc.player.getInventory();
+                    inventory.clearContent();
+                    inventory.add(new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.IRON_INGOT, 12));
+                    inventory.add(new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.GLOWSTONE_DUST, 5));
+                    inventory.add(new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.CHAIN, 3));
+                    inventory.add(new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.ORANGE_DYE, 2));
+                    mc.options.hideGui = false;
+                    mc.setScreen(new LampWorkbenchScreen(new com.nokhxyr.mostlight.crafting.LampWorkbenchMenu(0, inventory), inventory,
+                            net.minecraft.network.chat.Component.translatable("container." + MostLight.MOD_ID + ".lamp_workbench")));
+                    wait = 60;
+                    return;
+                }
+                Screenshot.grab(mc.gameDirectory, "workbench.png", mc.getMainRenderTarget(), message -> {});
+                wait = 20;
+                stage = Stage.LEAVING;
             }
             case LEAVING -> {
                 LOGGER.info("[MostLight showcase] captures terminées");

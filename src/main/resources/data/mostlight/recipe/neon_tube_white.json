@@ -1,20 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "NGN",
-    "XXX"
-  ],
-  "key": {
-    "N": {
-      "item": "minecraft:iron_nugget"
+  "type": "mostlight:workbench",
+  "category": "wall",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "X": {
-      "item": "minecraft:glass"
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 3
     }
-  },
+  ],
   "result": {
     "id": "mostlight:neon_tube_white",
     "count": 4

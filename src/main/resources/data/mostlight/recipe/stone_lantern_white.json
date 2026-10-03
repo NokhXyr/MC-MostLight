@@ -1,18 +1,20 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "ZGZ",
-    " Z ",
-    "ZZZ"
-  ],
-  "key": {
-    "Z": {
-      "item": "minecraft:stone_bricks"
+  "type": "mostlight:workbench",
+  "category": "floor",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:stone_bricks"
+      },
+      "count": 6
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:stone_lantern_white",
     "count": 1

@@ -1,16 +1,20 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "NEN"
-  ],
-  "key": {
-    "N": {
-      "item": "minecraft:iron_nugget"
+  "type": "mostlight:workbench",
+  "category": "switches",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 2
     },
-    "E": {
-      "item": "minecraft:redstone"
+    {
+      "ingredient": {
+        "item": "minecraft:redstone"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:light_switch",
     "count": 2

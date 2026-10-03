@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    " U ",
-    " G ",
-    " B "
-  ],
-  "key": {
-    "U": {
-      "item": "minecraft:brown_mushroom"
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:brown_mushroom"
+      },
+      "count": 1
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "B": {
-      "tag": "minecraft:planks"
+    {
+      "ingredient": {
+        "tag": "minecraft:planks"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:mushroom_lamp_white",
     "count": 1

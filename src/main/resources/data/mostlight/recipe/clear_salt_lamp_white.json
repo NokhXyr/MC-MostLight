@@ -1,24 +1,32 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "sXs",
-    "sGs",
-    " B "
-  ],
-  "key": {
-    "s": {
-      "item": "minecraft:sand"
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:sand"
+      },
+      "count": 4
     },
-    "X": {
-      "item": "minecraft:glass"
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 1
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "B": {
-      "tag": "minecraft:planks"
+    {
+      "ingredient": {
+        "tag": "minecraft:planks"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:clear_salt_lamp_white",
     "count": 1

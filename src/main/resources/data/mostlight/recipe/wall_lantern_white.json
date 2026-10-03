@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "NNN",
-    "QGQ",
-    " N "
-  ],
-  "key": {
-    "N": {
-      "item": "minecraft:iron_nugget"
+  "type": "mostlight:workbench",
+  "category": "wall",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 4
     },
-    "Q": {
-      "item": "minecraft:glass_pane"
+    {
+      "ingredient": {
+        "item": "minecraft:glass_pane"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:wall_lantern_white",
     "count": 1

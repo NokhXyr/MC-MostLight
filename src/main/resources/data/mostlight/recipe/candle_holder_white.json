@@ -1,20 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "DDD",
-    "aAa"
-  ],
-  "key": {
-    "D": {
-      "item": "minecraft:candle"
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:candle"
+      },
+      "count": 3
     },
-    "a": {
-      "item": "minecraft:gold_nugget"
+    {
+      "ingredient": {
+        "item": "minecraft:gold_nugget"
+      },
+      "count": 2
     },
-    "A": {
-      "item": "minecraft:gold_ingot"
+    {
+      "ingredient": {
+        "item": "minecraft:gold_ingot"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:candle_holder_white",
     "count": 1

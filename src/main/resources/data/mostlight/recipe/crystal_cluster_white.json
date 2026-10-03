@@ -1,17 +1,20 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "YGY",
-    " Y "
-  ],
-  "key": {
-    "Y": {
-      "item": "minecraft:amethyst_shard"
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:amethyst_shard"
+      },
+      "count": 3
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:crystal_cluster_white",
     "count": 2

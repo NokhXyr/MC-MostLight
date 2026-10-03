@@ -1,24 +1,32 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "WGW",
-    "SBS",
-    "S S"
-  ],
-  "key": {
-    "W": {
-      "item": "minecraft:white_wool"
+  "type": "mostlight:workbench",
+  "category": "floor",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:white_wool"
+      },
+      "count": 2
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "S": {
-      "item": "minecraft:stick"
+    {
+      "ingredient": {
+        "item": "minecraft:stick"
+      },
+      "count": 4
     },
-    "B": {
-      "tag": "minecraft:planks"
+    {
+      "ingredient": {
+        "tag": "minecraft:planks"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:tripod_lamp_white",
     "count": 1

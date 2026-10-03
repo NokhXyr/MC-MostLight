@@ -1,16 +1,20 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "NRN"
-  ],
-  "key": {
-    "N": {
-      "item": "minecraft:iron_nugget"
+  "type": "mostlight:workbench",
+  "category": "switches",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 2
     },
-    "R": {
-      "item": "minecraft:redstone_torch"
+    {
+      "ingredient": {
+        "item": "minecraft:redstone_torch"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:dimmer_switch",
     "count": 2

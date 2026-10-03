@@ -1,21 +1,26 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    "G",
-    "X",
-    "N"
-  ],
-  "key": {
-    "G": {
-      "item": "minecraft:glowstone_dust"
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     },
-    "X": {
-      "item": "minecraft:glass"
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 1
     },
-    "N": {
-      "item": "minecraft:iron_nugget"
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:light_rod_white",
     "count": 4

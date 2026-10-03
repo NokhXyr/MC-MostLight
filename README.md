@@ -7,7 +7,7 @@ Chaque lampe se personnalise sur trois axes :
 
 | Axe | Choix | Comment |
 |---|---|---|
-| Couleur | 16 couleurs de Minecraft | colorant sur la lampe posée, ou lampe + colorant à l'établi de luminaire |
+| Couleur | 16 couleurs de Minecraft | couleur choisie à l'établi de luminaire, ou colorant sur la lampe posée |
 | Finition du cadre | acier, fer noir, laiton, cuivre, or, or rose, vert-de-gris, émail blanc, chêne, chêne noir | **clé de décorateur** : Maj + molette pour choisir la finition, clic droit pour l'appliquer |
 | Teinte de lumière | auto, colorée, chaude, neutre, froide | accroupi + clic droit avec la clé |
 
@@ -25,11 +25,11 @@ Le verre est translucide : on voit l'ampoule à filament ou la flamme à l'inté
 
 ## Contrôles
 
-- **Établi de luminaire** : toutes les recettes du mod (lampes, teintures, interrupteurs, outils) se font à cet établi, pas à l'établi vanilla. Il se fabrique à l'établi vanilla : poudre de glowstone, 2 lingots de fer, un établi et 2 planches.
+- **Établi de luminaire** : un catalogue, comme l'établi de Refurbished ou de Decocraft. Tous les objets du mod y sont rangés par onglets (plafond, mur, table, sol, blocs, interrupteurs, outils), avec une recherche. On choisit l'objet et sa couleur (palette de 16 couleurs : un colorant en plus, sauf pour le blanc). Les matériaux nécessaires s'affichent en vert s'ils sont dans l'inventaire, en rouge s'il en manque. « Fabriquer » les prend dans l'inventaire ; Maj + clic en fabrique autant que possible, une pile au maximum. Aucune recette du mod ne se fait à l'établi vanilla ; l'établi de luminaire, lui, s'y fabrique (poudre de glowstone, 2 lingots de fer, un établi et 2 planches).
 
 - **Main vide, clic droit** : allumer / éteindre. **Accroupi + clic droit** : luminosité (15, 12, 9 ou 6).
 - **Redstone** : un signal allume la lampe, la fin du signal l'éteint.
-- **Interrupteurs** : simple, variateur et double, chacun en 16 couleurs (interrupteur + colorant à l'établi). Avec l'interrupteur en main, avec l'interrupteur en main, accroupi + clic droit sur des lampes pour les lier (64 maximum par défaut, réglable), puis pose-le.
+- **Interrupteurs** : simple, variateur et double, chacun en 16 couleurs (choisies à l'établi de luminaire). Avec l'interrupteur en main, avec l'interrupteur en main, accroupi + clic droit sur des lampes pour les lier (64 maximum par défaut, réglable), puis pose-le.
   - L'interrupteur allume ou éteint tout le groupe d'un clic.
   - Le variateur change la luminosité du groupe ; accroupi + clic l'allume ou l'éteint.
   - L'interrupteur double : vu de face, bascule gauche = lumière, bascule droite = ventilateurs des ventilateurs lumineux liés.

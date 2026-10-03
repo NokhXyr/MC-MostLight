@@ -445,23 +445,32 @@ public class LampGameTests {
         helper.assertTrue(states > 0, "aucun état testé");
         helper.succeed();
     }
-    /** Établi de luminaire : les recettes du mod s'y trouvent, plus à l'établi vanilla. */
+    /**
+     * Établi de luminaire (catalogue) : la tige rouge se fabrique avec les matériaux de l'inventaire plus un colorant
+     * rouge ; sans matériaux, rien n'est fabriqué ; plus aucune recette à l'établi vanilla.
+     */
     @GameTest(template = "empty")
-    public static void recipesOnlyAtLampWorkbench(GameTestHelper helper) {
-        net.minecraft.world.item.crafting.CraftingInput rod = net.minecraft.world.item.crafting.CraftingInput.of(1, 3, java.util.List.of(
+    public static void workbenchCatalogueCrafting(GameTestHelper helper) {
+        net.minecraft.server.level.ServerPlayer player = helper.makeMockServerPlayerInLevel();
+        player.getInventory().clearContent();
+        player.getInventory().add(new ItemStack(Items.GLOWSTONE_DUST, 1));
+        player.getInventory().add(new ItemStack(Items.GLASS, 1));
+        player.getInventory().add(new ItemStack(Items.IRON_NUGGET, 1));
+        player.getInventory().add(new ItemStack(Items.RED_DYE, 1));
+        var recipes = com.nokhxyr.mostlight.crafting.WorkbenchCrafting.recipes(helper.getLevel().getRecipeManager());
+        var rod = recipes.stream().filter(h -> h.value().result().is(ModBlocks.item(LampType.LIGHT_ROD, DyeColor.WHITE))).findFirst();
+        helper.assertTrue(rod.isPresent(), "tige lumineuse au catalogue");
+        int made = com.nokhxyr.mostlight.crafting.WorkbenchCrafting.craft(player, rod.get().value(), DyeColor.RED, false);
+        helper.assertTrue(made == 4 && player.getInventory().countItem(ModBlocks.item(LampType.LIGHT_ROD, DyeColor.RED)) == 4,
+                "4 tiges rouges fabriquées, obtenu " + made);
+        helper.assertTrue(player.getInventory().countItem(Items.GLASS) == 0 && player.getInventory().countItem(Items.RED_DYE) == 0,
+                "matériaux et colorant consommés");
+        helper.assertTrue(com.nokhxyr.mostlight.crafting.WorkbenchCrafting.craft(player, rod.get().value(), DyeColor.WHITE, true) == 0,
+                "sans matériaux : rien");
+        net.minecraft.world.item.crafting.CraftingInput grid = net.minecraft.world.item.crafting.CraftingInput.of(1, 3, java.util.List.of(
                 new ItemStack(Items.GLOWSTONE_DUST), new ItemStack(Items.GLASS), new ItemStack(Items.IRON_NUGGET)));
-        var recipes = helper.getLevel().getRecipeManager();
-        var lamp = recipes.getRecipeFor(com.nokhxyr.mostlight.crafting.ModRecipes.WORKBENCH.get(), rod, helper.getLevel());
-        helper.assertTrue(lamp.isPresent() && lamp.get().value().getResultItem(helper.getLevel().registryAccess())
-                .is(ModBlocks.item(LampType.LIGHT_ROD, DyeColor.WHITE)), "tige lumineuse à l'établi de luminaire");
-        helper.assertTrue(recipes.getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, rod, helper.getLevel()).isEmpty(),
-                "plus de recette de lampe à l'établi vanilla");
-        // teinture (sans forme) : lampe + colorant
-        net.minecraft.world.item.crafting.CraftingInput dye = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, java.util.List.of(
-                new ItemStack(ModBlocks.item(LampType.LIGHT_ROD, DyeColor.WHITE)), new ItemStack(Items.RED_DYE)));
-        var dyed = recipes.getRecipeFor(com.nokhxyr.mostlight.crafting.ModRecipes.WORKBENCH.get(), dye, helper.getLevel());
-        helper.assertTrue(dyed.isPresent() && dyed.get().value().getResultItem(helper.getLevel().registryAccess())
-                .is(ModBlocks.item(LampType.LIGHT_ROD, DyeColor.RED)), "teinture à l'établi de luminaire");
+        helper.assertTrue(helper.getLevel().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, grid,
+                helper.getLevel()).isEmpty(), "plus de recette de lampe à l'établi vanilla");
         helper.succeed();
     }
 

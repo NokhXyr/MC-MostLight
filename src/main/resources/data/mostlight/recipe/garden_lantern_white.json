@@ -1,18 +1,20 @@
 {
-  "type": "mostlight:workbench_shaped",
-  "pattern": [
-    " O ",
-    "OGO",
-    " O "
-  ],
-  "key": {
-    "O": {
-      "item": "minecraft:smooth_stone_slab"
+  "type": "mostlight:workbench",
+  "category": "floor",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:smooth_stone_slab"
+      },
+      "count": 4
     },
-    "G": {
-      "item": "minecraft:glowstone_dust"
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
     }
-  },
+  ],
   "result": {
     "id": "mostlight:garden_lantern_white",
     "count": 1
