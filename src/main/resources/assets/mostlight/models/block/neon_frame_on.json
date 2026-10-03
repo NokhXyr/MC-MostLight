@@ -573,26 +573,6 @@
         "ambient_occlusion": false
       },
       "faces": {
-        "north": {
-          "uv": [
-            15,
-            15,
-            16,
-            16
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
-        "south": {
-          "uv": [
-            0,
-            15,
-            1,
-            16
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
         "east": {
           "uv": [
             1,
@@ -653,26 +633,6 @@
         "ambient_occlusion": false
       },
       "faces": {
-        "north": {
-          "uv": [
-            0,
-            15,
-            1,
-            16
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
-        "south": {
-          "uv": [
-            15,
-            15,
-            16,
-            16
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
         "east": {
           "uv": [
             1,
@@ -893,26 +853,6 @@
         "ambient_occlusion": false
       },
       "faces": {
-        "north": {
-          "uv": [
-            15,
-            0,
-            16,
-            1
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
-        "south": {
-          "uv": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
         "east": {
           "uv": [
             1,
@@ -973,26 +913,6 @@
         "ambient_occlusion": false
       },
       "faces": {
-        "north": {
-          "uv": [
-            0,
-            0,
-            1,
-            1
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
-        "south": {
-          "uv": [
-            15,
-            0,
-            16,
-            1
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
         "east": {
           "uv": [
             1,

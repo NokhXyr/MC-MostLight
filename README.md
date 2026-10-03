@@ -88,6 +88,11 @@ Test de charge avec 20 joueurs simultanés et près de 37 000 lampes : 20 TPS te
 vanilla, aucune erreur, lumière exacte. Rapport détaillé : [docs/TEST_DE_CHARGE.md](docs/TEST_DE_CHARGE.md)
 (`./gradlew runStressServer` et `./gradlew runStressClient` pour le relancer).
 
+## Dépendances
+
+- NeoForge 21.1.x (Minecraft 1.21.1).
+- [GeckoLib](https://modrinth.com/mod/geckolib) 4.9 ou plus, obligatoire : il anime les pièces mobiles (engrenages). Les autres lampes sont des modèles précuits, sans GeckoLib, pour rester rapides.
+
 ## Compiler
 
 ```

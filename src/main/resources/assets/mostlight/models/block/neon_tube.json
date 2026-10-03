@@ -39,26 +39,6 @@
           "texture": "#light",
           "tintindex": 1
         },
-        "east": {
-          "uv": [
-            1,
-            7.5,
-            2,
-            8.5
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
-        "west": {
-          "uv": [
-            14,
-            7.5,
-            15,
-            8.5
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
         "up": {
           "uv": [
             1,
@@ -377,5 +357,6 @@
         }
       }
     }
-  ]
+  ],
+  "ambientocclusion": false
 }

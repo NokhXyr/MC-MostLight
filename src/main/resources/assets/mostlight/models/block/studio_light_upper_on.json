@@ -114,32 +114,12 @@
           "texture": "#frame",
           "tintindex": 3
         },
-        "east": {
-          "uv": [
-            7.565,
-            11,
-            8.435,
-            16
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
         "west": {
           "uv": [
             7.565,
             11,
             8.435,
             16
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "up": {
-          "uv": [
-            7.25,
-            7.565,
-            7.565,
-            8.435
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -194,26 +174,6 @@
             11,
             8.435,
             16
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "west": {
-          "uv": [
-            7.565,
-            11,
-            8.435,
-            16
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "up": {
-          "uv": [
-            8.435,
-            7.565,
-            8.75,
-            8.435
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -365,16 +325,6 @@
           ],
           "texture": "#frame",
           "tintindex": 3
-        },
-        "down": {
-          "uv": [
-            4.5,
-            7.5,
-            5.5,
-            8.5
-          ],
-          "texture": "#frame",
-          "tintindex": 3
         }
       }
     },
@@ -431,16 +381,6 @@
           "tintindex": 3
         },
         "up": {
-          "uv": [
-            10.5,
-            7.5,
-            11.5,
-            8.5
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "down": {
           "uv": [
             10.5,
             7.5,
@@ -563,16 +503,6 @@
       },
       "faces": {
         "north": {
-          "uv": [
-            6,
-            4.5,
-            10,
-            9.5
-          ],
-          "texture": "#bulb",
-          "tintindex": 2
-        },
-        "south": {
           "uv": [
             6,
             4.5,
@@ -790,5 +720,6 @@
         }
       }
     }
-  ]
+  ],
+  "ambientocclusion": false
 }

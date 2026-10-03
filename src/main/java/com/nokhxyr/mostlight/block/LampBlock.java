@@ -68,6 +68,22 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock,
                 .setValue(WATERLOGGED, false));
     }
 
+    /**
+     * Petites lampes (murales, suspendues, LED, fixées sur une face) : on peut les viser mais pas s'y cogner, comme les
+     * appliques de Supplementaries. Moins de calculs de collision pour les entités, rien qui accroche la tête du joueur.
+     * Les projectiles les touchent toujours.
+     */
+    @Override
+    protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        Placement placement = type.placement();
+        boolean small = placement == Placement.WALL || placement == Placement.HANGING || placement == Placement.OMNI;
+        if (small && !(context instanceof net.minecraft.world.phys.shapes.EntityCollisionContext entity
+                && entity.getEntity() instanceof net.minecraft.world.entity.projectile.Projectile)) {
+            return net.minecraft.world.phys.shapes.Shapes.empty();
+        }
+        return super.getCollisionShape(state, level, pos, context);
+    }
+
     public static int lightLevel(BlockState state) {
         return state.getValue(LIT) ? LIGHT_LEVELS[state.getValue(BRIGHTNESS)] : 0;
     }

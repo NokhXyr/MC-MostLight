@@ -2432,5 +2432,6 @@
         }
       }
     }
-  ]
+  ],
+  "ambientocclusion": false
 }

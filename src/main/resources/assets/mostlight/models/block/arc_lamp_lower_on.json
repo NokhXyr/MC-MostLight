@@ -136,18 +136,9 @@
           ],
           "texture": "#frame",
           "tintindex": 3
-        },
-        "down": {
-          "uv": [
-            7.5,
-            4,
-            8.5,
-            5
-          ],
-          "texture": "#frame",
-          "tintindex": 3
         }
       }
     }
-  ]
+  ],
+  "ambientocclusion": false
 }

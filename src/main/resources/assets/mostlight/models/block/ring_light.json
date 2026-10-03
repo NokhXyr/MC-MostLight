@@ -168,26 +168,6 @@
         14
       ],
       "faces": {
-        "north": {
-          "uv": [
-            14,
-            7.5,
-            15,
-            8.5
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "south": {
-          "uv": [
-            1,
-            7.5,
-            2,
-            8.5
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
         "east": {
           "uv": [
             2,
@@ -242,26 +222,6 @@
         14
       ],
       "faces": {
-        "north": {
-          "uv": [
-            1,
-            7.5,
-            2,
-            8.5
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "south": {
-          "uv": [
-            14,
-            7.5,
-            15,
-            8.5
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
         "east": {
           "uv": [
             2,
@@ -356,16 +316,6 @@
           "texture": "#light",
           "tintindex": 1
         },
-        "up": {
-          "uv": [
-            1.25,
-            1.25,
-            14.75,
-            2
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
         "down": {
           "uv": [
             1.25,
@@ -430,16 +380,6 @@
           "texture": "#light",
           "tintindex": 1
         },
-        "up": {
-          "uv": [
-            1.25,
-            14,
-            14.75,
-            14.75
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
         "down": {
           "uv": [
             1.25,
@@ -464,26 +404,6 @@
         14
       ],
       "faces": {
-        "north": {
-          "uv": [
-            14,
-            8.5,
-            14.75,
-            9
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
-        "south": {
-          "uv": [
-            1.25,
-            8.5,
-            2,
-            9
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
         "east": {
           "uv": [
             2,
@@ -500,16 +420,6 @@
             8.5,
             14,
             9
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
-        "up": {
-          "uv": [
-            1.25,
-            2,
-            2,
-            14
           ],
           "texture": "#light",
           "tintindex": 1
@@ -538,26 +448,6 @@
         14
       ],
       "faces": {
-        "north": {
-          "uv": [
-            1.25,
-            8.5,
-            2,
-            9
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
-        "south": {
-          "uv": [
-            14,
-            8.5,
-            14.75,
-            9
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
         "east": {
           "uv": [
             2,
@@ -574,16 +464,6 @@
             8.5,
             14,
             9
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
-        "up": {
-          "uv": [
-            14,
-            2,
-            14.75,
-            14
           ],
           "texture": "#light",
           "tintindex": 1
@@ -645,24 +525,6 @@
             0.5,
             1.7,
             7.5
-          ],
-          "texture": "#cord"
-        },
-        "up": {
-          "uv": [
-            1.3,
-            1.3,
-            1.7,
-            1.7
-          ],
-          "texture": "#cord"
-        },
-        "down": {
-          "uv": [
-            1.3,
-            14.3,
-            1.7,
-            14.7
           ],
           "texture": "#cord"
         }
@@ -789,24 +651,6 @@
             7.5
           ],
           "texture": "#cord"
-        },
-        "up": {
-          "uv": [
-            14.3,
-            1.3,
-            14.7,
-            1.7
-          ],
-          "texture": "#cord"
-        },
-        "down": {
-          "uv": [
-            14.3,
-            14.3,
-            14.7,
-            14.7
-          ],
-          "texture": "#cord"
         }
       }
     },
@@ -931,24 +775,6 @@
             7.5
           ],
           "texture": "#cord"
-        },
-        "up": {
-          "uv": [
-            7.8,
-            14.3,
-            8.2,
-            14.7
-          ],
-          "texture": "#cord"
-        },
-        "down": {
-          "uv": [
-            7.8,
-            1.3,
-            8.2,
-            1.7
-          ],
-          "texture": "#cord"
         }
       }
     },
@@ -1026,5 +852,6 @@
         }
       }
     }
-  ]
+  ],
+  "ambientocclusion": false
 }

@@ -143,16 +143,6 @@
           ],
           "texture": "#frame",
           "tintindex": 3
-        },
-        "down": {
-          "uv": [
-            5,
-            6.5,
-            11,
-            9.5
-          ],
-          "texture": "#frame",
-          "tintindex": 3
         }
       }
     },
@@ -204,26 +194,6 @@
             11.5,
             8.5,
             14.5
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "up": {
-          "uv": [
-            7.5,
-            7.5,
-            8.5,
-            8.5
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "down": {
-          "uv": [
-            7.5,
-            7.5,
-            8.5,
-            8.5
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -352,16 +322,6 @@
             11,
             9,
             11.5
-          ],
-          "texture": "#bulb",
-          "tintindex": 2
-        },
-        "up": {
-          "uv": [
-            5,
-            7,
-            11,
-            9
           ],
           "texture": "#bulb",
           "tintindex": 2
@@ -505,16 +465,6 @@
           "tintindex": 1
         },
         "up": {
-          "uv": [
-            3.5,
-            6.5,
-            12.5,
-            9.5
-          ],
-          "texture": "#light",
-          "tintindex": 1
-        },
-        "down": {
           "uv": [
             3.5,
             6.5,
@@ -726,16 +676,6 @@
           "texture": "#frame",
           "tintindex": 3
         },
-        "up": {
-          "uv": [
-            10,
-            7.875,
-            10.25,
-            8.125
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
         "down": {
           "uv": [
             10,
@@ -748,5 +688,6 @@
         }
       }
     }
-  ]
+  ],
+  "ambientocclusion": false
 }

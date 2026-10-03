@@ -361,16 +361,6 @@
           "texture": "#frame",
           "tintindex": 3
         },
-        "east": {
-          "uv": [
-            7.565,
-            0,
-            8.435,
-            4
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
         "west": {
           "uv": [
             7.565,
@@ -445,16 +435,6 @@
           "texture": "#frame",
           "tintindex": 3
         },
-        "west": {
-          "uv": [
-            7.565,
-            0,
-            8.435,
-            4
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
         "up": {
           "uv": [
             8.435,
@@ -477,5 +457,6 @@
         }
       }
     }
-  ]
+  ],
+  "ambientocclusion": false
 }

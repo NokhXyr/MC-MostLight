@@ -146,6 +146,18 @@ public final class StressField {
                 }
             }
         }
+        // blocs qui laissent passer la lumière au-dessus des lampes : canopée de feuillages (~1/3) et verre
+        for (int dx = -2; dx < size + 2; dx++) {
+            for (int dz = -2; dz < size + 2; dz++) {
+                BlockPos top = zone.origin.offset(dx, 4, dz);
+                if ((dx + dz) % 3 == 0) {
+                    level.setBlock(top, Blocks.OAK_LEAVES.defaultBlockState().setValue(net.minecraft.world.level.block.LeavesBlock.PERSISTENT, true),
+                            Block.UPDATE_CLIENTS);
+                } else if ((dx * 7 + dz * 3) % 11 == 0) {
+                    level.setBlock(top, (dx % 2 == 0 ? Blocks.GLASS : Blocks.LIGHT_BLUE_STAINED_GLASS).defaultBlockState(), Block.UPDATE_CLIENTS);
+                }
+            }
+        }
         if (!config.vanilla()) {
             // 4 interrupteurs et 4 variateurs, chacun lié à 64 lampes de la zone (le maximum)
             for (int i = 0; i < 8; i++) {

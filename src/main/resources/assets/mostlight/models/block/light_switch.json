@@ -132,15 +132,6 @@
             12
           ],
           "texture": "#iron"
-        },
-        "down": {
-          "uv": [
-            5,
-            4,
-            11,
-            12
-          ],
-          "texture": "#iron"
         }
       }
     },
@@ -277,17 +268,9 @@
             5.5
           ],
           "texture": "#dark"
-        },
-        "down": {
-          "uv": [
-            7.5,
-            10.5,
-            8.5,
-            11.5
-          ],
-          "texture": "#dark"
         }
       }
     }
-  ]
+  ],
+  "ambientocclusion": false
 }

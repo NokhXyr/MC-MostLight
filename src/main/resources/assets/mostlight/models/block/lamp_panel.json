@@ -142,18 +142,9 @@
           ],
           "texture": "#light",
           "tintindex": 1
-        },
-        "down": {
-          "uv": [
-            2,
-            2,
-            14,
-            14
-          ],
-          "texture": "#light",
-          "tintindex": 1
         }
       }
     }
-  ]
+  ],
+  "ambientocclusion": false
 }

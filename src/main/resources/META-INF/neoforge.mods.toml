@@ -29,3 +29,11 @@ side="BOTH"
 
 [[mixins]]
 config="mostlight.mixins.json"
+
+# animations des lampes animées (lampe à engrenages)
+[[dependencies.mostlight]]
+modId="geckolib"
+type="required"
+versionRange="[4.9,)"
+ordering="NONE"
+side="BOTH"

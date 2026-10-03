@@ -34,6 +34,8 @@ public class LampBlockEntity extends BlockEntity {
     private int stripLayout = DEFAULT_STRIP_LAYOUT;
     /** Bandes LED : côtés reliés aux bandes voisines pour la redstone (un bit par Direction). */
     private int connections;
+    /** Incrémenté à chaque changement d'aspect connu du client : invalide le cache de teintes du rendu. */
+    public static volatile int lookVersion;
 
     public LampBlockEntity(BlockPos pos, BlockState state) {
         this(ModBlockEntities.LAMP.get(), pos, state);
@@ -92,6 +94,7 @@ public class LampBlockEntity extends BlockEntity {
 
     private void sync() {
         lookChanged = true;
+        lookVersion++;
         setChanged();
         if (level != null && !level.isClientSide) {
             level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
@@ -142,6 +145,7 @@ public class LampBlockEntity extends BlockEntity {
         stripLayout = tag.contains("strip") ? tag.getInt("strip") : DEFAULT_STRIP_LAYOUT;
         connections = tag.getByte("connections") & 0b111111;
         if (level != null && level.isClientSide) {
+            lookVersion++;
             requestModelDataUpdate();
         }
     }

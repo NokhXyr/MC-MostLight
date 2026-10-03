@@ -103,16 +103,6 @@
           "texture": "#frame",
           "tintindex": 3
         },
-        "south": {
-          "uv": [
-            4.5,
-            5.5,
-            11.5,
-            10.5
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
         "east": {
           "uv": [
             3,
@@ -303,5 +293,6 @@
         }
       }
     }
-  ]
+  ],
+  "ambientocclusion": false
 }

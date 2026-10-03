@@ -1,0 +1,53 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "spin": {
+      "loop": true,
+      "animation_length": 4,
+      "bones": {
+        "gear_large": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "4.0": [
+              0,
+              0,
+              360
+            ]
+          }
+        },
+        "gear_small": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "4.0": [
+              0,
+              0,
+              -720
+            ]
+          }
+        },
+        "gear_tiny": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "4.0": [
+              0,
+              0,
+              -1080
+            ]
+          }
+        }
+      }
+    }
+  }
+}
