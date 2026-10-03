@@ -69,6 +69,12 @@ Les captures arrivent dans `run-shaders/screenshots/`.
 
 Voir aussi [COMPATIBILITE.md](COMPATIBILITE.md) : mods d'optimisation et lumière colorée sous shaders.
 
+## Performances
+
+Test de charge avec 20 joueurs simultanés et près de 37 000 lampes : 20 TPS tenus, coût proche de blocs lumineux
+vanilla, aucune erreur, lumière exacte. Rapport détaillé : [docs/TEST_DE_CHARGE.md](docs/TEST_DE_CHARGE.md)
+(`./gradlew runStressServer` et `./gradlew runStressClient` pour le relancer).
+
 ## Compiler
 
 ```

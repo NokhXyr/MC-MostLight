@@ -14,11 +14,14 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 
 /** Stocke la finition du cadre et la teinte de lumière ; le rendu les lit via les teintes de bloc. */
 public class LampBlockEntity extends BlockEntity {
     private LampFinish finish;
     private LightTone tone = LightTone.AUTO;
+    /** Finition ou teinte modifiée depuis le dernier envoi aux clients. */
+    private boolean lookChanged;
 
     public LampBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.LAMP.get(), pos, state);
@@ -36,6 +39,7 @@ public class LampBlockEntity extends BlockEntity {
     public void setLook(LampFinish finish, LightTone tone) {
         this.finish = finish;
         this.tone = tone;
+        lookChanged = true;
         setChanged();
         if (level != null && !level.isClientSide) {
             level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
@@ -52,6 +56,9 @@ public class LampBlockEntity extends BlockEntity {
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
+        // une clé absente veut dire « valeur par défaut » (les paquets n'envoient que les différences)
+        finish = getBlockState().getBlock() instanceof LampBlock lamp ? lamp.type().defaultFinish() : LampFinish.STEEL;
+        tone = LightTone.AUTO;
         for (LampFinish f : LampFinish.values()) {
             if (f.getSerializedName().equals(tag.getString("finish"))) {
                 finish = f;
@@ -84,13 +91,31 @@ public class LampBlockEntity extends BlockEntity {
         tag.remove("tone");
     }
 
+    /** Données envoyées avec le chunk : seulement ce qui diffère des valeurs par défaut du modèle. */
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return saveCustomOnly(registries);
+        CompoundTag tag = new CompoundTag();
+        LampFinish defaultFinish = getBlockState().getBlock() instanceof LampBlock lamp ? lamp.type().defaultFinish() : null;
+        if (finish != defaultFinish) {
+            tag.putString("finish", finish.getSerializedName());
+        }
+        if (tone != LightTone.AUTO) {
+            tag.putString("tone", tone.getSerializedName());
+        }
+        return tag;
     }
 
+    /**
+     * Appelé par le serveur à chaque changement d'état du bloc (allumage, luminosité, redstone). Le client garde sa
+     * block entity dans ces cas-là : on n'envoie les données que si la finition ou la teinte ont changé
+     * (clé, recoloration), au lieu d'un paquet par bascule et par joueur.
+     */
     @Override
-    public ClientboundBlockEntityDataPacket getUpdatePacket() {
+    public @Nullable ClientboundBlockEntityDataPacket getUpdatePacket() {
+        if (!lookChanged) {
+            return null;
+        }
+        lookChanged = false;
         return ClientboundBlockEntityDataPacket.create(this);
     }
 

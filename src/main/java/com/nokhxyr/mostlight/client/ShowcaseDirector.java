@@ -83,7 +83,7 @@ public final class ShowcaseDirector {
                     wait = 20;
                     return;
                 }
-                deleteOldWorld(mc);
+                deleteWorld(mc, WORLD);
                 mc.createWorldOpenFlows().createFreshLevel(WORLD,
                         new LevelSettings("MostLight Showcase", GameType.CREATIVE, false, Difficulty.PEACEFUL, true,
                                 new GameRules(), WorldDataConfiguration.DEFAULT),
@@ -202,8 +202,8 @@ public final class ShowcaseDirector {
         });
     }
 
-    private static void deleteOldWorld(Minecraft mc) {
-        Path dir = mc.gameDirectory.toPath().resolve("saves").resolve(WORLD);
+    static void deleteWorld(Minecraft mc, String world) {
+        Path dir = mc.gameDirectory.toPath().resolve("saves").resolve(world);
         if (!Files.exists(dir)) {
             return;
         }

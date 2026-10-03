@@ -169,6 +169,52 @@ public class LampGameTests {
         helper.succeed();
     }
 
+    /** Poser une lampe haute (par un joueur ou bloc par bloc) ne doit faire tomber aucun objet. */
+    @GameTest(template = "empty")
+    public static void tallLampPlacementDropsNothing(GameTestHelper helper) {
+        helper.setBlock(GROUND, Blocks.STONE);
+        helper.setBlock(GROUND.east(2), Blocks.STONE);
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        place(helper, player, new ItemStack(ModBlocks.item(LampType.STREET_LAMP, DyeColor.WHITE)), GROUND, Direction.UP);
+        BlockState lower = ModBlocks.lamp(LampType.STREET_LAMP, DyeColor.RED).defaultBlockState();
+        helper.setBlock(LAMP.east(2), lower);
+        helper.setBlock(LAMP.east(2).above(), lower.setValue(TallLampBlock.HALF, DoubleBlockHalf.UPPER));
+        helper.runAfterDelay(2, () -> {
+            var items = helper.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,
+                    new net.minecraft.world.phys.AABB(helper.absolutePos(BlockPos.ZERO)).inflate(8));
+            helper.assertTrue(items.isEmpty(), "objets tombés : " + items.stream().map(i -> i.getItem().toString()).toList());
+            helper.assertTrue(helper.getBlockState(LAMP.above()).getBlock() instanceof TallLampBlock
+                    && helper.getBlockState(LAMP.east(2).above()).getBlock() instanceof TallLampBlock, "les deux lampes sont entières");
+            helper.succeed();
+        });
+    }
+
+    /** Réseau : une bascule n'envoie pas les données de la lampe, un changement de finition si, et le client suit. */
+    @GameTest(template = "empty")
+    public static void lookSyncsOnlyWhenChanged(GameTestHelper helper) {
+        helper.setBlock(LAMP, ModBlocks.lamp(LampType.LAMP_BLOCK, DyeColor.RED));
+        LampBlockEntity lamp = (LampBlockEntity) helper.getBlockEntity(LAMP);
+        var registries = helper.getLevel().registryAccess();
+        helper.assertTrue(lamp.getUpdateTag(registries).isEmpty(), "aspect par défaut : rien à envoyer avec le chunk");
+
+        helper.useBlock(LAMP, helper.makeMockPlayer(GameType.SURVIVAL));
+        helper.assertTrue(lamp.getUpdatePacket() == null, "allumer/éteindre n'envoie pas les données de la lampe");
+
+        lamp.setLook(LampFinish.GOLD, LightTone.COOL);
+        helper.assertTrue(lamp.getUpdatePacket() != null, "changer la finition envoie les données");
+        helper.assertTrue(lamp.getUpdatePacket() == null, "une seule fois");
+
+        // côté client : une copie qui reçoit les paquets successifs
+        LampBlockEntity client = new LampBlockEntity(helper.absolutePos(LAMP), helper.getBlockState(LAMP));
+        client.loadWithComponents(lamp.getUpdateTag(registries), registries);
+        helper.assertTrue(client.finish() == LampFinish.GOLD && client.tone() == LightTone.COOL, "le client reçoit la finition");
+        lamp.setLook(LampType.LAMP_BLOCK.defaultFinish(), LightTone.AUTO);
+        client.loadWithComponents(lamp.getUpdateTag(registries), registries);
+        helper.assertTrue(client.finish() == LampType.LAMP_BLOCK.defaultFinish() && client.tone() == LightTone.AUTO,
+                "retour aux valeurs par défaut transmis au client");
+        helper.succeed();
+    }
+
     @GameTest(template = "empty")
     public static void switchControlsLinkedLamps(GameTestHelper helper) {
         Player player = helper.makeMockPlayer(GameType.SURVIVAL);

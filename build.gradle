@@ -52,6 +52,47 @@ neoForge {
             gameDirectory = project.file('run-gametest')
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
+        // ./gradlew runStressServer : test de charge serveur (20 joueurs simulés, ~36 000 lampes), rapport dans run-stress/stress
+        stressServer {
+            type = 'gameTestServer'
+            gameDirectory = project.file('run-stress')
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            systemProperty 'mostlight.stress', 'true'
+            jvmArguments.addAll '-Xms4G', '-Xmx6G'
+        }
+        // même test avec des ampoules en cuivre vanilla à la place des lampes : la référence de comparaison
+        stressServerVanilla {
+            type = 'gameTestServer'
+            gameDirectory = project.file('run-stress-vanilla')
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            systemProperty 'mostlight.stress', 'true'
+            systemProperty 'mostlight.stress.vanilla', 'true'
+            jvmArguments.addAll '-Xms4G', '-Xmx6G'
+        }
+        // ./gradlew runStressClient : même scénario en solo, FPS mesurés (rapport dans run-stress-client/stress)
+        stressClient {
+            client()
+            gameDirectory = project.file('run-stress-client')
+            systemProperty 'mostlight.stress.client', 'true'
+            programArguments.addAll '--width', '1600', '--height', '900'
+            jvmArguments.addAll '-Xms4G', '-Xmx6G'
+        }
+        stressClientVanilla {
+            client()
+            gameDirectory = project.file('run-stress-client-vanilla')
+            systemProperty 'mostlight.stress.client', 'true'
+            systemProperty 'mostlight.stress.vanilla', 'true'
+            programArguments.addAll '--width', '1600', '--height', '900'
+            jvmArguments.addAll '-Xms4G', '-Xmx6G'
+        }
+        // avec la pile de mods d'optimisation de run-opti (Sodium, ModernFix...)
+        stressClientOpti {
+            client()
+            gameDirectory = project.file('run-opti')
+            systemProperty 'mostlight.stress.client', 'true'
+            programArguments.addAll '--width', '1600', '--height', '900'
+            jvmArguments.addAll '-Xms4G', '-Xmx6G'
+        }
         server {
             server()
             gameDirectory = project.file('run-server')
@@ -68,4 +109,11 @@ neoForge {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
+}
+
+// chaque test de charge serveur repart d'un monde neuf (sinon le terrain se construit sur l'ancien)
+['runStressServer': 'run-stress', 'runStressServerVanilla': 'run-stress-vanilla'].each { name, dir ->
+    tasks.matching { it.name == name }.configureEach {
+        doFirst { delete file("${dir}/world") }
+    }
 }

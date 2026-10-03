@@ -11,3 +11,7 @@ out/
 run-gametest/
 run-shaders/
 run-opti/
+run-stress/
+run-stress-vanilla/
+run-stress-client/
+run-stress-client-vanilla/
