@@ -33,6 +33,7 @@ public enum LampType {
     WALL_GLOBE("wall_globe", LampCategory.WALL, Placement.WALL, SoundType.GLASS, LampFinish.BRASS),
     WALL_UPLIGHT("wall_uplight", LampCategory.WALL, Placement.WALL, SoundType.METAL, LampFinish.STEEL),
     STRING_LIGHTS("string_lights", LampCategory.WALL, Placement.WALL, SoundType.GLASS, LampFinish.BLACK),
+    GEAR_LAMP("gear_lamp", LampCategory.TABLE, Placement.STANDING, SoundType.METAL, LampFinish.BRASS),
     TABLE_LAMP("table_lamp", LampCategory.TABLE, Placement.STANDING, SoundType.WOOL, LampFinish.BRASS),
     DESK_LAMP("desk_lamp", LampCategory.TABLE, Placement.STANDING, SoundType.LANTERN, LampFinish.BLACK),
     LAVA_LAMP("lava_lamp", LampCategory.TABLE, Placement.STANDING, SoundType.GLASS, LampFinish.STEEL),

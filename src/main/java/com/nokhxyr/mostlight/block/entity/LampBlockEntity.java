@@ -36,7 +36,11 @@ public class LampBlockEntity extends BlockEntity {
     private int connections;
 
     public LampBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.LAMP.get(), pos, state);
+        this(ModBlockEntities.LAMP.get(), pos, state);
+    }
+
+    protected LampBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type, BlockPos pos, BlockState state) {
+        super(type, pos, state);
         finish = state.getBlock() instanceof LampBlock lamp ? lamp.type().defaultFinish() : LampFinish.STEEL;
     }
 

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_gear_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:gear_lamp"
+    },
+    {
+      "tag": "c:dyes/gray"
+    }
+  ],
+  "result": {
+    "id": "mostlight:gear_lamp_gray",
+    "count": 1
+  }
+}

@@ -27,6 +27,17 @@ public final class LampShapes {
         return GeneratedShapes.FLAMES.get(model);
     }
 
+    /** Engrenage animé d'une lampe : modèle (block/...), centre en pixels, vitesse relative (signe = sens). */
+    public record Gear(String model, double cx, double cy, double cz, double speed) {}
+
+    public static java.util.List<Gear> gears(String lamp) {
+        return GeneratedShapes.GEARS.getOrDefault(lamp, java.util.List.of());
+    }
+
+    public static java.util.Collection<java.util.List<Gear>> allGears() {
+        return GeneratedShapes.GEARS.values();
+    }
+
     private static VoxelShape build(String model, Direction facing, boolean omni) {
         double[][] boxes = GeneratedShapes.BOXES.get(model);
         if (boxes == null) {

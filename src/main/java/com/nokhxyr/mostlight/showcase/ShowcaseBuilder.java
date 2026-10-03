@@ -124,7 +124,9 @@ public final class ShowcaseBuilder {
                     place(level, rowStart.east(i), row.get(i), checks);
                 }
                 views.add(rowView(rowStart, ground));
-                if (c < columns.size() - 1) {
+                // MOSTLIGHT_SHOWCASE_TYPE=gear_lamp : gros plan d'un seul modèle (contrôle rapide)
+                String only = System.getenv("MOSTLIGHT_SHOWCASE_TYPE");
+                if (c < columns.size() - 1 && (only == null || only.equals(row.get(0).type().id()))) {
                     closeups.add(closeView(rowStart, row.get(0).type(), ground));
                 }
             }

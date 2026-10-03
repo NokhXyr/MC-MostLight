@@ -45,7 +45,7 @@ Le verre est translucide : on voit l'ampoule à filament ou la flamme à l'inté
 |---|---|
 | Plafond | suspension, lustre, lustre en cristal, plafonnier, lanterne en papier, cage industrielle, suspension globe, lanterne suspendue, grappe de suspensions, suspension dôme, suspension anneau, lanterne marocaine, rail de spots, ventilateur lumineux, ampoule Edison |
 | Mur | applique, applique double, lanterne murale, tube néon, anneau néon, spot mural, hublot, flambeau, bougeoir mural, éclairage de tableau, applique industrielle, globe mural, applique lumineuse, guirlande |
-| Table | lampe de table, lampe de bureau, lampe à lave, lampe champignon, lampe de banquier, lanterne, chandelier, bougie en pot, lampe boule, lampe lune, lampe Tiffany, lampe de sel, lampe à pétrole, lampe shoji |
+| Table | lampe à engrenages (engrenages animés quand elle est allumée, plus vite à pleine puissance), lampe de table, lampe de bureau, lampe à lave, lampe champignon, lampe de banquier, lanterne, chandelier, bougie en pot, lampe boule, lampe lune, lampe Tiffany, lampe de sel, lampe à pétrole, lampe shoji |
 | Sol | lampadaire, lampadaire arc, réverbère, réverbère double, trépied, torchère, colonne en papier, projecteur de studio et lanterne de pierre (2 blocs de haut) ; borne lumineuse, lanterne de jardin, balise, brasero |
 | Blocs | bloc lumineux, lampe encadrée, lampe alvéolée, bloc cadre néon, bloc shoji ; panneau LED, bande LED, projecteur, spot encastré et cristal lumineux (ces 5 derniers se fixent sur n'importe quelle face) |
 

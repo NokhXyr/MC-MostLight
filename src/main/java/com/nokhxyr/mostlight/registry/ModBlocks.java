@@ -2,6 +2,7 @@ package com.nokhxyr.mostlight.registry;
 
 import com.nokhxyr.mostlight.MostLight;
 import com.nokhxyr.mostlight.block.CubeLampBlock;
+import com.nokhxyr.mostlight.block.GearLampBlock;
 import com.nokhxyr.mostlight.block.HorizontalLampBlock;
 import com.nokhxyr.mostlight.block.LampBlock;
 import com.nokhxyr.mostlight.block.LampType;
@@ -98,7 +99,7 @@ public final class ModBlocks {
             case TALL -> new TallLampBlock(type, color, props);
             case OMNI -> type == LampType.LIGHT_STRIP ? new LightStripBlock(type, color, props) : new OmniLampBlock(type, color, props);
             case CUBE -> new CubeLampBlock(type, color, props);
-            default -> new HorizontalLampBlock(type, color, props);
+            default -> type == LampType.GEAR_LAMP ? new GearLampBlock(type, color, props) : new HorizontalLampBlock(type, color, props);
         };
     }
 
