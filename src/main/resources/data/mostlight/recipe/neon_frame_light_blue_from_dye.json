@@ -1,6 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "building",
+  "type": "mostlight:workbench_shapeless",
   "group": "mostlight_neon_frame_dye",
   "ingredients": [
     {

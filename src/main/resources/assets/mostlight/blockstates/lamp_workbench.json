@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "mostlight:block/lamp_workbench"
+    },
+    "facing=east": {
+      "model": "mostlight:block/lamp_workbench",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "mostlight:block/lamp_workbench",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mostlight:block/lamp_workbench",
+      "y": 270
+    }
+  }
+}

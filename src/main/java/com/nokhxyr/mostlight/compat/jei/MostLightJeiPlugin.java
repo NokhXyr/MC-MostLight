@@ -14,7 +14,16 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.ingredients.subtypes.ISubtypeInterpreter;
 import mezz.jei.api.ingredients.subtypes.UidContext;
+import mezz.jei.api.recipe.RecipeType;
+import mezz.jei.api.registration.IRecipeCatalystRegistration;
+import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.registration.IRecipeTransferRegistration;
+import com.nokhxyr.mostlight.crafting.LampWorkbenchMenu;
+import com.nokhxyr.mostlight.crafting.ModRecipes;
+import com.nokhxyr.mostlight.crafting.WorkbenchRecipe;
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import mezz.jei.api.registration.ISubtypeRegistration;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -23,13 +32,32 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Compatibilité JEI (optionnelle : chargée seulement si JEI est installé). Les recettes de fabrication et de teinture
- * sont des recettes vanilla, affichées d'office. Ici : les variantes de finition / teinte de lumière apparaissent
- * comme des objets distincts, et chaque lampe, outil et interrupteur a une fiche d'explication.
+ * Compatibilité JEI (optionnelle : chargée seulement si JEI est installé) : catégorie « Établi de luminaire » avec
+ * toutes les recettes du mod (et remplissage de la grille depuis JEI), variantes de finition / teinte de lumière
+ * comme objets distincts, fiche d'explication pour chaque lampe, outil et interrupteur.
  */
 @JeiPlugin
 public class MostLightJeiPlugin implements IModPlugin {
     private static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(MostLight.MOD_ID, "jei_plugin");
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static final RecipeType<RecipeHolder<WorkbenchRecipe>> WORKBENCH =
+            RecipeType.create(MostLight.MOD_ID, "lamp_workbench", (Class) RecipeHolder.class);
+
+    @Override
+    public void registerCategories(IRecipeCategoryRegistration registration) {
+        registration.addRecipeCategories(new WorkbenchCategory(registration.getJeiHelpers().getGuiHelper()));
+    }
+
+    @Override
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+        registration.addRecipeCatalysts(WORKBENCH, ModBlocks.LAMP_WORKBENCH_ITEM.get());
+    }
+
+    @Override
+    public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
+        registration.addRecipeTransferHandler(LampWorkbenchMenu.class, ModRecipes.WORKBENCH_MENU.get(), WORKBENCH,
+                LampWorkbenchMenu.GRID_START, 9, LampWorkbenchMenu.INVENTORY_START, 36);
+    }
 
     @Override
     public ResourceLocation getPluginUid() {
@@ -66,6 +94,10 @@ public class MostLightJeiPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
+        if (Minecraft.getInstance().level != null) {
+            registration.addRecipes(WORKBENCH, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(ModRecipes.WORKBENCH.get()));
+        }
+        registration.addIngredientInfo(new ItemStack(ModBlocks.LAMP_WORKBENCH_ITEM.get()), VanillaTypes.ITEM_STACK, info("workbench"));
         List<ItemStack> lamps = new ArrayList<>();
         List<ItemStack> strips = new ArrayList<>();
         List<ItemStack> fans = new ArrayList<>();

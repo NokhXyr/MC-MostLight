@@ -1,0 +1,147 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "mostlight:block/cord",
+    "cord": "mostlight:block/cord"
+  },
+  "elements": [
+    {
+      "from": [
+        14,
+        0.6953,
+        1.25
+      ],
+      "to": [
+        15,
+        1.5812,
+        1.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1,
+            14.4188,
+            2,
+            15.3047
+          ],
+          "texture": "#cord"
+        },
+        "south": {
+          "uv": [
+            14,
+            14.4188,
+            15,
+            15.3047
+          ],
+          "texture": "#cord"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            14.4188,
+            14.75,
+            15.3047
+          ],
+          "texture": "#cord"
+        },
+        "west": {
+          "uv": [
+            1.25,
+            14.4188,
+            1.75,
+            15.3047
+          ],
+          "texture": "#cord"
+        },
+        "up": {
+          "uv": [
+            14,
+            1.25,
+            15,
+            1.75
+          ],
+          "texture": "#cord"
+        },
+        "down": {
+          "uv": [
+            14,
+            14.25,
+            15,
+            14.75
+          ],
+          "texture": "#cord"
+        }
+      }
+    },
+    {
+      "from": [
+        15,
+        0.25,
+        1.25
+      ],
+      "to": [
+        16,
+        1.1953,
+        1.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            14.8047,
+            1,
+            15.75
+          ],
+          "texture": "#cord"
+        },
+        "south": {
+          "uv": [
+            15,
+            14.8047,
+            16,
+            15.75
+          ],
+          "texture": "#cord"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            14.8047,
+            14.75,
+            15.75
+          ],
+          "texture": "#cord"
+        },
+        "west": {
+          "uv": [
+            1.25,
+            14.8047,
+            1.75,
+            15.75
+          ],
+          "texture": "#cord"
+        },
+        "up": {
+          "uv": [
+            15,
+            1.25,
+            16,
+            1.75
+          ],
+          "texture": "#cord"
+        },
+        "down": {
+          "uv": [
+            15,
+            14.25,
+            16,
+            14.75
+          ],
+          "texture": "#cord"
+        }
+      }
+    }
+  ],
+  "ambientocclusion": false
+}

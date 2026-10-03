@@ -1,6 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "tools",
+  "type": "mostlight:workbench_shaped",
   "pattern": [
     "  I",
     " K ",

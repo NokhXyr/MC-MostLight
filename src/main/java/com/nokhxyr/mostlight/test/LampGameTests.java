@@ -206,9 +206,9 @@ public class LampGameTests {
         ((com.nokhxyr.mostlight.link.SwitchBlockEntity) helper.getBlockEntity(switchPos)).setLinks(java.util.List.of(helper.absolutePos(fan)));
         Player player = helper.makeMockPlayer(GameType.SURVIVAL);
         BlockPos abs = helper.absolutePos(switchPos);
-        // face nord de l'interrupteur, vue de face : la droite du joueur est à l'ouest (x plus petit)
-        Vec3 left = Vec3.atCenterOf(abs).add(0.25, 0, -0.4);
-        Vec3 right = Vec3.atCenterOf(abs).add(-0.25, 0, -0.4);
+        // interrupteur tourné vers le nord : bascule de la lumière côté ouest, du ventilateur côté est (retour en jeu)
+        Vec3 left = Vec3.atCenterOf(abs).add(-0.25, 0, -0.4);
+        Vec3 right = Vec3.atCenterOf(abs).add(0.25, 0, -0.4);
         BlockState sw = helper.getLevel().getBlockState(abs);
         sw.useWithoutItem(helper.getLevel(), player, new BlockHitResult(left, Direction.NORTH, abs, false));
         helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.LampBlock.LIT, true);
@@ -443,6 +443,106 @@ public class LampGameTests {
             }
         }
         helper.assertTrue(states > 0, "aucun état testé");
+        helper.succeed();
+    }
+    /** Établi de luminaire : les recettes du mod s'y trouvent, plus à l'établi vanilla. */
+    @GameTest(template = "empty")
+    public static void recipesOnlyAtLampWorkbench(GameTestHelper helper) {
+        net.minecraft.world.item.crafting.CraftingInput rod = net.minecraft.world.item.crafting.CraftingInput.of(1, 3, java.util.List.of(
+                new ItemStack(Items.GLOWSTONE_DUST), new ItemStack(Items.GLASS), new ItemStack(Items.IRON_NUGGET)));
+        var recipes = helper.getLevel().getRecipeManager();
+        var lamp = recipes.getRecipeFor(com.nokhxyr.mostlight.crafting.ModRecipes.WORKBENCH.get(), rod, helper.getLevel());
+        helper.assertTrue(lamp.isPresent() && lamp.get().value().getResultItem(helper.getLevel().registryAccess())
+                .is(ModBlocks.item(LampType.LIGHT_ROD, DyeColor.WHITE)), "tige lumineuse à l'établi de luminaire");
+        helper.assertTrue(recipes.getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, rod, helper.getLevel()).isEmpty(),
+                "plus de recette de lampe à l'établi vanilla");
+        // teinture (sans forme) : lampe + colorant
+        net.minecraft.world.item.crafting.CraftingInput dye = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, java.util.List.of(
+                new ItemStack(ModBlocks.item(LampType.LIGHT_ROD, DyeColor.WHITE)), new ItemStack(Items.RED_DYE)));
+        var dyed = recipes.getRecipeFor(com.nokhxyr.mostlight.crafting.ModRecipes.WORKBENCH.get(), dye, helper.getLevel());
+        helper.assertTrue(dyed.isPresent() && dyed.get().value().getResultItem(helper.getLevel().registryAccess())
+                .is(ModBlocks.item(LampType.LIGHT_ROD, DyeColor.RED)), "teinture à l'établi de luminaire");
+        helper.succeed();
+    }
+
+    /** Blocs lumineux reliés au connecteur : alimenter le premier allume toute la rangée. */
+    @GameTest(template = "empty")
+    public static void lampBlocksChainRedstone(GameTestHelper helper) {
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        for (int x = 2; x <= 5; x++) {
+            helper.setBlock(new BlockPos(x, 2, 4), ModBlocks.lamp(LampType.LAMP_BLOCK, DyeColor.WHITE).defaultBlockState().setValue(LampBlock.LIT, false));
+        }
+        for (int x = 2; x <= 4; x++) {
+            placeAt(helper, player, new ItemStack(ModBlocks.LED_CONNECTOR.get()), new BlockPos(x, 2, 4), Direction.UP, new Vec3(0.95, 1, 0.5));
+        }
+        BlockPos first = new BlockPos(2, 2, 4);
+        helper.assertTrue(LightStripBlock.chain(helper.getLevel(), helper.absolutePos(first)).size() == 4, "4 blocs dans la chaîne");
+        helper.setBlock(first.west(), Blocks.REDSTONE_BLOCK);
+        helper.runAfterDelay(2, () -> {
+            for (int x = 2; x <= 5; x++) {
+                helper.assertBlockProperty(new BlockPos(x, 2, 4), LampBlock.LIT, true);
+            }
+            helper.succeed();
+        });
+    }
+
+    /** Bandes : angle intérieur (une s'arrête contre l'autre), T sur un mur, angle extérieur autour d'un pilier. */
+    @GameTest(template = "empty")
+    public static void stripsJoinCornersAndTees(GameTestHelper helper) {
+        BlockPos corner = new BlockPos(4, 2, 4);
+        helper.setBlock(corner.south(), Blocks.STONE);
+        helper.setBlock(corner.east(), Blocks.STONE);
+        helper.setBlock(corner.south().below(), Blocks.STONE);
+        helper.setBlock(corner.west().south(), Blocks.STONE);
+        LampBlock strip = ModBlocks.lamp(LampType.LIGHT_STRIP, DyeColor.ORANGE);
+        setStrip(helper, strip, corner, Direction.SOUTH, 2, false);
+        setStrip(helper, strip, corner, Direction.EAST, 2, false);
+        setStrip(helper, strip, corner.west(), Direction.SOUTH, 2, false);
+        setStrip(helper, strip, corner.below(), Direction.SOUTH, 1, true);
+        BlockPos abs = helper.absolutePos(corner);
+        int[] segs = LightStripBlock.segments(helper.getLevel(), abs, helper.getLevel().getBlockState(abs), layout(helper, corner));
+        boolean southToEast = false, eastFull = false, tee = false;
+        for (int seg : segs) {
+            Direction side = LightStripBlock.segmentSide(seg);
+            if (side == Direction.SOUTH && LightStripBlock.segmentAxis(seg) == Direction.Axis.X && LightStripBlock.segmentTo(seg) == 7) {
+                southToEast = true; // la bande sud va jusqu'au mur est (est = indice plus grand : elle passe)
+            }
+            if (side == Direction.EAST && LightStripBlock.segmentAxis(seg) == Direction.Axis.Z && LightStripBlock.segmentTo(seg) == 6) {
+                eastFull = true; // la bande est s'arrête contre la bande sud
+            }
+            if (side == Direction.SOUTH && LightStripBlock.segmentAxis(seg) == Direction.Axis.Y) {
+                tee = true; // bras vers la bande verticale du dessous
+            }
+        }
+        helper.assertTrue(southToEast && eastFull, "angle intérieur emboîté : " + java.util.Arrays.toString(segs));
+        helper.assertTrue(tee, "T vers la bande verticale");
+        helper.succeed();
+    }
+
+    private static void setStrip(GameTestHelper helper, LampBlock block, BlockPos pos, Direction side, int slot, boolean rotated) {
+        BlockState current = helper.getBlockState(pos);
+        BlockState state = current.is(block) ? current : block.defaultBlockState().setValue(LightStripBlock.SIDES.get(Direction.DOWN), false);
+        helper.setBlock(pos, state.setValue(LightStripBlock.SIDES.get(side), true));
+        ((LampBlockEntity) helper.getBlockEntity(pos)).setStrip(side, slot, rotated);
+    }
+
+    /** Tige lumineuse : couchée à l'horizontale au mur, à la verticale en étant accroupi, debout au sol. */
+    @GameTest(template = "empty")
+    public static void rodLiesAlongWalls(GameTestHelper helper) {
+        BlockPos wall = new BlockPos(4, 2, 5);
+        BlockPos floor = new BlockPos(1, 1, 2);
+        helper.setBlock(wall, Blocks.STONE);
+        helper.setBlock(floor, Blocks.STONE);
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        ItemStack rod = new ItemStack(ModBlocks.item(LampType.LIGHT_ROD, DyeColor.WHITE), 3);
+        place(helper, player, rod, wall, Direction.NORTH);
+        BlockState lying = helper.getBlockState(wall.north());
+        helper.assertTrue(lying.getValue(com.nokhxyr.mostlight.block.RodLampBlock.LYING)
+                && lying.getValue(com.nokhxyr.mostlight.block.RodLampBlock.AXIS) == Direction.Axis.X, "au mur : couchée à l'horizontale " + lying);
+        place(helper, player, rod, floor, Direction.UP);
+        BlockState standing = helper.getBlockState(floor.above());
+        helper.assertTrue(!standing.getValue(com.nokhxyr.mostlight.block.RodLampBlock.LYING), "au sol : debout " + standing);
+        helper.assertTrue(!lying.getShape(helper.getLevel(), helper.absolutePos(wall.north())).isEmpty(), "hitbox couchée");
         helper.succeed();
     }
 }

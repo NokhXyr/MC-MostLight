@@ -38,6 +38,7 @@ public final class ModTabs {
                 .title(Component.translatable("itemGroup." + MostLight.MOD_ID + ".finishes"))
                 .icon(() -> new ItemStack(ModBlocks.DESIGNER_WRENCH.get()))
                 .displayItems((params, output) -> {
+                    output.accept(ModBlocks.LAMP_WORKBENCH_ITEM.get());
                     output.accept(ModBlocks.DESIGNER_WRENCH.get());
                     for (ModBlocks.SwitchKind kind : ModBlocks.SwitchKind.values()) {
                         for (DyeColor color : DyeColor.values()) {

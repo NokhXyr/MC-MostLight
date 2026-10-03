@@ -9,7 +9,6 @@ import java.util.Map;
 import net.minecraft.client.renderer.block.BlockModelShaper;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
-import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -19,19 +18,41 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ModelEvent;
 
 /**
- * Charge les morceaux de bande précalculés de chaque type de bande (face x 3 positions x 2 sens x allumé/éteint x
- * 4 combinaisons de bouts raccourcis, générés par tools/generate.mjs) et remplace le modèle de chaque état de
- * bande par un {@link StripBakedModel}.
+ * Charge les morceaux de ligne précalculés de chaque type de bande (tools/generate.mjs : 3 positions x 18 paires de
+ * bouts x allumé/éteint, et pour les guirlandes deux variantes : pendante vers le bas au mur « _w », ailleurs « _y »)
+ * et remplace le modèle de chaque état de bande par un {@link StripBakedModel}.
  */
 @EventBusSubscriber(modid = MostLight.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class StripModels {
-    private static final String[] SLOTS = {"low", "middle", "high"};
+    private static final int[] NODES = {3, 4, 5};
+    private static final int[] ENDS = {0, 1, 2, 6, 7, 8};
 
     private StripModels() {}
 
-    private static ModelResourceLocation part(LampType type, Direction face, int slot, boolean rotated, boolean lit, int trim) {
-        String name = "block/" + type.id() + "_part/" + face.getName() + "_" + SLOTS[slot] + (rotated ? "_r" : "") + "_t" + trim + (lit ? "_on" : "");
+    /** Les deux variantes de pente (guirlandes) ou une seule (bandes LED). */
+    private static String[] variants(LampType type) {
+        return type == LampType.LIGHT_STRIP ? new String[] {""} : new String[] {"_y", "_w"};
+    }
+
+    private static ModelResourceLocation segment(LampType type, int slot, int i, int j, String variant, boolean lit) {
+        String name = "block/" + type.id() + "_seg/" + slot + "_" + i + "_" + j + variant + (lit ? "_on" : "");
         return ModelResourceLocation.standalone(ResourceLocation.fromNamespaceAndPath(MostLight.MOD_ID, name));
+    }
+
+    private interface PairVisitor {
+        void visit(int i, int j);
+    }
+
+    private static void pairs(PairVisitor visitor) {
+        for (int node : NODES) {
+            for (int end : ENDS) {
+                if (end < node) {
+                    visitor.visit(end, node);
+                } else {
+                    visitor.visit(node, end);
+                }
+            }
+        }
     }
 
     @SubscribeEvent
@@ -40,15 +61,13 @@ public final class StripModels {
             if (!type.isStrip()) {
                 continue;
             }
-            for (Direction face : Direction.values()) {
+            for (String variant : variants(type)) {
                 for (int slot = 0; slot < 3; slot++) {
-                    for (int r = 0; r < 2; r++) {
-                        for (int l = 0; l < 2; l++) {
-                            for (int trim = 0; trim < 4; trim++) {
-                                event.register(part(type, face, slot, r == 1, l == 1, trim));
-                            }
-                        }
-                    }
+                    int s = slot;
+                    pairs((i, j) -> {
+                        event.register(segment(type, s, i, j, variant, false));
+                        event.register(segment(type, s, i, j, variant, true));
+                    });
                 }
             }
         }
@@ -61,28 +80,47 @@ public final class StripModels {
             if (!type.isStrip()) {
                 continue;
             }
-            BakedModel[][][][][] parts = new BakedModel[6][3][2][2][4];
-            boolean complete = true;
-            for (Direction face : Direction.values()) {
-                for (int slot = 0; slot < 3; slot++) {
-                    for (int r = 0; r < 2; r++) {
-                        for (int l = 0; l < 2; l++) {
-                            for (int trim = 0; trim < 4; trim++) {
-                                BakedModel model = models.get(part(type, face, slot, r == 1, l == 1, trim));
-                                if (model == null) {
-                                    complete = false;
-                                } else {
-                                    parts[face.ordinal()][slot][r][l][trim] = model;
-                                }
+            String[] variants = variants(type);
+            BakedModel[][][][][] templates = new BakedModel[2][2][3][9][9];
+            boolean[] complete = {true};
+            for (int v = 0; v < variants.length; v++) {
+                for (int l = 0; l < 2; l++) {
+                    for (int slot = 0; slot < 3; slot++) {
+                        int vv = v, ll = l, s = slot;
+                        pairs((i, j) -> {
+                            BakedModel model = models.get(segment(type, s, i, j, variants[vv], ll == 1));
+                            if (model == null) {
+                                complete[0] = false;
+                            } else {
+                                templates[vv][ll][s][i][j] = model;
                             }
-                        }
+                        });
                     }
                 }
             }
-            if (!complete) {
+            if (!complete[0]) {
                 continue; // ressources incomplètes : rendu par défaut
             }
-            StripBakedModel strip = new StripBakedModel(parts);
+            if (variants.length == 1) {
+                templates[1] = templates[0];
+            }
+            BakedModel fallback = null;
+            for (DyeColor color : DyeColor.values()) {
+                LampBlock block = ModBlocks.lamp(type, color);
+                if (!(block instanceof LightStripBlock)) {
+                    continue;
+                }
+                for (BlockState state : block.getStateDefinition().getPossibleStates()) {
+                    ModelResourceLocation location = BlockModelShaper.stateToModelLocation(state);
+                    if (fallback == null) {
+                        fallback = models.get(location);
+                    }
+                }
+            }
+            if (fallback == null) {
+                continue;
+            }
+            StripBakedModel strip = new StripBakedModel(templates, variants.length > 1, fallback);
             for (DyeColor color : DyeColor.values()) {
                 LampBlock block = ModBlocks.lamp(type, color);
                 if (block instanceof LightStripBlock) {

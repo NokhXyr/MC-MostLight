@@ -1,6 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "type": "mostlight:workbench_shaped",
   "pattern": [
     " C ",
     "XGX",

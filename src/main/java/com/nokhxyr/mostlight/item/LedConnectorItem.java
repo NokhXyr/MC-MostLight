@@ -24,7 +24,7 @@ import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3f;
 
 /**
- * Connecteur LED : relie une bande à sa voisine du côté visé (le bord de la bande le plus proche du clic ;
+ * Connecteur LED : relie une bande (ou un bloc lumineux) à sa voisine du côté visé (le bord de la bande le plus proche du clic ;
  * accroupi, la bande située devant la face cliquée). Une chaîne de bandes reliées s'allume en entier dès
  * qu'une seule est alimentée par la redstone. Les liaisons de la chaîne s'affichent en particules.
  */
@@ -58,7 +58,7 @@ public class LedConnectorItem extends Item {
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
-        if (!(level.getBlockState(pos).getBlock() instanceof LightStripBlock)) {
+        if (!LightStripBlock.chainable(level.getBlockState(pos))) {
             return InteractionResult.PASS;
         }
         if (level.isClientSide) {
@@ -72,12 +72,12 @@ public class LedConnectorItem extends Item {
             return InteractionResult.FAIL;
         }
         boolean connect = !lamp.connected(side);
-        if (connect && !(level.getBlockState(other).getBlock() instanceof LightStripBlock && level.getBlockEntity(other) instanceof LampBlockEntity)) {
+        if (connect && !(LightStripBlock.chainable(level.getBlockState(other)) && level.getBlockEntity(other) instanceof LampBlockEntity)) {
             message(player, Component.translatable("message." + MostLight.MOD_ID + ".no_strip", Component.translatable(dir)).withStyle(ChatFormatting.GOLD));
             return InteractionResult.FAIL;
         }
         lamp.setConnected(side, connect);
-        if (level.getBlockEntity(other) instanceof LampBlockEntity neighbor && level.getBlockState(other).getBlock() instanceof LightStripBlock) {
+        if (level.getBlockEntity(other) instanceof LampBlockEntity neighbor && LightStripBlock.chainable(level.getBlockState(other))) {
             neighbor.setConnected(side.getOpposite(), connect);
         }
         LightStripBlock.updateChain(level, pos);

@@ -1,6 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "redstone",
+  "type": "mostlight:workbench_shapeless",
   "group": "mostlight_dimmer_switch_dye",
   "ingredients": [
     {

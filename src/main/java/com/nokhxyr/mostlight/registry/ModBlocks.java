@@ -11,7 +11,9 @@ import com.nokhxyr.mostlight.block.LampType;
 import com.nokhxyr.mostlight.block.LightStripBlock;
 import com.nokhxyr.mostlight.block.OmniLampBlock;
 import com.nokhxyr.mostlight.block.Placement;
+import com.nokhxyr.mostlight.block.RodLampBlock;
 import com.nokhxyr.mostlight.block.TallLampBlock;
+import com.nokhxyr.mostlight.crafting.LampWorkbenchBlock;
 import com.nokhxyr.mostlight.item.DesignerWrenchItem;
 import com.nokhxyr.mostlight.item.LampItem;
 import com.nokhxyr.mostlight.item.LedConnectorItem;
@@ -128,6 +130,10 @@ public final class ModBlocks {
         SWITCHES.values().forEach(m -> m.values().forEach(b -> out.add(b.get())));
         return out;
     }
+    /** Établi de luminaire : toutes les recettes du mod s'y font. */
+    public static final DeferredBlock<LampWorkbenchBlock> LAMP_WORKBENCH = BLOCKS.register("lamp_workbench",
+            () -> new LampWorkbenchBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.5F).sound(SoundType.WOOD).noOcclusion()));
+    public static final DeferredItem<net.minecraft.world.item.BlockItem> LAMP_WORKBENCH_ITEM = ITEMS.registerSimpleBlockItem(LAMP_WORKBENCH);
     public static final DeferredItem<LampRemoteItem> LAMP_REMOTE = ITEMS.register("lamp_remote",
             () -> new LampRemoteItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<LedConnectorItem> LED_CONNECTOR = ITEMS.register("led_connector",
@@ -157,7 +163,8 @@ public final class ModBlocks {
         }
         return switch (type.placement()) {
             case TALL -> new TallLampBlock(type, color, props);
-            case OMNI -> type.isStrip() ? new LightStripBlock(type, color, props) : new OmniLampBlock(type, color, props);
+            case OMNI -> type.isStrip() ? new LightStripBlock(type, color, props)
+                    : LampShapes.hasLying(type.id()) ? new RodLampBlock(type, color, props) : new OmniLampBlock(type, color, props);
             case CUBE -> new CubeLampBlock(type, color, props);
             default -> {
                 LampShapes.Animation animation = LampShapes.animation(type.id());

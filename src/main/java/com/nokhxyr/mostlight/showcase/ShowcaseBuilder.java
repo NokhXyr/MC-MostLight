@@ -139,6 +139,8 @@ public final class ShowcaseBuilder {
         View ledView = new View(led.getX() - 0.5, ground + 1.2, led.getZ() - 0.5, -45, 12, null);
         views.add(ledView);
         closeups.add(ledView);
+        closeups.add(new View(led.getX() - 1.5, ground + 3.4, led.getZ() - 1.5, -45, 38, null));
+        closeups.add(new View(led.getX() + 2.5, ground + 1.6, led.getZ() - 1.2, 0, 18, null));
 
         LOGGER.info("[MostLight showcase] {} colonnes, {} lampes posées, {} vues", columns.size(), checks.size(), views.size());
         return new Result(views, closeups, checks);
@@ -277,6 +279,36 @@ public final class ShowcaseBuilder {
         }
         strip(level, garland, start.offset(size - 1, 3, size - 1), Direction.SOUTH, 1, false);
         strip(level, garland, start.offset(size - 1, 3, size - 1), Direction.EAST, 1, false);
+        // T sur le mur sud : bande verticale qui monte rejoindre la bande haute
+        for (int y = 0; y < 2; y++) {
+            strip(level, block, start.offset(2, y, size - 1), Direction.SOUTH, 1, true);
+        }
+        // pilier : bandes hautes sur ses 4 faces, raccordées par les angles extérieurs
+        BlockPos pillar = start.offset(2, 0, 2);
+        level.setBlock(pillar, Blocks.SMOOTH_QUARTZ.defaultBlockState(), Block.UPDATE_ALL);
+        level.setBlock(pillar.above(), Blocks.SMOOTH_QUARTZ.defaultBlockState(), Block.UPDATE_ALL);
+        for (Direction d : Direction.Plane.HORIZONTAL) {
+            strip(level, block, pillar.above().relative(d), d.getOpposite(), 2, false);
+        }
+        // tiges : couchées au mur (horizontale, verticale), debout et couchée au sol, pendue au plafond
+        LampBlock rod = ModBlocks.lamp(LampType.LIGHT_ROD, DyeColor.LIGHT_BLUE);
+        rod(level, rod, start.offset(0, 1, size - 1), Direction.NORTH, true, Direction.Axis.X);
+        rod(level, rod, start.offset(1, 1, size - 1), Direction.NORTH, true, Direction.Axis.Y);
+        rod(level, rod, start.offset(0, 0, 3), Direction.UP, false, Direction.Axis.Y);
+        rod(level, rod, start.offset(1, 0, 0), Direction.UP, true, Direction.Axis.Z);
+        level.setBlock(start.offset(0, 3, 1), Blocks.SMOOTH_QUARTZ.defaultBlockState(), Block.UPDATE_ALL);
+        rod(level, rod, start.offset(0, 2, 1), Direction.DOWN, false, Direction.Axis.Y);
+        // établi de luminaire
+        level.setBlock(start.offset(3, 0, 0), ModBlocks.LAMP_WORKBENCH.get().defaultBlockState()
+                .setValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING, Direction.NORTH), Block.UPDATE_ALL);
+    }
+
+    private static void rod(ServerLevel level, LampBlock block, BlockPos pos, Direction facing, boolean lying, Direction.Axis axis) {
+        BlockState state = block.defaultBlockState().setValue(com.nokhxyr.mostlight.block.OmniLampBlock.FACING, facing);
+        if (block instanceof com.nokhxyr.mostlight.block.RodLampBlock) {
+            state = state.setValue(com.nokhxyr.mostlight.block.RodLampBlock.LYING, lying).setValue(com.nokhxyr.mostlight.block.RodLampBlock.AXIS, axis);
+        }
+        level.setBlock(pos, state, Block.UPDATE_ALL);
     }
 
     /** Ajoute une bande sur la face {@code side} du bloc (en gardant celles déjà posées). */

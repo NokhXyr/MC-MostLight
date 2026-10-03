@@ -1,6 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "redstone",
+  "type": "mostlight:workbench_shaped",
   "pattern": [
     "E",
     "I",

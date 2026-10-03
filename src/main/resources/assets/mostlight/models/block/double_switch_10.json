@@ -96,46 +96,6 @@
         12.1
       ],
       "faces": {
-        "north": {
-          "uv": [
-            3.4,
-            14.88,
-            12.6,
-            15
-          ],
-          "texture": "#plate",
-          "tintindex": 0
-        },
-        "south": {
-          "uv": [
-            3.4,
-            14.88,
-            12.6,
-            15
-          ],
-          "texture": "#plate",
-          "tintindex": 0
-        },
-        "east": {
-          "uv": [
-            3.9,
-            14.88,
-            12.1,
-            15
-          ],
-          "texture": "#plate",
-          "tintindex": 0
-        },
-        "west": {
-          "uv": [
-            3.9,
-            14.88,
-            12.1,
-            15
-          ],
-          "texture": "#plate",
-          "tintindex": 0
-        },
         "up": {
           "uv": [
             3.4,

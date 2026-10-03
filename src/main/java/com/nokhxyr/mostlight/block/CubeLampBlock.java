@@ -13,7 +13,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-/** Bloc lumineux plein. */
+/** Bloc lumineux plein. Se relie aux blocs voisins avec le connecteur, comme les bandes LED (chaînes redstone). */
 public class CubeLampBlock extends LampBlock {
     public CubeLampBlock(LampType type, DyeColor color, Properties properties) {
         super(type, color, properties);
@@ -32,6 +32,14 @@ public class CubeLampBlock extends LampBlock {
     @Override
     protected Direction shapeFacing(BlockState state) {
         return Direction.NORTH;
+    }
+
+    @Override
+    protected void neighborChanged(BlockState state, net.minecraft.world.level.Level level, BlockPos pos, net.minecraft.world.level.block.Block neighbor,
+            BlockPos neighborPos, boolean movedByPiston) {
+        if (!LightStripBlock.chainNeighborChanged(level, pos)) {
+            super.neighborChanged(state, level, pos, neighbor, neighborPos, movedByPiston);
+        }
     }
 
     @Override

@@ -1,0 +1,79 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "mostlight:block/cord",
+    "cord": "mostlight:block/cord"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0.25,
+        1.25
+      ],
+      "to": [
+        1,
+        1.1953,
+        1.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            15,
+            14.8047,
+            16,
+            15.75
+          ],
+          "texture": "#cord"
+        },
+        "south": {
+          "uv": [
+            0,
+            14.8047,
+            1,
+            15.75
+          ],
+          "texture": "#cord"
+        },
+        "east": {
+          "uv": [
+            14.25,
+            14.8047,
+            14.75,
+            15.75
+          ],
+          "texture": "#cord"
+        },
+        "west": {
+          "uv": [
+            1.25,
+            14.8047,
+            1.75,
+            15.75
+          ],
+          "texture": "#cord"
+        },
+        "up": {
+          "uv": [
+            0,
+            1.25,
+            1,
+            1.75
+          ],
+          "texture": "#cord"
+        },
+        "down": {
+          "uv": [
+            0,
+            14.25,
+            1,
+            14.75
+          ],
+          "texture": "#cord"
+        }
+      }
+    }
+  ],
+  "ambientocclusion": false
+}

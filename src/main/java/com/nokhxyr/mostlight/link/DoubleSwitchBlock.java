@@ -69,8 +69,8 @@ public class DoubleSwitchBlock extends LightSwitchBlock {
     /** Vrai si le clic tombe sur la moitié droite (vue de face) : la bascule du ventilateur. */
     private static boolean rightHalf(BlockState state, BlockPos pos, BlockHitResult hit) {
         Direction facing = state.getValue(FACING);
-        // le joueur fait face à l'interrupteur : sa droite est à la gauche de la direction de l'interrupteur
-        Direction right = state.getValue(FACE) == AttachFace.CEILING ? facing.getClockWise() : facing.getCounterClockWise();
+        // côté de la bascule du ventilateur, tel que dessiné sur le modèle
+        Direction right = state.getValue(FACE) == AttachFace.CEILING ? facing.getCounterClockWise() : facing.getClockWise();
         Vec3 offset = hit.getLocation().subtract(Vec3.atCenterOf(pos));
         return offset.x * right.getStepX() + offset.z * right.getStepZ() > 0;
     }

@@ -1,6 +1,7 @@
 package com.nokhxyr.mostlight;
 
 import com.nokhxyr.mostlight.component.ModComponents;
+import com.nokhxyr.mostlight.crafting.ModRecipes;
 import com.nokhxyr.mostlight.registry.ModBlockEntities;
 import com.nokhxyr.mostlight.registry.ModBlocks;
 import com.nokhxyr.mostlight.registry.ModTabs;
@@ -20,5 +21,8 @@ public class MostLight {
         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
         ModComponents.COMPONENTS.register(modBus);
         ModTabs.TABS.register(modBus);
+        ModRecipes.TYPES.register(modBus);
+        ModRecipes.SERIALIZERS.register(modBus);
+        ModRecipes.MENUS.register(modBus);
     }
 }

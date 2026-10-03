@@ -7,7 +7,7 @@ Chaque lampe se personnalise sur trois axes :
 
 | Axe | Choix | Comment |
 |---|---|---|
-| Couleur | 16 couleurs de Minecraft | colorant sur la lampe posée, ou lampe + colorant à l'établi |
+| Couleur | 16 couleurs de Minecraft | colorant sur la lampe posée, ou lampe + colorant à l'établi de luminaire |
 | Finition du cadre | acier, fer noir, laiton, cuivre, or, or rose, vert-de-gris, émail blanc, chêne, chêne noir | **clé de décorateur** : Maj + molette pour choisir la finition, clic droit pour l'appliquer |
 | Teinte de lumière | auto, colorée, chaude, neutre, froide | accroupi + clic droit avec la clé |
 
@@ -25,22 +25,26 @@ Le verre est translucide : on voit l'ampoule à filament ou la flamme à l'inté
 
 ## Contrôles
 
+- **Établi de luminaire** : toutes les recettes du mod (lampes, teintures, interrupteurs, outils) se font à cet établi, pas à l'établi vanilla. Il se fabrique à l'établi vanilla : poudre de glowstone, 2 lingots de fer, un établi et 2 planches.
+
 - **Main vide, clic droit** : allumer / éteindre. **Accroupi + clic droit** : luminosité (15, 12, 9 ou 6).
 - **Redstone** : un signal allume la lampe, la fin du signal l'éteint.
 - **Interrupteurs** : simple, variateur et double, chacun en 16 couleurs (interrupteur + colorant à l'établi). Avec l'interrupteur en main, avec l'interrupteur en main, accroupi + clic droit sur des lampes pour les lier (64 maximum par défaut, réglable), puis pose-le.
   - L'interrupteur allume ou éteint tout le groupe d'un clic.
   - Le variateur change la luminosité du groupe ; accroupi + clic l'allume ou l'éteint.
-  - L'interrupteur double : bascule gauche = lumière, bascule droite = ventilateurs des ventilateurs lumineux liés.
+  - L'interrupteur double : vu de face, bascule gauche = lumière, bascule droite = ventilateurs des ventilateurs lumineux liés.
   - Casser un interrupteur garde ses liaisons dans l'objet.
 - **Télécommande** : se lie aux lampes de la même façon. Ensuite, clic droit dans le vide pour allumer / éteindre, accroupi pour la luminosité.
 - **Ventilateur lumineux** : 1er clic = lumière, 2e clic = le ventilateur tourne, 3e clic = tout éteint.
 - Bougies, flambeaux et braseros font des flammes et de la fumée quand ils sont allumés.
 - Les lampes acceptent l'eau. Elles se posent sur n'importe quel bloc qui a une forme : escalier à l'envers, dalle, barrière, tête de joueur, vitre… Elles tombent si on retire leur support.
 - **Bandes LED** : elles se posent en position basse, milieu ou haute de la face, selon l'endroit visé. Accroupi, on les pose à la verticale ; au sol, elles suivent le regard.
-  - **Angles** : un même bloc porte jusqu'à 6 bandes, une par face. Dans le coin d'une pièce, la bande du mur nord et celle du mur est se rejoignent dans le même bloc, chacune avec sa propre position.
-  - **Chaînes redstone** : avec le **connecteur LED**, clic droit près du bord d'une bande pour la relier à sa voisine de ce côté (accroupi : à travers la face cliquée). Dès qu'une bande de la chaîne reçoit un signal redstone, toute la chaîne s'allume. Connecteur en main, chaque bande proche affiche ses liaisons : flèche verte = reliée, croix rouge = voisine non reliée, marque jaune = bande alimentée.
+  - **Raccords** : un même bloc porte jusqu'à 6 bandes, une par face. Les bandes voisines se raccordent toutes seules, comme de la redstone : coin d'une pièce (une bande s'arrête contre l'autre), tour d'un pilier (angle extérieur), en L, en T ou en croix sur un même mur.
+  - **Chaînes redstone** : avec le **connecteur LED**, clic droit près du bord d'une bande pour la relier à sa voisine de ce côté (accroupi : à travers la face cliquée). Dès qu'un bloc de la chaîne reçoit un signal redstone, toute la chaîne s'allume. Les **blocs lumineux** pleins (bloc lumineux, lampe encadrée, alvéolée, cadre néon, bloc shoji) se relient de la même façon, entre eux et avec les bandes.
+  - Connecteur en main, en visant une bande ou un bloc lumineux : sa chaîne s'affiche, et seulement elle (trait vert, jaune quand elle est alimentée, visible à travers les murs). Des croix rouges marquent les voisins pas encore reliés.
   - Longueur maximale d'une chaîne : 256 bandes par défaut, réglable.
-- **Guirlandes** : même système que les bandes LED (plusieurs par bloc, angles, positions, chaînes redstone).
+- **Guirlandes** : même système que les bandes LED (plusieurs par bloc, raccords, positions, chaînes redstone). Au mur, le cordon pend entre ses attaches avec des ampoules rondes.
+- **Tiges lumineuses** (tige, tiges jumelles, tige de cristal, colonne lumineuse) : au mur, couchées à l'horizontale (accroupi : à la verticale) ; au sol debout, au plafond pendues (accroupi : couchées dans l'axe du regard).
 
 ## Les lampes
 
@@ -131,7 +135,8 @@ position en main) et ne le réécrit plus jamais.
 - [`blockbench/.modeles-retouches.json`](blockbench/.modeles-retouches.json) liste les modèles retouchés.
 - Le script garde l'empreinte des modèles qu'il a écrits lui-même (`blockbench/.modeles-generes.json`). Un fichier modifié depuis est ajouté tout seul à la liste (« modèle retouché détecté »).
 - La position en **main droite** est recopiée en miroir pour la **main gauche**.
-- Minecraft n'accepte qu'un axe de rotation par pièce, à -45, -22,5, 0, 22,5 ou 45°. Les quarts de tour sont intégrés à la pièce ; un autre angle est arrondi au plus proche, avec un avertissement dans la console.
+- Minecraft n'accepte qu'un axe de rotation par pièce, à -45, -22,5, 0, 22,5 ou 45°. Les quarts de tour sont intégrés à la pièce ; un autre angle est arrondi au plus proche (la pièce garde la position de son centre), avec un avertissement dans la console.
+- Les plaques très fines (flammes de 0,1 px) n'ont que leurs deux grandes faces : leurs tranches feraient des traits.
 - Les lampes de 2 blocs de haut sont coupées à y = 16. Les zones lumineuses (`neoforge_data`), les teintes et les arêtes métalliques des abat-jour coniques sont ajoutées par le script.
 - Les lampes absentes de la liste sont décrites dans `LAMPS`, dans le script.
 
@@ -144,3 +149,5 @@ Dans les modèles, les textures sont en niveaux de gris et la couleur vient des 
 - `tintindex` 2 : ampoule ;
 - `tintindex` 3 : finition ;
 - `tintindex` 4 à 8 : pièces animées (mêmes teintes), retirées du modèle précuit quand GeckoLib les anime.
+
+Les bandes et guirlandes sont des morceaux de ligne (`<bande>_seg/`) dessinés dans un repère local ; le jeu les tourne vers la face voulue et choisit les morceaux d'après les bandes voisines.
