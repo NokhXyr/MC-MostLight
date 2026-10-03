@@ -561,6 +561,16 @@
           ],
           "texture": "#frame",
           "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            6.26,
+            5,
+            9.74,
+            11
+          ],
+          "texture": "#frame",
+          "tintindex": 3
         }
       }
     },
@@ -808,6 +818,16 @@
           "texture": "#moroccan",
           "tintindex": 1
         },
+        "east": {
+          "uv": [
+            5.825,
+            3.75,
+            10.175,
+            10
+          ],
+          "texture": "#moroccan",
+          "tintindex": 1
+        },
         "west": {
           "uv": [
             5.825,
@@ -878,6 +898,16 @@
           "tintindex": 1
         },
         "east": {
+          "uv": [
+            5.825,
+            3.75,
+            10.175,
+            10
+          ],
+          "texture": "#moroccan",
+          "tintindex": 1
+        },
+        "west": {
           "uv": [
             5.825,
             3.75,
@@ -1213,6 +1243,16 @@
             10,
             11,
             10.75
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            6.26,
+            5,
+            9.74,
+            11
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -1663,5 +1703,31 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        -2.5,
+        -1
+      ],
+      "scale": [
+        0.38,
+        0.39,
+        0.38
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        -2.5,
+        -1
+      ],
+      "scale": [
+        0.38,
+        0.39,
+        0.38
+      ]
+    }
+  }
 }

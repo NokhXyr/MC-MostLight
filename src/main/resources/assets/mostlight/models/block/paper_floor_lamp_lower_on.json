@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/block",
-  "render_type": "minecraft:cutout",
+  "render_type": "minecraft:translucent",
   "textures": {
     "particle": "mostlight:block/frame",
     "frame": "mostlight:block/frame",
@@ -566,6 +566,16 @@
         11.25
       ],
       "faces": {
+        "east": {
+          "uv": [
+            4.75,
+            7.5,
+            11.25,
+            8
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
         "west": {
           "uv": [
             4.75,
@@ -611,6 +621,16 @@
       ],
       "faces": {
         "east": {
+          "uv": [
+            4.75,
+            7.5,
+            11.25,
+            8
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
           "uv": [
             4.75,
             7.5,

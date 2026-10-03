@@ -707,5 +707,31 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        0,
+        -0.5
+      ],
+      "scale": [
+        0.47,
+        0.46,
+        0.48
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        0,
+        -0.5
+      ],
+      "scale": [
+        0.47,
+        0.46,
+        0.48
+      ]
+    }
+  }
 }

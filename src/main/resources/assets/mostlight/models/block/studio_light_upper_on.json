@@ -23,9 +23,9 @@
         "north": {
           "uv": [
             7.565,
-            11,
+            0,
             8.435,
-            16
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -33,9 +33,9 @@
         "south": {
           "uv": [
             7.565,
-            11,
+            0,
             8.435,
-            16
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -43,9 +43,9 @@
         "east": {
           "uv": [
             7.25,
-            11,
+            0,
             8.75,
-            16
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -53,9 +53,9 @@
         "west": {
           "uv": [
             7.25,
-            11,
+            0,
             8.75,
-            16
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -97,9 +97,9 @@
         "north": {
           "uv": [
             8.435,
-            11,
+            0,
             8.75,
-            16
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -107,9 +107,9 @@
         "south": {
           "uv": [
             7.25,
-            11,
+            0,
             7.565,
-            16
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -117,9 +117,9 @@
         "west": {
           "uv": [
             7.565,
-            11,
+            0,
             8.435,
-            16
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -151,9 +151,9 @@
         "north": {
           "uv": [
             7.25,
-            11,
+            0,
             7.565,
-            16
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -161,9 +161,9 @@
         "south": {
           "uv": [
             8.435,
-            11,
+            0,
             8.75,
-            16
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -171,9 +171,9 @@
         "east": {
           "uv": [
             7.565,
-            11,
+            0,
             8.435,
-            16
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -205,9 +205,9 @@
         "north": {
           "uv": [
             4.5,
-            10,
+            0,
             11.5,
-            11
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -215,9 +215,9 @@
         "south": {
           "uv": [
             4.5,
-            10,
+            0,
             11.5,
-            11
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -225,9 +225,9 @@
         "east": {
           "uv": [
             7.5,
-            10,
+            0,
             8.5,
-            11
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -235,9 +235,9 @@
         "west": {
           "uv": [
             7.5,
-            10,
+            0,
             8.5,
-            11
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -279,9 +279,9 @@
         "north": {
           "uv": [
             10.5,
-            7,
+            0,
             11.5,
-            10
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -289,9 +289,9 @@
         "south": {
           "uv": [
             4.5,
-            7,
+            0,
             5.5,
-            10
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -299,9 +299,9 @@
         "east": {
           "uv": [
             7.5,
-            7,
+            0,
             8.5,
-            10
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -309,9 +309,9 @@
         "west": {
           "uv": [
             7.5,
-            7,
+            0,
             8.5,
-            10
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -343,9 +343,9 @@
         "north": {
           "uv": [
             4.5,
-            7,
+            0,
             5.5,
-            10
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -353,9 +353,9 @@
         "south": {
           "uv": [
             10.5,
-            7,
+            0,
             11.5,
-            10
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -363,9 +363,9 @@
         "east": {
           "uv": [
             7.5,
-            7,
+            0,
             8.5,
-            10
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -373,9 +373,9 @@
         "west": {
           "uv": [
             7.5,
-            7,
+            0,
             8.5,
-            10
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -416,9 +416,9 @@
         "north": {
           "uv": [
             5.5,
-            4,
+            0,
             10.5,
-            10
+            0
           ],
           "texture": "#paint",
           "tintindex": 0
@@ -426,9 +426,9 @@
         "south": {
           "uv": [
             5.5,
-            4,
+            0,
             10.5,
-            10
+            0
           ],
           "texture": "#paint",
           "tintindex": 0
@@ -436,9 +436,9 @@
         "east": {
           "uv": [
             4,
-            4,
+            0,
             11,
-            10
+            0
           ],
           "texture": "#paint",
           "tintindex": 0
@@ -446,9 +446,9 @@
         "west": {
           "uv": [
             5,
-            4,
+            0,
             12,
-            10
+            0
           ],
           "texture": "#paint",
           "tintindex": 0
@@ -505,9 +505,9 @@
         "north": {
           "uv": [
             6,
-            4.5,
+            0,
             10,
-            9.5
+            0
           ],
           "texture": "#bulb",
           "tintindex": 2
@@ -515,9 +515,9 @@
         "east": {
           "uv": [
             11,
-            4.5,
+            0,
             11.5,
-            9.5
+            0
           ],
           "texture": "#bulb",
           "tintindex": 2
@@ -525,9 +525,9 @@
         "west": {
           "uv": [
             4.5,
-            4.5,
+            0,
             5,
-            9.5
+            0
           ],
           "texture": "#bulb",
           "tintindex": 2
@@ -578,9 +578,9 @@
         "north": {
           "uv": [
             5,
-            3.5,
+            0,
             11,
-            4
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -588,9 +588,9 @@
         "south": {
           "uv": [
             5,
-            3.5,
+            0,
             11,
-            4
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -598,9 +598,9 @@
         "east": {
           "uv": [
             10,
-            3.5,
+            0,
             12,
-            4
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -608,9 +608,9 @@
         "west": {
           "uv": [
             4,
-            3.5,
+            0,
             6,
-            4
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -661,9 +661,9 @@
         "north": {
           "uv": [
             5,
-            10,
+            0,
             11,
-            10.5
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -671,9 +671,9 @@
         "south": {
           "uv": [
             5,
-            10,
+            0,
             11,
-            10.5
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -681,9 +681,9 @@
         "east": {
           "uv": [
             10,
-            10,
+            0,
             12,
-            10.5
+            0
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -691,9 +691,9 @@
         "west": {
           "uv": [
             4,
-            10,
+            0,
             6,
-            10.5
+            0
           ],
           "texture": "#frame",
           "tintindex": 3

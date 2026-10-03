@@ -16,6 +16,95 @@
                 "mostlight:finish",
                 "mostlight:light_tone"
               ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "mostlight:string_lights_yellow",
+                  "properties": {
+                    "down": "true"
+                  }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "mostlight:string_lights_yellow",
+                  "properties": {
+                    "up": "true"
+                  }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "mostlight:string_lights_yellow",
+                  "properties": {
+                    "north": "true"
+                  }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "mostlight:string_lights_yellow",
+                  "properties": {
+                    "south": "true"
+                  }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "mostlight:string_lights_yellow",
+                  "properties": {
+                    "west": "true"
+                  }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": 1,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "mostlight:string_lights_yellow",
+                  "properties": {
+                    "east": "true"
+                  }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "count": -1,
+              "add": true
             }
           ]
         }

@@ -1642,5 +1642,41 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        21,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        -1,
+        -2.5
+      ],
+      "scale": [
+        0.35,
+        0.36,
+        0.37
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        21,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        -1,
+        -2.5
+      ],
+      "scale": [
+        0.35,
+        0.36,
+        0.37
+      ]
+    }
+  }
 }

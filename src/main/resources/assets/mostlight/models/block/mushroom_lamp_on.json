@@ -963,5 +963,41 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        -21,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        -1
+      ],
+      "scale": [
+        0.43,
+        0.44,
+        0.47
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        -21,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        -1
+      ],
+      "scale": [
+        0.43,
+        0.44,
+        0.47
+      ]
+    }
+  }
 }

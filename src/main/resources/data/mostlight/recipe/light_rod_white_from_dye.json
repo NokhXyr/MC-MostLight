@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_light_rod_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:light_rod"
+    },
+    {
+      "tag": "c:dyes/white"
+    }
+  ],
+  "result": {
+    "id": "mostlight:light_rod_white",
+    "count": 1
+  }
+}

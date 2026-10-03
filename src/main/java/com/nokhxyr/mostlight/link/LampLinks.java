@@ -79,6 +79,18 @@ public final class LampLinks {
         return !anyLit;
     }
 
+    /** Ventilateurs liés : si l'un tourne, tous s'arrêtent, sinon tous démarrent. Renvoie le nouvel état. */
+    public static boolean toggleFans(Level level, BlockPos origin, List<BlockPos> links) {
+        List<BlockPos> fans = live(level, origin, links).stream()
+                .filter(p -> level.getBlockState(p).getBlock() instanceof com.nokhxyr.mostlight.block.FanLampBlock).toList();
+        boolean anyOn = fans.stream().anyMatch(p -> level.getBlockState(p).getValue(com.nokhxyr.mostlight.block.FanLampBlock.FAN));
+        for (BlockPos pos : fans) {
+            BlockState state = level.getBlockState(pos);
+            ((com.nokhxyr.mostlight.block.FanLampBlock) state.getBlock()).setFan(level, pos, state, !anyOn);
+        }
+        return !anyOn;
+    }
+
     /** Passe toutes les lampes liées au niveau de luminosité suivant. Renvoie le niveau de lumière obtenu. */
     public static int cycleBrightness(Level level, BlockPos origin, List<BlockPos> links) {
         List<BlockPos> lamps = live(level, origin, links);

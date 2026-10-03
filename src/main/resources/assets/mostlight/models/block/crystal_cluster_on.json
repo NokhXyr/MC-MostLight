@@ -516,5 +516,41 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        90
+      ],
+      "translation": [
+        0,
+        -2,
+        -3.5
+      ],
+      "scale": [
+        0.42,
+        0.45,
+        0.43
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -90
+      ],
+      "translation": [
+        0,
+        -2,
+        -3.5
+      ],
+      "scale": [
+        0.42,
+        0.45,
+        0.43
+      ]
+    }
+  }
 }

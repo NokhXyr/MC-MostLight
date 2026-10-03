@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "mostlight_dimmer_switch_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:dimmer_switch"
+    },
+    {
+      "tag": "c:dyes/lime"
+    }
+  ],
+  "result": {
+    "id": "mostlight:dimmer_switch_lime",
+    "count": 1
+  }
+}

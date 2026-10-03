@@ -169,6 +169,73 @@ public class LampGameTests {
         helper.succeed();
     }
 
+    /** Ventilateur lumineux : 1er clic lumière, 2e clic ventilateur, 3e clic tout éteint. */
+    @GameTest(template = "empty")
+    public static void fanLightClickCycle(GameTestHelper helper) {
+        BlockPos ceiling = new BlockPos(4, 4, 4);
+        helper.setBlock(ceiling, Blocks.STONE);
+        BlockPos fan = ceiling.below();
+        helper.setBlock(fan, ModBlocks.lamp(LampType.FAN_LIGHT, DyeColor.WHITE).defaultBlockState()
+                .setValue(com.nokhxyr.mostlight.block.LampBlock.LIT, false));
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        helper.useBlock(fan, player);
+        helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.LampBlock.LIT, true);
+        helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.FanLampBlock.FAN, false);
+        helper.useBlock(fan, player);
+        helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.FanLampBlock.FAN, true);
+        helper.useBlock(fan, player);
+        helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.LampBlock.LIT, false);
+        helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.FanLampBlock.FAN, false);
+        helper.succeed();
+    }
+
+    /** Interrupteur double : bascule gauche = lumière des lampes liées, bascule droite = leurs ventilateurs. */
+    @GameTest(template = "empty")
+    public static void doubleSwitchLightAndFan(GameTestHelper helper) {
+        BlockPos ceiling = new BlockPos(2, 4, 4);
+        helper.setBlock(ceiling, Blocks.STONE);
+        BlockPos fan = ceiling.below();
+        helper.setBlock(fan, ModBlocks.lamp(LampType.FAN_LIGHT, DyeColor.WHITE).defaultBlockState()
+                .setValue(com.nokhxyr.mostlight.block.LampBlock.LIT, false));
+        BlockPos wall = new BlockPos(6, 2, 4);
+        helper.setBlock(wall, Blocks.STONE);
+        BlockPos switchPos = wall.north();
+        helper.setBlock(switchPos, ModBlocks.switchBlock(ModBlocks.SwitchKind.DOUBLE, DyeColor.RED).defaultBlockState()
+                .setValue(com.nokhxyr.mostlight.link.LightSwitchBlock.FACE, net.minecraft.world.level.block.state.properties.AttachFace.WALL)
+                .setValue(com.nokhxyr.mostlight.link.LightSwitchBlock.FACING, Direction.NORTH));
+        ((com.nokhxyr.mostlight.link.SwitchBlockEntity) helper.getBlockEntity(switchPos)).setLinks(java.util.List.of(helper.absolutePos(fan)));
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        BlockPos abs = helper.absolutePos(switchPos);
+        // face nord de l'interrupteur, vue de face : la droite du joueur est à l'ouest (x plus petit)
+        Vec3 left = Vec3.atCenterOf(abs).add(0.25, 0, -0.4);
+        Vec3 right = Vec3.atCenterOf(abs).add(-0.25, 0, -0.4);
+        BlockState sw = helper.getLevel().getBlockState(abs);
+        sw.useWithoutItem(helper.getLevel(), player, new BlockHitResult(left, Direction.NORTH, abs, false));
+        helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.LampBlock.LIT, true);
+        sw = helper.getLevel().getBlockState(abs);
+        sw.useWithoutItem(helper.getLevel(), player, new BlockHitResult(right, Direction.NORTH, abs, false));
+        helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.FanLampBlock.FAN, true);
+        helper.assertBlockProperty(switchPos, com.nokhxyr.mostlight.link.DoubleSwitchBlock.FAN, true);
+        helper.succeed();
+    }
+
+    /** Clé de décorateur : la finition choisie (molette) est celle appliquée. */
+    @GameTest(template = "empty")
+    public static void wrenchAppliesSelectedFinish(GameTestHelper helper) {
+        helper.setBlock(LAMP, ModBlocks.lamp(LampType.LAMP_BLOCK, DyeColor.WHITE));
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        ItemStack wrench = new ItemStack(ModBlocks.DESIGNER_WRENCH.get());
+        com.nokhxyr.mostlight.item.DesignerWrenchItem.scroll(player, wrench, 1);
+        com.nokhxyr.mostlight.item.DesignerWrenchItem.scroll(player, wrench, 1);
+        com.nokhxyr.mostlight.item.DesignerWrenchItem.scroll(player, wrench, -1);
+        LampFinish chosen = wrench.get(com.nokhxyr.mostlight.component.ModComponents.FINISH.get());
+        helper.assertTrue(chosen == LampFinish.values()[0], "molette : 2 crans puis 1 en arrière -> 1re finition, obtenu " + chosen);
+        com.nokhxyr.mostlight.item.DesignerWrenchItem.scroll(player, wrench, 1);
+        place(helper, player, wrench, LAMP, Direction.UP);
+        helper.assertTrue(((LampBlockEntity) helper.getBlockEntity(LAMP)).finish() == LampFinish.values()[1], "finition choisie appliquée");
+        helper.succeed();
+    }
+
     /** Poser une lampe haute (par un joueur ou bloc par bloc) ne doit faire tomber aucun objet. */
     @GameTest(template = "empty")
     public static void tallLampPlacementDropsNothing(GameTestHelper helper) {

@@ -115,7 +115,7 @@
       "from": [
         4,
         10.5,
-        14
+        13.5
       ],
       "to": [
         12,
@@ -179,7 +179,7 @@
       "from": [
         4,
         5,
-        14
+        13.5
       ],
       "to": [
         12,
@@ -243,7 +243,7 @@
       "from": [
         4,
         5.5,
-        14
+        13.5
       ],
       "to": [
         4.5,
@@ -256,6 +256,16 @@
             11.5,
             5.5,
             12,
+            10.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            1,
+            5.5,
+            2,
             10.5
           ],
           "texture": "#frame",
@@ -277,7 +287,7 @@
       "from": [
         11.5,
         5.5,
-        14
+        13.5
       ],
       "to": [
         12,
@@ -304,17 +314,27 @@
           ],
           "texture": "#frame",
           "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            14,
+            5.5,
+            15,
+            10.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
         }
       }
     },
     {
       "from": [
-        4,
+        4.05,
         7.75,
-        13.5
+        13.525
       ],
       "to": [
-        12,
+        11.95,
         8.25,
         14
       ],
@@ -334,26 +354,6 @@
             4,
             7.75,
             12,
-            8.25
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "east": {
-          "uv": [
-            2,
-            7.75,
-            2.5,
-            8.25
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "west": {
-          "uv": [
-            13.5,
-            7.75,
-            14,
             8.25
           ],
           "texture": "#frame",
@@ -384,12 +384,12 @@
     {
       "from": [
         7.75,
-        5,
-        13.5
+        5.05,
+        13.525
       ],
       "to": [
         8.25,
-        11,
+        10.925,
         14
       ],
       "faces": {
@@ -429,26 +429,6 @@
             5,
             14,
             11
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "up": {
-          "uv": [
-            7.75,
-            13.5,
-            8.25,
-            14
-          ],
-          "texture": "#frame",
-          "tintindex": 3
-        },
-        "down": {
-          "uv": [
-            7.75,
-            2,
-            8.25,
-            2.5
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -456,5 +436,41 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        43,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        4,
+        -5.25
+      ],
+      "scale": [
+        0.54883,
+        0.58984,
+        1
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        43,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        4,
+        -5.25
+      ],
+      "scale": [
+        0.54883,
+        0.58984,
+        1
+      ]
+    }
+  }
 }

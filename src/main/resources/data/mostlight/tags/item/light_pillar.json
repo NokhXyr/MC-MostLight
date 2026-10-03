@@ -1,0 +1,20 @@
+{
+  "values": [
+    "mostlight:light_pillar_white",
+    "mostlight:light_pillar_orange",
+    "mostlight:light_pillar_magenta",
+    "mostlight:light_pillar_light_blue",
+    "mostlight:light_pillar_yellow",
+    "mostlight:light_pillar_lime",
+    "mostlight:light_pillar_pink",
+    "mostlight:light_pillar_gray",
+    "mostlight:light_pillar_light_gray",
+    "mostlight:light_pillar_cyan",
+    "mostlight:light_pillar_purple",
+    "mostlight:light_pillar_blue",
+    "mostlight:light_pillar_brown",
+    "mostlight:light_pillar_green",
+    "mostlight:light_pillar_red",
+    "mostlight:light_pillar_black"
+  ]
+}

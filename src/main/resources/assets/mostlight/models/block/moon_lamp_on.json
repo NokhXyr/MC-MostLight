@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/block",
-  "render_type": "minecraft:cutout",
+  "render_type": "minecraft:translucent",
   "textures": {
     "particle": "mostlight:block/frame",
     "frame": "mostlight:block/frame",
@@ -358,6 +358,16 @@
           ],
           "texture": "#frame",
           "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.5,
+            8,
+            6,
+            8
+          ],
+          "texture": "#frame",
+          "tintindex": 3
         }
       }
     },
@@ -379,6 +389,16 @@
             14,
             8,
             15
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            10,
+            8,
+            10.5,
+            8
           ],
           "texture": "#frame",
           "tintindex": 3
@@ -442,6 +462,16 @@
           "texture": "#moon",
           "tintindex": 1
         },
+        "up": {
+          "uv": [
+            6.4717,
+            5.365,
+            9.5283,
+            10.635
+          ],
+          "texture": "#moon",
+          "tintindex": 1
+        },
         "down": {
           "uv": [
             6.4717,
@@ -486,6 +516,16 @@
             5.365,
             12.635,
             6.4717,
+            14.25
+          ],
+          "texture": "#moon",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            6.4717,
+            12.635,
+            9.5283,
             14.25
           ],
           "texture": "#moon",
@@ -561,6 +601,16 @@
           "tintindex": 1
         },
         "east": {
+          "uv": [
+            6.4717,
+            12.635,
+            9.5283,
+            14.25
+          ],
+          "texture": "#moon",
+          "tintindex": 1
+        },
+        "west": {
           "uv": [
             6.4717,
             12.635,
@@ -708,6 +758,16 @@
           "texture": "#moon",
           "tintindex": 1
         },
+        "east": {
+          "uv": [
+            5.535,
+            7.365,
+            10.465,
+            12.635
+          ],
+          "texture": "#moon",
+          "tintindex": 1
+        },
         "west": {
           "uv": [
             5.535,
@@ -778,6 +838,16 @@
           "tintindex": 1
         },
         "east": {
+          "uv": [
+            5.535,
+            7.365,
+            10.465,
+            12.635
+          ],
+          "texture": "#moon",
+          "tintindex": 1
+        },
+        "west": {
           "uv": [
             5.535,
             7.365,
@@ -875,6 +945,16 @@
           ],
           "texture": "#moon",
           "tintindex": 1
+        },
+        "down": {
+          "uv": [
+            6.4717,
+            5.365,
+            9.5283,
+            10.635
+          ],
+          "texture": "#moon",
+          "tintindex": 1
         }
       }
     },
@@ -910,6 +990,16 @@
             5.365,
             5.75,
             6.4717,
+            7.365
+          ],
+          "texture": "#moon",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            6.4717,
+            5.75,
+            9.5283,
             7.365
           ],
           "texture": "#moon",
@@ -994,6 +1084,16 @@
           "texture": "#moon",
           "tintindex": 1
         },
+        "west": {
+          "uv": [
+            6.4717,
+            5.75,
+            9.5283,
+            7.365
+          ],
+          "texture": "#moon",
+          "tintindex": 1
+        },
         "up": {
           "uv": [
             9.5283,
@@ -1017,5 +1117,31 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        -0.25,
+        -0.75,
+        -1.25
+      ],
+      "scale": [
+        0.41,
+        0.42,
+        0.42
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0.25,
+        -0.75,
+        -1.25
+      ],
+      "scale": [
+        0.41,
+        0.42,
+        0.42
+      ]
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/block",
-  "render_type": "minecraft:cutout",
+  "render_type": "minecraft:translucent",
   "textures": {
     "particle": "mostlight:block/frame",
     "paper": "mostlight:block/paper_off",
@@ -1049,6 +1049,16 @@
         15.25
       ],
       "faces": {
+        "east": {
+          "uv": [
+            0.75,
+            7.5,
+            15.25,
+            8.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
         "west": {
           "uv": [
             0.75,
@@ -1103,6 +1113,16 @@
           "texture": "#frame",
           "tintindex": 3
         },
+        "west": {
+          "uv": [
+            0.75,
+            7.5,
+            15.25,
+            8.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
         "up": {
           "uv": [
             15.25,
@@ -1147,6 +1167,16 @@
           "texture": "#frame",
           "tintindex": 3
         },
+        "south": {
+          "uv": [
+            7.5,
+            1,
+            8.5,
+            15
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
         "east": {
           "uv": [
             15.25,
@@ -1181,6 +1211,16 @@
         16
       ],
       "faces": {
+        "north": {
+          "uv": [
+            7.5,
+            1,
+            8.5,
+            15
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
         "south": {
           "uv": [
             7.5,
@@ -1245,6 +1285,16 @@
           "texture": "#frame",
           "tintindex": 3
         },
+        "east": {
+          "uv": [
+            7.5,
+            1,
+            8.5,
+            15
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
         "west": {
           "uv": [
             7.5,
@@ -1290,6 +1340,16 @@
           "tintindex": 3
         },
         "east": {
+          "uv": [
+            7.5,
+            1,
+            8.5,
+            15
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
           "uv": [
             7.5,
             1,

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_twin_rods_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:twin_rods"
+    },
+    {
+      "tag": "c:dyes/black"
+    }
+  ],
+  "result": {
+    "id": "mostlight:twin_rods_black",
+    "count": 1
+  }
+}

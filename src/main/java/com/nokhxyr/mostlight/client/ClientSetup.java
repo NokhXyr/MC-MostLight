@@ -27,8 +27,11 @@ public final class ClientSetup {
         int rgb = switch (index) {
             case 0 -> color.getTextureDiffuseColor() & 0xFFFFFF;
             case 1, 2 -> tone.tint(color, index);
-            // 4 : pièces animées teintées comme la finition, 5 : pièces animées sans teinte (repérables dans les quads)
+            // pièces animées (repérables dans les quads) : 4 finition, 5 sans teinte, 6 diffuseur, 7 couleur, 8 ampoule
             case 3, 4 -> finish.color();
+            case 6 -> tone.tint(color, 1);
+            case 7 -> color.getTextureDiffuseColor() & 0xFFFFFF;
+            case 8 -> tone.tint(color, 2);
             default -> 0xFFFFFF;
         };
         return 0xFF000000 | rgb;
@@ -76,6 +79,35 @@ public final class ClientSetup {
                 }
                 return tint(block.color(), cache.finish, cache.tone, index);
             }, block);
+        }
+    }
+
+    /** Plaques d'interrupteurs teintées (indice 0) selon la couleur de l'interrupteur. */
+    @SubscribeEvent
+    static void onSwitchColors(RegisterColorHandlersEvent.Block event) {
+        for (ModBlocks.SwitchKind kind : ModBlocks.SwitchKind.values()) {
+            for (DyeColor color : DyeColor.values()) {
+                int rgb = 0xFF000000 | (color.getTextureDiffuseColor() & 0xFFFFFF);
+                event.register((state, level, pos, index) -> index == 0 ? rgb : -1, ModBlocks.switchBlock(kind, color));
+            }
+        }
+    }
+
+    /** Poignée de la clé de décorateur teintée par la finition choisie (acier par défaut). */
+    @SubscribeEvent
+    static void onWrenchColors(RegisterColorHandlersEvent.Item event) {
+        event.register((stack, index) -> index == 1
+                ? 0xFF000000 | stack.getOrDefault(ModComponents.FINISH.get(), LampFinish.STEEL).color()
+                : -1, ModBlocks.DESIGNER_WRENCH.get());
+    }
+
+    @SubscribeEvent
+    static void onSwitchItemColors(RegisterColorHandlersEvent.Item event) {
+        for (ModBlocks.SwitchKind kind : ModBlocks.SwitchKind.values()) {
+            for (DyeColor color : DyeColor.values()) {
+                int rgb = 0xFF000000 | (color.getTextureDiffuseColor() & 0xFFFFFF);
+                event.register((stack, index) -> index == 0 ? rgb : -1, ModBlocks.switchItem(kind, color));
+            }
         }
     }
 

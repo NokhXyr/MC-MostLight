@@ -1,0 +1,20 @@
+{
+  "values": [
+    "mostlight:dimmer_switch",
+    "mostlight:dimmer_switch_orange",
+    "mostlight:dimmer_switch_magenta",
+    "mostlight:dimmer_switch_light_blue",
+    "mostlight:dimmer_switch_yellow",
+    "mostlight:dimmer_switch_lime",
+    "mostlight:dimmer_switch_pink",
+    "mostlight:dimmer_switch_gray",
+    "mostlight:dimmer_switch_light_gray",
+    "mostlight:dimmer_switch_cyan",
+    "mostlight:dimmer_switch_purple",
+    "mostlight:dimmer_switch_blue",
+    "mostlight:dimmer_switch_brown",
+    "mostlight:dimmer_switch_green",
+    "mostlight:dimmer_switch_red",
+    "mostlight:dimmer_switch_black"
+  ]
+}

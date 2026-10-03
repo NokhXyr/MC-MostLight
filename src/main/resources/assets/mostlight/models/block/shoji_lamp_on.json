@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/block",
-  "render_type": "minecraft:cutout",
+  "render_type": "minecraft:translucent",
   "textures": {
     "particle": "mostlight:block/frame",
     "frame": "mostlight:block/frame",
@@ -566,6 +566,16 @@
         10.75
       ],
       "faces": {
+        "east": {
+          "uv": [
+            5.25,
+            10.25,
+            10.75,
+            10.75
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
         "west": {
           "uv": [
             5.25,
@@ -611,6 +621,16 @@
       ],
       "faces": {
         "east": {
+          "uv": [
+            5.25,
+            10.25,
+            10.75,
+            10.75
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
           "uv": [
             5.25,
             10.25,
@@ -899,5 +919,31 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        -1,
+        -1.25
+      ],
+      "scale": [
+        0.37,
+        0.37,
+        0.37
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        -1,
+        -1.25
+      ],
+      "scale": [
+        0.37,
+        0.37,
+        0.37
+      ]
+    }
+  }
 }

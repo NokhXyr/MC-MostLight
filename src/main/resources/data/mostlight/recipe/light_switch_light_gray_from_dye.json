@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "mostlight_light_switch_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:light_switch"
+    },
+    {
+      "tag": "c:dyes/light_gray"
+    }
+  ],
+  "result": {
+    "id": "mostlight:light_switch_light_gray",
+    "count": 1
+  }
+}

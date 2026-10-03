@@ -245,6 +245,28 @@ public class LightStripBlock extends LampBlock {
         });
     }
 
+    /** Axe (dans le monde) le long duquel court la bande fixée côté {@code side}. */
+    public static Direction.Axis stripAxis(Direction side, boolean rotated) {
+        Direction facing = side.getOpposite();
+        double[] a = rotated ? LampShapes.rotate(8, 0, 0, facing, true) : LampShapes.rotate(0, 0, 8, facing, true);
+        double[] b = rotated ? LampShapes.rotate(8, 0, 16, facing, true) : LampShapes.rotate(16, 0, 8, facing, true);
+        int axis = 0;
+        for (int i = 1; i < 3; i++) {
+            if (Math.abs(b[i] - a[i]) > Math.abs(b[axis] - a[axis])) {
+                axis = i;
+            }
+        }
+        return Direction.Axis.values()[axis];
+    }
+
+    /** Bouts raccourcis (1 = côté négatif, 2 = côté positif) : une autre bande du bloc occupe la face où ils aboutissent. */
+    public static int trimMask(BlockState state, Direction side, boolean rotated) {
+        Direction.Axis axis = stripAxis(side, rotated);
+        Direction negative = Direction.fromAxisAndDirection(axis, Direction.AxisDirection.NEGATIVE);
+        Direction positive = Direction.fromAxisAndDirection(axis, Direction.AxisDirection.POSITIVE);
+        return (has(state, negative) ? 1 : 0) | (has(state, positive) ? 2 : 0);
+    }
+
     /** Nom du modèle de bande (forme ou rendu) pour la face donnée : light_strip_middle, light_strip_high_r... */
     public static String partModel(String id, int layout, Direction side) {
         Slot slot = Slot.values()[LampBlockEntity.slot(layout, side)];

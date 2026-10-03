@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "mostlight_light_switch_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:light_switch"
+    },
+    {
+      "tag": "c:dyes/purple"
+    }
+  ],
+  "result": {
+    "id": "mostlight:light_switch_purple",
+    "count": 1
+  }
+}

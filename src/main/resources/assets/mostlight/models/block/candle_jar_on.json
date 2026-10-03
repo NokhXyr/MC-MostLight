@@ -96,7 +96,7 @@
       ],
       "to": [
         11,
-        6,
+        5.5,
         5.5
       ],
       "neoforge_data": {
@@ -145,16 +145,6 @@
           "texture": "#glass",
           "tintindex": 1
         },
-        "up": {
-          "uv": [
-            5,
-            5,
-            11,
-            5.5
-          ],
-          "texture": "#glass",
-          "tintindex": 1
-        },
         "down": {
           "uv": [
             5,
@@ -175,7 +165,7 @@
       ],
       "to": [
         11,
-        6,
+        5.5,
         11
       ],
       "neoforge_data": {
@@ -224,16 +214,6 @@
           "texture": "#glass",
           "tintindex": 1
         },
-        "up": {
-          "uv": [
-            5,
-            10.5,
-            11,
-            11
-          ],
-          "texture": "#glass",
-          "tintindex": 1
-        },
         "down": {
           "uv": [
             5,
@@ -254,7 +234,7 @@
       ],
       "to": [
         5.5,
-        6,
+        5.5,
         10.5
       ],
       "neoforge_data": {
@@ -299,16 +279,6 @@
             10,
             10.5,
             15.5
-          ],
-          "texture": "#glass",
-          "tintindex": 1
-        },
-        "up": {
-          "uv": [
-            5,
-            5.5,
-            5.5,
-            10.5
           ],
           "texture": "#glass",
           "tintindex": 1
@@ -333,7 +303,7 @@
       ],
       "to": [
         11,
-        6,
+        5.5,
         10.5
       ],
       "neoforge_data": {
@@ -378,16 +348,6 @@
             10,
             10.5,
             15.5
-          ],
-          "texture": "#glass",
-          "tintindex": 1
-        },
-        "up": {
-          "uv": [
-            10.5,
-            5.5,
-            11,
-            10.5
           ],
           "texture": "#glass",
           "tintindex": 1
@@ -928,5 +888,31 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        0,
+        -1.25
+      ],
+      "scale": [
+        0.4,
+        0.43,
+        0.43
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        0,
+        -1.25
+      ],
+      "scale": [
+        0.4,
+        0.43,
+        0.43
+      ]
+    }
+  }
 }

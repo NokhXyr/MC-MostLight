@@ -85,7 +85,7 @@
     {
       "from": [
         2.5,
-        13,
+        12.725,
         7.5
       ],
       "to": [
@@ -615,7 +615,7 @@
     {
       "from": [
         7.5,
-        13,
+        12.75,
         7.5
       ],
       "to": [
@@ -1145,7 +1145,7 @@
     {
       "from": [
         12.5,
-        13,
+        12.725,
         7.5
       ],
       "to": [
@@ -1673,5 +1673,31 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        -4,
+        -0.5
+      ],
+      "scale": [
+        0.43,
+        0.46,
+        0.43
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        -4,
+        -0.5
+      ],
+      "scale": [
+        0.43,
+        0.46,
+        0.43
+      ]
+    }
+  }
 }

@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "mostlight:item/designer_wrench"
+    "layer0": "mostlight:item/designer_wrench",
+    "layer1": "mostlight:item/designer_wrench_swatch"
   }
 }

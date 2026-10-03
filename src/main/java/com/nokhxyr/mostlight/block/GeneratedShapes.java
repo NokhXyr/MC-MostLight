@@ -23,6 +23,8 @@ final class GeneratedShapes {
     static final Map<String, double[][]> FLAMES = new HashMap<>();
     /** Engrenages animés : modèle, centre (x, y, z) et vitesse relative (signe = sens). */
     static final Map<String, java.util.List<LampShapes.Gear>> GEARS = new HashMap<>();
+    /** Lampes animées : nom de l'animation et déclencheur (« lit » = allumée, « fan » = ventilateur en marche). */
+    static final Map<String, LampShapes.Animation> ANIMATIONS = new HashMap<>();
 
     static {
         try (InputStream in = GeneratedShapes.class.getResourceAsStream("/mostlight_shapes.json")) {
@@ -32,6 +34,12 @@ final class GeneratedShapes {
             JsonObject root = JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
             read(root.getAsJsonObject("boxes"), BOXES);
             read(root.getAsJsonObject("flames"), FLAMES);
+            if (root.has("animated")) {
+                for (Map.Entry<String, JsonElement> entry : root.getAsJsonObject("animated").entrySet()) {
+                    JsonArray a = entry.getValue().getAsJsonArray();
+                    ANIMATIONS.put(entry.getKey(), new LampShapes.Animation(a.get(0).getAsString(), a.get(1).getAsString()));
+                }
+            }
             if (root.has("gears")) {
                 for (Map.Entry<String, JsonElement> entry : root.getAsJsonObject("gears").entrySet()) {
                     java.util.List<LampShapes.Gear> gears = new java.util.ArrayList<>();

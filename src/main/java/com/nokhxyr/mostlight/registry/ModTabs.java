@@ -39,8 +39,11 @@ public final class ModTabs {
                 .icon(() -> new ItemStack(ModBlocks.DESIGNER_WRENCH.get()))
                 .displayItems((params, output) -> {
                     output.accept(ModBlocks.DESIGNER_WRENCH.get());
-                    output.accept(ModBlocks.LIGHT_SWITCH_ITEM.get());
-                    output.accept(ModBlocks.DIMMER_SWITCH_ITEM.get());
+                    for (ModBlocks.SwitchKind kind : ModBlocks.SwitchKind.values()) {
+                        for (DyeColor color : DyeColor.values()) {
+                            output.accept(ModBlocks.switchItem(kind, color));
+                        }
+                    }
                     output.accept(ModBlocks.LAMP_REMOTE.get());
                     output.accept(ModBlocks.LED_CONNECTOR.get());
                     for (LampType type : LampType.values()) {

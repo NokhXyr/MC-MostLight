@@ -1684,5 +1684,31 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        -0.75,
+        -1.25
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.41
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        -0.75,
+        -1.25
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.41
+      ]
+    }
+  }
 }

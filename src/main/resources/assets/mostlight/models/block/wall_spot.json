@@ -86,7 +86,7 @@
       "from": [
         7.5,
         7.5,
-        12
+        11.775
       ],
       "to": [
         8.5,
@@ -309,7 +309,7 @@
         6.75
       ],
       "to": [
-        10.25,
+        10.175,
         6.25,
         7.5
       ],
@@ -320,6 +320,255 @@
           8,
           8,
           12
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.75,
+            9.75,
+            10.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.75,
+            9.75,
+            10.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            8.5,
+            9.75,
+            9.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            6.75,
+            9.75,
+            7.5,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            5.75,
+            6.75,
+            10.25,
+            7.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            5.75,
+            8.5,
+            10.25,
+            9.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        5.725,
+        5.75,
+        6.75
+      ],
+      "to": [
+        6.225,
+        10.25,
+        7.5
+      ],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "x",
+        "origin": [
+          7.975,
+          8,
+          12
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.75,
+            9.75,
+            10.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.75,
+            9.75,
+            10.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.75,
+            6.75,
+            10.25,
+            7.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.75,
+            8.5,
+            10.25,
+            9.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            6.75,
+            9.75,
+            7.5,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            8.5,
+            9.75,
+            9.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        9.725,
+        5.75,
+        6.75
+      ],
+      "to": [
+        10.225,
+        10.25,
+        7.5
+      ],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "x",
+        "origin": [
+          11.975,
+          8,
+          12
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.75,
+            9.75,
+            10.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "south": {
+          "uv": [
+            5.75,
+            9.75,
+            10.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "east": {
+          "uv": [
+            5.75,
+            6.75,
+            10.25,
+            7.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "west": {
+          "uv": [
+            5.75,
+            8.5,
+            10.25,
+            9.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            6.75,
+            9.75,
+            7.5,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            8.5,
+            9.75,
+            9.25,
+            10.25
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        }
+      }
+    },
+    {
+      "from": [
+        5.75,
+        9.45,
+        5.225
+      ],
+      "to": [
+        10.175,
+        9.95,
+        5.975
+      ],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "x",
+        "origin": [
+          8,
+          11.7,
+          10.475
         ]
       },
       "faces": {

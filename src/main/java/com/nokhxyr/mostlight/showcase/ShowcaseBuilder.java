@@ -126,7 +126,7 @@ public final class ShowcaseBuilder {
                 views.add(rowView(rowStart, ground));
                 // MOSTLIGHT_SHOWCASE_TYPE=gear_lamp : gros plan d'un seul modèle (contrôle rapide)
                 String only = System.getenv("MOSTLIGHT_SHOWCASE_TYPE");
-                if (c < columns.size() - 1 && (only == null || only.equals(row.get(0).type().id()))) {
+                if (c < columns.size() - 1 && (only == null || java.util.Arrays.asList(only.split(",")).contains(row.get(0).type().id()))) {
                     closeups.add(closeView(rowStart, row.get(0).type(), ground));
                 }
             }
@@ -207,6 +207,11 @@ public final class ShowcaseBuilder {
             case CUBE -> level.setBlock(pos, block.defaultBlockState(), Block.UPDATE_ALL);
         }
         BlockState placed = level.getBlockState(lampPos);
+        if (placed.getBlock() instanceof com.nokhxyr.mostlight.block.FanLampBlock) {
+            // ventilateurs en marche dans la galerie
+            level.setBlock(lampPos, placed.setValue(com.nokhxyr.mostlight.block.FanLampBlock.FAN, true), Block.UPDATE_ALL);
+            placed = level.getBlockState(lampPos);
+        }
         if (placed.getBlock() instanceof LampBlock lamp) {
             lamp.setLook(level, lampPos, placed, entry.finish(), entry.tone());
         }
@@ -264,6 +269,14 @@ public final class ShowcaseBuilder {
             strip(level, block, start.offset(size - 1, y, size - 1), Direction.SOUTH, 2, true);
             strip(level, block, start.offset(size - 1, y, size - 1), Direction.EAST, 2, true);
         }
+        // guirlandes à mi-hauteur sur les deux murs, qui se rejoignent dans l'angle
+        LampBlock garland = ModBlocks.lamp(LampType.STRING_LIGHTS, DyeColor.YELLOW);
+        for (int i = 0; i < size - 1; i++) {
+            strip(level, garland, start.offset(i, 3, size - 1), Direction.SOUTH, 1, false);
+            strip(level, garland, start.offset(size - 1, 3, i), Direction.EAST, 1, false);
+        }
+        strip(level, garland, start.offset(size - 1, 3, size - 1), Direction.SOUTH, 1, false);
+        strip(level, garland, start.offset(size - 1, 3, size - 1), Direction.EAST, 1, false);
     }
 
     /** Ajoute une bande sur la face {@code side} du bloc (en gardant celles déjà posées). */

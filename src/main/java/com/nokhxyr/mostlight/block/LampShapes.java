@@ -34,6 +34,13 @@ public final class LampShapes {
         return GeneratedShapes.GEARS.getOrDefault(lamp, java.util.List.of());
     }
 
+    /** Animation GeckoLib d'une lampe : nom de l'animation, déclencheur « lit » (allumée) ou « fan » (ventilateur). */
+    public record Animation(String name, String trigger) {}
+
+    public static @Nullable Animation animation(String lamp) {
+        return GeneratedShapes.ANIMATIONS.get(lamp);
+    }
+
     public static java.util.Collection<java.util.List<Gear>> allGears() {
         return GeneratedShapes.GEARS.values();
     }

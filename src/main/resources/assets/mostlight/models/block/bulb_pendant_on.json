@@ -1327,5 +1327,41 @@
       }
     }
   ],
-  "ambientocclusion": false
+  "ambientocclusion": false,
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        19,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        -2,
+        -0.75
+      ],
+      "scale": [
+        0.34,
+        0.34,
+        0.34
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        19,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        -2,
+        -0.75
+      ],
+      "scale": [
+        0.34,
+        0.34,
+        0.34
+      ]
+    }
+  }
 }

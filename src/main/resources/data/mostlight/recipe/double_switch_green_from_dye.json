@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "mostlight_double_switch_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:double_switch"
+    },
+    {
+      "tag": "c:dyes/green"
+    }
+  ],
+  "result": {
+    "id": "mostlight:double_switch_green",
+    "count": 1
+  }
+}

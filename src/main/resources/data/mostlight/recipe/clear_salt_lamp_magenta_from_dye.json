@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mostlight_clear_salt_lamp_dye",
+  "ingredients": [
+    {
+      "tag": "mostlight:clear_salt_lamp"
+    },
+    {
+      "tag": "c:dyes/magenta"
+    }
+  ],
+  "result": {
+    "id": "mostlight:clear_salt_lamp_magenta",
+    "count": 1
+  }
+}

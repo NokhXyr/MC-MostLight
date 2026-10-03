@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/block",
-  "render_type": "minecraft:cutout",
+  "render_type": "minecraft:translucent",
   "textures": {
     "particle": "mostlight:block/frame",
     "frame": "mostlight:block/frame",
@@ -386,6 +386,16 @@
           ],
           "texture": "#frame",
           "tintindex": 3
+        },
+        "down": {
+          "uv": [
+            6.985,
+            6.25,
+            9.015,
+            9.75
+          ],
+          "texture": "#frame",
+          "tintindex": 3
         }
       }
     },
@@ -578,6 +588,16 @@
           ],
           "texture": "#paper",
           "tintindex": 1
+        },
+        "down": {
+          "uv": [
+            6.26,
+            5,
+            9.74,
+            11
+          ],
+          "texture": "#paper",
+          "tintindex": 1
         }
       }
     },
@@ -608,6 +628,16 @@
             5,
             4,
             6.26,
+            5
+          ],
+          "texture": "#paper",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            6.26,
+            4,
+            9.74,
             5
           ],
           "texture": "#paper",
@@ -678,6 +708,16 @@
           "tintindex": 1
         },
         "east": {
+          "uv": [
+            6.26,
+            4,
+            9.74,
+            5
+          ],
+          "texture": "#paper",
+          "tintindex": 1
+        },
+        "west": {
           "uv": [
             6.26,
             4,
@@ -815,6 +855,16 @@
           "texture": "#paper",
           "tintindex": 1
         },
+        "east": {
+          "uv": [
+            5.535,
+            5,
+            10.465,
+            10
+          ],
+          "texture": "#paper",
+          "tintindex": 1
+        },
         "west": {
           "uv": [
             5.535,
@@ -880,6 +930,16 @@
           "tintindex": 1
         },
         "east": {
+          "uv": [
+            5.535,
+            5,
+            10.465,
+            10
+          ],
+          "texture": "#paper",
+          "tintindex": 1
+        },
+        "west": {
           "uv": [
             5.535,
             5,
@@ -963,6 +1023,16 @@
           "texture": "#paper",
           "tintindex": 1
         },
+        "up": {
+          "uv": [
+            6.26,
+            5,
+            9.74,
+            11
+          ],
+          "texture": "#paper",
+          "tintindex": 1
+        },
         "down": {
           "uv": [
             6.26,
@@ -1002,6 +1072,16 @@
             5,
             10,
             6.26,
+            11
+          ],
+          "texture": "#paper",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            6.26,
+            10,
+            9.74,
             11
           ],
           "texture": "#paper",
@@ -1072,6 +1152,16 @@
           "tintindex": 1
         },
         "east": {
+          "uv": [
+            6.26,
+            10,
+            9.74,
+            11
+          ],
+          "texture": "#paper",
+          "tintindex": 1
+        },
+        "west": {
           "uv": [
             6.26,
             10,
@@ -1155,6 +1245,16 @@
           "texture": "#frame",
           "tintindex": 3
         },
+        "up": {
+          "uv": [
+            7.13,
+            6.5,
+            8.87,
+            9.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
         "down": {
           "uv": [
             7.13,
@@ -1209,6 +1309,16 @@
           "texture": "#frame",
           "tintindex": 3
         },
+        "up": {
+          "uv": [
+            6.5,
+            7.13,
+            7.13,
+            8.87
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
         "down": {
           "uv": [
             6.5,
@@ -1259,6 +1369,16 @@
             11,
             8.87,
             11.5
+          ],
+          "texture": "#frame",
+          "tintindex": 3
+        },
+        "up": {
+          "uv": [
+            8.87,
+            7.13,
+            9.5,
+            8.87
           ],
           "texture": "#frame",
           "tintindex": 3

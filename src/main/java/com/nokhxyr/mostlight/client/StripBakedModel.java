@@ -19,17 +19,18 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Rendu des bandes LED : assemble, pour chaque face portant une bande, le modèle précalculé correspondant à sa
- * position, son sens et son état (allumé / éteint). Les quads gardent leurs indices de teinte et leur lumière émise.
+ * Rendu des bandes (LED, guirlandes) : pour chaque face portant une bande, le morceau précalculé correspondant à
+ * sa position, son sens, son état et ses bouts raccourcis (quand il aboutit sur une autre bande du bloc, pour que les
+ * angles s'emboîtent au lieu de se traverser). Les quads gardent leurs teintes et leur lumière émise.
  */
 public final class StripBakedModel implements IDynamicBakedModel {
-    /** parts[face][position][sens][allumé] */
-    private final BakedModel[][][][] parts;
+    /** parts[face][position][sens][allumé][bouts raccourcis] */
+    private final BakedModel[][][][][] parts;
     private final BakedModel fallback;
 
-    public StripBakedModel(BakedModel[][][][] parts) {
+    public StripBakedModel(BakedModel[][][][][] parts) {
         this.parts = parts;
-        this.fallback = parts[Direction.DOWN.ordinal()][1][0][1];
+        this.fallback = parts[Direction.DOWN.ordinal()][1][0][1][0];
     }
 
     @Override
@@ -44,7 +45,9 @@ public final class StripBakedModel implements IDynamicBakedModel {
         List<BakedQuad> quads = new ArrayList<>();
         for (Direction face : Direction.values()) {
             if (LightStripBlock.has(state, face)) {
-                BakedModel part = parts[face.ordinal()][LampBlockEntity.slot(layout, face)][LampBlockEntity.rotated(layout, face) ? 1 : 0][lit];
+                boolean rotated = LampBlockEntity.rotated(layout, face);
+                int trim = LightStripBlock.trimMask(state, face, rotated);
+                BakedModel part = parts[face.ordinal()][LampBlockEntity.slot(layout, face)][rotated ? 1 : 0][lit][trim];
                 quads.addAll(part.getQuads(state, side, rand, data, renderType));
             }
         }
@@ -77,6 +80,7 @@ public final class StripBakedModel implements IDynamicBakedModel {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public TextureAtlasSprite getParticleIcon() {
         return fallback.getParticleIcon();
     }

@@ -975,5 +975,31 @@
         }
       }
     }
-  ]
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [
+        0,
+        -2,
+        -2
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.31
+      ]
+    },
+    "thirdperson_lefthand": {
+      "translation": [
+        0,
+        -2,
+        -2
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.31
+      ]
+    }
+  }
 }

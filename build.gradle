@@ -23,10 +23,24 @@ repositories {
         }
         filter { includeGroupAndSubgroups("software.bernie.geckolib") }
     }
+    // JEI : compatibilité optionnelle (recettes, variantes de finition, fiches d'aide)
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "JEI"
+                url = "https://maven.blamejared.com/"
+            }
+        }
+        filter { includeGroup("mezz.jei"); includeGroupAndSubgroups("net.mezzdev") }
+    }
 }
 
 dependencies {
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
+    // JEI complet en développement (runClient) pour vérifier l'intégration
+    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}") { transitive = false }
 }
 
 neoForge {
