@@ -3,6 +3,8 @@ package com.nokhxyr.mostlight.block;
 import com.nokhxyr.mostlight.MostLight;
 import com.nokhxyr.mostlight.block.entity.LampBlockEntity;
 import com.nokhxyr.mostlight.registry.ModBlocks;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -52,6 +54,8 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock,
 
     private final LampType type;
     private final DyeColor color;
+    /** Hitbox par état (identité) : évite de recalculer la clé du modèle à chaque collision. */
+    private final Map<BlockState, VoxelShape> shapes = new ConcurrentHashMap<>();
 
     protected LampBlock(LampType type, DyeColor color, Properties properties) {
         super(properties);
@@ -263,6 +267,11 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock,
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return LampShapes.get(shapeModel(state), shapeFacing(state), type.placement() == Placement.OMNI);
+        VoxelShape shape = shapes.get(state);
+        if (shape == null) {
+            shape = LampShapes.get(shapeModel(state), shapeFacing(state), type.placement() == Placement.OMNI);
+            shapes.put(state, shape);
+        }
+        return shape;
     }
 }

@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
@@ -31,13 +32,14 @@ public final class LampShapes {
         if (boxes == null) {
             return Shapes.block();
         }
+        // fusion sans optimisation intermédiaire (Shapes.or ré-optimise à chaque boîte), une seule à la fin
         VoxelShape shape = Shapes.empty();
         for (double[] b : boxes) {
             double[] p1 = rotate(b[0], b[1], b[2], facing, omni);
             double[] p2 = rotate(b[3], b[4], b[5], facing, omni);
-            shape = Shapes.or(shape, Block.box(
+            shape = Shapes.joinUnoptimized(shape, Block.box(
                     Math.min(p1[0], p2[0]), Math.min(p1[1], p2[1]), Math.min(p1[2], p2[2]),
-                    Math.max(p1[0], p2[0]), Math.max(p1[1], p2[1]), Math.max(p1[2], p2[2])));
+                    Math.max(p1[0], p2[0]), Math.max(p1[1], p2[1]), Math.max(p1[2], p2[2])), BooleanOp.OR);
         }
         return shape.optimize();
     }

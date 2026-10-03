@@ -77,6 +77,12 @@ public final class ShowcaseDirector {
                     wait = 20;
                     return;
                 }
+                if (mc.getOverlay() != null) {
+                    // écran de chargement des ressources encore affiché (démarrage lent avec beaucoup de mods) :
+                    // créer le monde maintenant bloquerait doWorldLoad, qui attend que l'overlay disparaisse
+                    wait = 20;
+                    return;
+                }
                 deleteOldWorld(mc);
                 mc.createWorldOpenFlows().createFreshLevel(WORLD,
                         new LevelSettings("MostLight Showcase", GameType.CREATIVE, false, Difficulty.PEACEFUL, true,
