@@ -26,7 +26,7 @@ import org.joml.Vector3f;
 /**
  * Connecteur LED : relie une bande (ou un bloc lumineux) à sa voisine du côté visé (le bord de la bande le plus proche du clic ;
  * accroupi, la bande située devant la face cliquée). Une chaîne de bandes reliées s'allume en entier dès
- * qu'une seule est alimentée par la redstone. Les liaisons de la chaîne s'affichent en particules.
+ * qu'une seule est alimentée par la redstone. En visant une bande, connecteur en main, sa chaîne est surlignée (ConnectorOverlay).
  */
 public class LedConnectorItem extends Item {
     private static final DustParticleOptions LINK = new DustParticleOptions(new Vector3f(0.2F, 1.0F, 0.45F), 0.8F);
@@ -93,25 +93,10 @@ public class LedConnectorItem extends Item {
                 : state);
         level.playSound(null, pos, SoundEvents.COPPER_BULB_TURN_ON, SoundSource.BLOCKS, 0.6F, connect ? 1.4F : 0.8F);
         if (level instanceof ServerLevel server) {
-            showChain(server, chain);
             Vec3 edge = Vec3.atCenterOf(pos).add(Vec3.atLowerCornerOf(side.getNormal()).scale(0.5));
             server.sendParticles(connect ? LINK : CUT, edge.x, edge.y, edge.z, 8, 0.08, 0.08, 0.08, 0);
         }
         return InteractionResult.CONSUME;
-    }
-
-    /** Une petite étincelle verte sur chaque liaison de la chaîne. */
-    public static void showChain(ServerLevel level, List<BlockPos> chain) {
-        for (BlockPos pos : chain) {
-            if (level.getBlockEntity(pos) instanceof LampBlockEntity lamp) {
-                for (Direction d : Direction.values()) {
-                    if (lamp.connected(d)) {
-                        Vec3 edge = Vec3.atCenterOf(pos).add(Vec3.atLowerCornerOf(d.getNormal()).scale(0.5));
-                        level.sendParticles(LINK, edge.x, edge.y, edge.z, 1, 0, 0, 0, 0);
-                    }
-                }
-            }
-        }
     }
 
     private static void message(Player player, Component text) {
