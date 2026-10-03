@@ -7,6 +7,7 @@ import com.nokhxyr.mostlight.block.LampCategory;
 import com.nokhxyr.mostlight.block.LampFinish;
 import com.nokhxyr.mostlight.block.LampType;
 import com.nokhxyr.mostlight.block.LightTone;
+import com.nokhxyr.mostlight.block.LightStripBlock;
 import com.nokhxyr.mostlight.block.OmniLampBlock;
 import com.nokhxyr.mostlight.block.Placement;
 import com.nokhxyr.mostlight.block.TallLampBlock;
@@ -131,6 +132,11 @@ public final class ShowcaseBuilder {
         BlockPos demo = origin.offset((columns.size() - 1) * COLUMN_SPACING, 0, extras.size() * ROW_SPACING);
         buildSwitchDemo(level, demo, checks);
         views.add(rowView(demo, ground));
+        BlockPos led = demo.offset(0, 0, ROW_SPACING);
+        buildLedCorner(level, led);
+        View ledView = new View(led.getX() - 0.5, ground + 1.2, led.getZ() - 0.5, -45, 12, null);
+        views.add(ledView);
+        closeups.add(ledView);
 
         LOGGER.info("[MostLight showcase] {} colonnes, {} lampes posées, {} vues", columns.size(), checks.size(), views.size());
         return new Result(views, closeups, checks);
@@ -177,7 +183,10 @@ public final class ShowcaseBuilder {
                 lampPos = lightPos = pos.above();
                 BlockState state = placement == Placement.WALL
                         ? block.defaultBlockState().setValue(HorizontalLampBlock.FACING, Direction.NORTH)
-                        : block.defaultBlockState().setValue(OmniLampBlock.FACING, Direction.NORTH);
+                        : block instanceof LightStripBlock
+                                ? block.defaultBlockState().setValue(LightStripBlock.SIDES.get(Direction.DOWN), false)
+                                        .setValue(LightStripBlock.SIDES.get(Direction.SOUTH), true)
+                                : block.defaultBlockState().setValue(OmniLampBlock.FACING, Direction.NORTH);
                 level.setBlock(lampPos, state, Block.UPDATE_ALL);
             }
             case STANDING -> {
@@ -228,6 +237,41 @@ public final class ShowcaseBuilder {
         }
         placeSwitch(level, start.offset(-2, 1, 0), ModBlocks.LIGHT_SWITCH.get(), pendants);
         placeSwitch(level, start.offset(17, 1, 0), ModBlocks.DIMMER_SWITCH.get(), tables);
+    }
+
+    /**
+     * Coin de pièce : deux murs, bandes LED hautes qui se rejoignent dans l'angle (deux bandes dans le même bloc),
+     * bandes verticales dans l'angle et bandes au sol le long des murs.
+     */
+    private static void buildLedCorner(ServerLevel level, BlockPos start) {
+        int size = 5;
+        for (int i = 0; i < size; i++) {
+            for (int y = 0; y < 4; y++) {
+                level.setBlock(start.offset(i, y, size), Blocks.SMOOTH_QUARTZ.defaultBlockState(), Block.UPDATE_ALL);
+                level.setBlock(start.offset(size, y, i), Blocks.SMOOTH_QUARTZ.defaultBlockState(), Block.UPDATE_ALL);
+            }
+        }
+        LampBlock block = ModBlocks.lamp(LampType.LIGHT_STRIP, DyeColor.ORANGE);
+        for (int i = 0; i < size; i++) {
+            strip(level, block, start.offset(i, 2, size - 1), Direction.SOUTH, 2, false);
+            strip(level, block, start.offset(size - 1, 2, i), Direction.EAST, 2, false);
+            strip(level, block, start.offset(i, 0, size - 1), Direction.DOWN, 2, false);
+            strip(level, block, start.offset(size - 1, 0, i), Direction.DOWN, 2, true);
+        }
+        for (int y = 0; y < 2; y++) {
+            strip(level, block, start.offset(size - 1, y, size - 1), Direction.SOUTH, 2, true);
+            strip(level, block, start.offset(size - 1, y, size - 1), Direction.EAST, 2, true);
+        }
+    }
+
+    /** Ajoute une bande sur la face {@code side} du bloc (en gardant celles déjà posées). */
+    private static void strip(ServerLevel level, LampBlock block, BlockPos pos, Direction side, int slot, boolean rotated) {
+        BlockState current = level.getBlockState(pos);
+        BlockState state = current.is(block) ? current : block.defaultBlockState().setValue(LightStripBlock.SIDES.get(Direction.DOWN), false);
+        level.setBlock(pos, state.setValue(LightStripBlock.SIDES.get(side), true), Block.UPDATE_ALL);
+        if (level.getBlockEntity(pos) instanceof com.nokhxyr.mostlight.block.entity.LampBlockEntity lamp) {
+            lamp.setStrip(side, slot, rotated);
+        }
     }
 
     private static void placeSwitch(ServerLevel level, BlockPos pos, LightSwitchBlock block, List<BlockPos> links) {

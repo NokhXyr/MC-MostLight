@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "  E",
+    " K ",
+    "N  "
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:redstone"
+    },
+    "K": {
+      "item": "minecraft:copper_ingot"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "id": "mostlight:led_connector",
+    "count": 1
+  }
+}

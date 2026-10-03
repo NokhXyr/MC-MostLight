@@ -194,7 +194,10 @@ public final class StressField {
                 level.setBlock(support, Blocks.SMOOTH_QUARTZ.defaultBlockState(), Block.UPDATE_ALL);
                 state = block.defaultBlockState().setValue(HorizontalLampBlock.FACING, facing);
             }
-            case OMNI -> state = block.defaultBlockState().setValue(OmniLampBlock.FACING, Direction.UP);
+            // bande LED : posée au sol par défaut
+            case OMNI -> state = block instanceof com.nokhxyr.mostlight.block.LightStripBlock
+                    ? block.defaultBlockState()
+                    : block.defaultBlockState().setValue(OmniLampBlock.FACING, Direction.UP);
             case STANDING -> state = block.defaultBlockState().setValue(HorizontalLampBlock.FACING, facing);
             case TALL -> state = block.defaultBlockState().setValue(TallLampBlock.FACING, facing);
             default -> {

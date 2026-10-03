@@ -27,14 +27,17 @@ Le verre est translucide : on voit l'ampoule à filament ou la flamme à l'inté
 
 - **Main vide, clic droit** : allumer / éteindre. **Accroupi + clic droit** : luminosité (15, 12, 9 ou 6).
 - **Redstone** : un signal allume la lampe, la fin du signal l'éteint.
-- **Interrupteur / Variateur** : avec l'interrupteur en main, fais accroupi + clic droit sur des lampes pour les lier (64 maximum), puis pose-le.
+- **Interrupteur / Variateur** : avec l'interrupteur en main, fais accroupi + clic droit sur des lampes pour les lier (64 maximum par défaut, réglable), puis pose-le.
   - L'interrupteur allume ou éteint tout le groupe d'un clic.
   - Le variateur change la luminosité du groupe ; accroupi + clic l'allume ou l'éteint.
   - Casser un interrupteur garde ses liaisons dans l'objet.
 - **Télécommande** : se lie aux lampes de la même façon. Ensuite, clic droit dans le vide pour allumer / éteindre, accroupi pour la luminosité.
 - Bougies, flambeaux et braseros font des flammes et de la fumée quand ils sont allumés.
 - Les lampes acceptent l'eau. Elles se posent sur n'importe quel bloc qui a une forme : escalier à l'envers, dalle, barrière, tête de joueur, vitre… Elles tombent si on retire leur support.
-- **Bandes LED** : elles se posent en position basse, milieu ou haute de la face, selon l'endroit visé. Accroupi, on les pose à la verticale ; au sol, elles suivent le regard. En bord de face, deux bandes sur des faces voisines forment un angle.
+- **Bandes LED** : elles se posent en position basse, milieu ou haute de la face, selon l'endroit visé. Accroupi, on les pose à la verticale ; au sol, elles suivent le regard.
+  - **Angles** : un même bloc porte jusqu'à 6 bandes, une par face. Dans le coin d'une pièce, la bande du mur nord et celle du mur est se rejoignent dans le même bloc, chacune avec sa propre position.
+  - **Chaînes redstone** : avec le **connecteur LED**, clic droit près du bord d'une bande pour la relier à sa voisine de ce côté (accroupi : à travers la face cliquée). Dès qu'une bande de la chaîne reçoit un signal redstone, toute la chaîne s'allume. Les liaisons s'affichent en étincelles vertes.
+  - Longueur maximale d'une chaîne : 256 bandes par défaut, réglable.
 
 ## Les lampes
 
@@ -68,6 +71,16 @@ Pour refaire le test :
 Les captures arrivent dans `run-shaders/screenshots/`.
 
 Voir aussi [COMPATIBILITE.md](COMPATIBILITE.md) : mods d'optimisation et lumière colorée sous shaders.
+
+## Configuration
+
+Le fichier `config/mostlight-common.toml` est créé au premier lancement :
+
+| Réglage | Par défaut | Rôle |
+|---|---|---|
+| `leds.maxChainLength` | 256 | Nombre maximal de bandes LED dans une chaîne redstone (1 à 4096) |
+| `switches.maxLinks` | 64 | Nombre maximal de lampes liées à un interrupteur ou une télécommande (1 à 1024) |
+| `switches.range` | 64 | Distance maximale en blocs entre un interrupteur et ses lampes (8 à 1024) |
 
 ## Performances
 

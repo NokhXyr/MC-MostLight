@@ -11,6 +11,8 @@ import com.nokhxyr.mostlight.block.Placement;
 import com.nokhxyr.mostlight.block.TallLampBlock;
 import com.nokhxyr.mostlight.item.DesignerWrenchItem;
 import com.nokhxyr.mostlight.item.LampItem;
+import com.nokhxyr.mostlight.item.LedConnectorItem;
+import com.nokhxyr.mostlight.item.LightStripItem;
 import com.nokhxyr.mostlight.link.DimmerSwitchBlock;
 import com.nokhxyr.mostlight.link.LampRemoteItem;
 import com.nokhxyr.mostlight.link.LightSwitchBlock;
@@ -47,7 +49,9 @@ public final class ModBlocks {
                 String name = type.id() + "_" + color.getSerializedName();
                 DeferredBlock<LampBlock> block = BLOCKS.register(name, () -> create(type, color));
                 blocks.put(color, block);
-                items.put(color, ITEMS.register(name, () -> new LampItem(block.get(), new Item.Properties())));
+                items.put(color, ITEMS.register(name, () -> type == LampType.LIGHT_STRIP
+                        ? new LightStripItem(block.get(), new Item.Properties())
+                        : new LampItem(block.get(), new Item.Properties())));
                 ALL.add(block);
             }
             LAMPS.put(type, blocks);
@@ -65,6 +69,8 @@ public final class ModBlocks {
             () -> new SwitchItem(DIMMER_SWITCH.get(), new Item.Properties(), "dimmer_usage"));
     public static final DeferredItem<LampRemoteItem> LAMP_REMOTE = ITEMS.register("lamp_remote",
             () -> new LampRemoteItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<LedConnectorItem> LED_CONNECTOR = ITEMS.register("led_connector",
+            () -> new LedConnectorItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<DesignerWrenchItem> DESIGNER_WRENCH = ITEMS.register("designer_wrench",
             () -> new DesignerWrenchItem(new Item.Properties().stacksTo(1)));
 
@@ -83,6 +89,10 @@ public final class ModBlocks {
                 .lightLevel(type.placement() == Placement.TALL ? TallLampBlock::lightLevel : LampBlock::lightLevel);
         if (type.placement() != Placement.CUBE) {
             props = props.noOcclusion().pushReaction(PushReaction.DESTROY);
+        }
+        if (type == LampType.LIGHT_STRIP) {
+            // forme qui dépend de la block entity (position de chaque bande) : pas de cache par état
+            props = props.dynamicShape();
         }
         return switch (type.placement()) {
             case TALL -> new TallLampBlock(type, color, props);

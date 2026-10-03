@@ -258,6 +258,10 @@ public class LampGameTests {
         stack.useOn(new UseOnContext(player, InteractionHand.MAIN_HAND, new BlockHitResult(hit, face, abs, false)));
     }
 
+    private static int layout(GameTestHelper helper, BlockPos pos) {
+        return ((LampBlockEntity) helper.getBlockEntity(pos)).stripLayout();
+    }
+
     @GameTest(template = "empty")
     public static void ledStripSlotsAndRotation(GameTestHelper helper) {
         BlockPos wall = new BlockPos(4, 2, 4);
@@ -266,18 +270,72 @@ public class LampGameTests {
 
         // face nord du mur, visée près du bas : bande horizontale en position basse
         placeAt(helper, player, new ItemStack(ModBlocks.item(LampType.LIGHT_STRIP, DyeColor.CYAN)), wall, Direction.NORTH, new Vec3(0.5, 0.1, 0));
-        BlockState low = helper.getBlockState(wall.north());
-        helper.assertTrue(low.getValue(LightStripBlock.SLOT) == LightStripBlock.Slot.LOW && !low.getValue(LightStripBlock.ROTATED),
-                "bande basse horizontale");
+        int low = layout(helper, wall.north());
+        helper.assertTrue(LightStripBlock.has(helper.getBlockState(wall.north()), Direction.SOUTH), "bande fixée au mur");
+        helper.assertTrue(LampBlockEntity.slot(low, Direction.SOUTH) == 0 && !LampBlockEntity.rotated(low, Direction.SOUTH), "bande basse horizontale");
 
         // face sud, accroupi, visée en haut à droite : verticale
         player.setShiftKeyDown(true);
         placeAt(helper, player, new ItemStack(ModBlocks.item(LampType.LIGHT_STRIP, DyeColor.CYAN)), wall, Direction.SOUTH, new Vec3(0.9, 0.5, 1));
         player.setShiftKeyDown(false);
-        BlockState vertical = helper.getBlockState(wall.south());
-        helper.assertTrue(vertical.getValue(LightStripBlock.ROTATED), "accroupi : bande verticale");
-        helper.assertTrue(vertical.getValue(LightStripBlock.SLOT) != LightStripBlock.Slot.MIDDLE, "position latérale selon la visée");
+        int vertical = layout(helper, wall.south());
+        helper.assertTrue(LampBlockEntity.rotated(vertical, Direction.NORTH), "accroupi : bande verticale");
+        helper.assertTrue(LampBlockEntity.slot(vertical, Direction.NORTH) != 1, "position latérale selon la visée");
         helper.succeed();
+    }
+
+    /** Angle de pièce : deux bandes sur deux murs dans le même bloc, chacune avec sa propre position. */
+    @GameTest(template = "empty")
+    public static void ledStripCornerInOneBlock(GameTestHelper helper) {
+        BlockPos corner = new BlockPos(4, 2, 4);
+        helper.setBlock(corner.north(), Blocks.STONE);
+        helper.setBlock(corner.east(), Blocks.STONE);
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        ItemStack strip = new ItemStack(ModBlocks.item(LampType.LIGHT_STRIP, DyeColor.ORANGE), 2);
+        // mur nord, visée en haut ; puis mur est, visée en bas
+        placeAt(helper, player, strip, corner.north(), Direction.SOUTH, new Vec3(0.5, 0.9, 1));
+        placeAt(helper, player, strip, corner.east(), Direction.WEST, new Vec3(0, 0.1, 0.5));
+        BlockState state = helper.getBlockState(corner);
+        helper.assertTrue(LightStripBlock.has(state, Direction.NORTH) && LightStripBlock.has(state, Direction.EAST),
+                "deux bandes dans le même bloc : " + state);
+        int layout = layout(helper, corner);
+        helper.assertTrue(LampBlockEntity.slot(layout, Direction.NORTH) == 2 && LampBlockEntity.slot(layout, Direction.EAST) == 0,
+                "chaque bande garde sa position");
+        // le mur est disparaît : seule sa bande tombe, l'autre reste
+        helper.setBlock(corner.east(), Blocks.AIR);
+        BlockState after = helper.getBlockState(corner);
+        helper.assertTrue(LightStripBlock.has(after, Direction.NORTH) && !LightStripBlock.has(after, Direction.EAST), "seule la bande sans support tombe");
+        helper.succeed();
+    }
+
+    /** Chaîne redstone : 5 bandes reliées au connecteur ; alimenter la première allume tout, couper éteint tout. */
+    @GameTest(template = "empty")
+    public static void ledChainFollowsRedstone(GameTestHelper helper) {
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        for (int x = 2; x <= 6; x++) {
+            helper.setBlock(new BlockPos(x, 1, 4), Blocks.STONE);
+            placeAt(helper, player, new ItemStack(ModBlocks.item(LampType.LIGHT_STRIP, DyeColor.LIME)), new BlockPos(x, 1, 4), Direction.UP,
+                    new Vec3(0.5, 1, 0.5));
+        }
+        // connecteur : clic près du bord est de chaque bande
+        for (int x = 2; x <= 5; x++) {
+            placeAt(helper, player, new ItemStack(ModBlocks.LED_CONNECTOR.get()), new BlockPos(x, 2, 4), Direction.UP, new Vec3(0.95, 0.06, 0.5));
+        }
+        BlockPos first = new BlockPos(2, 2, 4);
+        helper.assertTrue(LightStripBlock.chain(helper.getLevel(), helper.absolutePos(first)).size() == 5, "5 bandes dans la chaîne");
+        helper.setBlock(first.west(), Blocks.REDSTONE_BLOCK);
+        helper.runAfterDelay(2, () -> {
+            for (int x = 2; x <= 6; x++) {
+                helper.assertBlockProperty(new BlockPos(x, 2, 4), LampBlock.LIT, true);
+            }
+            helper.setBlock(first.west(), Blocks.AIR);
+            helper.runAfterDelay(2, () -> {
+                for (int x = 2; x <= 6; x++) {
+                    helper.assertBlockProperty(new BlockPos(x, 2, 4), LampBlock.LIT, false);
+                }
+                helper.succeed();
+            });
+        });
     }
 
     @GameTest(template = "empty")
@@ -309,6 +367,10 @@ public class LampGameTests {
         int states = 0;
         for (DeferredBlock<LampBlock> holder : ModBlocks.all()) {
             for (BlockState state : holder.get().getStateDefinition().getPossibleStates()) {
+                // une bande LED sans aucune face n'existe jamais dans le monde (le bloc disparaît)
+                if (state.getBlock() instanceof LightStripBlock && java.util.Arrays.stream(Direction.values()).noneMatch(d -> LightStripBlock.has(state, d))) {
+                    continue;
+                }
                 helper.assertTrue(!state.getShape(helper.getLevel(), pos).isEmpty(), "hitbox vide : " + state);
                 states++;
             }

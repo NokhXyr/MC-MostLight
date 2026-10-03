@@ -1,6 +1,7 @@
 package com.nokhxyr.mostlight.link;
 
 import com.nokhxyr.mostlight.MostLight;
+import com.nokhxyr.mostlight.MostLightConfig;
 import com.nokhxyr.mostlight.block.LampBlock;
 import com.nokhxyr.mostlight.component.ModComponents;
 import java.util.ArrayList;
@@ -17,8 +18,14 @@ import net.minecraft.world.level.block.state.BlockState;
 
 /** Liaison entre interrupteurs/télécommande et lampes. */
 public final class LampLinks {
-    public static final int MAX_LINKS = 64;
-    public static final int RANGE = 64;
+    /** Limites réglables dans config/mostlight-common.toml. */
+    public static int maxLinks() {
+        return MostLightConfig.get(MostLightConfig.SWITCH_MAX_LINKS);
+    }
+
+    public static int range() {
+        return MostLightConfig.get(MostLightConfig.SWITCH_RANGE);
+    }
 
     private LampLinks() {}
 
@@ -35,8 +42,8 @@ public final class LampLinks {
         String result;
         if (links.remove(key)) {
             result = "unlinked";
-        } else if (links.size() >= MAX_LINKS) {
-            return Component.translatable("message." + MostLight.MOD_ID + ".link_full", MAX_LINKS).withStyle(ChatFormatting.RED);
+        } else if (links.size() >= maxLinks()) {
+            return Component.translatable("message." + MostLight.MOD_ID + ".link_full", maxLinks()).withStyle(ChatFormatting.RED);
         } else {
             links.add(key);
             result = "linked";
@@ -52,8 +59,9 @@ public final class LampLinks {
     /** Lampes liées encore présentes, chargées et à portée. */
     private static List<BlockPos> live(Level level, BlockPos origin, List<BlockPos> links) {
         List<BlockPos> out = new ArrayList<>();
+        int range = range();
         for (BlockPos pos : links) {
-            if (pos.closerThan(origin, RANGE) && level.isLoaded(pos) && level.getBlockState(pos).getBlock() instanceof LampBlock) {
+            if (pos.closerThan(origin, range) && level.isLoaded(pos) && level.getBlockState(pos).getBlock() instanceof LampBlock) {
                 out.add(pos);
             }
         }

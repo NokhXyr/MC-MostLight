@@ -183,7 +183,9 @@ public final class ShowcaseDirector {
 
     /** Vues à photographier : la galerie, ou les gros plans avec -Dmostlight.showcase.closeups=true. */
     private static List<ShowcaseBuilder.View> views() {
-        return CLOSEUPS ? RESULT.get().closeups() : RESULT.get().views();
+        List<ShowcaseBuilder.View> all = CLOSEUPS ? RESULT.get().closeups() : RESULT.get().views();
+        // MOSTLIGHT_SHOWCASE_LAST=1 : seulement la dernière vue (contrôle rapide de la démo LED)
+        return "1".equals(System.getenv("MOSTLIGHT_SHOWCASE_LAST")) ? all.subList(all.size() - 1, all.size()) : all;
     }
 
     private static void teleport(Minecraft mc, ShowcaseBuilder.View view) {

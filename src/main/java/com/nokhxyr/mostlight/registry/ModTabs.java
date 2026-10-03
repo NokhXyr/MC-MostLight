@@ -42,6 +42,7 @@ public final class ModTabs {
                     output.accept(ModBlocks.LIGHT_SWITCH_ITEM.get());
                     output.accept(ModBlocks.DIMMER_SWITCH_ITEM.get());
                     output.accept(ModBlocks.LAMP_REMOTE.get());
+                    output.accept(ModBlocks.LED_CONNECTOR.get());
                     for (LampType type : LampType.values()) {
                         for (LampFinish finish : LampFinish.values()) {
                             ItemStack stack = new ItemStack(ModBlocks.item(type, DyeColor.WHITE));
