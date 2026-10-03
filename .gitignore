@@ -16,3 +16,9 @@ run-stress-vanilla/
 run-stress-client/
 run-stress-client-vanilla/
 .obsidian/
+
+# Page images: recording folder, script caches, previews, upload copies
+run-*/
+__pycache__/
+images/preview/
+images/upload/
