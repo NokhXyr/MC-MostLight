@@ -229,9 +229,18 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock,
             level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
         if (!state.canSurvive(level, pos)) {
-            return Blocks.AIR.defaultBlockState();
+            // tombe au tick suivant, avec son objet : aussi quand un piston ou une contraption la pose sans support
+            // (le jeu recalcule alors la forme du bloc et un retour à l'air ne rendrait rien)
+            level.scheduleTick(pos, this, 1);
         }
         return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+    }
+
+    @Override
+    protected void tick(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, RandomSource random) {
+        if (!state.canSurvive(level, pos)) {
+            level.destroyBlock(pos, true);
+        }
     }
 
     @Override

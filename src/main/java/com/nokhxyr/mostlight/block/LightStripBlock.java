@@ -21,7 +21,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.Rotation;
@@ -211,8 +210,9 @@ public class LightStripBlock extends LampBlock {
         }
         BlockState without = state.setValue(SIDES.get(direction), false);
         if (sideMask(without) == 0) {
-            // dernière bande : le bloc casse normalement (la table de butin rend une bande par face)
-            return Blocks.AIR.defaultBlockState();
+            // dernière bande : le bloc tombe au tick suivant, avec ses objets (LampBlock.tick)
+            level.scheduleTick(pos, this, 1);
+            return state;
         }
         if (level instanceof ServerLevel server) {
             popResource(server, pos, new ItemStack(this));

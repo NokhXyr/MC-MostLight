@@ -24,5 +24,10 @@ public class MostLight {
         ModRecipes.TYPES.register(modBus);
         ModRecipes.SERIALIZERS.register(modBus);
         ModRecipes.MENUS.register(modBus);
+        modBus.addListener((net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent event) -> {
+            if (net.neoforged.fml.ModList.get().isLoaded("create")) {
+                event.enqueueWork(com.nokhxyr.mostlight.compat.CreateCompat::register);
+            }
+        });
     }
 }

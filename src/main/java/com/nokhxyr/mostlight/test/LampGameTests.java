@@ -135,11 +135,14 @@ public class LampGameTests {
         place(helper, player, new ItemStack(ModBlocks.item(LampType.LAMP_PANEL, DyeColor.WHITE)), ceiling, Direction.WEST);
         helper.assertBlockPresent(ModBlocks.lamp(LampType.LAMP_PANEL, DyeColor.WHITE), ceiling.west());
 
+        // sans support, les lampes tombent au tick suivant (avec leur objet)
         helper.setBlock(ceiling, Blocks.AIR);
-        helper.assertBlockPresent(Blocks.AIR, ceiling.below());
-        helper.assertBlockPresent(Blocks.AIR, ceiling.east());
-        helper.assertBlockPresent(Blocks.AIR, ceiling.west());
-        helper.succeed();
+        helper.runAfterDelay(2, () -> {
+            helper.assertBlockPresent(Blocks.AIR, ceiling.below());
+            helper.assertBlockPresent(Blocks.AIR, ceiling.east());
+            helper.assertBlockPresent(Blocks.AIR, ceiling.west());
+            helper.succeed();
+        });
     }
 
     @GameTest(template = "empty")
@@ -422,10 +425,12 @@ public class LampGameTests {
         placeAt(helper, player, new ItemStack(ModBlocks.item(LampType.TABLE_LAMP, DyeColor.RED)), head, Direction.UP, new Vec3(0.5, 0.5, 0.5));
         helper.assertBlockPresent(ModBlocks.lamp(LampType.TABLE_LAMP, DyeColor.RED), head.above());
 
-        // l'air ne porte rien
+        // l'air ne porte rien : la bande tombe au tick suivant
         helper.setBlock(stairs, Blocks.AIR);
-        helper.assertBlockPresent(Blocks.AIR, stairs.below());
-        helper.succeed();
+        helper.runAfterDelay(2, () -> {
+            helper.assertBlockPresent(Blocks.AIR, stairs.below());
+            helper.succeed();
+        });
     }
 
     @GameTest(template = "empty")
@@ -553,5 +558,41 @@ public class LampGameTests {
         helper.assertTrue(!standing.getValue(com.nokhxyr.mostlight.block.RodLampBlock.LYING), "au sol : debout " + standing);
         helper.assertTrue(!lying.getShape(helper.getLevel(), helper.absolutePos(wall.north())).isEmpty(), "hitbox couchée");
         helper.succeed();
+    }
+
+    /** Piston : un bloc lumineux poussé garde sa finition et sa teinte. */
+    @GameTest(template = "empty")
+    public static void pistonPushKeepsLook(GameTestHelper helper) {
+        BlockPos lamp = new BlockPos(3, 2, 4);
+        BlockPos piston = lamp.west();
+        helper.setBlock(lamp, ModBlocks.lamp(LampType.LAMP_BLOCK, DyeColor.BLUE));
+        ((LampBlockEntity) helper.getBlockEntity(lamp)).setLook(LampFinish.GOLD, LightTone.WARM);
+        helper.setBlock(piston, Blocks.PISTON.defaultBlockState().setValue(BlockStateProperties.FACING, Direction.EAST));
+        helper.setBlock(piston.west(), Blocks.REDSTONE_BLOCK);
+        helper.runAfterDelay(6, () -> {
+            BlockPos moved = lamp.east();
+            helper.assertBlockPresent(ModBlocks.lamp(LampType.LAMP_BLOCK, DyeColor.BLUE), moved);
+            LampBlockEntity entity = (LampBlockEntity) helper.getBlockEntity(moved);
+            helper.assertTrue(entity.finish() == LampFinish.GOLD && entity.tone() == LightTone.WARM,
+                    "finition et teinte gardées, obtenu " + entity.finish() + " / " + entity.tone());
+            helper.succeed();
+        });
+    }
+
+    /** Piston : une applique poussée loin de son mur tombe en objet au lieu de disparaître. */
+    @GameTest(template = "empty")
+    public static void pistonPushedWallLampDrops(GameTestHelper helper) {
+        BlockPos lamp = new BlockPos(3, 2, 4);
+        helper.setBlock(lamp.south(), Blocks.STONE);
+        helper.setBlock(lamp, ModBlocks.lamp(LampType.WALL_SCONCE, DyeColor.WHITE).defaultBlockState()
+                .setValue(com.nokhxyr.mostlight.block.HorizontalLampBlock.FACING, Direction.NORTH));
+        BlockPos piston = lamp.west();
+        helper.setBlock(piston, Blocks.PISTON.defaultBlockState().setValue(BlockStateProperties.FACING, Direction.EAST));
+        helper.setBlock(piston.west(), Blocks.REDSTONE_BLOCK);
+        helper.runAfterDelay(8, () -> {
+            helper.assertBlockNotPresent(ModBlocks.lamp(LampType.WALL_SCONCE, DyeColor.WHITE), lamp.east());
+            helper.assertItemEntityPresent(ModBlocks.item(LampType.WALL_SCONCE, DyeColor.WHITE), lamp.east(), 2.0);
+            helper.succeed();
+        });
     }
 }

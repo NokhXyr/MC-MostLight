@@ -38,6 +38,7 @@ Le verre est translucide : on voit l'ampoule à filament ou la flamme à l'inté
 - **Ventilateur lumineux** : 1er clic = lumière, 2e clic = le ventilateur tourne, 3e clic = tout éteint.
 - Bougies, flambeaux et braseros font des flammes et de la fumée quand ils sont allumés.
 - Les lampes acceptent l'eau. Elles se posent sur n'importe quel bloc qui a une forme : escalier à l'envers, dalle, barrière, tête de joueur, vitre… Elles tombent si on retire leur support.
+- **Pistons** : les pistons poussent et tirent les lampes, qui gardent leur finition, leur teinte, leurs bandes et leurs liaisons. Une lampe qui arrive sans support tombe en objet. Les lampes de 2 blocs de haut se cassent quand on les pousse (un piston n'en déplacerait qu'une moitié). Avec Create, les contraptions emportent les lampes attachées au bloc qu’elles déplacent.
 - **Bandes LED** : elles se posent en position basse, milieu ou haute de la face, selon l'endroit visé. Accroupi, on les pose à la verticale ; au sol, elles suivent le regard.
   - **Raccords** : un même bloc porte jusqu'à 6 bandes, une par face. Les bandes voisines se raccordent toutes seules, comme de la redstone : coin d'une pièce (une bande s'arrête contre l'autre), tour d'un pilier (angle extérieur), en L, en T ou en croix sur un même mur.
   - **Chaînes redstone** : avec le **connecteur LED**, clic droit près du bord d'une bande pour la relier à sa voisine de ce côté (accroupi : à travers la face cliquée). Dès qu'un bloc de la chaîne reçoit un signal redstone, toute la chaîne s'allume. Les **blocs lumineux** pleins (bloc lumineux, lampe encadrée, alvéolée, cadre néon, bloc shoji) se relient de la même façon, entre eux et avec les bandes.
@@ -101,6 +102,7 @@ vanilla, aucune erreur, lumière exacte. Rapport détaillé : [docs/TEST_DE_CHAR
 - [GeckoLib](https://modrinth.com/mod/geckolib) 4.9 ou plus, obligatoire : il anime les pièces mobiles (engrenages, lampe à lave, pales du ventilateur), seulement de près : de loin elles restent dans le modèle précuit. Les autres lampes sont des modèles précuits, sans GeckoLib, pour rester rapides.
 
 - [JEI](https://modrinth.com/mod/jei), facultatif : recettes, variantes de finition et fiches d'explication de chaque lampe, outil et interrupteur.
+- [Create](https://modrinth.com/mod/create), facultatif : les contraptions emportent les lampes avec le bloc qui les porte (sans colle), et le canon à schémas garde leur finition et leur teinte.
 
 ## Compiler
 

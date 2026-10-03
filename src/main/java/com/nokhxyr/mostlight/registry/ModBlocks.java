@@ -155,7 +155,11 @@ public final class ModBlocks {
                 .sound(type.sound())
                 .lightLevel(type.placement() == Placement.TALL ? TallLampBlock::lightLevel : LampBlock::lightLevel);
         if (type.placement() != Placement.CUBE) {
-            props = props.noOcclusion().pushReaction(PushReaction.DESTROY);
+            props = props.noOcclusion();
+        }
+        if (type.placement() == Placement.TALL) {
+            // deux moitiés : un piston n'en pousserait qu'une, la lampe casse (les contraptions de Create la déplacent entière)
+            props = props.pushReaction(PushReaction.DESTROY);
         }
         if (type.isStrip()) {
             // forme qui dépend de la block entity (position de chaque bande) : pas de cache par état

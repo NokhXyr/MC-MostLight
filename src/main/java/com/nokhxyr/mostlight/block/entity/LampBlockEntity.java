@@ -92,6 +92,18 @@ public class LampBlockEntity extends BlockEntity {
         sync();
     }
 
+    /** Arrivée dans le monde : reprend les données d'une lampe déplacée par un piston (PistonCarry). */
+    @Override
+    public void onLoad() {
+        super.onLoad();
+        com.nokhxyr.mostlight.block.PistonCarry.restore(this);
+    }
+
+    /** Après un déplacement par piston : renvoie l'aspect aux clients et met à jour le rendu. */
+    public void afterMove() {
+        sync();
+    }
+
     private void sync() {
         lookChanged = true;
         lookVersion++;
