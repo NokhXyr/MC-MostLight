@@ -42,6 +42,12 @@ public class CubeLampBlock extends LampBlock {
         }
     }
 
+    /** Comme le verre : la face collée à un bloc du même modèle n'est pas dessinée. */
+    @Override
+    protected boolean skipRendering(BlockState state, BlockState adjacent, Direction side) {
+        return adjacent.getBlock() instanceof CubeLampBlock other && other.type() == type() || super.skipRendering(state, adjacent, side);
+    }
+
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return Shapes.block();

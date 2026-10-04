@@ -52,6 +52,13 @@ public final class ShowcaseDirector {
 
     private static Stage stage = Stage.START;
     private static int wait;
+    /**
+     * MOSTLIGHT_SHOWCASE_SHADERS="off,Solas Shader V3.7b.zip,..." : la même série de photos refaite pour chaque pack
+     * de shaders (off = sans shaders), changé en jeu par Iris. Les fichiers sont préfixés par le numéro du pack.
+     */
+    private static final List<String> SHADERS = System.getenv("MOSTLIGHT_SHOWCASE_SHADERS") == null ? List.of()
+            : List.of(System.getenv("MOSTLIGHT_SHOWCASE_SHADERS").split(","));
+    private static int shaderIndex;
     private static int viewIndex;
     private static boolean night;
     private static final AtomicReference<ShowcaseBuilder.Result> RESULT = new AtomicReference<>();
@@ -122,6 +129,9 @@ public final class ShowcaseDirector {
                     return;
                 }
                 viewIndex = 0;
+                if (!SHADERS.isEmpty()) {
+                    applyShader(SHADERS.get(0));
+                }
                 teleport(mc, views().get(0));
                 stage = WORKBENCH_ONLY ? Stage.WORKBENCH : Stage.SHOOTING;
                 wait = 200;
@@ -133,6 +143,8 @@ public final class ShowcaseDirector {
                     wait = 10;
                     return;
                 }
+                // un rechargement des shaders peut réafficher l'interface
+                mc.options.hideGui = true;
                 List<ShowcaseBuilder.View> views = views();
                 ShowcaseBuilder.View current = views.get(viewIndex);
                 if (night && current.row() != null) {
@@ -144,14 +156,25 @@ public final class ShowcaseDirector {
                         CHECKED.addAndGet(row.size());
                     });
                 }
-                String name = String.format("%s_%02d_%s.png", CLOSEUPS ? "closeup" : "showcase", viewIndex, night ? "night" : "day");
+                String name = String.format("%s%s_%02d_%s.png", CLOSEUPS ? "closeup" : "showcase",
+                        SHADERS.isEmpty() ? "" : "_s" + shaderIndex, viewIndex, night ? "night" : "day");
                 Screenshot.grab(mc.gameDirectory, name, mc.getMainRenderTarget(), message -> {});
                 viewIndex++;
                 if (viewIndex >= views.size()) {
                     if (night) {
                         LOGGER.info("[MostLight showcase] vérification : {}/{} lampes OK (tenue, émission, lumière autour)",
                                 CHECKED.get() - FAILURES.get(), CHECKED.get());
-                        stage = Stage.LEAVING;
+                        if (shaderIndex + 1 >= SHADERS.size()) {
+                            stage = Stage.LEAVING;
+                            return;
+                        }
+                        // pack suivant : on reprend la série de jour
+                        applyShader(SHADERS.get(++shaderIndex));
+                        night = false;
+                        viewIndex = 0;
+                        mc.getSingleplayerServer().execute(() -> mc.getSingleplayerServer().overworld().setDayTime(6000));
+                        teleport(mc, views.get(0));
+                        wait = 300;
                         return;
                     }
                     night = true;
@@ -194,6 +217,28 @@ public final class ShowcaseDirector {
                 mc.stop();
             }
             default -> {}
+        }
+    }
+
+    /** Change de pack de shaders par Iris (réflexion : Iris n'est pas une dépendance de compilation). */
+    private static void applyShader(String entry) {
+        // "pack@vanilla" : même pack, ancienne table de lumière colorée (comparaison)
+        String pack = entry.replace("@vanilla", "");
+        com.nokhxyr.mostlight.compat.IrisLightColors.vanillaOnly = entry.endsWith("@vanilla");
+        try {
+            Class<?> iris = Class.forName("net.irisshaders.iris.Iris");
+            Object config = iris.getMethod("getIrisConfig").invoke(null);
+            boolean off = "off".equals(pack);
+            config.getClass().getMethod("setShadersEnabled", boolean.class).invoke(config, !off);
+            if (!off) {
+                config.getClass().getMethod("setShaderPackName", String.class).invoke(config, pack);
+            }
+            // Iris relit sa configuration au rechargement : il faut l'enregistrer d'abord
+            config.getClass().getMethod("save").invoke(config);
+            iris.getMethod("reload").invoke(null);
+            LOGGER.info("[MostLight showcase] shaders : {}", pack);
+        } catch (ReflectiveOperationException e) {
+            LOGGER.error("[MostLight showcase] impossible de passer au pack {}", pack, e);
         }
     }
 

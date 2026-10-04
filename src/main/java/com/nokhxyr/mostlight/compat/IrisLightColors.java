@@ -8,8 +8,12 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import java.util.EnumMap;
 import java.util.Map;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CandleBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -20,9 +24,18 @@ import org.slf4j.Logger;
  * de matériau que leur block.properties attribue à chaque bloc ; un bloc moddé inconnu éclaire en blanc.
  * On donne donc à chaque lampe allumée l'identifiant que le pack actif a choisi pour une source vanilla de la
  * même couleur. Aucune dépendance au pack : si la source de référence n'est pas listée, rien ne change.
+ *
+ * <p>Le même identifiant règle aussi le rendu du bloc : pour une froglight, une lanterne ou une lanterne des âmes,
+ * Solas et d'autres packs font briller toute la texture d'après sa couleur (abat-jour, cadre, pied compris).
+ * On prend donc d'abord la bougie allumée de la même couleur, quand le pack lui donne un identifiant à elle :
+ * c'est là que ces packs rangent les lampes colorées des autres mods, avec une lumière de la bonne couleur et
+ * presque aucun effet sur la texture.
  */
 public final class IrisLightColors {
     private static final Logger LOGGER = LogUtils.getLogger();
+
+    /** Galerie de test seulement : true = sources vanilla uniquement, sans les bougies (comparaison). */
+    public static boolean vanillaOnly;
 
     private IrisLightColors() {}
 
@@ -49,6 +62,12 @@ public final class IrisLightColors {
         return refs;
     }
 
+    /** Bougie allumée de chaque couleur. */
+    private static BlockState candle(DyeColor color) {
+        Block block = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(color.getSerializedName() + "_candle"));
+        return block.defaultBlockState().setValue(CandleBlock.LIT, true);
+    }
+
     /** Renvoie une copie de la table d'Iris enrichie des lampes allumées. */
     public static Object2IntMap<BlockState> withLamps(Object2IntMap<BlockState> ids) {
         if (ids == null || ids.isEmpty()) {
@@ -57,6 +76,14 @@ public final class IrisLightColors {
         Object2IntMap<BlockState> out = new Object2IntOpenHashMap<>(ids);
         out.defaultReturnValue(ids.defaultReturnValue());
         Map<DyeColor, BlockState> refs = references();
+        // bougies colorées seulement si le pack les distingue de la bougie simple (sinon lumière sans couleur)
+        BlockState plain = Blocks.CANDLE.defaultBlockState().setValue(CandleBlock.LIT, true);
+        for (DyeColor color : vanillaOnly ? new DyeColor[0] : DyeColor.values()) {
+            BlockState candle = candle(color);
+            if (ids.containsKey(candle) && (!ids.containsKey(plain) || ids.getInt(candle) != ids.getInt(plain))) {
+                refs.put(color, candle);
+            }
+        }
         int added = 0;
         for (DeferredBlock<LampBlock> holder : ModBlocks.all()) {
             LampBlock lamp = holder.get();

@@ -154,9 +154,8 @@ public final class ModBlocks {
                 .strength(0.5F)
                 .sound(type.sound())
                 .lightLevel(type.placement() == Placement.TALL ? TallLampBlock::lightLevel : LampBlock::lightLevel);
-        if (type.placement() != Placement.CUBE) {
-            props = props.noOcclusion();
-        }
+        // aucune lampe ne cache ses voisins : les blocs lumineux laissent voir à travers (cadre, verre, papier)
+        props = props.noOcclusion();
         if (type.placement() == Placement.TALL) {
             // deux moitiés : un piston n'en pousserait qu'une, la lampe casse (les contraptions de Create la déplacent entière)
             props = props.pushReaction(PushReaction.DESTROY);
