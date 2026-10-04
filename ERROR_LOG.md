@@ -31,3 +31,11 @@
 **Root cause:** the pack was only read from `iris.properties` at startup.
 **Fix:** `ShowcaseDirector` switches packs in game through Iris (config saved, then `Iris.reload()`, by reflection) and shoots the same series again.
 **Prevention:** Iris re-reads its config file on reload: always save the config before reloading.
+
+## [2026-10-04 20:13] Two stress test games running at the same time
+
+**Context:** stopping a stress series (Arcadia, vanilla then MostLight passes) to fix the scenario, then starting a new one.
+**Error:** two 16 GB games ran together; the PC slowed down and the measurements of both runs were wrong.
+**Root cause:** stopping the background task killed the shell but not the loop's next `gradlew` call, which started the next pass a minute before the new series.
+**Fix:** killed every stress game, Gradle launcher, script and Crash Assistant helper; the series script now refuses to start a pass while a java process over 2 GB is running.
+**Prevention:** when stopping a test series, kill the script first, then the game, and check that no java process over 2 GB is left before starting anything.

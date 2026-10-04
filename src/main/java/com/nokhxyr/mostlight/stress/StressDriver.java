@@ -67,6 +67,10 @@ public final class StressDriver {
     private final MinecraftServer server;
     private final ServerLevel level;
     private final StressConfig config;
+    /** Last use of each hotbar slot, per bot (least recently used slot is replaced). */
+    private final Map<StressBot, long[]> hotbarUse = new java.util.HashMap<>();
+    private long hotbarClock;
+    private int hotbarSwaps;
     private final StressField field;
     private final PacketMeter meter;
     private final Path dir;
@@ -274,7 +278,12 @@ public final class StressDriver {
             field.chunks.forEach(c -> level.setChunkForced(c.x, c.z, true));
             lightWait = 0;
         }, tick -> lightWait++, () -> lightWait >= 60 && !lightBusy()));
-        phases.add(new Phase("save", "Sauvegarde complète du monde", 20, this::timedSave, tick -> {}, null));
+        // the save starts 20 ticks in, so a spark profile started with the phase is already running
+        phases.add(new Phase("save", "Sauvegarde complète du monde", 40, () -> spark("spark profiler start"), tick -> {
+            if (tick == 20) {
+                timedSave();
+            }
+        }, null));
     }
 
     private void tick() {
@@ -327,6 +336,9 @@ public final class StressDriver {
         if (!phase.id.equals("baseline") && !phase.id.equals("travel_out")) {
             phase.lampsAtEnd = countLamps();
         }
+        if (phase.id.equals("save")) {
+            spark("spark profiler stop --save-to-file --comment save-" + (config.vanilla() ? "vanilla" : "mostlight"));
+        }
         if (phase.id.equals("storm")) {
             // the profile covers the 20-player phases (players, redstone clocks, storm)
             spark("spark profiler stop --save-to-file --comment " + (config.vanilla() ? "vanilla" : "mostlight"));
@@ -376,12 +388,50 @@ public final class StressDriver {
             BlockPos c = field.zoneCenter(field.zones.get(i));
             String name = String.format(Locale.ROOT, "MLBot%02d", i + 1);
             try {
-                bots.add(StressBot.join(server, level, name, meter, c.getX() + 0.5, field.ground + 8, c.getZ() + 0.5));
+                StressBot bot = StressBot.join(server, level, name, meter, c.getX() + 0.5, field.ground + 8, c.getZ() + 0.5);
+                fillInventory(bot);
+                bots.add(bot);
             } catch (Throwable e) {
                 error("connexion d'un joueur", e);
                 return;
             }
         }
+    }
+
+    /** One copper bulb per lamp placement, standing in for the per-placement lamp item of a MostLight player. */
+    private static final net.minecraft.world.item.Item[] BULBS = {Items.COPPER_BULB, Items.EXPOSED_COPPER_BULB,
+            Items.WEATHERED_COPPER_BULB, Items.OXIDIZED_COPPER_BULB, Items.WAXED_COPPER_BULB, Items.WAXED_EXPOSED_COPPER_BULB};
+
+    /**
+     * The vanilla item matching what a MostLight player would hold for the same roll (see the MostLight branch of
+     * {@link #act}): bare hand, a lamp per placement, a dye, the wrench, the remote or a switch item.
+     */
+    private ItemStack standIn(StressBot bot, int roll) {
+        if (roll < 38 || roll >= 52 && roll < 64 || roll >= 82 && roll < 90) {
+            return ItemStack.EMPTY;
+        } else if (roll < 52) {
+            return new ItemStack(BULBS[random.nextInt(BULBS.length)]);
+        } else if (roll < 74) {
+            return new ItemStack(DyeItem.byColor(DyeColor.values()[bot.getId() % 16]));
+        } else if (roll < 82) {
+            return new ItemStack(Items.SPYGLASS);
+        } else if (roll < 95) {
+            return new ItemStack(Items.COMPASS);
+        }
+        return new ItemStack(Items.LEVER);
+    }
+
+    /** Ordinary vanilla items a player carries; the same in both modes so per-tick inventory scans by other mods cost the same. */
+    private static final net.minecraft.world.item.Item[] FILLER = {Items.COBBLESTONE, Items.OAK_PLANKS, Items.TORCH, Items.BREAD,
+            Items.IRON_INGOT, Items.COAL, Items.STICK, Items.GLASS, Items.STONE_BRICKS, Items.OAK_LOG, Items.REDSTONE, Items.LANTERN};
+
+    /** Every slot but the first (bare hand) holds something, like a real player's inventory. */
+    private static void fillInventory(StressBot bot) {
+        net.minecraft.world.entity.player.Inventory inventory = bot.getInventory();
+        for (int i = 1; i < 36; i++) {
+            inventory.setItem(i, new ItemStack(FILLER[i % FILLER.length], 32));
+        }
+        inventory.selected = 0;
     }
 
     /** Un tick de jeu : chaque joueur se déplace et fait une action. */
@@ -413,12 +463,14 @@ public final class StressDriver {
         BlockPos pos = target.pos();
         int roll = random.nextInt(100);
         if (config.vanilla()) {
+            // same hotbar churn as a MostLight player: a vanilla stand-in for the item that action would use
+            hold(bot, standIn(bot, random.nextInt(100)));
             // même charge de travail, actions possibles avec des ampoules en cuivre
             if (roll < 52) {
                 count("basculer", StressField.setLit(level, pos, null));
             } else if (roll < 64) {
                 StressField.Lamp hole = brokenOf(zone).poll();
-                count("poser", hole != null && replace(bot, hole, new ItemStack(Items.WAXED_COPPER_BULB)));
+                count("poser", hole != null && replace(bot, hole, hold(bot, new ItemStack(BULBS[hole.placement().ordinal()]))));
             } else if (roll < 76) {
                 breakLamp(bot, zone, target);
             } else {
@@ -432,39 +484,74 @@ public final class StressDriver {
             return;
         }
         if (roll < 30) {
-            count("allumer/éteindre", use(bot, ItemStack.EMPTY, pos, false));
+            count("allumer/éteindre", use(bot, hold(bot, ItemStack.EMPTY), pos, false));
         } else if (roll < 38) {
-            count("luminosité (accroupi)", use(bot, ItemStack.EMPTY, pos, true));
+            count("luminosité (accroupi)", use(bot, hold(bot, ItemStack.EMPTY), pos, true));
         } else if (roll < 52) {
             StressField.Lamp hole = brokenOf(zone).poll();
             if (hole == null) {
                 count("poser", false);
             } else {
-                // un modèle au hasard parmi ceux qui se fixent pareil (plafond, mur, sol...)
+                // each player keeps one model and color per placement, like a real hotbar
                 List<LampType> types = Arrays.stream(LampType.values()).filter(t -> t.placement() == hole.placement()).toList();
-                LampType type = types.get(random.nextInt(types.size()));
-                count("poser", replace(bot, hole, new ItemStack(ModBlocks.item(type, DyeColor.values()[random.nextInt(16)]))));
+                LampType type = types.get((bot.getId() + hole.placement().ordinal()) % types.size());
+                DyeColor color = DyeColor.values()[(bot.getId() * 7 + hole.placement().ordinal()) % 16];
+                count("poser", replace(bot, hole, hold(bot, new ItemStack(ModBlocks.item(type, color)))));
             }
         } else if (roll < 64) {
             breakLamp(bot, zone, target);
         } else if (roll < 74) {
-            count("teindre", use(bot, new ItemStack(DyeItem.byColor(DyeColor.values()[random.nextInt(16)])), pos, false));
+            count("teindre", use(bot, hold(bot, new ItemStack(DyeItem.byColor(DyeColor.values()[bot.getId() % 16]))), pos, false));
         } else if (roll < 82) {
-            count("clé de décorateur", use(bot, new ItemStack(ModBlocks.DESIGNER_WRENCH.get()), pos, random.nextBoolean()));
+            count("clé de décorateur", use(bot, hold(bot, new ItemStack(ModBlocks.DESIGNER_WRENCH.get())), pos, random.nextBoolean()));
         } else if (roll < 90) {
             BlockPos button = zone.switches.get(random.nextInt(zone.switches.size()));
-            count("interrupteur (64 lampes)", use(bot, ItemStack.EMPTY, button, random.nextInt(4) == 0));
+            count("interrupteur (64 lampes)", use(bot, hold(bot, ItemStack.EMPTY), button, random.nextInt(4) == 0));
         } else if (roll < 95) {
-            ItemStack remote = new ItemStack(ModBlocks.LAMP_REMOTE.get());
-            remote.set(ModComponents.LINKS.get(), List.copyOf(zone.remoteLinks));
-            bot.setItemInHand(InteractionHand.MAIN_HAND, remote);
+            ItemStack wanted = new ItemStack(ModBlocks.LAMP_REMOTE.get());
+            wanted.set(ModComponents.LINKS.get(), List.copyOf(zone.remoteLinks));
+            ItemStack remote = hold(bot, wanted);
             bot.setShiftKeyDown(random.nextInt(4) == 0);
             InteractionResult r = bot.gameMode.useItem(bot, level, remote, InteractionHand.MAIN_HAND);
             bot.setShiftKeyDown(false);
             count("télécommande (64 lampes)", r.consumesAction());
         } else {
-            count("lier (interrupteur en main)", use(bot, new ItemStack(ModBlocks.LIGHT_SWITCH_ITEM.get()), pos, true));
+            count("lier (interrupteur en main)", use(bot, hold(bot, new ItemStack(ModBlocks.LIGHT_SWITCH_ITEM.get())), pos, true));
         }
+    }
+
+    /**
+     * Puts {@code wanted} in the bot's main hand the way a player does: select the hotbar slot that already holds it
+     * (no inventory change, like ServerboundSetCarriedItemPacket); otherwise put it in the least recently used slot.
+     * Slot 0 stays empty for bare-hand clicks. Same path for MostLight and the vanilla reference.
+     */
+    private ItemStack hold(StressBot bot, ItemStack wanted) {
+        net.minecraft.world.entity.player.Inventory inventory = bot.getInventory();
+        long[] used = hotbarUse.computeIfAbsent(bot, b -> new long[9]);
+        int slot = -1;
+        if (wanted.isEmpty()) {
+            slot = 0;
+        } else {
+            for (int i = 1; i < 9; i++) {
+                if (ItemStack.isSameItemSameComponents(inventory.getItem(i), wanted)) {
+                    slot = i;
+                    break;
+                }
+            }
+            if (slot < 0) {
+                slot = 1;
+                for (int i = 2; i < 9; i++) {
+                    if (used[i] < used[slot]) {
+                        slot = i;
+                    }
+                }
+                inventory.setItem(slot, wanted);
+                hotbarSwaps++;
+            }
+        }
+        used[slot] = ++hotbarClock;
+        inventory.selected = slot;
+        return inventory.getItem(slot);
     }
 
     /** Clic droit sur un bloc, par le même chemin qu'un paquet d'utilisation d'objet. */
@@ -472,7 +559,6 @@ public final class StressDriver {
         if (level.getBlockState(pos).isAir()) {
             return false;
         }
-        bot.setItemInHand(InteractionHand.MAIN_HAND, stack);
         bot.setShiftKeyDown(sneak);
         BlockHitResult hit = new BlockHitResult(Vec3.atCenterOf(pos).add(0, 0.5, 0), Direction.UP, pos, false);
         InteractionResult result = bot.gameMode.useItemOn(bot, level, stack, InteractionHand.MAIN_HAND, hit);
@@ -500,7 +586,6 @@ public final class StressDriver {
         }
         BlockPos support = hole.support() != null ? hole.support() : pos.below();
         Direction face = Direction.getNearest(pos.getX() - support.getX(), pos.getY() - support.getY(), pos.getZ() - support.getZ());
-        bot.setItemInHand(InteractionHand.MAIN_HAND, item);
         Vec3 hitVec = Vec3.atCenterOf(support).relative(face, 0.5);
         InteractionResult result = bot.gameMode.useItemOn(bot, level, item, InteractionHand.MAIN_HAND, new BlockHitResult(hitVec, face, support, false));
         return result.consumesAction();
@@ -735,6 +820,7 @@ public final class StressDriver {
         md.append("- Joueurs simulés : ").append(config.bots()).append(" (1 action par tick chacun, ~").append(config.bots() * 20).append(" actions/s au total)\n");
         md.append("- Processeurs : ").append(rt.availableProcessors()).append(", mémoire max JVM : ").append(rt.maxMemory() / 1048576).append(" Mo\n");
         md.append("- Java ").append(System.getProperty("java.version")).append('\n');
+        md.append("- Objets mis dans la barre d'action (changements d'inventaire) : ").append(hotbarSwaps).append('\n');
         for (String note : notes) {
             md.append("- ").append(note).append('\n');
         }
