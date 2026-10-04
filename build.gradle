@@ -170,3 +170,11 @@ tasks.withType(JavaCompile).configureEach {
         doFirst { delete file("${dir}/world") }
     }
 }
+
+// numéro de version du mod (neoforge.mods.toml) tiré de mod_version dans gradle.properties
+processResources {
+    inputs.property 'version', mod_version
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand version: mod_version
+    }
+}

@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/NokhXyr/MC-MostLight/issues"
 
 [[mods]]
 modId="mostlight"
-version="1.1.0"
+version="${version}"
 displayName="MostLight"
 logoFile="logo.png"
 authors="NokhXyr"
