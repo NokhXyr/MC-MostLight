@@ -28,3 +28,6 @@ blockbench/*
 tools/
 docs/*
 !docs/icon.png
+
+# Notes Obsidian
+/mostlight/
