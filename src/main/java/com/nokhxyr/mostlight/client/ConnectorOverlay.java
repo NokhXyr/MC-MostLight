@@ -97,7 +97,7 @@ public final class ConnectorOverlay {
             return null;
         }
         List<BlockPos> chain = LightStripBlock.chain(level, pos);
-        boolean powered = chain.stream().anyMatch(p -> level.getBlockState(p).getValue(LampBlock.POWERED));
+        boolean powered = chain.stream().anyMatch(p -> level.getBlockEntity(p) instanceof com.nokhxyr.mostlight.block.entity.LampBlockEntity memory && memory.powered());
         List<BlockPos> free = new ArrayList<>();
         for (Direction d : Direction.values()) {
             BlockPos next = pos.relative(d);

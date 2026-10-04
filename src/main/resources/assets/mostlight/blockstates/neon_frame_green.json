@@ -1,9 +1,18 @@
 {
   "variants": {
-    "lit=false": {
+    "light=0": {
       "model": "mostlight:block/neon_frame"
     },
-    "lit=true": {
+    "light=1": {
+      "model": "mostlight:block/neon_frame_on"
+    },
+    "light=2": {
+      "model": "mostlight:block/neon_frame_on"
+    },
+    "light=3": {
+      "model": "mostlight:block/neon_frame_on"
+    },
+    "light=4": {
       "model": "mostlight:block/neon_frame_on"
     }
   }

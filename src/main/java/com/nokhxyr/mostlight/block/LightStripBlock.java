@@ -488,9 +488,13 @@ public class LightStripBlock extends LampBlock {
         try {
             for (BlockPos pos : chain) {
                 BlockState state = level.getBlockState(pos);
-                if (chainable(state) && state.getValue(POWERED) != powered) {
-                    // pas de mise à jour des voisins : ces blocs n'émettent pas de redstone
-                    level.setBlock(pos, state.setValue(POWERED, powered).setValue(LIT, powered), Block.UPDATE_CLIENTS);
+                if (chainable(state) && state.getBlock() instanceof LampBlock lamp) {
+                    LampBlockEntity memory = lamp.memory(level, pos, state);
+                    if (memory != null && memory.powered() != powered) {
+                        memory.setPowered(powered);
+                        // pas de mise à jour des voisins : ces blocs n'émettent pas de redstone
+                        level.setBlock(pos, lamp.withLit(level, pos, state, powered), Block.UPDATE_CLIENTS);
+                    }
                 }
             }
         } finally {

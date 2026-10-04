@@ -1,62 +1,152 @@
 {
   "variants": {
-    "facing=north,half=lower,lit=false": {
+    "facing=north,half=lower,light=0": {
       "model": "mostlight:block/street_lamp_lower"
     },
-    "facing=north,half=upper,lit=false": {
+    "facing=north,half=upper,light=0": {
       "model": "mostlight:block/street_lamp_upper"
     },
-    "facing=east,half=lower,lit=false": {
+    "facing=east,half=lower,light=0": {
       "model": "mostlight:block/street_lamp_lower",
       "y": 90
     },
-    "facing=east,half=upper,lit=false": {
+    "facing=east,half=upper,light=0": {
       "model": "mostlight:block/street_lamp_upper",
       "y": 90
     },
-    "facing=south,half=lower,lit=false": {
+    "facing=south,half=lower,light=0": {
       "model": "mostlight:block/street_lamp_lower",
       "y": 180
     },
-    "facing=south,half=upper,lit=false": {
+    "facing=south,half=upper,light=0": {
       "model": "mostlight:block/street_lamp_upper",
       "y": 180
     },
-    "facing=west,half=lower,lit=false": {
+    "facing=west,half=lower,light=0": {
       "model": "mostlight:block/street_lamp_lower",
       "y": 270
     },
-    "facing=west,half=upper,lit=false": {
+    "facing=west,half=upper,light=0": {
       "model": "mostlight:block/street_lamp_upper",
       "y": 270
     },
-    "facing=north,half=lower,lit=true": {
+    "facing=north,half=lower,light=1": {
       "model": "mostlight:block/street_lamp_lower_on"
     },
-    "facing=north,half=upper,lit=true": {
+    "facing=north,half=upper,light=1": {
       "model": "mostlight:block/street_lamp_upper_on"
     },
-    "facing=east,half=lower,lit=true": {
+    "facing=east,half=lower,light=1": {
       "model": "mostlight:block/street_lamp_lower_on",
       "y": 90
     },
-    "facing=east,half=upper,lit=true": {
+    "facing=east,half=upper,light=1": {
       "model": "mostlight:block/street_lamp_upper_on",
       "y": 90
     },
-    "facing=south,half=lower,lit=true": {
+    "facing=south,half=lower,light=1": {
       "model": "mostlight:block/street_lamp_lower_on",
       "y": 180
     },
-    "facing=south,half=upper,lit=true": {
+    "facing=south,half=upper,light=1": {
       "model": "mostlight:block/street_lamp_upper_on",
       "y": 180
     },
-    "facing=west,half=lower,lit=true": {
+    "facing=west,half=lower,light=1": {
       "model": "mostlight:block/street_lamp_lower_on",
       "y": 270
     },
-    "facing=west,half=upper,lit=true": {
+    "facing=west,half=upper,light=1": {
+      "model": "mostlight:block/street_lamp_upper_on",
+      "y": 270
+    },
+    "facing=north,half=lower,light=2": {
+      "model": "mostlight:block/street_lamp_lower_on"
+    },
+    "facing=north,half=upper,light=2": {
+      "model": "mostlight:block/street_lamp_upper_on"
+    },
+    "facing=east,half=lower,light=2": {
+      "model": "mostlight:block/street_lamp_lower_on",
+      "y": 90
+    },
+    "facing=east,half=upper,light=2": {
+      "model": "mostlight:block/street_lamp_upper_on",
+      "y": 90
+    },
+    "facing=south,half=lower,light=2": {
+      "model": "mostlight:block/street_lamp_lower_on",
+      "y": 180
+    },
+    "facing=south,half=upper,light=2": {
+      "model": "mostlight:block/street_lamp_upper_on",
+      "y": 180
+    },
+    "facing=west,half=lower,light=2": {
+      "model": "mostlight:block/street_lamp_lower_on",
+      "y": 270
+    },
+    "facing=west,half=upper,light=2": {
+      "model": "mostlight:block/street_lamp_upper_on",
+      "y": 270
+    },
+    "facing=north,half=lower,light=3": {
+      "model": "mostlight:block/street_lamp_lower_on"
+    },
+    "facing=north,half=upper,light=3": {
+      "model": "mostlight:block/street_lamp_upper_on"
+    },
+    "facing=east,half=lower,light=3": {
+      "model": "mostlight:block/street_lamp_lower_on",
+      "y": 90
+    },
+    "facing=east,half=upper,light=3": {
+      "model": "mostlight:block/street_lamp_upper_on",
+      "y": 90
+    },
+    "facing=south,half=lower,light=3": {
+      "model": "mostlight:block/street_lamp_lower_on",
+      "y": 180
+    },
+    "facing=south,half=upper,light=3": {
+      "model": "mostlight:block/street_lamp_upper_on",
+      "y": 180
+    },
+    "facing=west,half=lower,light=3": {
+      "model": "mostlight:block/street_lamp_lower_on",
+      "y": 270
+    },
+    "facing=west,half=upper,light=3": {
+      "model": "mostlight:block/street_lamp_upper_on",
+      "y": 270
+    },
+    "facing=north,half=lower,light=4": {
+      "model": "mostlight:block/street_lamp_lower_on"
+    },
+    "facing=north,half=upper,light=4": {
+      "model": "mostlight:block/street_lamp_upper_on"
+    },
+    "facing=east,half=lower,light=4": {
+      "model": "mostlight:block/street_lamp_lower_on",
+      "y": 90
+    },
+    "facing=east,half=upper,light=4": {
+      "model": "mostlight:block/street_lamp_upper_on",
+      "y": 90
+    },
+    "facing=south,half=lower,light=4": {
+      "model": "mostlight:block/street_lamp_lower_on",
+      "y": 180
+    },
+    "facing=south,half=upper,light=4": {
+      "model": "mostlight:block/street_lamp_upper_on",
+      "y": 180
+    },
+    "facing=west,half=lower,light=4": {
+      "model": "mostlight:block/street_lamp_lower_on",
+      "y": 270
+    },
+    "facing=west,half=upper,light=4": {
       "model": "mostlight:block/street_lamp_upper_on",
       "y": 270
     }

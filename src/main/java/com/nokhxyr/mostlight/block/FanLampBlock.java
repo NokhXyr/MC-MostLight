@@ -38,15 +38,15 @@ public class FanLampBlock extends AnimatedLampBlock {
         }
         if (!level.isClientSide) {
             BlockState next;
-            if (!state.getValue(LIT)) {
-                next = state.setValue(LIT, true).setValue(FAN, false);
+            if (!isLit(state)) {
+                next = withLit(level, pos, state, true).setValue(FAN, false);
             } else if (!state.getValue(FAN)) {
                 next = state.setValue(FAN, true);
             } else {
-                next = state.setValue(LIT, false).setValue(FAN, false);
+                next = withLit(level, pos, state, false).setValue(FAN, false);
             }
             applyState(level, pos, next);
-            level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.3F, next.getValue(FAN) ? 0.8F : next.getValue(LIT) ? 0.6F : 0.5F);
+            level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.3F, next.getValue(FAN) ? 0.8F : isLit(next) ? 0.6F : 0.5F);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }

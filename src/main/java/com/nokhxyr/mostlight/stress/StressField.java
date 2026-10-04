@@ -260,8 +260,8 @@ public final class StressField {
     public static boolean setLit(ServerLevel level, BlockPos pos, @Nullable Boolean on) {
         BlockState state = level.getBlockState(pos);
         if (state.getBlock() instanceof LampBlock lamp) {
-            boolean target = on == null ? !state.getValue(LampBlock.LIT) : on;
-            if (state.getValue(LampBlock.LIT) == target) {
+            boolean target = on == null ? !LampBlock.isLit(state) : on;
+            if (LampBlock.isLit(state) == target) {
                 return false;
             }
             lamp.setLit(level, pos, state, target);

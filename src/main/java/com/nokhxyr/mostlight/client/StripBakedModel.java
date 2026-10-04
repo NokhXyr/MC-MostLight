@@ -64,7 +64,7 @@ public final class StripBakedModel implements IDynamicBakedModel {
         if (segments == null) {
             return List.of();
         }
-        int lit = state.getValue(LampBlock.LIT) ? 1 : 0;
+        int lit = LampBlock.isLit(state) ? 1 : 0;
         List<BakedQuad> quads = new ArrayList<>();
         for (int seg : segments) {
             quads.addAll(segmentQuads(state, seg, lit, rand, renderType));

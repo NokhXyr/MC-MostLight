@@ -46,6 +46,12 @@ public class TallLampBlock extends LampBlock {
         builder.add(FACING, HALF);
     }
 
+    /** Both halves share the memory of the lower half, so they never disagree on brightness or signal. */
+    @Override
+    protected BlockPos memoryPos(BlockPos pos, BlockState state) {
+        return state.getValue(HALF) == DoubleBlockHalf.LOWER ? pos : pos.below();
+    }
+
     private static BlockPos otherHalf(BlockPos pos, BlockState state) {
         return state.getValue(HALF) == DoubleBlockHalf.LOWER ? pos.above() : pos.below();
     }
@@ -63,8 +69,7 @@ public class TallLampBlock extends LampBlock {
             return null;
         }
         BlockState state = placementState(context)
-                .setValue(FACING, context.getHorizontalDirection().getOpposite())
-                .setValue(POWERED, level.hasNeighborSignal(pos) || level.hasNeighborSignal(pos.above()));
+                .setValue(FACING, context.getHorizontalDirection().getOpposite());
         return state.canSurvive(level, pos) ? state : null;
     }
 
@@ -76,6 +81,8 @@ public class TallLampBlock extends LampBlock {
         if (level.getBlockEntity(pos) instanceof LampBlockEntity lower && level.getBlockEntity(above) instanceof LampBlockEntity upper) {
             upper.setLook(lower.finish(), lower.tone());
         }
+        // both halves exist now: remember the signal on either of them
+        super.setPlacedBy(level, pos, state, placer, stack);
     }
 
     @Override
@@ -133,10 +140,7 @@ public class TallLampBlock extends LampBlock {
         BlockPos other = otherHalf(pos, state);
         BlockState otherState = level.getBlockState(other);
         if (otherState.getBlock() instanceof TallLampBlock) {
-            level.setBlock(other, otherState
-                    .setValue(LIT, state.getValue(LIT))
-                    .setValue(POWERED, state.getValue(POWERED))
-                    .setValue(BRIGHTNESS, state.getValue(BRIGHTNESS)), Block.UPDATE_CLIENTS);
+            level.setBlock(other, otherState.setValue(LIGHT, state.getValue(LIGHT)), Block.UPDATE_CLIENTS);
         }
     }
 

@@ -40,6 +40,10 @@ public class LampGameTests {
     private static final BlockPos GROUND = new BlockPos(4, 1, 4);
     private static final BlockPos LAMP = GROUND.above();
 
+    private static void assertLit(GameTestHelper helper, BlockPos pos, boolean lit) {
+        helper.assertTrue(LampBlock.isLit(helper.getBlockState(pos)) == lit, "lampe " + (lit ? "allumée" : "éteinte") + " en " + pos);
+    }
+
     private static void place(GameTestHelper helper, Player player, ItemStack stack, BlockPos target, Direction face) {
         player.setItemInHand(InteractionHand.MAIN_HAND, stack);
         BlockPos abs = helper.absolutePos(target);
@@ -55,14 +59,61 @@ public class LampGameTests {
 
         helper.assertTrue(helper.getBlockState(LAMP).getLightEmission() == 15, "lampe posée allumée à 15");
         helper.useBlock(LAMP, player);
-        helper.assertTrue(!helper.getBlockState(LAMP).getValue(LampBlock.LIT), "clic droit éteint");
+        helper.assertTrue(!LampBlock.isLit(helper.getBlockState(LAMP)), "clic droit éteint");
         helper.assertTrue(helper.getBlockState(LAMP).getLightEmission() == 0, "éteinte = aucune lumière");
 
         player.setShiftKeyDown(true);
         helper.useBlock(LAMP, player);
         BlockState state = helper.getBlockState(LAMP);
-        helper.assertTrue(state.getValue(LampBlock.LIT) && state.getValue(LampBlock.BRIGHTNESS) == 1, "accroupi : rallume au niveau suivant");
+        helper.assertTrue(LampBlock.isLit(state) && LampBlock.brightness(state) == 1, "accroupi : rallume au niveau suivant");
         helper.assertTrue(state.getLightEmission() == 12, "niveau 1 = 12");
+        helper.succeed();
+    }
+
+    /** Number of block states the mod registers (memory, startup, shader ID maps): logged, and kept in check. */
+    @GameTest(template = "empty")
+    public static void blockStateCount(GameTestHelper helper) {
+        int lamps = 0;
+        for (DeferredBlock<LampBlock> holder : ModBlocks.all()) {
+            lamps += holder.get().getStateDefinition().getPossibleStates().size();
+        }
+        int all = net.minecraft.world.level.block.Block.BLOCK_STATE_REGISTRY.size();
+        com.mojang.logging.LogUtils.getLogger().info("[MostLight] block states: {} lamp states, {} in the whole game", lamps, all);
+        // 91 040 since lit + brightness became one property and powered moved to the block entity (291 328 before)
+        helper.assertTrue(lamps <= 100_000, "trop d'états de bloc pour les lampes : " + lamps);
+        helper.succeed();
+    }
+
+    /** The brightness is kept in the block entity while the lamp is off. */
+    @GameTest(template = "empty")
+    public static void brightnessKeptWhenOff(GameTestHelper helper) {
+        helper.setBlock(GROUND, Blocks.STONE);
+        helper.setBlock(LAMP, ModBlocks.lamp(LampType.TABLE_LAMP, DyeColor.WHITE));
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        player.setShiftKeyDown(true);
+        helper.useBlock(LAMP, player);
+        helper.useBlock(LAMP, player);
+        helper.assertTrue(LampBlock.brightness(helper.getBlockState(LAMP)) == 2, "deux crans de luminosité");
+        player.setShiftKeyDown(false);
+        helper.useBlock(LAMP, player);
+        assertLit(helper, LAMP, false);
+        helper.useBlock(LAMP, player);
+        BlockState state = helper.getBlockState(LAMP);
+        helper.assertTrue(LampBlock.isLit(state) && LampBlock.brightness(state) == 2, "rallumée au même cran");
+        helper.assertTrue(state.getLightEmission() == 9, "niveau de lumière du cran 2");
+        helper.succeed();
+    }
+
+    /** A lamp placed by a player in a redstone signal remembers it: losing the signal switches it off. */
+    @GameTest(template = "empty")
+    public static void placedInSignal(GameTestHelper helper) {
+        helper.setBlock(GROUND, Blocks.STONE);
+        helper.setBlock(LAMP.east(), Blocks.REDSTONE_BLOCK);
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        place(helper, player, new ItemStack(ModBlocks.item(LampType.TABLE_LAMP, DyeColor.WHITE)), GROUND, Direction.UP);
+        assertLit(helper, LAMP, true);
+        helper.setBlock(LAMP.east(), Blocks.AIR);
+        assertLit(helper, LAMP, false);
         helper.succeed();
     }
 
@@ -86,11 +137,11 @@ public class LampGameTests {
     @GameTest(template = "empty")
     public static void redstoneControl(GameTestHelper helper) {
         helper.setBlock(GROUND, Blocks.STONE);
-        helper.setBlock(LAMP, ModBlocks.lamp(LampType.LAVA_LAMP, DyeColor.RED).defaultBlockState().setValue(LampBlock.LIT, false));
+        helper.setBlock(LAMP, ModBlocks.lamp(LampType.LAVA_LAMP, DyeColor.RED).defaultBlockState().setValue(LampBlock.LIGHT, 0));
         helper.setBlock(LAMP.east(), Blocks.REDSTONE_BLOCK);
-        helper.assertTrue(helper.getBlockState(LAMP).getValue(LampBlock.LIT), "signal redstone allume");
+        helper.assertTrue(LampBlock.isLit(helper.getBlockState(LAMP)), "signal redstone allume");
         helper.setBlock(LAMP.east(), Blocks.AIR);
-        helper.assertTrue(!helper.getBlockState(LAMP).getValue(LampBlock.LIT), "fin du signal éteint");
+        helper.assertTrue(!LampBlock.isLit(helper.getBlockState(LAMP)), "fin du signal éteint");
         helper.succeed();
     }
 
@@ -98,14 +149,14 @@ public class LampGameTests {
     public static void dyeRecolors(GameTestHelper helper) {
         helper.setBlock(GROUND, Blocks.STONE);
         helper.setBlock(LAMP, ModBlocks.lamp(LampType.DESK_LAMP, DyeColor.WHITE).defaultBlockState()
-                .setValue(HorizontalLampBlock.FACING, Direction.EAST).setValue(LampBlock.BRIGHTNESS, 2));
+                .setValue(HorizontalLampBlock.FACING, Direction.EAST).setValue(LampBlock.LIGHT, 3));
         Player player = helper.makeMockPlayer(GameType.SURVIVAL);
         player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.BLUE_DYE, 2));
         helper.useBlock(LAMP, player);
 
         BlockState state = helper.getBlockState(LAMP);
         helper.assertTrue(state.getBlock() == ModBlocks.lamp(LampType.DESK_LAMP, DyeColor.BLUE), "devient bleue");
-        helper.assertTrue(state.getValue(HorizontalLampBlock.FACING) == Direction.EAST && state.getValue(LampBlock.BRIGHTNESS) == 2,
+        helper.assertTrue(state.getValue(HorizontalLampBlock.FACING) == Direction.EAST && LampBlock.brightness(state) == 2,
                 "garde orientation et luminosité");
         helper.assertTrue(player.getMainHandItem().getCount() == 1, "consomme un colorant");
         helper.succeed();
@@ -125,7 +176,7 @@ public class LampGameTests {
 
         player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
         helper.useBlock(LAMP, player);
-        helper.assertTrue(!helper.getBlockState(LAMP.above()).getValue(LampBlock.LIT), "éteindre le bas éteint le haut");
+        helper.assertTrue(!LampBlock.isLit(helper.getBlockState(LAMP.above())), "éteindre le bas éteint le haut");
 
         player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.GREEN_DYE));
         helper.useBlock(LAMP.above(), player);
@@ -196,15 +247,15 @@ public class LampGameTests {
         helper.setBlock(ceiling, Blocks.STONE);
         BlockPos fan = ceiling.below();
         helper.setBlock(fan, ModBlocks.lamp(LampType.FAN_LIGHT, DyeColor.WHITE).defaultBlockState()
-                .setValue(com.nokhxyr.mostlight.block.LampBlock.LIT, false));
+                .setValue(LampBlock.LIGHT, 0));
         Player player = helper.makeMockPlayer(GameType.SURVIVAL);
         helper.useBlock(fan, player);
-        helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.LampBlock.LIT, true);
+        assertLit(helper, fan, true);
         helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.FanLampBlock.FAN, false);
         helper.useBlock(fan, player);
         helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.FanLampBlock.FAN, true);
         helper.useBlock(fan, player);
-        helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.LampBlock.LIT, false);
+        assertLit(helper, fan, false);
         helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.FanLampBlock.FAN, false);
         helper.succeed();
     }
@@ -216,7 +267,7 @@ public class LampGameTests {
         helper.setBlock(ceiling, Blocks.STONE);
         BlockPos fan = ceiling.below();
         helper.setBlock(fan, ModBlocks.lamp(LampType.FAN_LIGHT, DyeColor.WHITE).defaultBlockState()
-                .setValue(com.nokhxyr.mostlight.block.LampBlock.LIT, false));
+                .setValue(LampBlock.LIGHT, 0));
         BlockPos wall = new BlockPos(6, 2, 4);
         helper.setBlock(wall, Blocks.STONE);
         BlockPos switchPos = wall.north();
@@ -231,7 +282,7 @@ public class LampGameTests {
         Vec3 right = Vec3.atCenterOf(abs).add(0.25, 0, -0.4);
         BlockState sw = helper.getLevel().getBlockState(abs);
         sw.useWithoutItem(helper.getLevel(), player, new BlockHitResult(left, Direction.NORTH, abs, false));
-        helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.LampBlock.LIT, true);
+        assertLit(helper, fan, true);
         sw = helper.getLevel().getBlockState(abs);
         sw.useWithoutItem(helper.getLevel(), player, new BlockHitResult(right, Direction.NORTH, abs, false));
         helper.assertBlockProperty(fan, com.nokhxyr.mostlight.block.FanLampBlock.FAN, true);
@@ -323,11 +374,11 @@ public class LampGameTests {
         player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
         helper.useBlock(switchPos, player);
         for (int x = 1; x <= 3; x++) {
-            helper.assertTrue(!helper.getBlockState(new BlockPos(x, 2, 1)).getValue(LampBlock.LIT), "interrupteur : tout éteint");
+            helper.assertTrue(!LampBlock.isLit(helper.getBlockState(new BlockPos(x, 2, 1))), "interrupteur : tout éteint");
         }
         helper.useBlock(switchPos, player);
         for (int x = 1; x <= 3; x++) {
-            helper.assertTrue(helper.getBlockState(new BlockPos(x, 2, 1)).getValue(LampBlock.LIT), "interrupteur : tout rallumé");
+            helper.assertTrue(LampBlock.isLit(helper.getBlockState(new BlockPos(x, 2, 1))), "interrupteur : tout rallumé");
         }
 
         ItemStack remote = new ItemStack(ModBlocks.LAMP_REMOTE.get());
@@ -413,12 +464,12 @@ public class LampGameTests {
         helper.setBlock(first.west(), Blocks.REDSTONE_BLOCK);
         helper.runAfterDelay(2, () -> {
             for (int x = 2; x <= 6; x++) {
-                helper.assertBlockProperty(new BlockPos(x, 2, 4), LampBlock.LIT, true);
+                assertLit(helper, new BlockPos(x, 2, 4), true);
             }
             helper.setBlock(first.west(), Blocks.AIR);
             helper.runAfterDelay(2, () -> {
                 for (int x = 2; x <= 6; x++) {
-                    helper.assertBlockProperty(new BlockPos(x, 2, 4), LampBlock.LIT, false);
+                    assertLit(helper, new BlockPos(x, 2, 4), false);
                 }
                 helper.succeed();
             });
@@ -501,7 +552,7 @@ public class LampGameTests {
     public static void lampBlocksChainRedstone(GameTestHelper helper) {
         Player player = helper.makeMockPlayer(GameType.SURVIVAL);
         for (int x = 2; x <= 5; x++) {
-            helper.setBlock(new BlockPos(x, 2, 4), ModBlocks.lamp(LampType.LAMP_BLOCK, DyeColor.WHITE).defaultBlockState().setValue(LampBlock.LIT, false));
+            helper.setBlock(new BlockPos(x, 2, 4), ModBlocks.lamp(LampType.LAMP_BLOCK, DyeColor.WHITE).defaultBlockState().setValue(LampBlock.LIGHT, 0));
         }
         for (int x = 2; x <= 4; x++) {
             placeAt(helper, player, new ItemStack(ModBlocks.LED_CONNECTOR.get()), new BlockPos(x, 2, 4), Direction.UP, new Vec3(0.95, 1, 0.5));
@@ -511,7 +562,7 @@ public class LampGameTests {
         helper.setBlock(first.west(), Blocks.REDSTONE_BLOCK);
         helper.runAfterDelay(2, () -> {
             for (int x = 2; x <= 5; x++) {
-                helper.assertBlockProperty(new BlockPos(x, 2, 4), LampBlock.LIT, true);
+                assertLit(helper, new BlockPos(x, 2, 4), true);
             }
             helper.succeed();
         });

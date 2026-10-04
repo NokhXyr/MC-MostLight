@@ -71,7 +71,7 @@ public final class LampLinks {
     /** Inverse l'ensemble : si une lampe est allumée, tout s'éteint, sinon tout s'allume. Renvoie le nouvel état. */
     public static boolean toggleAll(Level level, BlockPos origin, List<BlockPos> links) {
         List<BlockPos> lamps = live(level, origin, links);
-        boolean anyLit = lamps.stream().anyMatch(p -> level.getBlockState(p).getValue(LampBlock.LIT));
+        boolean anyLit = lamps.stream().anyMatch(p -> LampBlock.isLit(level.getBlockState(p)));
         for (BlockPos pos : lamps) {
             BlockState state = level.getBlockState(pos);
             ((LampBlock) state.getBlock()).setLit(level, pos, state, !anyLit);
@@ -98,7 +98,7 @@ public final class LampLinks {
             return 0;
         }
         BlockState first = level.getBlockState(lamps.get(0));
-        int next = first.getValue(LampBlock.LIT) ? first.getValue(LampBlock.BRIGHTNESS) + 1 : 0;
+        int next = LampBlock.isLit(first) ? LampBlock.brightness(first) + 1 : 0;
         for (BlockPos pos : lamps) {
             BlockState state = level.getBlockState(pos);
             ((LampBlock) state.getBlock()).setBrightness(level, pos, state, next);

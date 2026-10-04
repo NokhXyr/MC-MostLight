@@ -69,7 +69,7 @@ public class AnimatedLampBlockEntity extends LampBlockEntity implements GeoBlock
         }
         return "fan".equals(animation.trigger())
                 ? state.hasProperty(FanLampBlock.FAN) && state.getValue(FanLampBlock.FAN)
-                : state.getValue(LampBlock.LIT);
+                : LampBlock.isLit(state);
     }
 
     public boolean shouldAnimate(Vec3 camera) {

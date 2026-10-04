@@ -34,6 +34,13 @@ public class LampBlockEntity extends BlockEntity {
     private int stripLayout = DEFAULT_STRIP_LAYOUT;
     /** Bandes LED : côtés reliés aux bandes voisines pour la redstone (un bit par Direction). */
     private int connections;
+    /**
+     * Brightness step the lamp comes back on at (0 = brightest) and the last redstone signal it saw. Kept here rather
+     * than in the block state: a state property multiplies the number of block states of all 1200 lamp blocks.
+     * Tall lamps keep them on their lower half.
+     */
+    private int brightness;
+    private boolean powered;
     /** Incrémenté à chaque changement d'aspect connu du client : invalide le cache de teintes du rendu. */
     public static volatile int lookVersion;
 
@@ -58,6 +65,29 @@ public class LampBlockEntity extends BlockEntity {
         this.finish = finish;
         this.tone = tone;
         sync();
+    }
+
+    public int brightness() {
+        return brightness;
+    }
+
+    public void setBrightness(int brightness) {
+        if (this.brightness != brightness) {
+            this.brightness = brightness;
+            setChanged();
+        }
+    }
+
+    public boolean powered() {
+        return powered;
+    }
+
+    /** Sent to clients too: the connector shows whether a chain is powered. */
+    public void setPowered(boolean powered) {
+        if (this.powered != powered) {
+            this.powered = powered;
+            sync();
+        }
     }
 
     public int stripLayout() {
@@ -132,6 +162,16 @@ public class LampBlockEntity extends BlockEntity {
         super.saveAdditional(tag, registries);
         writeLook(tag);
         writeStrip(tag);
+        if (brightness != 0) {
+            tag.putByte("brightness", (byte) brightness);
+        }
+        writePowered(tag);
+    }
+
+    private void writePowered(CompoundTag tag) {
+        if (powered) {
+            tag.putBoolean("powered", true);
+        }
     }
 
     private void writeLook(CompoundTag tag) {
@@ -171,6 +211,8 @@ public class LampBlockEntity extends BlockEntity {
         }
         stripLayout = tag.contains("strip") ? tag.getInt("strip") : DEFAULT_STRIP_LAYOUT;
         connections = tag.getByte("connections") & 0b111111;
+        brightness = Math.floorMod(tag.getByte("brightness"), 4);
+        powered = tag.getBoolean("powered");
         if (level != null && level.isClientSide) {
             lookVersion++;
             requestModelDataUpdate();
@@ -203,6 +245,7 @@ public class LampBlockEntity extends BlockEntity {
         CompoundTag tag = new CompoundTag();
         writeLook(tag);
         writeStrip(tag);
+        writePowered(tag);
         return tag;
     }
 

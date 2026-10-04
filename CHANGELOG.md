@@ -41,6 +41,12 @@ Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
 
 ### Performances
 - Démarrage du jeu 5 fois plus rapide (hitbox précalculées).
+- 3 fois moins d'états de bloc (91 040 au lieu de 291 328) : l'allumage et la luminosité tiennent dans une seule
+  propriété, et le signal redstone mémorisé passe dans la block entity. Moins de mémoire, démarrage plus court,
+  tables des shaders et des mods d'optimisation plus petites. Un monde enregistré avant ce changement rallume ses
+  lampes au maximum au premier chargement.
+- Allumer, éteindre ou régler une lampe ne réveille plus les blocs voisins (inutile : une lampe n'émet pas de
+  redstone). Les observateurs voient toujours le changement.
 - Moins de données réseau : la finition et la teinte ne sont plus renvoyées à chaque allumage.
 - Sauvegarde plus légère : une lampe à la finition et à la teinte de son modèle n'écrit plus ces valeurs.
 - Rendu : pièces animées par GeckoLib seulement de près, faces cachées supprimées des modèles (-14 %).

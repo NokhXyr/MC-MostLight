@@ -80,7 +80,7 @@ public final class AnimatedLampClient {
 
         @Override
         public ResourceLocation getTextureResource(AnimatedLampBlockEntity lamp) {
-            boolean lit = lamp.getBlockState().getValue(LampBlock.LIT);
+            boolean lit = LampBlock.isLit(lamp.getBlockState());
             return rl("textures/geo/" + id(lamp) + (lit ? "_on" : "") + ".png");
         }
 
@@ -126,7 +126,7 @@ public final class AnimatedLampClient {
                 if (material.startsWith("t")) {
                     colour = ClientSetup.tint(block.color(), lamp.finish(), lamp.tone(), material.charAt(1) - '0');
                 }
-                if (material.endsWith("g") && lamp.getBlockState().getValue(LampBlock.LIT)) {
+                if (material.endsWith("g") && LampBlock.isLit(lamp.getBlockState())) {
                     packedLight = net.minecraft.client.renderer.LightTexture.FULL_BRIGHT;
                 }
             }
