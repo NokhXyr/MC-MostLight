@@ -71,6 +71,8 @@ Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
 ### Divers
 - Licence : tous droits réservés. Les modpacks peuvent inclure le JAR officiel non modifié, avec crédit.
 - Code de conduite, politique de sécurité et guide de contribution (dossier `.github`).
+- Fiche du mod en anglais, avec le lien vers le code source sur GitHub.
+- La commande `/mostlight showcase` (galerie de test) n'existe plus dans le mod publié.
 
 ## 1.1.0 - 2026-10-02
 

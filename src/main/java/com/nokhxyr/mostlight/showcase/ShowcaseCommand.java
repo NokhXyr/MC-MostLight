@@ -8,13 +8,19 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
-/** /mostlight showcase : construit la galerie de lampes autour du joueur (opérateurs). */
+/**
+ * /mostlight showcase : construit la galerie de lampes autour du joueur (opérateurs). Development tool: only
+ * registered in development launches (Gradle runs), absent from the released mod.
+ */
 @EventBusSubscriber(modid = MostLight.MOD_ID)
 public final class ShowcaseCommand {
     private ShowcaseCommand() {}
 
     @SubscribeEvent
     static void register(RegisterCommandsEvent event) {
+        if (net.neoforged.fml.loading.FMLEnvironment.production) {
+            return;
+        }
         event.getDispatcher().register(Commands.literal(MostLight.MOD_ID)
                 .requires(source -> source.hasPermission(2))
                 .then(Commands.literal("showcase").executes(context -> {

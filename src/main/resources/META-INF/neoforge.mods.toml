@@ -9,9 +9,11 @@ version="${version}"
 displayName="MostLight"
 logoFile="logo.png"
 authors="NokhXyr"
+displayURL="https://github.com/NokhXyr/MC-MostLight"
 description='''
-Des centaines de lampes décoratives : plafond, mur, table, sol et blocs.
-16 couleurs, allumage au clic ou par redstone, 4 niveaux de luminosité, recoloration au colorant.
+Decorative lighting: 72 lamp models for ceilings, walls, tables, floors and blocks, each in 16 colors, with 10 frame finishes and 5 light tones. Switch them by hand, with redstone, switches, dimmers or a remote, chain LED strips and garlands, and craft everything at the Lamp Workbench.
+
+Source code: https://github.com/NokhXyr/MC-MostLight
 '''
 
 [[dependencies.mostlight]]
