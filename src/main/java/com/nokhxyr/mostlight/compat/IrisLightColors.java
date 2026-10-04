@@ -68,6 +68,26 @@ public final class IrisLightColors {
         return block.defaultBlockState().setValue(CandleBlock.LIT, true);
     }
 
+    /**
+     * Complementary (Reimagined, Unbound and packs built on them) colours its light from the vanilla sources without
+     * lighting up whole textures, but leaves coloured candles warm unless an extra option is on: keep the vanilla
+     * references there. Other packs (Solas...) make those sources glow over the whole texture: candles are better.
+     */
+    private static boolean prefersVanillaSources() {
+        String pack = currentPackName();
+        return pack != null && pack.toLowerCase(java.util.Locale.ROOT).contains("complementary");
+    }
+
+    /** Name of the active shader pack (Iris is an optional dependency: reflection). */
+    private static @org.jetbrains.annotations.Nullable String currentPackName() {
+        try {
+            Object name = Class.forName("net.irisshaders.iris.Iris").getMethod("getCurrentPackName").invoke(null);
+            return name == null ? null : name.toString();
+        } catch (ReflectiveOperationException | LinkageError e) {
+            return null;
+        }
+    }
+
     /** Renvoie une copie de la table d'Iris enrichie des lampes allumées. */
     public static Object2IntMap<BlockState> withLamps(Object2IntMap<BlockState> ids) {
         if (ids == null || ids.isEmpty()) {
@@ -78,7 +98,8 @@ public final class IrisLightColors {
         Map<DyeColor, BlockState> refs = references();
         // bougies colorées seulement si le pack les distingue de la bougie simple (sinon lumière sans couleur)
         BlockState plain = Blocks.CANDLE.defaultBlockState().setValue(CandleBlock.LIT, true);
-        for (DyeColor color : vanillaOnly ? new DyeColor[0] : DyeColor.values()) {
+        boolean candles = !vanillaOnly && !prefersVanillaSources();
+        for (DyeColor color : candles ? DyeColor.values() : new DyeColor[0]) {
             BlockState candle = candle(color);
             if (ids.containsKey(candle) && (!ids.containsKey(plain) || ids.getInt(candle) != ids.getInt(plain))) {
                 refs.put(color, candle);
@@ -100,7 +121,8 @@ public final class IrisLightColors {
                 }
             }
         }
-        LOGGER.info("[MostLight] lumière colorée Iris : {} états de lampes associés", added);
+        LOGGER.info("[MostLight] lumière colorée Iris : {} états de lampes associés ({})", added,
+                candles ? "bougies colorées" : "sources vanilla");
         return out;
     }
 }

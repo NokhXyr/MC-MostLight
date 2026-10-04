@@ -23,7 +23,7 @@ Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
   leurs liaisons. Une lampe qui perd son support tombe en objet. Les lampes de 2 blocs de haut se cassent.
 - **Create** (facultatif) : les contraptions emportent les lampes attachées au bloc qu'elles déplacent.
 - **Lumière colorée sous shaders** (Iris) : chaque lampe allumée éclaire de sa couleur avec les packs qui
-  colorent la lumière (Solas, par exemple).
+  colorent la lumière, comme Solas et Complementary (éclairage coloré activé).
 - **Pose sur tout bloc ayant une forme** : escalier à l'envers, barrière, dalle, tête de joueur...
 - **JEI** : recettes de l'établi avec les matériaux et leurs quantités.
 - **Configuration** (`config/mostlight-common.toml`) : longueur maximale des chaînes LED, limites des
