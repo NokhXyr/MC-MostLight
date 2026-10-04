@@ -136,7 +136,7 @@ public class TallLampBlock extends LampBlock {
             level.setBlock(other, otherState
                     .setValue(LIT, state.getValue(LIT))
                     .setValue(POWERED, state.getValue(POWERED))
-                    .setValue(BRIGHTNESS, state.getValue(BRIGHTNESS)), Block.UPDATE_ALL);
+                    .setValue(BRIGHTNESS, state.getValue(BRIGHTNESS)), Block.UPDATE_CLIENTS);
         }
     }
 

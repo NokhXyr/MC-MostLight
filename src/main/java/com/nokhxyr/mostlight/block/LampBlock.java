@@ -130,8 +130,13 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock,
     }
 
     /** Applique un nouvel état (les lampes hautes le recopient sur l'autre moitié). */
+    /**
+     * Light, brightness, power or fan change. A lamp emits no redstone and keeps its shape, so neighbors are not
+     * notified (no neighborChanged cascade through packed lamps). Clients, shape updates (observers) and the light
+     * engine still see the change.
+     */
     protected void applyState(Level level, BlockPos pos, BlockState state) {
-        level.setBlock(pos, state, Block.UPDATE_ALL);
+        level.setBlock(pos, state, Block.UPDATE_CLIENTS);
     }
 
     /** Allume ou éteint (utilisé par les interrupteurs liés). */

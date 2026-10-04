@@ -66,6 +66,23 @@ public class LampGameTests {
         helper.succeed();
     }
 
+    /** Lamp changes skip neighbor notifications but must still reach observers (shape updates). */
+    @GameTest(template = "empty")
+    public static void observerSeesToggle(GameTestHelper helper) {
+        helper.setBlock(GROUND, Blocks.STONE);
+        helper.setBlock(LAMP, ModBlocks.lamp(LampType.TABLE_LAMP, DyeColor.WHITE));
+        helper.setBlock(LAMP.east(), Blocks.OBSERVER.defaultBlockState().setValue(BlockStateProperties.FACING, Direction.WEST));
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        java.util.concurrent.atomic.AtomicBoolean clicked = new java.util.concurrent.atomic.AtomicBoolean();
+        helper.runAfterDelay(6, () -> {
+            helper.assertTrue(!helper.getBlockState(LAMP.east()).getValue(BlockStateProperties.POWERED), "observateur au repos avant le clic");
+            helper.useBlock(LAMP, player);
+            clicked.set(true);
+        });
+        helper.succeedWhen(() -> helper.assertTrue(clicked.get() && helper.getBlockState(LAMP.east()).getValue(BlockStateProperties.POWERED),
+                "l'observateur voit la lampe s'éteindre"));
+    }
+
     @GameTest(template = "empty")
     public static void redstoneControl(GameTestHelper helper) {
         helper.setBlock(GROUND, Blocks.STONE);
