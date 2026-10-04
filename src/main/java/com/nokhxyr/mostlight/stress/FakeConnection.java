@@ -1,6 +1,8 @@
 package com.nokhxyr.mostlight.stress;
 
+import io.netty.channel.Channel;
 import io.netty.channel.embedded.EmbeddedChannel;
+import io.netty.util.AttributeKey;
 import java.lang.reflect.Field;
 import java.util.concurrent.atomic.AtomicInteger;
 import net.minecraft.network.Connection;
@@ -11,6 +13,7 @@ import net.minecraft.network.ProtocolInfo;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.PacketFlow;
 import net.minecraft.network.protocol.game.ClientboundChunkBatchFinishedPacket;
+import net.neoforged.neoforge.network.registration.ChannelAttributes;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -33,14 +36,32 @@ final class FakeConnection extends Connection {
     private final AtomicInteger pendingAcks = new AtomicInteger();
     private volatile boolean open = true;
 
-    FakeConnection(PacketMeter meter) {
+    /**
+     * @param template channel of a real player whose negotiated mod channels are copied (singleplayer host), or null.
+     *     Without them NeoForge refuses mod payloads sent on join (KubeJS in modpacks, for example).
+     */
+    FakeConnection(PacketMeter meter, @Nullable Channel template) {
         super(PacketFlow.SERVERBOUND);
         this.meter = meter;
+        EmbeddedChannel channel = new EmbeddedChannel();
+        if (template != null) {
+            copy(template, channel, ChannelAttributes.PAYLOAD_SETUP);
+            copy(template, channel, ChannelAttributes.ADHOC_CHANNELS);
+            copy(template, channel, ChannelAttributes.COMMON_CHANNELS);
+            copy(template, channel, ChannelAttributes.CONNECTION_TYPE);
+        }
         try {
             // NeoForge lit les attributs du canal (canaux négociés) : il en faut un, même vide
-            CHANNEL.set(this, new EmbeddedChannel());
+            CHANNEL.set(this, channel);
         } catch (IllegalAccessException e) {
             throw new IllegalStateException(e);
+        }
+    }
+
+    private static <T> void copy(Channel from, Channel to, AttributeKey<T> key) {
+        T value = from.attr(key).get();
+        if (value != null) {
+            to.attr(key).set(value);
         }
     }
 

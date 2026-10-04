@@ -68,11 +68,14 @@ public final class StressClientDirector {
         }
         switch (stage) {
             case START -> {
-                if (!(mc.screen instanceof TitleScreen) || mc.getOverlay() != null) {
-                    if (!(mc.screen instanceof TitleScreen)) {
-                        mc.options.onboardAccessibility = false;
-                        mc.setScreen(new TitleScreen());
-                    }
+                if (mc.getOverlay() != null) {
+                    // resources still loading: big modpacks set up their screens at the end (Twilight Forest crashes otherwise)
+                    wait = 20;
+                    return;
+                }
+                if (!(mc.screen instanceof TitleScreen)) {
+                    mc.options.onboardAccessibility = false;
+                    mc.setScreen(new TitleScreen());
                     wait = 20;
                     return;
                 }
@@ -94,7 +97,8 @@ public final class StressClientDirector {
                 mc.options.pauseOnLostFocus = false;
                 // réglages en mémoire seulement : distance de rendu 12, images non limitées, pas de synchro verticale
                 mc.options.renderDistance().set(12);
-                mc.options.framerateLimit().set(260);
+                // -Dmostlight.stress.fps caps the frame rate so the client does not starve the integrated server
+                mc.options.framerateLimit().set(Integer.getInteger("mostlight.stress.fps", 260));
                 mc.options.enableVsync().set(false);
                 var uuid = mc.player.getUUID();
                 server.execute(() -> {

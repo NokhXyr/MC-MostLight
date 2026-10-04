@@ -34,7 +34,12 @@ public final class StressBot extends ServerPlayer {
     /** Connecte un joueur simulé par le même chemin qu'un vrai joueur (PlayerList.placeNewPlayer). */
     public static StressBot join(MinecraftServer server, ServerLevel level, String name, PacketMeter meter, double x, double y, double z) {
         GameProfile profile = new GameProfile(UUIDUtil.createOfflinePlayerUUID(name), name);
-        FakeConnection connection = new FakeConnection(meter);
+        // a real player (singleplayer host) gives the mod channels negotiated with an actual client
+        io.netty.channel.Channel template = server.getPlayerList().getPlayers().stream()
+                .filter(p -> !(p instanceof StressBot))
+                .map(p -> p.connection.getConnection().channel())
+                .findFirst().orElse(null);
+        FakeConnection connection = new FakeConnection(meter, template);
         StressBot bot = new StressBot(server, level, profile, connection);
         server.getPlayerList().placeNewPlayer(connection, bot,
                 new CommonListenerCookie(profile, 0, INFO, false, ConnectionType.OTHER));

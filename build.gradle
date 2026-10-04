@@ -138,6 +138,28 @@ neoForge {
             programArguments.addAll '--width', '1600', '--height', '900'
             jvmArguments.addAll '-Xms4G', '-Xmx6G'
         }
+        // ./gradlew runStressClientArcadia / runStressClientArcadiaVanilla: same scenario inside the Arcadia
+        // modpack (run-arcadia), report in run-arcadia/stress
+        stressClientArcadia {
+            client()
+            gameDirectory = project.file('run-arcadia')
+            systemProperty 'log4j.configurationFile', 'log4j2.xml'
+            systemProperty 'mostlight.stress.client', 'true'
+            programArguments.addAll '--width', '1600', '--height', '900'
+            systemProperty 'mostlight.stress.fps', '120'
+            // local profiling (Java Flight Recorder), analysed with the jfr tool
+            jvmArguments.addAll '-Xms6G', '-Xmx10G', '-XX:StartFlightRecording=filename=stress/mostlight.jfr,settings=profile,dumponexit=true'
+        }
+        stressClientArcadiaVanilla {
+            client()
+            gameDirectory = project.file('run-arcadia')
+            systemProperty 'log4j.configurationFile', 'log4j2.xml'
+            systemProperty 'mostlight.stress.client', 'true'
+            systemProperty 'mostlight.stress.vanilla', 'true'
+            programArguments.addAll '--width', '1600', '--height', '900'
+            systemProperty 'mostlight.stress.fps', '120'
+            jvmArguments.addAll '-Xms6G', '-Xmx10G', '-XX:StartFlightRecording=filename=stress/vanilla.jfr,settings=profile,dumponexit=true'
+        }
         // avec la pile de mods d'optimisation de run-opti (Sodium, ModernFix...)
         stressClientOpti {
             client()
