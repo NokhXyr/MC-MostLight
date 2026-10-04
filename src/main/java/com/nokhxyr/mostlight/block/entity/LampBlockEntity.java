@@ -121,12 +121,27 @@ public class LampBlockEntity extends BlockEntity {
         return ModelData.builder().with(STRIP_LAYOUT, stripLayout).build();
     }
 
+    /**
+     * Sauvegarde : seulement ce qui diffère des valeurs par défaut (comme les paquets réseau). La plupart des lampes
+     * gardent la finition et la teinte de leur modèle : leur block entity ne contient alors que sa position, ce qui
+     * allège la sauvegarde des chunks qui en portent des milliers. loadAdditional remet les valeurs par défaut quand
+     * une clé manque.
+     */
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
-        tag.putString("finish", finish.getSerializedName());
-        tag.putString("tone", tone.getSerializedName());
+        writeLook(tag);
         writeStrip(tag);
+    }
+
+    private void writeLook(CompoundTag tag) {
+        LampFinish defaultFinish = getBlockState().getBlock() instanceof LampBlock lamp ? lamp.type().defaultFinish() : null;
+        if (finish != defaultFinish) {
+            tag.putString("finish", finish.getSerializedName());
+        }
+        if (tone != LightTone.AUTO) {
+            tag.putString("tone", tone.getSerializedName());
+        }
     }
 
     private void writeStrip(CompoundTag tag) {
@@ -186,13 +201,7 @@ public class LampBlockEntity extends BlockEntity {
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
         CompoundTag tag = new CompoundTag();
-        LampFinish defaultFinish = getBlockState().getBlock() instanceof LampBlock lamp ? lamp.type().defaultFinish() : null;
-        if (finish != defaultFinish) {
-            tag.putString("finish", finish.getSerializedName());
-        }
-        if (tone != LightTone.AUTO) {
-            tag.putString("tone", tone.getSerializedName());
-        }
+        writeLook(tag);
         writeStrip(tag);
         return tag;
     }
