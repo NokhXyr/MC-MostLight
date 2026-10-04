@@ -47,3 +47,11 @@
 **Root cause:** the window lost focus while the world loaded, the game paused, and the director waits for the player to have ticked 40 times before starting: a paused game never ticks.
 **Fix:** the stress and showcase directors turn off pause-on-lost-focus and close the pause screen as soon as the world is loading.
 **Prevention:** any automated run that waits on game ticks must disable pausing before waiting.
+
+## [2026-10-05 01:40] Complementary lost its coloured lamp light after the Solas fix
+
+**Context:** refreshing the CurseForge page, whose banners were recorded with Complementary Reimagined (coloured lighting on).
+**Error:** with the candle mapping, lamps under Complementary lit in warm white instead of their colour.
+**Root cause:** Complementary only colours candles with an extra option (COLORED_CANDLE_LIGHT, off by default); the Solas fix had been checked against Complementary Unbound without coloured lighting, where both mappings looked the same.
+**Fix:** `IrisLightColors` checks the active pack: Complementary keeps the vanilla light sources, other packs use the coloured candles.
+**Prevention:** check a shader change with each pack's coloured lighting turned on, not only with its defaults.
