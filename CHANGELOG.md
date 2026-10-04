@@ -58,7 +58,8 @@ Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
 - Bras de l'éclairage de tableau décalé.
 
 ### Divers
-- Licence : tous droits réservés.
+- Licence : tous droits réservés. Les modpacks peuvent inclure le JAR officiel non modifié, avec crédit.
+- Code de conduite, politique de sécurité et guide de contribution (dossier `.github`).
 
 ## 1.1.0 - 2026-10-02
 

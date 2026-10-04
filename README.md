@@ -93,8 +93,7 @@ Le fichier `config/mostlight-common.toml` est créé au premier lancement :
 ## Performances
 
 Test de charge avec 20 joueurs simultanés et près de 37 000 lampes : 20 TPS tenus, coût proche de blocs lumineux
-vanilla, aucune erreur, lumière exacte. Rapport détaillé : [docs/TEST_DE_CHARGE.md](docs/TEST_DE_CHARGE.md)
-(`./gradlew runStressServer` et `./gradlew runStressClient` pour le relancer).
+vanilla, aucune erreur, lumière exacte (`./gradlew runStressServer` et `./gradlew runStressClient` pour le relancer).
 
 ## Dépendances
 
@@ -117,32 +116,9 @@ Le jar se trouve dans `build/libs/`.
 
 ## Modèles et ressources
 
-Les fichiers Blockbench (`.bbmodel`, textures intégrées) se trouvent dans [`blockbench/`](blockbench/), rangés par catégorie.
-
-Le script [`tools/generate.mjs`](tools/generate.mjs) génère :
-
-- les modèles de jeu, blockstates, textures et traductions (fr/en) ;
-- les loot tables, tags et recettes ;
-- `LampType.java`, `LampFinish.java`, les hitbox, les points de flamme et les animations GeckoLib.
-
-```
-node tools/generate.mjs
-```
-
-### Retoucher un modèle dans Blockbench
-
-Un modèle retouché dans Blockbench devient la source de la lampe en jeu : le script l'importe (pièces, UV, rotations,
-position en main) et ne le réécrit plus jamais.
-
-- [`blockbench/.modeles-retouches.json`](blockbench/.modeles-retouches.json) liste les modèles retouchés.
-- Le script garde l'empreinte des modèles qu'il a écrits lui-même (`blockbench/.modeles-generes.json`). Un fichier modifié depuis est ajouté tout seul à la liste (« modèle retouché détecté »).
-- La position en **main droite** est recopiée en miroir pour la **main gauche**.
-- Minecraft n'accepte qu'un axe de rotation par pièce, à -45, -22,5, 0, 22,5 ou 45°. Les quarts de tour sont intégrés à la pièce ; un autre angle est arrondi au plus proche (la pièce garde la position de son centre), avec un avertissement dans la console.
-- Les plaques très fines (flammes de 0,1 px) n'ont que leurs deux grandes faces : leurs tranches feraient des traits.
-- Les lampes de 2 blocs de haut sont coupées à y = 16. Les zones lumineuses (`neoforge_data`), les teintes et les arêtes métalliques des abat-jour coniques sont ajoutées par le script.
-- Les lampes absentes de la liste sont décrites dans `LAMPS`, dans le script.
-
-Le script refuse deux recettes identiques.
+Les modèles, blockstates, textures, traductions, recettes, hitbox et la liste des lampes (`LampType.java`) sont
+produits par des outils internes à partir de fichiers Blockbench, qui ne sont pas publiés dans ce dépôt. Pour proposer
+un changement de modèle ou de texture, ouvrez une issue.
 
 Dans les modèles, les textures sont en niveaux de gris et la couleur vient des teintes :
 
@@ -152,4 +128,15 @@ Dans les modèles, les textures sont en niveaux de gris et la couleur vient des 
 - `tintindex` 3 : finition ;
 - `tintindex` 4 à 8 : pièces animées (mêmes teintes), retirées du modèle précuit quand GeckoLib les anime.
 
-Les bandes et guirlandes sont des morceaux de ligne (`<bande>_seg/`) dessinés dans un repère local ; le jeu les tourne vers la face voulue et choisit les morceaux d'après les bandes voisines.
+Les bandes et guirlandes sont des morceaux de ligne (`<bande>_seg/`) dessinés dans un repère local ; le jeu les tourne
+vers la face voulue et choisit les morceaux d'après les bandes voisines.
+
+## Licence
+
+MostLight est **tous droits réservés** : le code est visible mais pas libre. Les modpacks peuvent inclure le JAR
+officiel non modifié, avec crédit. Détails dans [LICENSE](LICENSE).
+
+- [Contribuer](.github/CONTRIBUTING.md)
+- [Code de conduite](.github/CODE_OF_CONDUCT.md)
+- [Signaler une faille de sécurité](.github/SECURITY.md)
+- [Changelog](CHANGELOG.md)

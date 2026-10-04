@@ -22,3 +22,9 @@ run-*/
 __pycache__/
 images/preview/
 images/upload/
+blockbench/*
+
+# Outils et sources internes, gardés en local seulement
+tools/
+docs/*
+!docs/icon.png
