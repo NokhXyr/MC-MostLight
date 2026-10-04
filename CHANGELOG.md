@@ -17,7 +17,7 @@ Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
 - **Guirlandes** : cordon qui pend avec des ampoules rondes, raccordé comme les bandes LED.
 - **Nouvelles lampes** : lampe à engrenages animée (engrenages qui tournent quand elle est allumée),
   tiges lumineuses façon barre de l'End (debout, pendues, couchées au mur ou au sol), ventilateur de
-  plafond (1er clic : lumière, 2e clic : ventilateur). 72 modèles en tout.
+  plafond (1er clic : lumière, 2e clic : ventilateur). 71 modèles en tout.
 - **Interrupteurs** simple, variateur et double en 16 couleurs. Clé de décorateur : Maj + molette.
 - **Pistons** : les lampes se poussent et se tirent en gardant leur finition, leur teinte, leurs bandes et
   leurs liaisons. Une lampe qui perd son support tombe en objet. Les lampes de 2 blocs de haut se cassent.

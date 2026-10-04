@@ -1,6 +1,6 @@
 # MostLight
 
-Mod NeoForge pour **Minecraft 1.21.1** (toutes versions NeoForge 21.1.x) qui ajoute **72 modèles de lampes** :
+Mod NeoForge pour **Minecraft 1.21.1** (toutes versions NeoForge 21.1.x) qui ajoute **71 modèles de lampes** :
 plafond, mur, table, sol et blocs lumineux.
 
 Chaque lampe se personnalise sur trois axes :
@@ -45,7 +45,7 @@ Le verre est translucide : on voit l'ampoule à filament ou la flamme à l'inté
   - Connecteur en main, en visant une bande ou un bloc lumineux : toute sa chaîne est entourée d'un contour vert, visible en transparence derrière les murs, et les voisins qu'on peut encore relier ont un contour rouge pâle. Sous le viseur s'affichent la taille de la chaîne et si elle est alimentée.
   - Longueur maximale d'une chaîne : 256 bandes par défaut, réglable.
 - **Guirlandes** : même système que les bandes LED (plusieurs par bloc, raccords, positions, chaînes redstone). Au mur, le cordon pend entre ses attaches avec des ampoules rondes.
-- **Tiges lumineuses** (tige, tiges jumelles, tige de cristal, colonne lumineuse) : au mur, couchées à l'horizontale (accroupi : à la verticale) ; au sol debout, au plafond pendues (accroupi : couchées dans l'axe du regard).
+- **Tiges lumineuses** (tige, tiges jumelles, colonne lumineuse) : au mur, couchées à l'horizontale (accroupi : à la verticale) ; au sol debout, au plafond pendues (accroupi : couchées dans l'axe du regard).
 
 ## Les lampes
 
@@ -55,7 +55,7 @@ Le verre est translucide : on voit l'ampoule à filament ou la flamme à l'inté
 | Mur | applique, applique double, lanterne murale, tube néon, anneau néon, spot mural, hublot, flambeau, bougeoir mural, éclairage de tableau, applique industrielle, globe mural, applique lumineuse, guirlande |
 | Table | lampe à engrenages (engrenages animés quand elle est allumée, plus vite à pleine puissance), lampe de table, lampe de bureau, lampe à lave, lampe champignon, lampe de banquier, lanterne, chandelier, bougie en pot, lampe boule, lampe lune, lampe Tiffany, lampe de sel, lampe de sel claire, lampe à pétrole, lampe shoji |
 | Sol | lampadaire, lampadaire arc, réverbère, réverbère double, trépied, torchère, colonne en papier, projecteur de studio et lanterne de pierre (2 blocs de haut) ; borne lumineuse, lanterne de jardin, balise, brasero |
-| Blocs | bloc lumineux, lampe encadrée, lampe alvéolée, bloc cadre néon, bloc shoji ; panneau LED, bande LED, projecteur, spot encastré, cristal lumineux, tige lumineuse, tiges jumelles, tige de cristal et pilier lumineux (ces 9 derniers, style barre de l'End, se fixent sur n'importe quelle face) |
+| Blocs | bloc lumineux, lampe encadrée, lampe alvéolée, bloc cadre néon, bloc shoji ; panneau LED, bande LED, projecteur, spot encastré, cristal lumineux, tige lumineuse, tiges jumelles et pilier lumineux (ces 8 derniers, style barre de l'End, se fixent sur n'importe quelle face) |
 
 ## Galerie
 

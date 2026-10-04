@@ -72,7 +72,6 @@ public enum LampType {
     FLUSH_LIGHT("flush_light", LampCategory.BLOCK, Placement.OMNI, SoundType.GLASS, LampFinish.WHITE, false),
     LIGHT_ROD("light_rod", LampCategory.BLOCK, Placement.OMNI, SoundType.GLASS, LampFinish.STEEL, false),
     TWIN_RODS("twin_rods", LampCategory.BLOCK, Placement.OMNI, SoundType.GLASS, LampFinish.STEEL, false),
-    CRYSTAL_ROD("crystal_rod", LampCategory.BLOCK, Placement.OMNI, SoundType.AMETHYST, LampFinish.GOLD, false),
     LIGHT_PILLAR("light_pillar", LampCategory.BLOCK, Placement.OMNI, SoundType.METAL, LampFinish.BLACK, false),
     CLEAR_SALT_LAMP("clear_salt_lamp", LampCategory.TABLE, Placement.STANDING, SoundType.STONE, LampFinish.OAK, false),
     CRYSTAL_CLUSTER("crystal_cluster", LampCategory.BLOCK, Placement.OMNI, SoundType.AMETHYST, LampFinish.STEEL, false);
