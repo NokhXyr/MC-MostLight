@@ -128,7 +128,7 @@ neoForge {
             gameDirectory = project.file('run-stress-client')
             systemProperty 'mostlight.stress.client', 'true'
             programArguments.addAll '--width', '1600', '--height', '900'
-            jvmArguments.addAll '-Xms4G', '-Xmx6G'
+            jvmArguments.addAll '-Xms4G', '-Xmx6G', '-XX:StartFlightRecording=filename=stress/mostlight.jfr,settings=profile,dumponexit=true'
         }
         stressClientVanilla {
             client()
@@ -136,7 +136,7 @@ neoForge {
             systemProperty 'mostlight.stress.client', 'true'
             systemProperty 'mostlight.stress.vanilla', 'true'
             programArguments.addAll '--width', '1600', '--height', '900'
-            jvmArguments.addAll '-Xms4G', '-Xmx6G'
+            jvmArguments.addAll '-Xms4G', '-Xmx6G', '-XX:StartFlightRecording=filename=stress/vanilla.jfr,settings=profile,dumponexit=true'
         }
         // ./gradlew runStressClientArcadia / runStressClientArcadiaVanilla: same scenario inside the Arcadia
         // modpack (run-arcadia), report in run-arcadia/stress

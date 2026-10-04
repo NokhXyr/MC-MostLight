@@ -82,11 +82,11 @@ public class LampBlockEntity extends BlockEntity {
         return powered;
     }
 
-    /** Sent to clients too: the connector shows whether a chain is powered. */
+    /** Server-side memory only: clients work out whether a chain is powered from the redstone around it. */
     public void setPowered(boolean powered) {
         if (this.powered != powered) {
             this.powered = powered;
-            sync();
+            setChanged();
         }
     }
 
@@ -245,7 +245,6 @@ public class LampBlockEntity extends BlockEntity {
         CompoundTag tag = new CompoundTag();
         writeLook(tag);
         writeStrip(tag);
-        writePowered(tag);
         return tag;
     }
 
