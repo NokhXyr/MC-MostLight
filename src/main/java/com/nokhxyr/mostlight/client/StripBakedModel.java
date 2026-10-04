@@ -67,13 +67,17 @@ public final class StripBakedModel implements IDynamicBakedModel {
         int lit = state.getValue(LampBlock.LIT) ? 1 : 0;
         List<BakedQuad> quads = new ArrayList<>();
         for (int seg : segments) {
-            quads.addAll(segmentQuads(seg, lit, rand));
+            quads.addAll(segmentQuads(state, seg, lit, rand, renderType));
         }
         return quads;
     }
 
-    private List<BakedQuad> segmentQuads(int seg, int lit, RandomSource rand) {
-        long key = ((long) seg << 1) | lit;
+    /** Couches de rendu rencontrées (cutout, translucide...) : un numéro par couche pour la clé du cache. */
+    private static final Map<RenderType, Integer> LAYERS = new ConcurrentHashMap<>();
+
+    private List<BakedQuad> segmentQuads(BlockState state, int seg, int lit, RandomSource rand, @Nullable RenderType renderType) {
+        int layer = renderType == null ? 0 : LAYERS.computeIfAbsent(renderType, t -> LAYERS.size() + 1);
+        long key = ((long) seg << 8) | ((long) layer << 1) | lit;
         return cache.computeIfAbsent(key, k -> {
             Direction face = LightStripBlock.segmentSide(seg);
             Direction.Axis axis = LightStripBlock.segmentAxis(seg);
@@ -93,11 +97,12 @@ public final class StripBakedModel implements IDynamicBakedModel {
             // guirlande au mur, ligne horizontale : variante qui pend vers le bas
             int variant = sagVariants && face.getAxis().isHorizontal() && axis != Direction.Axis.Y ? 1 : 0;
             BakedModel template = templates[variant][lit][LightStripBlock.segmentSlot(seg)][i][j];
-            if (template == null) {
+            if (template == null || renderType != null && !template.getRenderTypes(state, rand, ModelData.EMPTY).contains(renderType)) {
                 return List.of();
             }
             List<BakedQuad> out = new ArrayList<>();
-            for (BakedQuad quad : template.getQuads(null, null, rand, ModelData.EMPTY, null)) {
+            // une guirlande mêle pièces opaques et verre (modèle composite) : seulement la couche demandée
+            for (BakedQuad quad : template.getQuads(state, null, rand, ModelData.EMPTY, renderType)) {
                 out.add(transform(quad, u, n, w));
             }
             return List.copyOf(out);

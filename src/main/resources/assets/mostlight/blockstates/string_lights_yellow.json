@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "mostlight:block/string_lights_on"
+      "model": "mostlight:block/string_lights_dynamic"
     }
   }
 }

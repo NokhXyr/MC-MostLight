@@ -1,33 +1,33 @@
 {
   "variants": {
     "facing=north,lit=false": {
-      "model": "mostlight:block/fan_light"
+      "model": "mostlight:block/fan_light_chunk"
     },
     "facing=east,lit=false": {
-      "model": "mostlight:block/fan_light",
+      "model": "mostlight:block/fan_light_chunk",
       "y": 90
     },
     "facing=south,lit=false": {
-      "model": "mostlight:block/fan_light",
+      "model": "mostlight:block/fan_light_chunk",
       "y": 180
     },
     "facing=west,lit=false": {
-      "model": "mostlight:block/fan_light",
+      "model": "mostlight:block/fan_light_chunk",
       "y": 270
     },
     "facing=north,lit=true": {
-      "model": "mostlight:block/fan_light_on"
+      "model": "mostlight:block/fan_light_chunk_on"
     },
     "facing=east,lit=true": {
-      "model": "mostlight:block/fan_light_on",
+      "model": "mostlight:block/fan_light_chunk_on",
       "y": 90
     },
     "facing=south,lit=true": {
-      "model": "mostlight:block/fan_light_on",
+      "model": "mostlight:block/fan_light_chunk_on",
       "y": 180
     },
     "facing=west,lit=true": {
-      "model": "mostlight:block/fan_light_on",
+      "model": "mostlight:block/fan_light_chunk_on",
       "y": 270
     }
   }

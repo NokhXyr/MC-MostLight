@@ -73,6 +73,11 @@ public final class ShowcaseDirector {
         }
         switch (stage) {
             case START -> {
+                if (mc.getOverlay() != null) {
+                    // ressources encore en chargement : un gros modpack initialise ses écrans à la fin, pas avant
+                    wait = 20;
+                    return;
+                }
                 if (!(mc.screen instanceof TitleScreen)) {
                     mc.options.onboardAccessibility = false;
                     mc.setScreen(new TitleScreen());

@@ -1,0 +1,8 @@
+{
+  "loader": "mostlight:strip",
+  "lamp": "string_lights",
+  "variants": [
+    "_y",
+    "_w"
+  ]
+}

@@ -72,10 +72,32 @@ neoForge {
             programArguments.addAll '--width', '1600', '--height', '900'
         }
         // ./gradlew runShowcaseOpti : même galerie avec une pile de mods d'optimisation (dossier run-opti, voir COMPATIBILITE.md)
+        // ./gradlew runArcadia : le mod dans le modpack Arcadia Echoes of Power (dossier run-arcadia, à remplir avec les mods,
+        // la config et les shaders d'une instance du pack, sans le jar de MostLight, de GeckoLib et de JEI)
+        arcadia {
+            client()
+            gameDirectory = project.file('run-arcadia')
+            jvmArgument '-Xmx10G'
+            // Create Numismatics lit ce chemin comme une URI : le chemin Windows du dev la fait planter
+            systemProperty 'log4j.configurationFile', 'log4j2.xml'
+        }
+        // ./gradlew runShowcaseArcadia : les gros plans de toutes les lampes dans ce modpack (run-arcadia/screenshots)
+        showcaseArcadia {
+            client()
+            gameDirectory = project.file('run-arcadia')
+            jvmArgument '-Xmx10G'
+            // Create Numismatics lit ce chemin comme une URI : le chemin Windows du dev la fait planter
+            systemProperty 'log4j.configurationFile', 'log4j2.xml'
+            systemProperty 'mostlight.showcase', 'true'
+            systemProperty 'mostlight.showcase.closeups', 'true'
+            programArguments.addAll '--width', '1600', '--height', '900'
+        }
         showcaseOpti {
             client()
             gameDirectory = project.file('run-opti')
             systemProperty 'mostlight.showcase', 'true'
+            // MOSTLIGHT_SHOWCASE_CLOSEUPS=true : gros plans au lieu de la galerie
+            systemProperty 'mostlight.showcase.closeups', System.getenv('MOSTLIGHT_SHOWCASE_CLOSEUPS') ?: 'false'
             programArguments.addAll '--width', '1600', '--height', '900'
         }
         gameTestServer {

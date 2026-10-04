@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "mostlight:block/light_strip_on"
+      "model": "mostlight:block/light_strip_dynamic"
     }
   }
 }

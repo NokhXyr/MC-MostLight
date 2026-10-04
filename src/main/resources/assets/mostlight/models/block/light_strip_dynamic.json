@@ -1,0 +1,7 @@
+{
+  "loader": "mostlight:strip",
+  "lamp": "light_strip",
+  "variants": [
+    ""
+  ]
+}

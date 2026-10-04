@@ -4,19 +4,14 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import com.nokhxyr.mostlight.MostLight;
-import com.nokhxyr.mostlight.block.AnimatedLampBlock;
 import com.nokhxyr.mostlight.block.LampBlock;
 import com.nokhxyr.mostlight.block.entity.AnimatedLampBlockEntity;
 import com.nokhxyr.mostlight.registry.ModBlockEntities;
-import com.nokhxyr.mostlight.registry.ModBlocks;
 import java.util.List;
-import java.util.Map;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.block.BlockModelShaper;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -27,10 +22,8 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.model.BakedModelWrapper;
 import net.neoforged.neoforge.client.model.data.ModelData;
-import net.neoforged.neoforge.registries.DeferredBlock;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.model.GeoModel;
@@ -48,7 +41,7 @@ public final class AnimatedLampClient {
         return quad.getTintIndex() >= 4;
     }
 
-    /** Modèle du chunk : sans les engrenages quand GeckoLib les anime. */
+    /** Modèle du chunk (loader mostlight:animated, LampModelLoaders) : sans les engrenages quand GeckoLib les anime. */
     static final class ChunkModel extends BakedModelWrapper<BakedModel> {
         ChunkModel(BakedModel original) {
             super(original);
@@ -62,22 +55,6 @@ public final class AnimatedLampClient {
                 return quads;
             }
             return quads.stream().filter(q -> !animatedPart(q)).toList();
-        }
-    }
-
-    @SubscribeEvent
-    static void wrapModels(ModelEvent.ModifyBakingResult event) {
-        Map<ModelResourceLocation, BakedModel> models = event.getModels();
-        for (DeferredBlock<LampBlock> holder : ModBlocks.all()) {
-            if (holder.get() instanceof AnimatedLampBlock block) {
-                for (BlockState state : block.getStateDefinition().getPossibleStates()) {
-                    ModelResourceLocation location = BlockModelShaper.stateToModelLocation(state);
-                    BakedModel original = models.get(location);
-                    if (original != null) {
-                        models.put(location, new ChunkModel(original));
-                    }
-                }
-            }
         }
     }
 
