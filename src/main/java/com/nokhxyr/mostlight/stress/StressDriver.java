@@ -305,6 +305,9 @@ public final class StressDriver {
         currentPhase = phase.id;
         LOGGER.info("[MostLight stress] phase {} : {}", phase.id, phase.title);
         phase.setup.run();
+        if (phase.id.equals("bots_all")) {
+            spark("spark profiler start");
+        }
         phase.netStart = meter.snapshot();
         long[] gc = gc();
         phase.gcTimeStart = gc[0];
@@ -324,9 +327,25 @@ public final class StressDriver {
         if (!phase.id.equals("baseline") && !phase.id.equals("travel_out")) {
             phase.lampsAtEnd = countLamps();
         }
+        if (phase.id.equals("storm")) {
+            // the profile covers the 20-player phases (players, redstone clocks, storm)
+            spark("spark profiler stop --save-to-file --comment " + (config.vanilla() ? "vanilla" : "mostlight"));
+        }
         double[] s = stats(phase.tickNanos);
         LOGGER.info("[MostLight stress] fin {} : MSPT moy {} / p95 {} / p99 {} / max {} ms, TPS {}, {} joueurs",
                 phase.id, f1(s[0]), f1(s[2]), f1(s[3]), f1(s[4]), f1(tps(phase)), bots.size());
+    }
+
+    /**
+     * Runs a spark command when -Dmostlight.stress.spark=true and spark is installed. Profiles are saved locally
+     * (config/spark), never uploaded.
+     */
+    private void spark(String command) {
+        if (!Boolean.getBoolean("mostlight.stress.spark") || !net.neoforged.fml.ModList.get().isLoaded("spark")) {
+            return;
+        }
+        LOGGER.info("[MostLight stress] {}", command);
+        server.getCommands().performPrefixedCommand(server.createCommandSourceStack(), command);
     }
 
     private void sample(Phase phase) {

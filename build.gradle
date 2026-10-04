@@ -147,6 +147,7 @@ neoForge {
             systemProperty 'mostlight.stress.client', 'true'
             programArguments.addAll '--width', '1600', '--height', '900'
             systemProperty 'mostlight.stress.fps', '120'
+            systemProperty 'mostlight.stress.spark', 'true'
             // local profiling (Java Flight Recorder), analysed with the jfr tool
             jvmArguments.addAll '-Xms6G', '-Xmx10G', '-XX:StartFlightRecording=filename=stress/mostlight.jfr,settings=profile,dumponexit=true'
         }
@@ -158,6 +159,7 @@ neoForge {
             systemProperty 'mostlight.stress.vanilla', 'true'
             programArguments.addAll '--width', '1600', '--height', '900'
             systemProperty 'mostlight.stress.fps', '120'
+            systemProperty 'mostlight.stress.spark', 'true'
             jvmArguments.addAll '-Xms6G', '-Xmx10G', '-XX:StartFlightRecording=filename=stress/vanilla.jfr,settings=profile,dumponexit=true'
         }
         // avec la pile de mods d'optimisation de run-opti (Sodium, ModernFix...)
