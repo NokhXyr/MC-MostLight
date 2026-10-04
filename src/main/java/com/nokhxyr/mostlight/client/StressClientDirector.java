@@ -89,6 +89,11 @@ public final class StressClientDirector {
                 stage = Stage.LOADING;
             }
             case LOADING -> {
+                // the window may lose focus while the world loads: a paused game never ticks the player we wait for
+                mc.options.pauseOnLostFocus = false;
+                if (mc.screen instanceof net.minecraft.client.gui.screens.PauseScreen) {
+                    mc.setScreen(null);
+                }
                 MinecraftServer server = mc.getSingleplayerServer();
                 if (mc.player == null || server == null || mc.player.tickCount < 40) {
                     return;

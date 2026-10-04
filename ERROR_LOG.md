@@ -39,3 +39,11 @@
 **Root cause:** stopping the background task killed the shell but not the loop's next `gradlew` call, which started the next pass a minute before the new series.
 **Fix:** killed every stress game, Gradle launcher, script and Crash Assistant helper; the series script now refuses to start a pass while a java process over 2 GB is running.
 **Prevention:** when stopping a test series, kill the script first, then the game, and check that no java process over 2 GB is left before starting anything.
+
+## [2026-10-04 22:01] Stress test stuck on "Saving and pausing game"
+
+**Context:** client stress test without the modpack (runStressClientVanilla) while another Minecraft window was open.
+**Error:** the test never started; the log stopped at "Saving and pausing game..." for 18 minutes.
+**Root cause:** the window lost focus while the world loaded, the game paused, and the director waits for the player to have ticked 40 times before starting: a paused game never ticks.
+**Fix:** the stress and showcase directors turn off pause-on-lost-focus and close the pause screen as soon as the world is loading.
+**Prevention:** any automated run that waits on game ticks must disable pausing before waiting.
