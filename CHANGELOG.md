@@ -46,11 +46,16 @@ Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
   tables des shaders et des mods d'optimisation plus petites. Un monde enregistré avant ce changement rallume ses
   lampes au maximum au premier chargement.
 - Allumer, éteindre ou régler une lampe ne réveille plus les blocs voisins (inutile : une lampe n'émet pas de
-  redstone). Les observateurs voient toujours le changement.
+  redstone). Les observateurs voient toujours le changement. Basculer 10 000 lampes d'un coup est 2,5 fois plus
+  rapide, au niveau des ampoules en cuivre vanilla.
+- Lampes commandées par la redstone : plus aucun paquet réseau ni recalcul des teintes chez les joueurs quand le
+  signal change (le connecteur calcule lui-même si une chaîne est alimentée). Avec 10 000 lampes et des horloges
+  redstone : 453 FPS au lieu de 82, et 14,5 ms par tick serveur au lieu de 26,3.
 - Moins de données réseau : la finition et la teinte ne sont plus renvoyées à chaque allumage.
 - Sauvegarde plus légère : une lampe à la finition et à la teinte de son modèle n'écrit plus ces valeurs.
 - Rendu : pièces animées par GeckoLib seulement de près, faces cachées supprimées des modèles (-14 %).
-  Testé à 20 joueurs et environ 36 900 lampes.
+- Tests de charge : 20 joueurs simulés et 10 000 à 37 000 lampes, 20 TPS tenus sans modpack. Dans le modpack
+  Arcadia (530 mods), le code de MostLight coûte environ 2 % du temps du serveur avec 20 joueurs actifs.
 
 ### Corrections
 - **Sodium / Iris** : moitiés hautes des lampes de 2 blocs avec une mauvaise texture, ou invisibles selon
