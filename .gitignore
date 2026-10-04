@@ -31,3 +31,9 @@ docs/*
 
 # Notes Obsidian
 /mostlight/
+
+# Local Claude files and QA artefacts
+.claude/
+CLAUDE.md
+test-procedures/
+TEST_PROCEDURE_*.html
