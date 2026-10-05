@@ -4,13 +4,6 @@
 
 Every release of MostLight (NeoForge 1.21.1). Newest first.
 
-### Unreleased
-
-#### Fixes
-- **Complementary**: lit lamps showed squares, circles and patches of light on their surface (yellow, green, pink,
-  magenta, blue, gray, black...). Under Complementary, lamps now give a plain warm light and keep clean surfaces;
-  coloured light stays under Solas and other packs.
-
 ### 1.0.0 - 2026-10-05
 
 First public release.
@@ -45,6 +38,8 @@ First public release.
 - **Create** (optional): contraptions carry the lamps attached to the blocks they move.
 - **Coloured light under shaders** (Iris): each lit lamp lights up in its colour with packs that colour light, such as
   Solas.
+- **Complementary**: lamps give a plain warm light with clean surfaces (the pack would draw a borrowed block's light
+  pattern on them, so no coloured light there).
 - **Sodium, Iris, ModernFix**: lamps, strips and animated lamps render correctly.
 - **JEI**: workbench recipes with their materials and amounts.
 
@@ -76,13 +71,6 @@ First public release.
 ## Français
 
 Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
-
-### Non publié
-
-#### Corrections
-- **Complementary** : les lampes allumées montraient des carrés, des ronds et des taches de lumière sur leur surface
-  (jaune, vert, rose, magenta, bleu, gris, noir...). Sous Complementary, elles donnent maintenant une lumière chaude
-  ordinaire et gardent des surfaces propres ; la lumière colorée reste sous Solas et les autres packs.
 
 ### 1.0.0 - 2026-10-05
 
@@ -122,7 +110,9 @@ Première sortie publique.
   Une lampe qui perd son support tombe en objet ; les lampes de 2 blocs se cassent.
 - **Create** (facultatif) : les contraptions emportent les lampes attachées aux blocs qu'elles déplacent.
 - **Lumière colorée sous shaders** (Iris) : chaque lampe allumée éclaire de sa couleur avec les packs qui colorent la
-  lumière, comme Solas et Complementary (éclairage coloré activé).
+  lumière, comme Solas.
+- **Complementary** : les lampes donnent une lumière chaude ordinaire, avec des surfaces propres (ce pack dessinerait
+  sur elles le motif lumineux du bloc emprunté, donc pas de lumière colorée).
 - **Sodium, Iris, ModernFix** : lampes, bandes et lampes animées affichées correctement.
 - **JEI** : recettes de l'établi avec leurs matériaux et quantités.
 
