@@ -216,7 +216,12 @@ public class LightStripBlock extends LampBlock {
             return state;
         }
         if (level instanceof ServerLevel server) {
-            popResource(server, pos, new ItemStack(this));
+            // the strip as the loot table gives it: its colour, finish and tone
+            ItemStack strip = com.nokhxyr.mostlight.item.ItemColor.with(new ItemStack(this), color(state));
+            if (level.getBlockEntity(pos) instanceof LampBlockEntity lamp) {
+                strip.applyComponents(lamp.collectComponents());
+            }
+            popResource(server, pos, strip);
         }
         return without;
     }

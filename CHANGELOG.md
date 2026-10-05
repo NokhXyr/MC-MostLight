@@ -67,6 +67,8 @@ Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
   Arcadia (530 mods), le code de MostLight coûte environ 2 % du temps du serveur avec 20 joueurs actifs.
 
 ### Corrections
+- Piston collant : une lampe tirée garde sa finition et sa teinte (seule la poussée les gardait).
+- Bande LED qui perd un de ses murs : elle tombe avec sa couleur et sa finition au lieu d'une bande blanche.
 - **Sodium / Iris** : moitiés hautes des lampes de 2 blocs avec une mauvaise texture, ou invisibles selon
   les mods et les shaders.
 - **Sodium** : cadre opaque qui disparaissait derrière le verre.

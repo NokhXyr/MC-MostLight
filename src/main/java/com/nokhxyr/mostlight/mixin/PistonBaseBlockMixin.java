@@ -24,7 +24,8 @@ public abstract class PistonBaseBlockMixin {
         }
     }
 
-    @Inject(method = "moveBlocks", at = @At("HEAD"), require = 1)
+    // where vanilla builds its own resolver: when pulling, the piston head is already gone and no longer blocks the way
+    @Inject(method = "moveBlocks", at = @At(value = "NEW", target = "net/minecraft/world/level/block/piston/PistonStructureResolver"), require = 1)
     private void mostlight$carryLamps(Level level, BlockPos pos, Direction facing, boolean extending, CallbackInfoReturnable<Boolean> cir) {
         PistonCarry.capture(level, pos, facing, extending);
     }

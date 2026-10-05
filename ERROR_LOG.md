@@ -1,5 +1,21 @@
 # Error log
 
+## [2026-10-05 06:50] GameTest mock player always counts as creative
+
+**Context:** exploit tests breaking blocks as a survival player made with .
+**Error:** breaking the upper half of any tall lamp "in survival" dropped nothing.
+**Root cause:** the mock player overrides  to always return true, whatever its game mode;  used  to remove the lower half without drops.
+**Fix:** test the creative ability (), which follows the real game mode. Same behavior in game, correct under the mock.
+**Prevention:** in game logic, check  for "no drops"; in tests, never trust  of a mock player.
+
+## [2026-10-05 06:55] Sticky piston pulled lamps lost their finish
+
+**Context:**  keeps lamp data while a piston moves it.
+**Error:** a lamp pulled back by a sticky piston came back with its default finish and tone.
+**Root cause:** the data was captured at the head of , before vanilla removes the piston head; the resolver built then saw the head in the way and failed.
+**Fix:** capture where vanilla builds its own  (mixin ), after the head is gone.
+**Prevention:** an injection that rebuilds vanilla state must sit where vanilla computes the same thing.
+
 ## [2026-10-04 16:30] Lamps fully glowing under the Solas shader
 
 **Context:** colored light under Iris shaders, each lit lamp borrowing the material ID of a vanilla light source of the same color (`compat/IrisLightColors.java`).

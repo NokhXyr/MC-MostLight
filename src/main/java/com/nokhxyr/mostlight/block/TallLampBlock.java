@@ -122,7 +122,7 @@ public class TallLampBlock extends LampBlock {
     @Override
     public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
         // en créatif, casser le haut ne doit pas faire tomber l'objet du bas
-        if (!level.isClientSide && player.isCreative() && state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+        if (!level.isClientSide && player.getAbilities().instabuild && state.getValue(HALF) == DoubleBlockHalf.UPPER) {
             BlockPos below = pos.below();
             BlockState lower = level.getBlockState(below);
             if (isPartner(lower, DoubleBlockHalf.LOWER)) {
