@@ -1,1 +1,29 @@
-{"parent":"minecraft:block/block","loader":"mostlight:lit","textures":{"particle":"mostlight:block/frame"},"parts":[{"model":"mostlight:block/bulkhead_light","render_type":"minecraft:cutout","glow":[1],"flat":[1]}],"ambientocclusion":false,"display":{"thirdperson_righthand":{"rotation":[43,0,0],"translation":[0,4,-5.25],"scale":[0.54883,0.58984,1]},"thirdperson_lefthand":{"rotation":[43,0,0],"translation":[0,4,-5.25],"scale":[0.54883,0.58984,1]}}}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"loader": "mostlight:lit",
+	"textures": {
+		"particle": "mostlight:block/frame"
+	},
+	"parts": [
+		{
+			"model": "mostlight:block/bulkhead_light",
+			"render_type": "minecraft:cutout",
+			"glow": [1],
+			"flat": [1]
+		}
+	],
+	"ambientocclusion": false,
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [43, 0, 0],
+			"translation": [0, 4, -5.25],
+			"scale": [0.54883, 0.58984, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [43, 0, 0],
+			"translation": [0, 4, -5.25],
+			"scale": [0.54883, 0.58984, 1]
+		}
+	}
+}

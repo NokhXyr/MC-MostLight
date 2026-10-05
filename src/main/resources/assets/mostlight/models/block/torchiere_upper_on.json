@@ -1,1 +1,17 @@
-{"parent":"minecraft:block/block","loader":"mostlight:lit","textures":{"particle":"mostlight:block/frame"},"parts":[{"model":"mostlight:block/torchiere_upper","render_type":"minecraft:cutout","glow":[13],"flat":[13]}],"ambientocclusion":false}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"loader": "mostlight:lit",
+	"textures": {
+		"particle": "mostlight:block/frame"
+	},
+	"parts": [
+		{
+			"model": "mostlight:block/torchiere_upper",
+			"render_type": "minecraft:cutout",
+			"glow": [13],
+			"flat": [13]
+		}
+	],
+	"ambientocclusion": false
+}

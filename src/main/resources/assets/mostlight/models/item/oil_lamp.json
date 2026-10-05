@@ -1,1 +1,4 @@
-{"parent":"mostlight:block/oil_lamp_on"}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "mostlight:block/oil_lamp_on"
+}

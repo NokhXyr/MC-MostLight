@@ -1,1 +1,33 @@
-{"parent":"minecraft:block/block","loader":"mostlight:lit","textures":{"particle":"mostlight:block/stone"},"parts":[{"model":"mostlight:block/garden_lantern__solid","render_type":"minecraft:cutout","glow":[],"flat":[]},{"model":"mostlight:block/garden_lantern__glass","render_type":"minecraft:translucent","glow":[0],"flat":[]}],"ambientocclusion":false,"display":{"thirdperson_righthand":{"translation":[0,-1.75,-1],"scale":[0.33,0.33,0.32]},"thirdperson_lefthand":{"translation":[0,-1.75,-1],"scale":[0.33,0.33,0.32]}}}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"loader": "mostlight:lit",
+	"textures": {
+		"particle": "mostlight:block/stone"
+	},
+	"parts": [
+		{
+			"model": "mostlight:block/garden_lantern__solid",
+			"render_type": "minecraft:cutout",
+			"glow": [],
+			"flat": []
+		},
+		{
+			"model": "mostlight:block/garden_lantern__glass",
+			"render_type": "minecraft:translucent",
+			"glow": [0],
+			"flat": []
+		}
+	],
+	"ambientocclusion": false,
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, -1.75, -1],
+			"scale": [0.33, 0.33, 0.32]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -1.75, -1],
+			"scale": [0.33, 0.33, 0.32]
+		}
+	}
+}

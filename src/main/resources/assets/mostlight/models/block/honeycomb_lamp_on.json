@@ -1,1 +1,26 @@
-{"parent":"minecraft:block/block","loader":"mostlight:lit","textures":{"particle":"mostlight:block/honeycomb_on"},"parts":[{"model":"mostlight:block/honeycomb_lamp","render_type":"minecraft:cutout","glow":[0],"flat":[]}],"display":{"thirdperson_righthand":{"translation":[0,-2,-1.75],"scale":[0.28,0.28,0.28]},"thirdperson_lefthand":{"translation":[0,-2,-1.75],"scale":[0.28,0.28,0.28]}}}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"loader": "mostlight:lit",
+	"textures": {
+		"particle": "mostlight:block/honeycomb_on"
+	},
+	"parts": [
+		{
+			"model": "mostlight:block/honeycomb_lamp",
+			"render_type": "minecraft:cutout",
+			"glow": [0],
+			"flat": []
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, -2, -1.75],
+			"scale": [0.28, 0.28, 0.28]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -2, -1.75],
+			"scale": [0.28, 0.28, 0.28]
+		}
+	}
+}

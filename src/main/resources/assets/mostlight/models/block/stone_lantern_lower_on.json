@@ -1,1 +1,17 @@
-{"parent":"minecraft:block/block","loader":"mostlight:lit","textures":{"particle":"mostlight:block/stone"},"parts":[{"model":"mostlight:block/stone_lantern_lower","render_type":"minecraft:cutout","glow":[],"flat":[]}],"ambientocclusion":false}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"loader": "mostlight:lit",
+	"textures": {
+		"particle": "mostlight:block/stone"
+	},
+	"parts": [
+		{
+			"model": "mostlight:block/stone_lantern_lower",
+			"render_type": "minecraft:cutout",
+			"glow": [],
+			"flat": []
+		}
+	],
+	"ambientocclusion": false
+}

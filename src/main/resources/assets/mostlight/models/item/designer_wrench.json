@@ -1,1 +1,8 @@
-{"parent":"minecraft:item/handheld","textures":{"layer0":"mostlight:item/designer_wrench","layer1":"mostlight:item/designer_wrench_swatch"}}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "mostlight:item/designer_wrench",
+		"layer1": "mostlight:item/designer_wrench_swatch"
+	}
+}

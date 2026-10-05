@@ -1,1 +1,60 @@
-{"parent":"minecraft:block/block","render_type":"minecraft:translucent","textures":{"particle":"mostlight:block/moroccan_off","moroccan":"mostlight:block/moroccan_off","crystal":"mostlight:block/crystal_off"},"elements":[{"from":[5.825,6,4.25],"to":[10.175,12.25,11.75],"faces":{"north":{"uv":[5.825,3.75,10.175,10],"texture":"#moroccan","tintindex":1},"south":{"uv":[5.825,3.75,10.175,10],"texture":"#moroccan","tintindex":1},"east":{"uv":[4.25,3.75,11.75,10],"texture":"#moroccan","tintindex":1},"west":{"uv":[4.25,3.75,11.75,10],"texture":"#moroccan","tintindex":1},"up":{"uv":[5.825,4.25,10.175,11.75],"texture":"#moroccan","tintindex":1},"down":{"uv":[5.825,4.25,10.175,11.75],"texture":"#moroccan","tintindex":1}}},{"from":[4.25,6,5.825],"to":[5.825,12.25,10.175],"faces":{"north":{"uv":[10.175,3.75,11.75,10],"texture":"#moroccan","tintindex":1},"south":{"uv":[4.25,3.75,5.825,10],"texture":"#moroccan","tintindex":1},"east":{"uv":[5.825,3.75,10.175,10],"texture":"#moroccan","tintindex":1},"west":{"uv":[5.825,3.75,10.175,10],"texture":"#moroccan","tintindex":1},"up":{"uv":[4.25,5.825,5.825,10.175],"texture":"#moroccan","tintindex":1},"down":{"uv":[4.25,5.825,5.825,10.175],"texture":"#moroccan","tintindex":1}}},{"from":[10.175,6,5.825],"to":[11.75,12.25,10.175],"faces":{"north":{"uv":[4.25,3.75,5.825,10],"texture":"#moroccan","tintindex":1},"south":{"uv":[10.175,3.75,11.75,10],"texture":"#moroccan","tintindex":1},"east":{"uv":[5.825,3.75,10.175,10],"texture":"#moroccan","tintindex":1},"west":{"uv":[5.825,3.75,10.175,10],"texture":"#moroccan","tintindex":1},"up":{"uv":[10.175,5.825,11.75,10.175],"texture":"#moroccan","tintindex":1},"down":{"uv":[10.175,5.825,11.75,10.175],"texture":"#moroccan","tintindex":1}}},{"from":[7.75,2,7.75],"to":[8.25,3,8.25],"faces":{"north":{"uv":[7.75,13,8.25,14],"texture":"#crystal","tintindex":1},"south":{"uv":[7.75,13,8.25,14],"texture":"#crystal","tintindex":1},"east":{"uv":[7.75,13,8.25,14],"texture":"#crystal","tintindex":1},"west":{"uv":[7.75,13,8.25,14],"texture":"#crystal","tintindex":1},"down":{"uv":[7.75,7.75,8.25,8.25],"texture":"#crystal","tintindex":1}}}],"ambientocclusion":false}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"render_type": "minecraft:translucent",
+	"textures": {
+		"particle": "mostlight:block/moroccan_off",
+		"moroccan": "mostlight:block/moroccan_off",
+		"crystal": "mostlight:block/crystal_off"
+	},
+	"elements": [
+		{
+			"from": [5.825, 6, 4.25],
+			"to": [10.175, 12.25, 11.75],
+			"faces": {
+				"north": {"uv": [5.825, 3.75, 10.175, 10], "texture": "#moroccan", "tintindex": 1},
+				"south": {"uv": [5.825, 3.75, 10.175, 10], "texture": "#moroccan", "tintindex": 1},
+				"east": {"uv": [4.25, 3.75, 11.75, 10], "texture": "#moroccan", "tintindex": 1},
+				"west": {"uv": [4.25, 3.75, 11.75, 10], "texture": "#moroccan", "tintindex": 1},
+				"up": {"uv": [5.825, 4.25, 10.175, 11.75], "texture": "#moroccan", "tintindex": 1},
+				"down": {"uv": [5.825, 4.25, 10.175, 11.75], "texture": "#moroccan", "tintindex": 1}
+			}
+		},
+		{
+			"from": [4.25, 6, 5.825],
+			"to": [5.825, 12.25, 10.175],
+			"faces": {
+				"north": {"uv": [10.175, 3.75, 11.75, 10], "texture": "#moroccan", "tintindex": 1},
+				"south": {"uv": [4.25, 3.75, 5.825, 10], "texture": "#moroccan", "tintindex": 1},
+				"east": {"uv": [5.825, 3.75, 10.175, 10], "texture": "#moroccan", "tintindex": 1},
+				"west": {"uv": [5.825, 3.75, 10.175, 10], "texture": "#moroccan", "tintindex": 1},
+				"up": {"uv": [4.25, 5.825, 5.825, 10.175], "texture": "#moroccan", "tintindex": 1},
+				"down": {"uv": [4.25, 5.825, 5.825, 10.175], "texture": "#moroccan", "tintindex": 1}
+			}
+		},
+		{
+			"from": [10.175, 6, 5.825],
+			"to": [11.75, 12.25, 10.175],
+			"faces": {
+				"north": {"uv": [4.25, 3.75, 5.825, 10], "texture": "#moroccan", "tintindex": 1},
+				"south": {"uv": [10.175, 3.75, 11.75, 10], "texture": "#moroccan", "tintindex": 1},
+				"east": {"uv": [5.825, 3.75, 10.175, 10], "texture": "#moroccan", "tintindex": 1},
+				"west": {"uv": [5.825, 3.75, 10.175, 10], "texture": "#moroccan", "tintindex": 1},
+				"up": {"uv": [10.175, 5.825, 11.75, 10.175], "texture": "#moroccan", "tintindex": 1},
+				"down": {"uv": [10.175, 5.825, 11.75, 10.175], "texture": "#moroccan", "tintindex": 1}
+			}
+		},
+		{
+			"from": [7.75, 2, 7.75],
+			"to": [8.25, 3, 8.25],
+			"faces": {
+				"north": {"uv": [7.75, 13, 8.25, 14], "texture": "#crystal", "tintindex": 1},
+				"south": {"uv": [7.75, 13, 8.25, 14], "texture": "#crystal", "tintindex": 1},
+				"east": {"uv": [7.75, 13, 8.25, 14], "texture": "#crystal", "tintindex": 1},
+				"west": {"uv": [7.75, 13, 8.25, 14], "texture": "#crystal", "tintindex": 1},
+				"down": {"uv": [7.75, 7.75, 8.25, 8.25], "texture": "#crystal", "tintindex": 1}
+			}
+		}
+	],
+	"ambientocclusion": false
+}

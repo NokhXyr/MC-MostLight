@@ -1,1 +1,7 @@
-{"parent":"minecraft:item/handheld","textures":{"layer0":"mostlight:item/led_connector"}}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "mostlight:item/led_connector"
+	}
+}

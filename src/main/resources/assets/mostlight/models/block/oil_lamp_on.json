@@ -1,1 +1,35 @@
-{"parent":"minecraft:block/block","loader":"mostlight:lit","textures":{"particle":"mostlight:block/frame"},"parts":[{"model":"mostlight:block/oil_lamp__solid","render_type":"minecraft:cutout","glow":[10],"flat":[10]},{"model":"mostlight:block/oil_lamp__glass","render_type":"minecraft:translucent","glow":[0,1,2,3,4,5,6,7,8],"flat":[]}],"ambientocclusion":false,"display":{"thirdperson_righthand":{"rotation":[3,0,0],"translation":[0,-0.75,-0.5],"scale":[0.33,0.35,0.36]},"thirdperson_lefthand":{"rotation":[3,0,0],"translation":[0,-0.75,-0.5],"scale":[0.33,0.35,0.36]}}}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"loader": "mostlight:lit",
+	"textures": {
+		"particle": "mostlight:block/frame"
+	},
+	"parts": [
+		{
+			"model": "mostlight:block/oil_lamp__solid",
+			"render_type": "minecraft:cutout",
+			"glow": [10],
+			"flat": [10]
+		},
+		{
+			"model": "mostlight:block/oil_lamp__glass",
+			"render_type": "minecraft:translucent",
+			"glow": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+			"flat": []
+		}
+	],
+	"ambientocclusion": false,
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [3, 0, 0],
+			"translation": [0, -0.75, -0.5],
+			"scale": [0.33, 0.35, 0.36]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [3, 0, 0],
+			"translation": [0, -0.75, -0.5],
+			"scale": [0.33, 0.35, 0.36]
+		}
+	}
+}

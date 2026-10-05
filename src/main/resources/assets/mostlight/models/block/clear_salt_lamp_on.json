@@ -1,1 +1,35 @@
-{"parent":"minecraft:block/block","loader":"mostlight:lit","textures":{"particle":"mostlight:block/frame"},"parts":[{"model":"mostlight:block/clear_salt_lamp__solid","render_type":"minecraft:cutout","glow":[],"flat":[]},{"model":"mostlight:block/clear_salt_lamp__glass","render_type":"minecraft:translucent","glow":[0,1,2,3,4,5,6,7,8,9,10,11,12,13],"flat":[0,1,2,3,4,5,6,7,8]}],"ambientocclusion":false,"display":{"thirdperson_righthand":{"rotation":[-1,-46,0],"translation":[0,-0.25,-0.75],"scale":[0.43,0.46,0.46]},"thirdperson_lefthand":{"rotation":[-1,46,0],"translation":[0,-0.25,-0.75],"scale":[0.43,0.46,0.46]}}}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"loader": "mostlight:lit",
+	"textures": {
+		"particle": "mostlight:block/frame"
+	},
+	"parts": [
+		{
+			"model": "mostlight:block/clear_salt_lamp__solid",
+			"render_type": "minecraft:cutout",
+			"glow": [],
+			"flat": []
+		},
+		{
+			"model": "mostlight:block/clear_salt_lamp__glass",
+			"render_type": "minecraft:translucent",
+			"glow": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+			"flat": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+		}
+	],
+	"ambientocclusion": false,
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-1, -46, 0],
+			"translation": [0, -0.25, -0.75],
+			"scale": [0.43, 0.46, 0.46]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-1, 46, 0],
+			"translation": [0, -0.25, -0.75],
+			"scale": [0.43, 0.46, 0.46]
+		}
+	}
+}

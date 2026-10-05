@@ -1,1 +1,17 @@
-{"parent":"minecraft:block/block","loader":"mostlight:lit","textures":{"particle":"mostlight:block/frame"},"parts":[{"model":"mostlight:block/twin_rods_lying","render_type":"minecraft:cutout","glow":[3,4],"flat":[3,4]}],"ambientocclusion":false}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"loader": "mostlight:lit",
+	"textures": {
+		"particle": "mostlight:block/frame"
+	},
+	"parts": [
+		{
+			"model": "mostlight:block/twin_rods_lying",
+			"render_type": "minecraft:cutout",
+			"glow": [3, 4],
+			"flat": [3, 4]
+		}
+	],
+	"ambientocclusion": false
+}

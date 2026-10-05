@@ -1,1 +1,7 @@
-{"parent":"minecraft:item/generated","textures":{"layer0":"mostlight:item/lamp_remote"}}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "mostlight:item/lamp_remote"
+	}
+}

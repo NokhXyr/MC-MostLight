@@ -1,1 +1,61 @@
-{"parent":"minecraft:block/block","render_type":"minecraft:translucent","textures":{"particle":"mostlight:block/glass_off","glass":"mostlight:block/glass_off","filament":"mostlight:block/filament_off"},"elements":[{"from":[1.5,3.052,0.9],"to":[3.5,4.252,2.1],"faces":{"north":{"uv":[12.5,11.748,14.5,12.948],"texture":"#glass","tintindex":1},"south":{"uv":[1.5,11.748,3.5,12.948],"texture":"#glass","tintindex":1},"east":{"uv":[13.9,11.748,15.1,12.948],"texture":"#glass","tintindex":1},"west":{"uv":[0.9,11.748,2.1,12.948],"texture":"#glass","tintindex":1},"up":{"uv":[1.5,0.9,3.5,2.1],"texture":"#glass","tintindex":1},"down":{"uv":[1.5,13.9,3.5,15.1],"texture":"#glass","tintindex":1}}},{"from":[1.9,2.652,0.9],"to":[3.1,4.652,2.1],"faces":{"north":{"uv":[12.9,11.348,14.1,13.348],"texture":"#glass","tintindex":1},"south":{"uv":[1.9,11.348,3.1,13.348],"texture":"#glass","tintindex":1},"east":{"uv":[13.9,11.348,15.1,13.348],"texture":"#glass","tintindex":1},"west":{"uv":[0.9,11.348,2.1,13.348],"texture":"#glass","tintindex":1},"up":{"uv":[1.9,0.9,3.1,2.1],"texture":"#glass","tintindex":1},"down":{"uv":[1.9,13.9,3.1,15.1],"texture":"#glass","tintindex":1}}},{"from":[1.9,3.052,0.5],"to":[3.1,4.252,2.5],"faces":{"north":{"uv":[12.9,11.748,14.1,12.948],"texture":"#glass","tintindex":1},"south":{"uv":[1.9,11.748,3.1,12.948],"texture":"#glass","tintindex":1},"east":{"uv":[13.5,11.748,15.5,12.948],"texture":"#glass","tintindex":1},"west":{"uv":[0.5,11.748,2.5,12.948],"texture":"#glass","tintindex":1},"up":{"uv":[1.9,0.5,3.1,2.5],"texture":"#glass","tintindex":1},"down":{"uv":[1.9,13.5,3.1,15.5],"texture":"#glass","tintindex":1}}},{"from":[2.2,3.202,1.2],"to":[2.8,4.102,1.8],"faces":{"north":{"uv":[13.2,11.898,13.8,12.798],"texture":"#filament","tintindex":2},"south":{"uv":[2.2,11.898,2.8,12.798],"texture":"#filament","tintindex":2},"east":{"uv":[14.2,11.898,14.8,12.798],"texture":"#filament","tintindex":2},"west":{"uv":[1.2,11.898,1.8,12.798],"texture":"#filament","tintindex":2},"up":{"uv":[2.2,1.2,2.8,1.8],"texture":"#filament","tintindex":2},"down":{"uv":[2.2,14.2,2.8,14.8],"texture":"#filament","tintindex":2}}}],"ambientocclusion":false}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"render_type": "minecraft:translucent",
+	"textures": {
+		"particle": "mostlight:block/glass_off",
+		"glass": "mostlight:block/glass_off",
+		"filament": "mostlight:block/filament_off"
+	},
+	"elements": [
+		{
+			"from": [1.5, 3.052, 0.9],
+			"to": [3.5, 4.252, 2.1],
+			"faces": {
+				"north": {"uv": [12.5, 11.748, 14.5, 12.948], "texture": "#glass", "tintindex": 1},
+				"south": {"uv": [1.5, 11.748, 3.5, 12.948], "texture": "#glass", "tintindex": 1},
+				"east": {"uv": [13.9, 11.748, 15.1, 12.948], "texture": "#glass", "tintindex": 1},
+				"west": {"uv": [0.9, 11.748, 2.1, 12.948], "texture": "#glass", "tintindex": 1},
+				"up": {"uv": [1.5, 0.9, 3.5, 2.1], "texture": "#glass", "tintindex": 1},
+				"down": {"uv": [1.5, 13.9, 3.5, 15.1], "texture": "#glass", "tintindex": 1}
+			}
+		},
+		{
+			"from": [1.9, 2.652, 0.9],
+			"to": [3.1, 4.652, 2.1],
+			"faces": {
+				"north": {"uv": [12.9, 11.348, 14.1, 13.348], "texture": "#glass", "tintindex": 1},
+				"south": {"uv": [1.9, 11.348, 3.1, 13.348], "texture": "#glass", "tintindex": 1},
+				"east": {"uv": [13.9, 11.348, 15.1, 13.348], "texture": "#glass", "tintindex": 1},
+				"west": {"uv": [0.9, 11.348, 2.1, 13.348], "texture": "#glass", "tintindex": 1},
+				"up": {"uv": [1.9, 0.9, 3.1, 2.1], "texture": "#glass", "tintindex": 1},
+				"down": {"uv": [1.9, 13.9, 3.1, 15.1], "texture": "#glass", "tintindex": 1}
+			}
+		},
+		{
+			"from": [1.9, 3.052, 0.5],
+			"to": [3.1, 4.252, 2.5],
+			"faces": {
+				"north": {"uv": [12.9, 11.748, 14.1, 12.948], "texture": "#glass", "tintindex": 1},
+				"south": {"uv": [1.9, 11.748, 3.1, 12.948], "texture": "#glass", "tintindex": 1},
+				"east": {"uv": [13.5, 11.748, 15.5, 12.948], "texture": "#glass", "tintindex": 1},
+				"west": {"uv": [0.5, 11.748, 2.5, 12.948], "texture": "#glass", "tintindex": 1},
+				"up": {"uv": [1.9, 0.5, 3.1, 2.5], "texture": "#glass", "tintindex": 1},
+				"down": {"uv": [1.9, 13.5, 3.1, 15.5], "texture": "#glass", "tintindex": 1}
+			}
+		},
+		{
+			"from": [2.2, 3.202, 1.2],
+			"to": [2.8, 4.102, 1.8],
+			"faces": {
+				"north": {"uv": [13.2, 11.898, 13.8, 12.798], "texture": "#filament", "tintindex": 2},
+				"south": {"uv": [2.2, 11.898, 2.8, 12.798], "texture": "#filament", "tintindex": 2},
+				"east": {"uv": [14.2, 11.898, 14.8, 12.798], "texture": "#filament", "tintindex": 2},
+				"west": {"uv": [1.2, 11.898, 1.8, 12.798], "texture": "#filament", "tintindex": 2},
+				"up": {"uv": [2.2, 1.2, 2.8, 1.8], "texture": "#filament", "tintindex": 2},
+				"down": {"uv": [2.2, 14.2, 2.8, 14.8], "texture": "#filament", "tintindex": 2}
+			}
+		}
+	],
+	"ambientocclusion": false
+}

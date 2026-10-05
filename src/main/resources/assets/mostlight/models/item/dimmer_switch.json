@@ -1,1 +1,4 @@
-{"parent":"mostlight:block/dimmer_switch"}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "mostlight:block/dimmer_switch"
+}

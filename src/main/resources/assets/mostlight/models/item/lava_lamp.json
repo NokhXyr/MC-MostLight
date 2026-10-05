@@ -1,1 +1,4 @@
-{"parent":"mostlight:block/lava_lamp_item"}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "mostlight:block/lava_lamp_item"
+}

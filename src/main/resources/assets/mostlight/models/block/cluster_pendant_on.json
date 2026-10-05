@@ -1,1 +1,33 @@
-{"parent":"minecraft:block/block","loader":"mostlight:lit","textures":{"particle":"mostlight:block/frame"},"parts":[{"model":"mostlight:block/cluster_pendant__solid","render_type":"minecraft:cutout","glow":[],"flat":[]},{"model":"mostlight:block/cluster_pendant__glass","render_type":"minecraft:translucent","glow":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53],"flat":[0,1,2,3,4,5,6,7,8,18,19,20,21,22,23,24,25,26,36,37,38,39,40,41,42,43,44]}],"ambientocclusion":false,"display":{"thirdperson_righthand":{"translation":[0,-2.75,-1.25],"scale":[0.38,0.37,0.39]},"thirdperson_lefthand":{"translation":[0,-2.75,-1.25],"scale":[0.38,0.37,0.39]}}}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"loader": "mostlight:lit",
+	"textures": {
+		"particle": "mostlight:block/frame"
+	},
+	"parts": [
+		{
+			"model": "mostlight:block/cluster_pendant__solid",
+			"render_type": "minecraft:cutout",
+			"glow": [],
+			"flat": []
+		},
+		{
+			"model": "mostlight:block/cluster_pendant__glass",
+			"render_type": "minecraft:translucent",
+			"glow": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53],
+			"flat": [0, 1, 2, 3, 4, 5, 6, 7, 8, 18, 19, 20, 21, 22, 23, 24, 25, 26, 36, 37, 38, 39, 40, 41, 42, 43, 44]
+		}
+	],
+	"ambientocclusion": false,
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, -2.75, -1.25],
+			"scale": [0.38, 0.37, 0.39]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -2.75, -1.25],
+			"scale": [0.38, 0.37, 0.39]
+		}
+	}
+}

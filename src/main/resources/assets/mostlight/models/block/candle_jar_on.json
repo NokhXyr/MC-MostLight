@@ -1,1 +1,33 @@
-{"parent":"minecraft:block/block","loader":"mostlight:lit","textures":{"particle":"mostlight:block/frame"},"parts":[{"model":"mostlight:block/candle_jar__solid","render_type":"minecraft:cutout","glow":[7],"flat":[7]},{"model":"mostlight:block/candle_jar__glass","render_type":"minecraft:translucent","glow":[0,1,2,3,4],"flat":[]}],"ambientocclusion":false,"display":{"thirdperson_righthand":{"translation":[0,0,-1.25],"scale":[0.4,0.43,0.43]},"thirdperson_lefthand":{"translation":[0,0,-1.25],"scale":[0.4,0.43,0.43]}}}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"loader": "mostlight:lit",
+	"textures": {
+		"particle": "mostlight:block/frame"
+	},
+	"parts": [
+		{
+			"model": "mostlight:block/candle_jar__solid",
+			"render_type": "minecraft:cutout",
+			"glow": [7],
+			"flat": [7]
+		},
+		{
+			"model": "mostlight:block/candle_jar__glass",
+			"render_type": "minecraft:translucent",
+			"glow": [0, 1, 2, 3, 4],
+			"flat": []
+		}
+	],
+	"ambientocclusion": false,
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 0, -1.25],
+			"scale": [0.4, 0.43, 0.43]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 0, -1.25],
+			"scale": [0.4, 0.43, 0.43]
+		}
+	}
+}

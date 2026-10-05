@@ -1,1 +1,5 @@
-{"variants":{"":{"model":"mostlight:block/light_strip_dynamic"}}}
+{
+	"variants": {
+		"": {"model": "mostlight:block/light_strip_dynamic"}
+	}
+}

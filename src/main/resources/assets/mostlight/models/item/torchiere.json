@@ -1,1 +1,4 @@
-{"parent":"mostlight:block/torchiere_item"}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "mostlight:block/torchiere_item"
+}

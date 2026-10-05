@@ -1,1 +1,6 @@
-{"loader":"mostlight:strip","lamp":"light_strip","variants":[""]}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"loader": "mostlight:strip",
+	"lamp": "light_strip",
+	"variants": [""]
+}

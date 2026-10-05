@@ -1,1 +1,9 @@
-{"variants":{"light=0":{"model":"mostlight:block/lamp_block"},"light=1":{"model":"mostlight:block/lamp_block_on"},"light=2":{"model":"mostlight:block/lamp_block_on"},"light=3":{"model":"mostlight:block/lamp_block_on"},"light=4":{"model":"mostlight:block/lamp_block_on"}}}
+{
+	"variants": {
+		"light=0": {"model": "mostlight:block/lamp_block"},
+		"light=1": {"model": "mostlight:block/lamp_block_on"},
+		"light=2": {"model": "mostlight:block/lamp_block_on"},
+		"light=3": {"model": "mostlight:block/lamp_block_on"},
+		"light=4": {"model": "mostlight:block/lamp_block_on"}
+	}
+}

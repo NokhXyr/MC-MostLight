@@ -1,1 +1,23 @@
-{"parent":"minecraft:block/block","render_type":"minecraft:translucent","textures":{"particle":"mostlight:block/glass_off","glass":"mostlight:block/glass_off"},"elements":[{"from":[1,1,1],"to":[15,15,15],"faces":{"north":{"uv":[1,1,15,15],"texture":"#glass","tintindex":1},"south":{"uv":[1,1,15,15],"texture":"#glass","tintindex":1},"east":{"uv":[1,1,15,15],"texture":"#glass","tintindex":1},"west":{"uv":[1,1,15,15],"texture":"#glass","tintindex":1},"up":{"uv":[1,1,15,15],"texture":"#glass","tintindex":1},"down":{"uv":[1,1,15,15],"texture":"#glass","tintindex":1}}}]}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"render_type": "minecraft:translucent",
+	"textures": {
+		"particle": "mostlight:block/glass_off",
+		"glass": "mostlight:block/glass_off"
+	},
+	"elements": [
+		{
+			"from": [1, 1, 1],
+			"to": [15, 15, 15],
+			"faces": {
+				"north": {"uv": [1, 1, 15, 15], "texture": "#glass", "tintindex": 1},
+				"south": {"uv": [1, 1, 15, 15], "texture": "#glass", "tintindex": 1},
+				"east": {"uv": [1, 1, 15, 15], "texture": "#glass", "tintindex": 1},
+				"west": {"uv": [1, 1, 15, 15], "texture": "#glass", "tintindex": 1},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#glass", "tintindex": 1},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#glass", "tintindex": 1}
+			}
+		}
+	]
+}

@@ -1,1 +1,5 @@
-{"loader":"mostlight:animated","model":"mostlight:block/fan_light_on"}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"loader": "mostlight:animated",
+	"model": "mostlight:block/fan_light_on"
+}

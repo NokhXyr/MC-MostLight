@@ -1,1 +1,18 @@
-{"parent":"minecraft:block/block","loader":"neoforge:composite","textures":{"particle":"mostlight:block/cord"},"children":{"solid":{"parent":"mostlight:block/string_lights_seg/0_4_7_y__solid","render_type":"minecraft:cutout"},"glass":{"parent":"mostlight:block/string_lights_seg/0_4_7_y__glass","render_type":"minecraft:translucent"}}}
+{
+	"credit": "Model by NokhXyr using Blockbench. All Rights Reserved.",
+	"parent": "minecraft:block/block",
+	"loader": "neoforge:composite",
+	"textures": {
+		"particle": "mostlight:block/cord"
+	},
+	"children": {
+		"solid": {
+			"parent": "mostlight:block/string_lights_seg/0_4_7_y__solid",
+			"render_type": "minecraft:cutout"
+		},
+		"glass": {
+			"parent": "mostlight:block/string_lights_seg/0_4_7_y__glass",
+			"render_type": "minecraft:translucent"
+		}
+	}
+}

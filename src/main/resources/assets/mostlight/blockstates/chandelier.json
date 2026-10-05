@@ -1,1 +1,24 @@
-{"variants":{"facing=north,light=0":{"model":"mostlight:block/chandelier"},"facing=east,light=0":{"model":"mostlight:block/chandelier","y":90},"facing=south,light=0":{"model":"mostlight:block/chandelier","y":180},"facing=west,light=0":{"model":"mostlight:block/chandelier","y":270},"facing=north,light=1":{"model":"mostlight:block/chandelier_on"},"facing=east,light=1":{"model":"mostlight:block/chandelier_on","y":90},"facing=south,light=1":{"model":"mostlight:block/chandelier_on","y":180},"facing=west,light=1":{"model":"mostlight:block/chandelier_on","y":270},"facing=north,light=2":{"model":"mostlight:block/chandelier_on"},"facing=east,light=2":{"model":"mostlight:block/chandelier_on","y":90},"facing=south,light=2":{"model":"mostlight:block/chandelier_on","y":180},"facing=west,light=2":{"model":"mostlight:block/chandelier_on","y":270},"facing=north,light=3":{"model":"mostlight:block/chandelier_on"},"facing=east,light=3":{"model":"mostlight:block/chandelier_on","y":90},"facing=south,light=3":{"model":"mostlight:block/chandelier_on","y":180},"facing=west,light=3":{"model":"mostlight:block/chandelier_on","y":270},"facing=north,light=4":{"model":"mostlight:block/chandelier_on"},"facing=east,light=4":{"model":"mostlight:block/chandelier_on","y":90},"facing=south,light=4":{"model":"mostlight:block/chandelier_on","y":180},"facing=west,light=4":{"model":"mostlight:block/chandelier_on","y":270}}}
+{
+	"variants": {
+		"facing=north,light=0": {"model": "mostlight:block/chandelier"},
+		"facing=east,light=0": {"model": "mostlight:block/chandelier", "y": 90},
+		"facing=south,light=0": {"model": "mostlight:block/chandelier", "y": 180},
+		"facing=west,light=0": {"model": "mostlight:block/chandelier", "y": 270},
+		"facing=north,light=1": {"model": "mostlight:block/chandelier_on"},
+		"facing=east,light=1": {"model": "mostlight:block/chandelier_on", "y": 90},
+		"facing=south,light=1": {"model": "mostlight:block/chandelier_on", "y": 180},
+		"facing=west,light=1": {"model": "mostlight:block/chandelier_on", "y": 270},
+		"facing=north,light=2": {"model": "mostlight:block/chandelier_on"},
+		"facing=east,light=2": {"model": "mostlight:block/chandelier_on", "y": 90},
+		"facing=south,light=2": {"model": "mostlight:block/chandelier_on", "y": 180},
+		"facing=west,light=2": {"model": "mostlight:block/chandelier_on", "y": 270},
+		"facing=north,light=3": {"model": "mostlight:block/chandelier_on"},
+		"facing=east,light=3": {"model": "mostlight:block/chandelier_on", "y": 90},
+		"facing=south,light=3": {"model": "mostlight:block/chandelier_on", "y": 180},
+		"facing=west,light=3": {"model": "mostlight:block/chandelier_on", "y": 270},
+		"facing=north,light=4": {"model": "mostlight:block/chandelier_on"},
+		"facing=east,light=4": {"model": "mostlight:block/chandelier_on", "y": 90},
+		"facing=south,light=4": {"model": "mostlight:block/chandelier_on", "y": 180},
+		"facing=west,light=4": {"model": "mostlight:block/chandelier_on", "y": 270}
+	}
+}
