@@ -13,12 +13,13 @@
 <div align="center" style="text-align:center">
 <h3><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/title-features-en.gif" alt="What It Does" width="800"></h3>
 <p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/colors.gif" alt="Five table lamps on a counter switch between mixed, white, warm and cool colours, each lighting the wall in its colour" width="800"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/shaders.gif" alt="The same street at night under Solas, with lamps lighting in their own colours, then under Complementary, with a warm light" width="800"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/lamp.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>71 lamps:</strong></span> chandeliers, sconces, street lamps, lava lamps, light blocks, each in 16 colours.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/wrench.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>Finishes and tones:</strong></span> 10 frame finishes and 5 light tones, set with the Designer Wrench.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/bolt.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>LED strips and garlands:</strong></span> several per block, joining up at corners, around pillars, in L and T shapes.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/gear.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>Animated lamps:</strong></span> spinning gears, flowing lava lamps, ceiling fans that turn.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/puzzle.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>Pistons and Create:</strong></span> lamps move with pistons and Create contraptions, keeping their look.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/sun.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>Shader friendly:</strong></span> coloured light with Complementary and Solas, as in these pictures.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/sun.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>Shader friendly:</strong></span> coloured light with Solas, clean warm light with Complementary.</p>
 </div>
 
 <div align="center" style="text-align:center">
@@ -56,7 +57,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/bolt.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>Bandes LED et guirlandes&nbsp;:</strong></span> plusieurs par bloc, raccordées dans les angles, autour des piliers, en L et en T.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/gear.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>Lampes animées&nbsp;:</strong></span> engrenages qui tournent, lampes à lave qui coulent, ventilateurs de plafond.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/puzzle.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>Pistons et Create&nbsp;:</strong></span> les lampes suivent pistons et contraptions de Create, avec leur aspect.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/sun.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>Prêt pour les shaders&nbsp;:</strong></span> lumière colorée avec Complementary et Solas, comme sur ces images.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/NokhXyr/MC-MostLight@main/images/icons/sun.png" alt="" width="32"> <span style="color:#f0a53a;font-size:18px"><strong>Prêt pour les shaders&nbsp;:</strong></span> lumière colorée avec Solas, lumière chaude et nette avec Complementary.</p>
 </div>
 
 <div align="center" style="text-align:center">
