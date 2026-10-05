@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:industrial_lamp_white",
-    "mostlight:industrial_lamp_orange",
-    "mostlight:industrial_lamp_magenta",
-    "mostlight:industrial_lamp_light_blue",
-    "mostlight:industrial_lamp_yellow",
-    "mostlight:industrial_lamp_lime",
-    "mostlight:industrial_lamp_pink",
-    "mostlight:industrial_lamp_gray",
-    "mostlight:industrial_lamp_light_gray",
-    "mostlight:industrial_lamp_cyan",
-    "mostlight:industrial_lamp_purple",
-    "mostlight:industrial_lamp_blue",
-    "mostlight:industrial_lamp_brown",
-    "mostlight:industrial_lamp_green",
-    "mostlight:industrial_lamp_red",
-    "mostlight:industrial_lamp_black"
+    "mostlight:industrial_lamp"
   ]
 }

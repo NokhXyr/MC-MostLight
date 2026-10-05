@@ -18,8 +18,8 @@ import org.jetbrains.annotations.Nullable;
 public class OmniLampBlock extends LampBlock {
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
 
-    public OmniLampBlock(LampType type, DyeColor color, Properties properties) {
-        super(type, color, properties);
+    public OmniLampBlock(LampType type, Properties properties) {
+        super(type, properties);
         registerDefaultState(defaultBlockState().setValue(FACING, Direction.UP));
     }
 

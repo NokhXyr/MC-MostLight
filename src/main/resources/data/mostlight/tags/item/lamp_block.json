@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:lamp_block_white",
-    "mostlight:lamp_block_orange",
-    "mostlight:lamp_block_magenta",
-    "mostlight:lamp_block_light_blue",
-    "mostlight:lamp_block_yellow",
-    "mostlight:lamp_block_lime",
-    "mostlight:lamp_block_pink",
-    "mostlight:lamp_block_gray",
-    "mostlight:lamp_block_light_gray",
-    "mostlight:lamp_block_cyan",
-    "mostlight:lamp_block_purple",
-    "mostlight:lamp_block_blue",
-    "mostlight:lamp_block_brown",
-    "mostlight:lamp_block_green",
-    "mostlight:lamp_block_red",
-    "mostlight:lamp_block_black"
+    "mostlight:lamp_block"
   ]
 }

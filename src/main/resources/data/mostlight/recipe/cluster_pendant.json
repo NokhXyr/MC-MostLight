@@ -1,0 +1,34 @@
+{
+  "type": "mostlight:workbench",
+  "category": "ceiling",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:chain"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "mostlight:cluster_pendant",
+    "count": 1
+  }
+}

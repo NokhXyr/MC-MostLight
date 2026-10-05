@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:framed_lamp",
+    "count": 4
+  }
+}

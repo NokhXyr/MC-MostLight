@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:track_light_white",
-    "mostlight:track_light_orange",
-    "mostlight:track_light_magenta",
-    "mostlight:track_light_light_blue",
-    "mostlight:track_light_yellow",
-    "mostlight:track_light_lime",
-    "mostlight:track_light_pink",
-    "mostlight:track_light_gray",
-    "mostlight:track_light_light_gray",
-    "mostlight:track_light_cyan",
-    "mostlight:track_light_purple",
-    "mostlight:track_light_blue",
-    "mostlight:track_light_brown",
-    "mostlight:track_light_green",
-    "mostlight:track_light_red",
-    "mostlight:track_light_black"
+    "mostlight:track_light"
   ]
 }

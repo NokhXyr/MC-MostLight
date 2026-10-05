@@ -30,6 +30,9 @@ import java.util.List;
 import java.util.Map;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
+import com.nokhxyr.mostlight.item.ItemColor;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -38,34 +41,27 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-/** Enregistre chaque type de lampe dans les 16 couleurs. */
+/** Registers one block and one item per lamp model and per switch kind; the 16 colours are a block state property. */
 public final class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MostLight.MOD_ID);
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MostLight.MOD_ID);
 
-    private static final Map<LampType, Map<DyeColor, DeferredBlock<LampBlock>>> LAMPS = new EnumMap<>(LampType.class);
-    private static final Map<LampType, Map<DyeColor, DeferredItem<LampItem>>> LAMP_ITEMS = new EnumMap<>(LampType.class);
+    private static final Map<LampType, DeferredBlock<LampBlock>> LAMPS = new EnumMap<>(LampType.class);
+    private static final Map<LampType, DeferredItem<LampItem>> LAMP_ITEMS = new EnumMap<>(LampType.class);
     private static final List<DeferredBlock<LampBlock>> ALL = new ArrayList<>();
 
     static {
         for (LampType type : LampType.values()) {
-            Map<DyeColor, DeferredBlock<LampBlock>> blocks = new EnumMap<>(DyeColor.class);
-            Map<DyeColor, DeferredItem<LampItem>> items = new EnumMap<>(DyeColor.class);
-            for (DyeColor color : DyeColor.values()) {
-                String name = type.id() + "_" + color.getSerializedName();
-                DeferredBlock<LampBlock> block = BLOCKS.register(name, () -> create(type, color));
-                blocks.put(color, block);
-                items.put(color, ITEMS.register(name, () -> type.isStrip()
-                        ? new LightStripItem(block.get(), new Item.Properties())
-                        : new LampItem(block.get(), new Item.Properties())));
-                ALL.add(block);
-            }
-            LAMPS.put(type, blocks);
-            LAMP_ITEMS.put(type, items);
+            DeferredBlock<LampBlock> block = BLOCKS.register(type.id(), () -> create(type));
+            LAMPS.put(type, block);
+            LAMP_ITEMS.put(type, ITEMS.register(type.id(), () -> type.isStrip()
+                    ? new LightStripItem(block.get(), new Item.Properties())
+                    : new LampItem(block.get(), new Item.Properties())));
+            ALL.add(block);
         }
     }
 
-    /** Interrupteurs : simple, variateur, double (lumière + ventilateur), chacun en 16 couleurs (blanc = id sans couleur). */
+    /** Interrupteurs : simple, variateur, double (lumière + ventilateur), chacun en 16 couleurs (propriété color). */
     public enum SwitchKind {
         LIGHT("light_switch", "switch_usage"),
         DIMMER("dimmer_switch", "dimmer_usage"),
@@ -79,10 +75,6 @@ public final class ModBlocks {
             this.usageKey = usageKey;
         }
 
-        public String name(DyeColor color) {
-            return color == DyeColor.WHITE ? id : id + "_" + color.getSerializedName();
-        }
-
         LightSwitchBlock create() {
             return switch (this) {
                 case LIGHT -> new LightSwitchBlock(switchProperties());
@@ -92,42 +84,40 @@ public final class ModBlocks {
         }
     }
 
-    private static final Map<SwitchKind, Map<DyeColor, DeferredBlock<LightSwitchBlock>>> SWITCHES = new EnumMap<>(SwitchKind.class);
-    private static final Map<SwitchKind, Map<DyeColor, DeferredItem<SwitchItem>>> SWITCH_ITEMS = new EnumMap<>(SwitchKind.class);
+    private static final Map<SwitchKind, DeferredBlock<LightSwitchBlock>> SWITCHES = new EnumMap<>(SwitchKind.class);
+    private static final Map<SwitchKind, DeferredItem<SwitchItem>> SWITCH_ITEMS = new EnumMap<>(SwitchKind.class);
 
     static {
         for (SwitchKind kind : SwitchKind.values()) {
-            Map<DyeColor, DeferredBlock<LightSwitchBlock>> blocks = new EnumMap<>(DyeColor.class);
-            Map<DyeColor, DeferredItem<SwitchItem>> items = new EnumMap<>(DyeColor.class);
-            for (DyeColor color : DyeColor.values()) {
-                String name = kind.name(color);
-                DeferredBlock<LightSwitchBlock> block = BLOCKS.register(name, kind::create);
-                blocks.put(color, block);
-                items.put(color, ITEMS.register(name, () -> new SwitchItem(block.get(), new Item.Properties(), kind.usageKey)));
-            }
-            SWITCHES.put(kind, blocks);
-            SWITCH_ITEMS.put(kind, items);
+            DeferredBlock<LightSwitchBlock> block = BLOCKS.register(kind.id, kind::create);
+            SWITCHES.put(kind, block);
+            SWITCH_ITEMS.put(kind, ITEMS.register(kind.id, () -> new SwitchItem(block.get(), new Item.Properties(), kind.usageKey)));
         }
     }
 
-    public static final DeferredBlock<LightSwitchBlock> LIGHT_SWITCH = SWITCHES.get(SwitchKind.LIGHT).get(DyeColor.WHITE);
-    public static final DeferredBlock<LightSwitchBlock> DIMMER_SWITCH = SWITCHES.get(SwitchKind.DIMMER).get(DyeColor.WHITE);
-    public static final DeferredItem<SwitchItem> LIGHT_SWITCH_ITEM = SWITCH_ITEMS.get(SwitchKind.LIGHT).get(DyeColor.WHITE);
-    public static final DeferredItem<SwitchItem> DIMMER_SWITCH_ITEM = SWITCH_ITEMS.get(SwitchKind.DIMMER).get(DyeColor.WHITE);
-    public static final DeferredItem<SwitchItem> DOUBLE_SWITCH_ITEM = SWITCH_ITEMS.get(SwitchKind.DOUBLE).get(DyeColor.WHITE);
+    public static final DeferredBlock<LightSwitchBlock> LIGHT_SWITCH = SWITCHES.get(SwitchKind.LIGHT);
+    public static final DeferredBlock<LightSwitchBlock> DIMMER_SWITCH = SWITCHES.get(SwitchKind.DIMMER);
+    public static final DeferredItem<SwitchItem> LIGHT_SWITCH_ITEM = SWITCH_ITEMS.get(SwitchKind.LIGHT);
+    public static final DeferredItem<SwitchItem> DIMMER_SWITCH_ITEM = SWITCH_ITEMS.get(SwitchKind.DIMMER);
+    public static final DeferredItem<SwitchItem> DOUBLE_SWITCH_ITEM = SWITCH_ITEMS.get(SwitchKind.DOUBLE);
 
-    public static LightSwitchBlock switchBlock(SwitchKind kind, DyeColor color) {
-        return SWITCHES.get(kind).get(color).get();
+    public static LightSwitchBlock switchBlock(SwitchKind kind) {
+        return SWITCHES.get(kind).get();
     }
 
-    public static SwitchItem switchItem(SwitchKind kind, DyeColor color) {
-        return SWITCH_ITEMS.get(kind).get(color).get();
+    public static SwitchItem switchItem(SwitchKind kind) {
+        return SWITCH_ITEMS.get(kind).get();
+    }
+
+    /** A switch item in one colour. */
+    public static ItemStack switchStack(SwitchKind kind, DyeColor color) {
+        return ItemColor.with(new ItemStack(switchItem(kind)), color);
     }
 
     /** Tous les interrupteurs (pour la block entity et les teintes). */
     public static List<LightSwitchBlock> allSwitches() {
         List<LightSwitchBlock> out = new ArrayList<>();
-        SWITCHES.values().forEach(m -> m.values().forEach(b -> out.add(b.get())));
+        SWITCHES.values().forEach(b -> out.add(b.get()));
         return out;
     }
     /** Établi de luminaire : toutes les recettes du mod s'y font. */
@@ -148,9 +138,9 @@ public final class ModBlocks {
                 .noCollission().pushReaction(PushReaction.DESTROY);
     }
 
-    private static LampBlock create(LampType type, DyeColor color) {
+    private static LampBlock create(LampType type) {
         BlockBehaviour.Properties props = BlockBehaviour.Properties.of()
-                .mapColor(color.getMapColor())
+                .mapColor(state -> state.getValue(LampBlock.COLOR).getMapColor())
                 .strength(0.5F)
                 .sound(type.sound())
                 .lightLevel(type.placement() == Placement.TALL ? TallLampBlock::lightLevel : LampBlock::lightLevel);
@@ -165,26 +155,36 @@ public final class ModBlocks {
             props = props.dynamicShape();
         }
         return switch (type.placement()) {
-            case TALL -> new TallLampBlock(type, color, props);
-            case OMNI -> type.isStrip() ? new LightStripBlock(type, color, props)
-                    : LampShapes.hasLying(type.id()) ? new RodLampBlock(type, color, props) : new OmniLampBlock(type, color, props);
-            case CUBE -> new CubeLampBlock(type, color, props);
+            case TALL -> new TallLampBlock(type, props);
+            case OMNI -> type.isStrip() ? new LightStripBlock(type, props)
+                    : LampShapes.hasLying(type.id()) ? new RodLampBlock(type, props) : new OmniLampBlock(type, props);
+            case CUBE -> new CubeLampBlock(type, props);
             default -> {
                 LampShapes.Animation animation = LampShapes.animation(type.id());
                 if (animation == null) {
-                    yield new HorizontalLampBlock(type, color, props);
+                    yield new HorizontalLampBlock(type, props);
                 }
-                yield "fan".equals(animation.trigger()) ? new FanLampBlock(type, color, props) : new AnimatedLampBlock(type, color, props);
+                yield "fan".equals(animation.trigger()) ? new FanLampBlock(type, props) : new AnimatedLampBlock(type, props);
             }
         };
     }
 
-    public static LampBlock lamp(LampType type, DyeColor color) {
-        return LAMPS.get(type).get(color).get();
+    public static LampBlock lamp(LampType type) {
+        return LAMPS.get(type).get();
     }
 
-    public static LampItem item(LampType type, DyeColor color) {
-        return LAMP_ITEMS.get(type).get(color).get();
+    /** The lamp's default state in one colour. */
+    public static BlockState state(LampType type, DyeColor color) {
+        return lamp(type).defaultBlockState().setValue(LampBlock.COLOR, color);
+    }
+
+    public static LampItem item(LampType type) {
+        return LAMP_ITEMS.get(type).get();
+    }
+
+    /** A lamp item in one colour. */
+    public static ItemStack stack(LampType type, DyeColor color) {
+        return ItemColor.with(new ItemStack(item(type)), color);
     }
 
     public static List<DeferredBlock<LampBlock>> all() {

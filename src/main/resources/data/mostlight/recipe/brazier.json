@@ -1,0 +1,22 @@
+{
+  "type": "mostlight:workbench",
+  "category": "floor",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:netherrack"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:brazier",
+    "count": 1
+  }
+}

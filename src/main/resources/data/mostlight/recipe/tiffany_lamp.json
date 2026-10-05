@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glass_pane"
+      },
+      "count": 5
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:gold_ingot"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:tiffany_lamp",
+    "count": 1
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:magma_cream"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:lava_lamp",
+    "count": 1
+  }
+}

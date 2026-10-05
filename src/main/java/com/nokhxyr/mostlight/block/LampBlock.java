@@ -34,6 +34,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -53,22 +54,23 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock,
      */
     public static final IntegerProperty LIGHT = IntegerProperty.create("light", 0, 4);
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    /** One block per lamp model; its 16 colours are a property (same model, tinted). Switches share it. */
+    public static final EnumProperty<DyeColor> COLOR = EnumProperty.create("color", DyeColor.class);
     private static final int[] LIGHT_LEVELS = {15, 12, 9, 6};
     /** Number of brightness steps. */
     public static final int STEPS = LIGHT_LEVELS.length;
 
     private final LampType type;
-    private final DyeColor color;
     /** Hitbox par état (identité) : évite de recalculer la clé du modèle à chaque collision. */
     private final Map<BlockState, VoxelShape> shapes = new ConcurrentHashMap<>();
 
-    protected LampBlock(LampType type, DyeColor color, Properties properties) {
+    protected LampBlock(LampType type, Properties properties) {
         super(properties);
         this.type = type;
-        this.color = color;
         registerDefaultState(stateDefinition.any()
                 .setValue(LIGHT, 1)
-                .setValue(WATERLOGGED, false));
+                .setValue(WATERLOGGED, false)
+                .setValue(COLOR, DyeColor.WHITE));
     }
 
     /**
@@ -143,13 +145,13 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock,
         return type;
     }
 
-    public DyeColor color() {
-        return color;
+    public static DyeColor color(BlockState state) {
+        return state.getValue(COLOR);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(LIGHT, WATERLOGGED);
+        builder.add(LIGHT, WATERLOGGED, COLOR);
     }
 
     @Override
@@ -229,22 +231,9 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock,
         }
     }
 
-    /** Remplace le bloc par la même lampe dans une autre couleur en gardant finition et teinte. */
-    protected static void replaceKeepingLook(Level level, BlockPos pos, BlockState state, Block target) {
-        LampFinish finish = null;
-        LightTone tone = null;
-        if (level.getBlockEntity(pos) instanceof LampBlockEntity lamp) {
-            finish = lamp.finish();
-            tone = lamp.tone();
-        }
-        level.setBlock(pos, target.withPropertiesOf(state), Block.UPDATE_ALL);
-        if (finish != null && level.getBlockEntity(pos) instanceof LampBlockEntity lamp) {
-            lamp.setLook(finish, tone);
-        }
-    }
-
+    /** New colour: only the property changes, the block and its block entity (finish, tone, links) stay. */
     protected void recolor(Level level, BlockPos pos, BlockState state, DyeColor newColor) {
-        replaceKeepingLook(level, pos, state, ModBlocks.lamp(type, newColor));
+        applyState(level, pos, state.setValue(COLOR, newColor));
     }
 
     @Override
@@ -272,7 +261,7 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock,
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player,
             InteractionHand hand, BlockHitResult hit) {
         if (stack.getItem() instanceof DyeItem dye) {
-            if (dye.getDyeColor() == color) {
+            if (dye.getDyeColor() == color(state)) {
                 return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
             }
             if (!level.isClientSide) {
@@ -330,7 +319,7 @@ public abstract class LampBlock extends Block implements SimpleWaterloggedBlock,
 
     @Override
     public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
-        ItemStack stack = super.getCloneItemStack(level, pos, state);
+        ItemStack stack = com.nokhxyr.mostlight.item.ItemColor.with(super.getCloneItemStack(level, pos, state), color(state));
         if (level.getBlockEntity(pos) instanceof LampBlockEntity lamp) {
             stack.applyComponents(lamp.collectComponents());
         }

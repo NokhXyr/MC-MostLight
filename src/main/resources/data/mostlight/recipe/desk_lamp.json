@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:desk_lamp",
+    "count": 1
+  }
+}

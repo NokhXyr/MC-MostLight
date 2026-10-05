@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:globe_pendant_white",
-    "mostlight:globe_pendant_orange",
-    "mostlight:globe_pendant_magenta",
-    "mostlight:globe_pendant_light_blue",
-    "mostlight:globe_pendant_yellow",
-    "mostlight:globe_pendant_lime",
-    "mostlight:globe_pendant_pink",
-    "mostlight:globe_pendant_gray",
-    "mostlight:globe_pendant_light_gray",
-    "mostlight:globe_pendant_cyan",
-    "mostlight:globe_pendant_purple",
-    "mostlight:globe_pendant_blue",
-    "mostlight:globe_pendant_brown",
-    "mostlight:globe_pendant_green",
-    "mostlight:globe_pendant_red",
-    "mostlight:globe_pendant_black"
+    "mostlight:globe_pendant"
   ]
 }

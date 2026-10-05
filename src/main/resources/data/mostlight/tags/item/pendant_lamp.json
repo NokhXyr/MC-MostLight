@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:pendant_lamp_white",
-    "mostlight:pendant_lamp_orange",
-    "mostlight:pendant_lamp_magenta",
-    "mostlight:pendant_lamp_light_blue",
-    "mostlight:pendant_lamp_yellow",
-    "mostlight:pendant_lamp_lime",
-    "mostlight:pendant_lamp_pink",
-    "mostlight:pendant_lamp_gray",
-    "mostlight:pendant_lamp_light_gray",
-    "mostlight:pendant_lamp_cyan",
-    "mostlight:pendant_lamp_purple",
-    "mostlight:pendant_lamp_blue",
-    "mostlight:pendant_lamp_brown",
-    "mostlight:pendant_lamp_green",
-    "mostlight:pendant_lamp_red",
-    "mostlight:pendant_lamp_black"
+    "mostlight:pendant_lamp"
   ]
 }

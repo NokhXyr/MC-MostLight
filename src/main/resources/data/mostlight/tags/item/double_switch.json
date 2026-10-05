@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:double_switch",
-    "mostlight:double_switch_orange",
-    "mostlight:double_switch_magenta",
-    "mostlight:double_switch_light_blue",
-    "mostlight:double_switch_yellow",
-    "mostlight:double_switch_lime",
-    "mostlight:double_switch_pink",
-    "mostlight:double_switch_gray",
-    "mostlight:double_switch_light_gray",
-    "mostlight:double_switch_cyan",
-    "mostlight:double_switch_purple",
-    "mostlight:double_switch_blue",
-    "mostlight:double_switch_brown",
-    "mostlight:double_switch_green",
-    "mostlight:double_switch_red",
-    "mostlight:double_switch_black"
+    "mostlight:double_switch"
   ]
 }

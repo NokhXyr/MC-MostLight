@@ -15,6 +15,25 @@
               "include": [
                 "mostlight:links"
               ]
+            },
+            {
+              "function": "minecraft:copy_state",
+              "block": "mostlight:dimmer_switch",
+              "properties": [
+                "color"
+              ],
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:block_state_property",
+                    "block": "mostlight:dimmer_switch",
+                    "properties": {
+                      "color": "white"
+                    }
+                  }
+                }
+              ]
             }
           ]
         }

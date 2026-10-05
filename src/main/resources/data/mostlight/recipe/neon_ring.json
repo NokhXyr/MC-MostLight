@@ -1,0 +1,22 @@
+{
+  "type": "mostlight:workbench",
+  "category": "wall",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "mostlight:neon_ring",
+    "count": 2
+  }
+}

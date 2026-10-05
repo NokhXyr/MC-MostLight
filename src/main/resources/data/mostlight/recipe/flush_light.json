@@ -1,0 +1,22 @@
+{
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:flush_light",
+    "count": 4
+  }
+}

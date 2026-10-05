@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:paper_lantern_white",
-    "mostlight:paper_lantern_orange",
-    "mostlight:paper_lantern_magenta",
-    "mostlight:paper_lantern_light_blue",
-    "mostlight:paper_lantern_yellow",
-    "mostlight:paper_lantern_lime",
-    "mostlight:paper_lantern_pink",
-    "mostlight:paper_lantern_gray",
-    "mostlight:paper_lantern_light_gray",
-    "mostlight:paper_lantern_cyan",
-    "mostlight:paper_lantern_purple",
-    "mostlight:paper_lantern_blue",
-    "mostlight:paper_lantern_brown",
-    "mostlight:paper_lantern_green",
-    "mostlight:paper_lantern_red",
-    "mostlight:paper_lantern_black"
+    "mostlight:paper_lantern"
   ]
 }

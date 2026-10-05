@@ -1,0 +1,22 @@
+{
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:amethyst_shard"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:crystal_cluster",
+    "count": 2
+  }
+}

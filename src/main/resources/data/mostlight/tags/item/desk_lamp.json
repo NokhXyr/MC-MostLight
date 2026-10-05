@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:desk_lamp_white",
-    "mostlight:desk_lamp_orange",
-    "mostlight:desk_lamp_magenta",
-    "mostlight:desk_lamp_light_blue",
-    "mostlight:desk_lamp_yellow",
-    "mostlight:desk_lamp_lime",
-    "mostlight:desk_lamp_pink",
-    "mostlight:desk_lamp_gray",
-    "mostlight:desk_lamp_light_gray",
-    "mostlight:desk_lamp_cyan",
-    "mostlight:desk_lamp_purple",
-    "mostlight:desk_lamp_blue",
-    "mostlight:desk_lamp_brown",
-    "mostlight:desk_lamp_green",
-    "mostlight:desk_lamp_red",
-    "mostlight:desk_lamp_black"
+    "mostlight:desk_lamp"
   ]
 }

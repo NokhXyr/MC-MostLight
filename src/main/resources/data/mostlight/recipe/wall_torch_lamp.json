@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "wall",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:blaze_powder"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:stick"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "minecraft:planks"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:wall_torch_lamp",
+    "count": 2
+  }
+}

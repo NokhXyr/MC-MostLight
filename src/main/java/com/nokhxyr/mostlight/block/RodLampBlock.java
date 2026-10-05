@@ -33,8 +33,8 @@ public class RodLampBlock extends OmniLampBlock {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
     private final Map<BlockState, VoxelShape> lyingShapes = new ConcurrentHashMap<>();
 
-    public RodLampBlock(LampType type, DyeColor color, Properties properties) {
-        super(type, color, properties);
+    public RodLampBlock(LampType type, Properties properties) {
+        super(type, properties);
         registerDefaultState(defaultBlockState().setValue(LYING, false).setValue(AXIS, Direction.Axis.Y));
     }
 

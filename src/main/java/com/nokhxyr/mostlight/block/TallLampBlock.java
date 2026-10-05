@@ -31,8 +31,8 @@ public class TallLampBlock extends LampBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
-    public TallLampBlock(LampType type, DyeColor color, Properties properties) {
-        super(type, color, properties);
+    public TallLampBlock(LampType type, Properties properties) {
+        super(type, properties);
         registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH).setValue(HALF, DoubleBlockHalf.LOWER));
     }
 
@@ -140,24 +140,13 @@ public class TallLampBlock extends LampBlock {
         BlockPos other = otherHalf(pos, state);
         BlockState otherState = level.getBlockState(other);
         if (otherState.getBlock() instanceof TallLampBlock) {
-            level.setBlock(other, otherState.setValue(LIGHT, state.getValue(LIGHT)), Block.UPDATE_CLIENTS);
+            level.setBlock(other, otherState.setValue(LIGHT, state.getValue(LIGHT)).setValue(COLOR, state.getValue(COLOR)), Block.UPDATE_CLIENTS);
         }
     }
 
     @Override
     protected boolean isPowered(Level level, BlockPos pos, BlockState state) {
         return level.hasNeighborSignal(pos) || level.hasNeighborSignal(otherHalf(pos, state));
-    }
-
-    @Override
-    protected void recolor(Level level, BlockPos pos, BlockState state, DyeColor newColor) {
-        Block target = ModBlocks.lamp(type(), newColor);
-        BlockPos other = otherHalf(pos, state);
-        BlockState otherState = level.getBlockState(other);
-        replaceKeepingLook(level, pos, state, target);
-        if (otherState.getBlock() instanceof TallLampBlock) {
-            replaceKeepingLook(level, other, otherState, target);
-        }
     }
 
     @Override

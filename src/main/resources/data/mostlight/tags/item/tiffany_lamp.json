@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:tiffany_lamp_white",
-    "mostlight:tiffany_lamp_orange",
-    "mostlight:tiffany_lamp_magenta",
-    "mostlight:tiffany_lamp_light_blue",
-    "mostlight:tiffany_lamp_yellow",
-    "mostlight:tiffany_lamp_lime",
-    "mostlight:tiffany_lamp_pink",
-    "mostlight:tiffany_lamp_gray",
-    "mostlight:tiffany_lamp_light_gray",
-    "mostlight:tiffany_lamp_cyan",
-    "mostlight:tiffany_lamp_purple",
-    "mostlight:tiffany_lamp_blue",
-    "mostlight:tiffany_lamp_brown",
-    "mostlight:tiffany_lamp_green",
-    "mostlight:tiffany_lamp_red",
-    "mostlight:tiffany_lamp_black"
+    "mostlight:tiffany_lamp"
   ]
 }

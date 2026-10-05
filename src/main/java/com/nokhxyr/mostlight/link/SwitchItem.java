@@ -20,6 +20,12 @@ public class SwitchItem extends BlockItem {
         this.usageKey = usageKey;
     }
 
+    /** One item per model: the name follows the colour (block.mostlight.table_lamp.red). */
+    @Override
+    public net.minecraft.network.chat.Component getName(ItemStack stack) {
+        return net.minecraft.network.chat.Component.translatable(com.nokhxyr.mostlight.item.ItemColor.nameKey(getDescriptionId(), stack));
+    }
+
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Player player = context.getPlayer();

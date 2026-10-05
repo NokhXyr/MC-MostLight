@@ -1,0 +1,22 @@
+{
+  "type": "mostlight:workbench",
+  "category": "floor",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:lantern"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "id": "mostlight:double_street_lamp",
+    "count": 1
+  }
+}

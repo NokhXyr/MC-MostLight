@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:shoji_block_white",
-    "mostlight:shoji_block_orange",
-    "mostlight:shoji_block_magenta",
-    "mostlight:shoji_block_light_blue",
-    "mostlight:shoji_block_yellow",
-    "mostlight:shoji_block_lime",
-    "mostlight:shoji_block_pink",
-    "mostlight:shoji_block_gray",
-    "mostlight:shoji_block_light_gray",
-    "mostlight:shoji_block_cyan",
-    "mostlight:shoji_block_purple",
-    "mostlight:shoji_block_blue",
-    "mostlight:shoji_block_brown",
-    "mostlight:shoji_block_green",
-    "mostlight:shoji_block_red",
-    "mostlight:shoji_block_black"
+    "mostlight:shoji_block"
   ]
 }

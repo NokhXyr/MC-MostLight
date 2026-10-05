@@ -76,11 +76,11 @@ public class LampWorkbenchScreen extends AbstractContainerScreen<LampWorkbenchMe
         super.init();
         tabIcons = new ItemStack[] {
                 new ItemStack(ModBlocks.LAMP_WORKBENCH_ITEM.get()),
-                new ItemStack(ModBlocks.item(LampType.CHANDELIER, DyeColor.WHITE)),
-                new ItemStack(ModBlocks.item(LampType.WALL_SCONCE, DyeColor.WHITE)),
-                new ItemStack(ModBlocks.item(LampType.TABLE_LAMP, DyeColor.WHITE)),
-                new ItemStack(ModBlocks.item(LampType.FLOOR_LAMP, DyeColor.WHITE)),
-                new ItemStack(ModBlocks.item(LampType.LAMP_BLOCK, DyeColor.WHITE)),
+                ModBlocks.stack(LampType.CHANDELIER, DyeColor.WHITE),
+                ModBlocks.stack(LampType.WALL_SCONCE, DyeColor.WHITE),
+                ModBlocks.stack(LampType.TABLE_LAMP, DyeColor.WHITE),
+                ModBlocks.stack(LampType.FLOOR_LAMP, DyeColor.WHITE),
+                ModBlocks.stack(LampType.LAMP_BLOCK, DyeColor.WHITE),
                 new ItemStack(ModBlocks.LIGHT_SWITCH_ITEM.get()),
                 new ItemStack(ModBlocks.DESIGNER_WRENCH.get()),
         };

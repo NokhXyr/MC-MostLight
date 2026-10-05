@@ -124,7 +124,7 @@ public final class AnimatedLampClient {
             if (hash >= 0 && lamp.getBlockState().getBlock() instanceof LampBlock block) {
                 String material = name.substring(hash + 1);
                 if (material.startsWith("t")) {
-                    colour = ClientSetup.tint(block.color(), lamp.finish(), lamp.tone(), material.charAt(1) - '0');
+                    colour = ClientSetup.tint(LampBlock.color(lamp.getBlockState()), lamp.finish(), lamp.tone(), material.charAt(1) - '0');
                 }
                 if (material.endsWith("g") && LampBlock.isLit(lamp.getBlockState())) {
                     packedLight = net.minecraft.client.renderer.LightTexture.FULL_BRIGHT;

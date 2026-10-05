@@ -15,8 +15,8 @@ import org.jetbrains.annotations.Nullable;
 
 /** Bloc lumineux plein. Se relie aux blocs voisins avec le connecteur, comme les bandes LED (chaînes redstone). */
 public class CubeLampBlock extends LampBlock {
-    public CubeLampBlock(LampType type, DyeColor color, Properties properties) {
-        super(type, color, properties);
+    public CubeLampBlock(LampType type, Properties properties) {
+        super(type, properties);
     }
 
     @Override

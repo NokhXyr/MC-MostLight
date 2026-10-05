@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:orb_lamp_white",
-    "mostlight:orb_lamp_orange",
-    "mostlight:orb_lamp_magenta",
-    "mostlight:orb_lamp_light_blue",
-    "mostlight:orb_lamp_yellow",
-    "mostlight:orb_lamp_lime",
-    "mostlight:orb_lamp_pink",
-    "mostlight:orb_lamp_gray",
-    "mostlight:orb_lamp_light_gray",
-    "mostlight:orb_lamp_cyan",
-    "mostlight:orb_lamp_purple",
-    "mostlight:orb_lamp_blue",
-    "mostlight:orb_lamp_brown",
-    "mostlight:orb_lamp_green",
-    "mostlight:orb_lamp_red",
-    "mostlight:orb_lamp_black"
+    "mostlight:orb_lamp"
   ]
 }

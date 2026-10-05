@@ -38,17 +38,17 @@ public final class ModTabs {
             output.accept(ModBlocks.LAMP_REMOTE.get());
             for (ModBlocks.SwitchKind kind : ModBlocks.SwitchKind.values()) {
                 for (DyeColor color : DyeColor.values()) {
-                    output.accept(ModBlocks.switchItem(kind, color));
+                    output.accept(ModBlocks.switchStack(kind, color));
                 }
             }
         });
         for (LampCategory category : LampCategory.values()) {
             LampType icon = firstOf(category);
-            tab(category.id(), () -> new ItemStack(ModBlocks.item(icon, DyeColor.YELLOW)), (params, output) -> {
+            tab(category.id(), () -> ModBlocks.stack(icon, DyeColor.YELLOW), (params, output) -> {
                 for (LampType type : LampType.values()) {
                     if (type.category() == category) {
                         for (DyeColor color : DyeColor.values()) {
-                            output.accept(ModBlocks.item(type, color));
+                            output.accept(ModBlocks.stack(type, color));
                         }
                     }
                 }
@@ -57,13 +57,13 @@ public final class ModTabs {
         tab("finishes", () -> new ItemStack(ModBlocks.DESIGNER_WRENCH.get()), (params, output) -> {
             for (LampType type : LampType.values()) {
                 for (LampFinish finish : LampFinish.values()) {
-                    ItemStack stack = new ItemStack(ModBlocks.item(type, DyeColor.WHITE));
+                    ItemStack stack = ModBlocks.stack(type, DyeColor.WHITE);
                     stack.set(ModComponents.FINISH.get(), finish);
                     output.accept(stack);
                 }
                 for (LightTone tone : LightTone.values()) {
                     if (tone != LightTone.AUTO) {
-                        ItemStack stack = new ItemStack(ModBlocks.item(type, DyeColor.LIGHT_BLUE));
+                        ItemStack stack = ModBlocks.stack(type, DyeColor.LIGHT_BLUE);
                         stack.set(ModComponents.LIGHT_TONE.get(), tone);
                         output.accept(stack);
                     }

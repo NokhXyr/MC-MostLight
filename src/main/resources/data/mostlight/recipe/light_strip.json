@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:redstone"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "mostlight:light_strip",
+    "count": 8
+  }
+}

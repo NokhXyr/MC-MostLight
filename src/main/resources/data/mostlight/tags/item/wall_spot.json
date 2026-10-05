@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:wall_spot_white",
-    "mostlight:wall_spot_orange",
-    "mostlight:wall_spot_magenta",
-    "mostlight:wall_spot_light_blue",
-    "mostlight:wall_spot_yellow",
-    "mostlight:wall_spot_lime",
-    "mostlight:wall_spot_pink",
-    "mostlight:wall_spot_gray",
-    "mostlight:wall_spot_light_gray",
-    "mostlight:wall_spot_cyan",
-    "mostlight:wall_spot_purple",
-    "mostlight:wall_spot_blue",
-    "mostlight:wall_spot_brown",
-    "mostlight:wall_spot_green",
-    "mostlight:wall_spot_red",
-    "mostlight:wall_spot_black"
+    "mostlight:wall_spot"
   ]
 }

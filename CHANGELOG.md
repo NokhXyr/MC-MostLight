@@ -45,6 +45,9 @@ Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
   propriété, et le signal redstone mémorisé passe dans la block entity. Moins de mémoire, démarrage plus court,
   tables des shaders et des mods d'optimisation plus petites. Un monde enregistré avant ce changement rallume ses
   lampes au maximum au premier chargement.
+- Un seul bloc par modèle de lampe et par interrupteur (74 blocs au lieu de 1 232) : la couleur est une
+  propriété du bloc, appliquée au modèle commun. Teindre une lampe change seulement sa couleur, sans remplacer
+  le bloc. Un monde enregistré avant ce changement perd ses lampes et ses interrupteurs au chargement.
 - Allumer, éteindre ou régler une lampe ne réveille plus les blocs voisins (inutile : une lampe n'émet pas de
   redstone). Les observateurs voient toujours le changement. Basculer 10 000 lampes d'un coup est 2,5 fois plus
   rapide, au niveau des ampoules en cuivre vanilla.

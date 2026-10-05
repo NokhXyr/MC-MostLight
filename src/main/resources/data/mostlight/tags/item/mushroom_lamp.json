@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:mushroom_lamp_white",
-    "mostlight:mushroom_lamp_orange",
-    "mostlight:mushroom_lamp_magenta",
-    "mostlight:mushroom_lamp_light_blue",
-    "mostlight:mushroom_lamp_yellow",
-    "mostlight:mushroom_lamp_lime",
-    "mostlight:mushroom_lamp_pink",
-    "mostlight:mushroom_lamp_gray",
-    "mostlight:mushroom_lamp_light_gray",
-    "mostlight:mushroom_lamp_cyan",
-    "mostlight:mushroom_lamp_purple",
-    "mostlight:mushroom_lamp_blue",
-    "mostlight:mushroom_lamp_brown",
-    "mostlight:mushroom_lamp_green",
-    "mostlight:mushroom_lamp_red",
-    "mostlight:mushroom_lamp_black"
+    "mostlight:mushroom_lamp"
   ]
 }

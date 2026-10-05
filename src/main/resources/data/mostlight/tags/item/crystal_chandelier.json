@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:crystal_chandelier_white",
-    "mostlight:crystal_chandelier_orange",
-    "mostlight:crystal_chandelier_magenta",
-    "mostlight:crystal_chandelier_light_blue",
-    "mostlight:crystal_chandelier_yellow",
-    "mostlight:crystal_chandelier_lime",
-    "mostlight:crystal_chandelier_pink",
-    "mostlight:crystal_chandelier_gray",
-    "mostlight:crystal_chandelier_light_gray",
-    "mostlight:crystal_chandelier_cyan",
-    "mostlight:crystal_chandelier_purple",
-    "mostlight:crystal_chandelier_blue",
-    "mostlight:crystal_chandelier_brown",
-    "mostlight:crystal_chandelier_green",
-    "mostlight:crystal_chandelier_red",
-    "mostlight:crystal_chandelier_black"
+    "mostlight:crystal_chandelier"
   ]
 }

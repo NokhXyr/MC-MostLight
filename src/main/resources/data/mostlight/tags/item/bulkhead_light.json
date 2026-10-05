@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:bulkhead_light_white",
-    "mostlight:bulkhead_light_orange",
-    "mostlight:bulkhead_light_magenta",
-    "mostlight:bulkhead_light_light_blue",
-    "mostlight:bulkhead_light_yellow",
-    "mostlight:bulkhead_light_lime",
-    "mostlight:bulkhead_light_pink",
-    "mostlight:bulkhead_light_gray",
-    "mostlight:bulkhead_light_light_gray",
-    "mostlight:bulkhead_light_cyan",
-    "mostlight:bulkhead_light_purple",
-    "mostlight:bulkhead_light_blue",
-    "mostlight:bulkhead_light_brown",
-    "mostlight:bulkhead_light_green",
-    "mostlight:bulkhead_light_red",
-    "mostlight:bulkhead_light_black"
+    "mostlight:bulkhead_light"
   ]
 }

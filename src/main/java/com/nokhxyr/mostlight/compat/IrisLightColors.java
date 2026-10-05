@@ -108,15 +108,15 @@ public final class IrisLightColors {
         int added = 0;
         for (DeferredBlock<LampBlock> holder : ModBlocks.all()) {
             LampBlock lamp = holder.get();
-            BlockState ref = refs.get(lamp.color());
-            if (ref == null || !ids.containsKey(ref)) {
-                continue;
-            }
-            int id = ids.getInt(ref);
             for (BlockState state : lamp.getStateDefinition().getPossibleStates()) {
+                // the colour is a property: each state takes the reference of its own colour
+                BlockState ref = refs.get(LampBlock.color(state));
+                if (ref == null || !ids.containsKey(ref)) {
+                    continue;
+                }
                 // seules les parties qui éclairent prennent l'identifiant (pas la moitié basse d'un lampadaire)
                 if (state.getLightEmission() > 0 && !out.containsKey(state)) {
-                    out.put(state, id);
+                    out.put(state, ids.getInt(ref));
                     added++;
                 }
             }

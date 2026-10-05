@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:candle"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:gold_nugget"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:gold_ingot"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:candle_holder",
+    "count": 1
+  }
+}

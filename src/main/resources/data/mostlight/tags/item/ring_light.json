@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:ring_light_white",
-    "mostlight:ring_light_orange",
-    "mostlight:ring_light_magenta",
-    "mostlight:ring_light_light_blue",
-    "mostlight:ring_light_yellow",
-    "mostlight:ring_light_lime",
-    "mostlight:ring_light_pink",
-    "mostlight:ring_light_gray",
-    "mostlight:ring_light_light_gray",
-    "mostlight:ring_light_cyan",
-    "mostlight:ring_light_purple",
-    "mostlight:ring_light_blue",
-    "mostlight:ring_light_brown",
-    "mostlight:ring_light_green",
-    "mostlight:ring_light_red",
-    "mostlight:ring_light_black"
+    "mostlight:ring_light"
   ]
 }

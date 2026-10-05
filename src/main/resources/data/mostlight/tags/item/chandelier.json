@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:chandelier_white",
-    "mostlight:chandelier_orange",
-    "mostlight:chandelier_magenta",
-    "mostlight:chandelier_light_blue",
-    "mostlight:chandelier_yellow",
-    "mostlight:chandelier_lime",
-    "mostlight:chandelier_pink",
-    "mostlight:chandelier_gray",
-    "mostlight:chandelier_light_gray",
-    "mostlight:chandelier_cyan",
-    "mostlight:chandelier_purple",
-    "mostlight:chandelier_blue",
-    "mostlight:chandelier_brown",
-    "mostlight:chandelier_green",
-    "mostlight:chandelier_red",
-    "mostlight:chandelier_black"
+    "mostlight:chandelier"
   ]
 }

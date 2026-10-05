@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:light_strip_white",
-    "mostlight:light_strip_orange",
-    "mostlight:light_strip_magenta",
-    "mostlight:light_strip_light_blue",
-    "mostlight:light_strip_yellow",
-    "mostlight:light_strip_lime",
-    "mostlight:light_strip_pink",
-    "mostlight:light_strip_gray",
-    "mostlight:light_strip_light_gray",
-    "mostlight:light_strip_cyan",
-    "mostlight:light_strip_purple",
-    "mostlight:light_strip_blue",
-    "mostlight:light_strip_brown",
-    "mostlight:light_strip_green",
-    "mostlight:light_strip_red",
-    "mostlight:light_strip_black"
+    "mostlight:light_strip"
   ]
 }

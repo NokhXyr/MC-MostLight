@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "ceiling",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:string"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:bulb_pendant",
+    "count": 2
+  }
+}

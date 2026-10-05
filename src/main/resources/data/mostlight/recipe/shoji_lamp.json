@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:stick"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:paper"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:shoji_lamp",
+    "count": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:light_rod",
+    "count": 4
+  }
+}

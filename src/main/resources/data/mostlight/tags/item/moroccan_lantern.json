@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:moroccan_lantern_white",
-    "mostlight:moroccan_lantern_orange",
-    "mostlight:moroccan_lantern_magenta",
-    "mostlight:moroccan_lantern_light_blue",
-    "mostlight:moroccan_lantern_yellow",
-    "mostlight:moroccan_lantern_lime",
-    "mostlight:moroccan_lantern_pink",
-    "mostlight:moroccan_lantern_gray",
-    "mostlight:moroccan_lantern_light_gray",
-    "mostlight:moroccan_lantern_cyan",
-    "mostlight:moroccan_lantern_purple",
-    "mostlight:moroccan_lantern_blue",
-    "mostlight:moroccan_lantern_brown",
-    "mostlight:moroccan_lantern_green",
-    "mostlight:moroccan_lantern_red",
-    "mostlight:moroccan_lantern_black"
+    "mostlight:moroccan_lantern"
   ]
 }

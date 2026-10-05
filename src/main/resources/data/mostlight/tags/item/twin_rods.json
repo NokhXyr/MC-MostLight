@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:twin_rods_white",
-    "mostlight:twin_rods_orange",
-    "mostlight:twin_rods_magenta",
-    "mostlight:twin_rods_light_blue",
-    "mostlight:twin_rods_yellow",
-    "mostlight:twin_rods_lime",
-    "mostlight:twin_rods_pink",
-    "mostlight:twin_rods_gray",
-    "mostlight:twin_rods_light_gray",
-    "mostlight:twin_rods_cyan",
-    "mostlight:twin_rods_purple",
-    "mostlight:twin_rods_blue",
-    "mostlight:twin_rods_brown",
-    "mostlight:twin_rods_green",
-    "mostlight:twin_rods_red",
-    "mostlight:twin_rods_black"
+    "mostlight:twin_rods"
   ]
 }

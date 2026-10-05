@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:wall_globe_white",
-    "mostlight:wall_globe_orange",
-    "mostlight:wall_globe_magenta",
-    "mostlight:wall_globe_light_blue",
-    "mostlight:wall_globe_yellow",
-    "mostlight:wall_globe_lime",
-    "mostlight:wall_globe_pink",
-    "mostlight:wall_globe_gray",
-    "mostlight:wall_globe_light_gray",
-    "mostlight:wall_globe_cyan",
-    "mostlight:wall_globe_purple",
-    "mostlight:wall_globe_blue",
-    "mostlight:wall_globe_brown",
-    "mostlight:wall_globe_green",
-    "mostlight:wall_globe_red",
-    "mostlight:wall_globe_black"
+    "mostlight:wall_globe"
   ]
 }

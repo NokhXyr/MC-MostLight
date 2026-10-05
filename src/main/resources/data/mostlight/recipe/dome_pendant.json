@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "ceiling",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:chain"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:dome_pendant",
+    "count": 1
+  }
+}

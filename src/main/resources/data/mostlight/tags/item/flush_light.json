@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:flush_light_white",
-    "mostlight:flush_light_orange",
-    "mostlight:flush_light_magenta",
-    "mostlight:flush_light_light_blue",
-    "mostlight:flush_light_yellow",
-    "mostlight:flush_light_lime",
-    "mostlight:flush_light_pink",
-    "mostlight:flush_light_gray",
-    "mostlight:flush_light_light_gray",
-    "mostlight:flush_light_cyan",
-    "mostlight:flush_light_purple",
-    "mostlight:flush_light_blue",
-    "mostlight:flush_light_brown",
-    "mostlight:flush_light_green",
-    "mostlight:flush_light_red",
-    "mostlight:flush_light_black"
+    "mostlight:flush_light"
   ]
 }

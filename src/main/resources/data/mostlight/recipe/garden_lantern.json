@@ -1,0 +1,22 @@
+{
+  "type": "mostlight:workbench",
+  "category": "floor",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:smooth_stone_slab"
+      },
+      "count": 4
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:garden_lantern",
+    "count": 1
+  }
+}

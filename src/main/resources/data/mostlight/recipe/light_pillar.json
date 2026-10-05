@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:light_pillar",
+    "count": 2
+  }
+}

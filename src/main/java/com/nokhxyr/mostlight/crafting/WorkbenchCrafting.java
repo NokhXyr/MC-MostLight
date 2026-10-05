@@ -38,34 +38,13 @@ public final class WorkbenchCrafting {
 
     /** Objet fabriqué dans la couleur choisie (lampes et interrupteurs) ; les autres objets n'ont pas de couleur. */
     public static ItemStack variant(ItemStack result, DyeColor color) {
-        Item item = result.getItem();
-        if (item instanceof BlockItem block && block.getBlock() instanceof LampBlock lamp) {
-            return result.transmuteCopy(ModBlocks.item(lamp.type(), color), result.getCount());
-        }
-        ModBlocks.SwitchKind kind = switchKind(item);
-        if (kind != null) {
-            return result.transmuteCopy(ModBlocks.switchItem(kind, color), result.getCount());
-        }
-        return result.copy();
+        ItemStack out = result.copy();
+        return colorable(result) ? com.nokhxyr.mostlight.item.ItemColor.with(out, color) : out;
     }
 
     public static boolean colorable(ItemStack result) {
-        Item item = result.getItem();
-        return item instanceof BlockItem block && block.getBlock() instanceof LampBlock || switchKind(item) != null;
-    }
-
-    private static @Nullable ModBlocks.SwitchKind switchKind(Item item) {
-        if (!(item instanceof BlockItem block) || !(block.getBlock() instanceof LightSwitchBlock)) {
-            return null;
-        }
-        for (ModBlocks.SwitchKind kind : ModBlocks.SwitchKind.values()) {
-            for (DyeColor color : DyeColor.values()) {
-                if (ModBlocks.switchItem(kind, color) == item) {
-                    return kind;
-                }
-            }
-        }
-        return null;
+        return result.getItem() instanceof BlockItem block
+                && (block.getBlock() instanceof LampBlock || block.getBlock() instanceof LightSwitchBlock);
     }
 
     /** Matériaux à fournir : ceux de la recette, plus un colorant pour une couleur autre que le blanc. */

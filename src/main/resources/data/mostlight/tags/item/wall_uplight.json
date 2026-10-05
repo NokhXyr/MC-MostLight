@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:wall_uplight_white",
-    "mostlight:wall_uplight_orange",
-    "mostlight:wall_uplight_magenta",
-    "mostlight:wall_uplight_light_blue",
-    "mostlight:wall_uplight_yellow",
-    "mostlight:wall_uplight_lime",
-    "mostlight:wall_uplight_pink",
-    "mostlight:wall_uplight_gray",
-    "mostlight:wall_uplight_light_gray",
-    "mostlight:wall_uplight_cyan",
-    "mostlight:wall_uplight_purple",
-    "mostlight:wall_uplight_blue",
-    "mostlight:wall_uplight_brown",
-    "mostlight:wall_uplight_green",
-    "mostlight:wall_uplight_red",
-    "mostlight:wall_uplight_black"
+    "mostlight:wall_uplight"
   ]
 }

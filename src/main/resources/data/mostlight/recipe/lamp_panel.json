@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "block",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glass_pane"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "id": "mostlight:lamp_panel",
+    "count": 2
+  }
+}

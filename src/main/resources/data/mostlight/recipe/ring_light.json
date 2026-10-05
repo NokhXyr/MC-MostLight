@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "ceiling",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:string"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:ring_light",
+    "count": 1
+  }
+}

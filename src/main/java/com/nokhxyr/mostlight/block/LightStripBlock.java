@@ -68,8 +68,8 @@ public class LightStripBlock extends LampBlock {
     /** Évite les mises à jour en cascade pendant qu'une chaîne est recalculée. */
     private static boolean updatingChain;
 
-    public LightStripBlock(LampType type, DyeColor color, Properties properties) {
-        super(type, color, properties);
+    public LightStripBlock(LampType type, Properties properties) {
+        super(type, properties);
         BlockState state = defaultBlockState();
         for (BooleanProperty side : SIDES.values()) {
             state = state.setValue(side, false);
@@ -147,7 +147,8 @@ public class LightStripBlock extends LampBlock {
     @Override
     protected boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
         // une bande de même couleur s'ajoute dans le même bloc si une face est libre (angle)
-        return context.getItemInHand().is(asItem()) && sideFor(context, state) != null || super.canBeReplaced(state, context);
+        return context.getItemInHand().is(asItem()) && com.nokhxyr.mostlight.item.ItemColor.of(context.getItemInHand()) == color(state)
+                && sideFor(context, state) != null || super.canBeReplaced(state, context);
     }
 
     @Override

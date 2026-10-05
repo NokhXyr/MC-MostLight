@@ -6,6 +6,7 @@ import com.nokhxyr.mostlight.block.LampShapes;
 import com.nokhxyr.mostlight.block.LampType;
 import com.nokhxyr.mostlight.block.LightTone;
 import com.nokhxyr.mostlight.component.ModComponents;
+import com.nokhxyr.mostlight.item.ItemColor;
 import com.nokhxyr.mostlight.registry.ModBlocks;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,27 +57,28 @@ public class MostLightJeiPlugin implements IModPlugin {
         return UID;
     }
 
-    /** Finition et teinte distinguent les variantes d'une même lampe. */
+    /** Couleur, finition et teinte distinguent les variantes d'une même lampe. */
     private static final ISubtypeInterpreter<ItemStack> LOOK = new ISubtypeInterpreter<>() {
         @Override
         public @Nullable Object getSubtypeData(ItemStack stack, UidContext context) {
             LampFinish finish = stack.get(ModComponents.FINISH.get());
             LightTone tone = stack.get(ModComponents.LIGHT_TONE.get());
-            return finish == null && tone == null ? null : List.of(String.valueOf(finish), String.valueOf(tone));
+            return List.of(ItemColor.of(stack).getSerializedName(), String.valueOf(finish), String.valueOf(tone));
         }
 
         @Override
         public String getLegacyStringSubtypeInfo(ItemStack stack, UidContext context) {
-            return String.valueOf(stack.get(ModComponents.FINISH.get())) + "/" + stack.get(ModComponents.LIGHT_TONE.get());
+            return ItemColor.of(stack).getSerializedName() + "/" + stack.get(ModComponents.FINISH.get()) + "/" + stack.get(ModComponents.LIGHT_TONE.get());
         }
     };
 
     @Override
     public void registerItemSubtypes(ISubtypeRegistration registration) {
         for (LampType type : LampType.values()) {
-            for (DyeColor color : DyeColor.values()) {
-                registration.registerSubtypeInterpreter(ModBlocks.item(type, color), LOOK);
-            }
+            registration.registerSubtypeInterpreter(ModBlocks.item(type), LOOK);
+        }
+        for (ModBlocks.SwitchKind kind : ModBlocks.SwitchKind.values()) {
+            registration.registerSubtypeInterpreter(ModBlocks.switchItem(kind), LOOK);
         }
     }
 
@@ -97,7 +99,7 @@ public class MostLightJeiPlugin implements IModPlugin {
         for (LampType type : LampType.values()) {
             LampShapes.Animation animation = LampShapes.animation(type.id());
             for (DyeColor color : DyeColor.values()) {
-                ItemStack stack = new ItemStack(ModBlocks.item(type, color));
+                ItemStack stack = ModBlocks.stack(type, color);
                 if (type.isStrip()) {
                     strips.add(stack);
                 } else if (animation != null && "fan".equals(animation.trigger())) {
@@ -119,7 +121,7 @@ public class MostLightJeiPlugin implements IModPlugin {
         for (ModBlocks.SwitchKind kind : ModBlocks.SwitchKind.values()) {
             List<ItemStack> switches = new ArrayList<>();
             for (DyeColor color : DyeColor.values()) {
-                switches.add(new ItemStack(ModBlocks.switchItem(kind, color)));
+                switches.add(ModBlocks.switchStack(kind, color));
             }
             registration.addItemStackInfo(switches, info("switch_link"), info(kind.id));
         }

@@ -1,0 +1,28 @@
+{
+  "type": "mostlight:workbench",
+  "category": "wall",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:wall_spot",
+    "count": 2
+  }
+}

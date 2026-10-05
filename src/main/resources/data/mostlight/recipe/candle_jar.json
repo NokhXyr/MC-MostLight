@@ -1,0 +1,22 @@
+{
+  "type": "mostlight:workbench",
+  "category": "table",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:candle"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:candle_jar",
+    "count": 2
+  }
+}

@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:wall_lantern_white",
-    "mostlight:wall_lantern_orange",
-    "mostlight:wall_lantern_magenta",
-    "mostlight:wall_lantern_light_blue",
-    "mostlight:wall_lantern_yellow",
-    "mostlight:wall_lantern_lime",
-    "mostlight:wall_lantern_pink",
-    "mostlight:wall_lantern_gray",
-    "mostlight:wall_lantern_light_gray",
-    "mostlight:wall_lantern_cyan",
-    "mostlight:wall_lantern_purple",
-    "mostlight:wall_lantern_blue",
-    "mostlight:wall_lantern_brown",
-    "mostlight:wall_lantern_green",
-    "mostlight:wall_lantern_red",
-    "mostlight:wall_lantern_black"
+    "mostlight:wall_lantern"
   ]
 }

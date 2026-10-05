@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:studio_light_white",
-    "mostlight:studio_light_orange",
-    "mostlight:studio_light_magenta",
-    "mostlight:studio_light_light_blue",
-    "mostlight:studio_light_yellow",
-    "mostlight:studio_light_lime",
-    "mostlight:studio_light_pink",
-    "mostlight:studio_light_gray",
-    "mostlight:studio_light_light_gray",
-    "mostlight:studio_light_cyan",
-    "mostlight:studio_light_purple",
-    "mostlight:studio_light_blue",
-    "mostlight:studio_light_brown",
-    "mostlight:studio_light_green",
-    "mostlight:studio_light_red",
-    "mostlight:studio_light_black"
+    "mostlight:studio_light"
   ]
 }

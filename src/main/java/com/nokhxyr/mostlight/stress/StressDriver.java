@@ -496,7 +496,7 @@ public final class StressDriver {
                 List<LampType> types = Arrays.stream(LampType.values()).filter(t -> t.placement() == hole.placement()).toList();
                 LampType type = types.get((bot.getId() + hole.placement().ordinal()) % types.size());
                 DyeColor color = DyeColor.values()[(bot.getId() * 7 + hole.placement().ordinal()) % 16];
-                count("poser", replace(bot, hole, hold(bot, new ItemStack(ModBlocks.item(type, color)))));
+                count("poser", replace(bot, hole, hold(bot, ModBlocks.stack(type, color))));
             }
         } else if (roll < 64) {
             breakLamp(bot, zone, target);

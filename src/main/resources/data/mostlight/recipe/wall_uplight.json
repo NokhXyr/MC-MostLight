@@ -1,0 +1,22 @@
+{
+  "type": "mostlight:workbench",
+  "category": "wall",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 2
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:wall_uplight",
+    "count": 2
+  }
+}

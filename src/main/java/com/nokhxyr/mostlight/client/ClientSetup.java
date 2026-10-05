@@ -6,6 +6,7 @@ import com.nokhxyr.mostlight.block.LampFinish;
 import com.nokhxyr.mostlight.block.LightTone;
 import com.nokhxyr.mostlight.block.entity.LampBlockEntity;
 import com.nokhxyr.mostlight.component.ModComponents;
+import com.nokhxyr.mostlight.item.ItemColor;
 import com.nokhxyr.mostlight.registry.ModBlocks;
 import net.minecraft.world.item.DyeColor;
 import net.neoforged.api.distmarker.Dist;
@@ -58,7 +59,7 @@ public final class ClientSetup {
                     return -1;
                 }
                 if (level == null || pos == null) {
-                    return tint(block.color(), block.type().defaultFinish(), LightTone.AUTO, index);
+                    return tint(LampBlock.color(state), block.type().defaultFinish(), LightTone.AUTO, index);
                 }
                 // une lampe a jusqu'à des centaines de faces teintées : la block entity n'est lue qu'une fois par bloc
                 LookCache cache = LOOK.get();
@@ -77,7 +78,7 @@ public final class ClientSetup {
                         cache.tone = LightTone.AUTO;
                     }
                 }
-                return tint(block.color(), cache.finish, cache.tone, index);
+                return tint(LampBlock.color(state), cache.finish, cache.tone, index);
             }, block);
         }
     }
@@ -86,10 +87,8 @@ public final class ClientSetup {
     @SubscribeEvent
     static void onSwitchColors(RegisterColorHandlersEvent.Block event) {
         for (ModBlocks.SwitchKind kind : ModBlocks.SwitchKind.values()) {
-            for (DyeColor color : DyeColor.values()) {
-                int rgb = 0xFF000000 | (color.getTextureDiffuseColor() & 0xFFFFFF);
-                event.register((state, level, pos, index) -> index == 0 ? rgb : -1, ModBlocks.switchBlock(kind, color));
-            }
+            event.register((state, level, pos, index) -> index == 0
+                    ? 0xFF000000 | (LampBlock.color(state).getTextureDiffuseColor() & 0xFFFFFF) : -1, ModBlocks.switchBlock(kind));
         }
     }
 
@@ -104,10 +103,8 @@ public final class ClientSetup {
     @SubscribeEvent
     static void onSwitchItemColors(RegisterColorHandlersEvent.Item event) {
         for (ModBlocks.SwitchKind kind : ModBlocks.SwitchKind.values()) {
-            for (DyeColor color : DyeColor.values()) {
-                int rgb = 0xFF000000 | (color.getTextureDiffuseColor() & 0xFFFFFF);
-                event.register((stack, index) -> index == 0 ? rgb : -1, ModBlocks.switchItem(kind, color));
-            }
+            event.register((stack, index) -> index == 0
+                    ? 0xFF000000 | (ItemColor.of(stack).getTextureDiffuseColor() & 0xFFFFFF) : -1, ModBlocks.switchItem(kind));
         }
     }
 
@@ -115,7 +112,7 @@ public final class ClientSetup {
     static void onItemColors(RegisterColorHandlersEvent.Item event) {
         for (DeferredBlock<LampBlock> holder : ModBlocks.all()) {
             LampBlock block = holder.get();
-            event.register((stack, index) -> index < 0 ? -1 : tint(block.color(),
+            event.register((stack, index) -> index < 0 ? -1 : tint(ItemColor.of(stack),
                     stack.getOrDefault(ModComponents.FINISH.get(), block.type().defaultFinish()),
                     stack.getOrDefault(ModComponents.LIGHT_TONE.get(), LightTone.AUTO), index), block);
         }

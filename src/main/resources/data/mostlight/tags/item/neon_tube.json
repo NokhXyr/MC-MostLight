@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:neon_tube_white",
-    "mostlight:neon_tube_orange",
-    "mostlight:neon_tube_magenta",
-    "mostlight:neon_tube_light_blue",
-    "mostlight:neon_tube_yellow",
-    "mostlight:neon_tube_lime",
-    "mostlight:neon_tube_pink",
-    "mostlight:neon_tube_gray",
-    "mostlight:neon_tube_light_gray",
-    "mostlight:neon_tube_cyan",
-    "mostlight:neon_tube_purple",
-    "mostlight:neon_tube_blue",
-    "mostlight:neon_tube_brown",
-    "mostlight:neon_tube_green",
-    "mostlight:neon_tube_red",
-    "mostlight:neon_tube_black"
+    "mostlight:neon_tube"
   ]
 }

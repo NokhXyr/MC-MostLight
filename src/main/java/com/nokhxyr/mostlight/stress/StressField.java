@@ -189,7 +189,8 @@ public final class StressField {
         LampType type = LampType.values()[random.nextInt(LampType.values().length)];
         DyeColor color = DyeColor.values()[random.nextInt(16)];
         Direction facing = HORIZONTAL[random.nextInt(4)];
-        LampBlock block = ModBlocks.lamp(type, color);
+        LampBlock block = ModBlocks.lamp(type);
+        BlockState base = ModBlocks.state(type, color);
         BlockPos lampPos = pos;
         BlockPos support = pos.below();
         BlockState state;
@@ -198,23 +199,23 @@ public final class StressField {
                 lampPos = pos.above(2);
                 support = pos.above(3);
                 level.setBlock(support, Blocks.DARK_OAK_PLANKS.defaultBlockState(), Block.UPDATE_ALL);
-                state = block.defaultBlockState().setValue(HorizontalLampBlock.FACING, facing);
+                state = base.setValue(HorizontalLampBlock.FACING, facing);
             }
             case WALL -> {
                 lampPos = pos.above();
                 support = lampPos.relative(facing.getOpposite());
                 level.setBlock(support, Blocks.SMOOTH_QUARTZ.defaultBlockState(), Block.UPDATE_ALL);
-                state = block.defaultBlockState().setValue(HorizontalLampBlock.FACING, facing);
+                state = base.setValue(HorizontalLampBlock.FACING, facing);
             }
             // bande LED : posée au sol par défaut
             case OMNI -> state = block instanceof com.nokhxyr.mostlight.block.LightStripBlock
-                    ? block.defaultBlockState()
-                    : block.defaultBlockState().setValue(OmniLampBlock.FACING, Direction.UP);
-            case STANDING -> state = block.defaultBlockState().setValue(HorizontalLampBlock.FACING, facing);
-            case TALL -> state = block.defaultBlockState().setValue(TallLampBlock.FACING, facing);
+                    ? base
+                    : base.setValue(OmniLampBlock.FACING, Direction.UP);
+            case STANDING -> state = base.setValue(HorizontalLampBlock.FACING, facing);
+            case TALL -> state = base.setValue(TallLampBlock.FACING, facing);
             default -> {
                 support = null;
-                state = block.defaultBlockState();
+                state = base;
             }
         }
         BlockState supportState = support == null ? null : level.getBlockState(support);
@@ -249,7 +250,7 @@ public final class StressField {
                 BlockPos pos = latticeOrigin.offset(x, y, z);
                 BlockState state = config.vanilla()
                         ? Blocks.WAXED_COPPER_BULB.defaultBlockState().setValue(BlockStateProperties.LIT, true)
-                        : ModBlocks.lamp(CUBE_TYPES[random.nextInt(CUBE_TYPES.length)], DyeColor.values()[random.nextInt(16)]).defaultBlockState();
+                        : ModBlocks.state(CUBE_TYPES[random.nextInt(CUBE_TYPES.length)], DyeColor.values()[random.nextInt(16)]);
                 level.setBlock(pos, state, Block.UPDATE_ALL);
                 lattice.add(new Lamp(pos, null, null, Placement.CUBE));
             }

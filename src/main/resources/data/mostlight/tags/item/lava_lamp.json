@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:lava_lamp_white",
-    "mostlight:lava_lamp_orange",
-    "mostlight:lava_lamp_magenta",
-    "mostlight:lava_lamp_light_blue",
-    "mostlight:lava_lamp_yellow",
-    "mostlight:lava_lamp_lime",
-    "mostlight:lava_lamp_pink",
-    "mostlight:lava_lamp_gray",
-    "mostlight:lava_lamp_light_gray",
-    "mostlight:lava_lamp_cyan",
-    "mostlight:lava_lamp_purple",
-    "mostlight:lava_lamp_blue",
-    "mostlight:lava_lamp_brown",
-    "mostlight:lava_lamp_green",
-    "mostlight:lava_lamp_red",
-    "mostlight:lava_lamp_black"
+    "mostlight:lava_lamp"
   ]
 }

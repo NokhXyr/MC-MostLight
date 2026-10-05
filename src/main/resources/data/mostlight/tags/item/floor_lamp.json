@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:floor_lamp_white",
-    "mostlight:floor_lamp_orange",
-    "mostlight:floor_lamp_magenta",
-    "mostlight:floor_lamp_light_blue",
-    "mostlight:floor_lamp_yellow",
-    "mostlight:floor_lamp_lime",
-    "mostlight:floor_lamp_pink",
-    "mostlight:floor_lamp_gray",
-    "mostlight:floor_lamp_light_gray",
-    "mostlight:floor_lamp_cyan",
-    "mostlight:floor_lamp_purple",
-    "mostlight:floor_lamp_blue",
-    "mostlight:floor_lamp_brown",
-    "mostlight:floor_lamp_green",
-    "mostlight:floor_lamp_red",
-    "mostlight:floor_lamp_black"
+    "mostlight:floor_lamp"
   ]
 }

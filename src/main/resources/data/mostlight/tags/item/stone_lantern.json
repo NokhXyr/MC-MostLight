@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:stone_lantern_white",
-    "mostlight:stone_lantern_orange",
-    "mostlight:stone_lantern_magenta",
-    "mostlight:stone_lantern_light_blue",
-    "mostlight:stone_lantern_yellow",
-    "mostlight:stone_lantern_lime",
-    "mostlight:stone_lantern_pink",
-    "mostlight:stone_lantern_gray",
-    "mostlight:stone_lantern_light_gray",
-    "mostlight:stone_lantern_cyan",
-    "mostlight:stone_lantern_purple",
-    "mostlight:stone_lantern_blue",
-    "mostlight:stone_lantern_brown",
-    "mostlight:stone_lantern_green",
-    "mostlight:stone_lantern_red",
-    "mostlight:stone_lantern_black"
+    "mostlight:stone_lantern"
   ]
 }

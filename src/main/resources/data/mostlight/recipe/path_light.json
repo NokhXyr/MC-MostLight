@@ -1,0 +1,22 @@
+{
+  "type": "mostlight:workbench",
+  "category": "floor",
+  "ingredients": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_nugget"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "minecraft:glass"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "mostlight:path_light",
+    "count": 2
+  }
+}

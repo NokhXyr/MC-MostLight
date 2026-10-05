@@ -170,7 +170,8 @@ public final class ShowcaseBuilder {
     }
 
     private static void place(ServerLevel level, BlockPos pos, Entry entry, List<Check> checks) {
-        LampBlock block = ModBlocks.lamp(entry.type(), entry.color());
+        LampBlock block = ModBlocks.lamp(entry.type());
+        BlockState base = ModBlocks.state(entry.type(), entry.color());
         Placement placement = entry.type().placement();
         BlockPos lampPos = pos;
         BlockPos lightPos = pos;
@@ -178,7 +179,7 @@ public final class ShowcaseBuilder {
             case HANGING -> {
                 level.setBlock(pos.above(3), Blocks.DARK_OAK_PLANKS.defaultBlockState(), Block.UPDATE_ALL);
                 lampPos = lightPos = pos.above(2);
-                level.setBlock(lampPos, block.defaultBlockState().setValue(HorizontalLampBlock.FACING, Direction.NORTH), Block.UPDATE_ALL);
+                level.setBlock(lampPos, base.setValue(HorizontalLampBlock.FACING, Direction.NORTH), Block.UPDATE_ALL);
             }
             case WALL, OMNI -> {
                 for (int y = 0; y < 3; y++) {
@@ -186,11 +187,11 @@ public final class ShowcaseBuilder {
                 }
                 lampPos = lightPos = pos.above();
                 BlockState state = placement == Placement.WALL
-                        ? block.defaultBlockState().setValue(HorizontalLampBlock.FACING, Direction.NORTH)
+                        ? base.setValue(HorizontalLampBlock.FACING, Direction.NORTH)
                         : block instanceof LightStripBlock
-                                ? block.defaultBlockState().setValue(LightStripBlock.SIDES.get(Direction.DOWN), false)
+                                ? base.setValue(LightStripBlock.SIDES.get(Direction.DOWN), false)
                                         .setValue(LightStripBlock.SIDES.get(Direction.SOUTH), true)
-                                : block.defaultBlockState().setValue(OmniLampBlock.FACING, Direction.NORTH);
+                                : base.setValue(OmniLampBlock.FACING, Direction.NORTH);
                 level.setBlock(lampPos, state, Block.UPDATE_ALL);
             }
             case STANDING -> {
@@ -198,15 +199,15 @@ public final class ShowcaseBuilder {
                     level.setBlock(pos, Blocks.STRIPPED_SPRUCE_WOOD.defaultBlockState(), Block.UPDATE_ALL);
                     lampPos = lightPos = pos.above();
                 }
-                level.setBlock(lampPos, block.defaultBlockState().setValue(HorizontalLampBlock.FACING, Direction.NORTH), Block.UPDATE_ALL);
+                level.setBlock(lampPos, base.setValue(HorizontalLampBlock.FACING, Direction.NORTH), Block.UPDATE_ALL);
             }
             case TALL -> {
-                BlockState lower = block.defaultBlockState().setValue(TallLampBlock.FACING, Direction.NORTH);
+                BlockState lower = base.setValue(TallLampBlock.FACING, Direction.NORTH);
                 level.setBlock(pos, lower, Block.UPDATE_ALL);
                 level.setBlock(pos.above(), lower.setValue(TallLampBlock.HALF, DoubleBlockHalf.UPPER), Block.UPDATE_ALL);
                 lightPos = pos.above();
             }
-            case CUBE -> level.setBlock(pos, block.defaultBlockState(), Block.UPDATE_ALL);
+            case CUBE -> level.setBlock(pos, base, Block.UPDATE_ALL);
         }
         BlockState placed = level.getBlockState(lampPos);
         if (placed.getBlock() instanceof com.nokhxyr.mostlight.block.FanLampBlock) {
@@ -229,12 +230,12 @@ public final class ShowcaseBuilder {
         for (int i = 0; i < 8; i++) {
             BlockPos p = start.offset(i, 0, 0);
             level.setBlock(p.above(3), Blocks.DARK_OAK_PLANKS.defaultBlockState(), Block.UPDATE_ALL);
-            level.setBlock(p.above(2), ModBlocks.lamp(LampType.PENDANT_LAMP, DyeColor.values()[i]).defaultBlockState()
+            level.setBlock(p.above(2), ModBlocks.state(LampType.PENDANT_LAMP, DyeColor.values()[i])
                     .setValue(HorizontalLampBlock.FACING, Direction.NORTH), Block.UPDATE_ALL);
             pendants.add(p.above(2));
             BlockPos t = start.offset(i + 8, 0, 0);
             level.setBlock(t, Blocks.STRIPPED_SPRUCE_WOOD.defaultBlockState(), Block.UPDATE_ALL);
-            level.setBlock(t.above(), ModBlocks.lamp(LampType.TABLE_LAMP, DyeColor.values()[i + 8]).defaultBlockState()
+            level.setBlock(t.above(), ModBlocks.state(LampType.TABLE_LAMP, DyeColor.values()[i + 8])
                     .setValue(HorizontalLampBlock.FACING, Direction.NORTH), Block.UPDATE_ALL);
             tables.add(t.above());
         }
@@ -260,7 +261,7 @@ public final class ShowcaseBuilder {
                 level.setBlock(start.offset(size, y, i), Blocks.SMOOTH_QUARTZ.defaultBlockState(), Block.UPDATE_ALL);
             }
         }
-        LampBlock block = ModBlocks.lamp(LampType.LIGHT_STRIP, DyeColor.ORANGE);
+        BlockState block = ModBlocks.state(LampType.LIGHT_STRIP, DyeColor.ORANGE);
         for (int i = 0; i < size; i++) {
             strip(level, block, start.offset(i, 2, size - 1), Direction.SOUTH, 2, false);
             strip(level, block, start.offset(size - 1, 2, i), Direction.EAST, 2, false);
@@ -272,7 +273,7 @@ public final class ShowcaseBuilder {
             strip(level, block, start.offset(size - 1, y, size - 1), Direction.EAST, 2, true);
         }
         // guirlandes à mi-hauteur sur les deux murs, qui se rejoignent dans l'angle
-        LampBlock garland = ModBlocks.lamp(LampType.STRING_LIGHTS, DyeColor.YELLOW);
+        BlockState garland = ModBlocks.state(LampType.STRING_LIGHTS, DyeColor.YELLOW);
         for (int i = 0; i < size - 1; i++) {
             strip(level, garland, start.offset(i, 3, size - 1), Direction.SOUTH, 1, false);
             strip(level, garland, start.offset(size - 1, 3, i), Direction.EAST, 1, false);
@@ -291,7 +292,7 @@ public final class ShowcaseBuilder {
             strip(level, block, pillar.above().relative(d), d.getOpposite(), 2, false);
         }
         // tiges : couchées au mur (horizontale, verticale), debout et couchée au sol, pendue au plafond
-        LampBlock rod = ModBlocks.lamp(LampType.LIGHT_ROD, DyeColor.LIGHT_BLUE);
+        BlockState rod = ModBlocks.state(LampType.LIGHT_ROD, DyeColor.LIGHT_BLUE);
         rod(level, rod, start.offset(0, 1, size - 1), Direction.NORTH, true, Direction.Axis.X);
         rod(level, rod, start.offset(1, 1, size - 1), Direction.NORTH, true, Direction.Axis.Y);
         rod(level, rod, start.offset(0, 0, 3), Direction.UP, false, Direction.Axis.Y);
@@ -303,18 +304,18 @@ public final class ShowcaseBuilder {
                 .setValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING, Direction.NORTH), Block.UPDATE_ALL);
     }
 
-    private static void rod(ServerLevel level, LampBlock block, BlockPos pos, Direction facing, boolean lying, Direction.Axis axis) {
-        BlockState state = block.defaultBlockState().setValue(com.nokhxyr.mostlight.block.OmniLampBlock.FACING, facing);
-        if (block instanceof com.nokhxyr.mostlight.block.RodLampBlock) {
+    private static void rod(ServerLevel level, BlockState base, BlockPos pos, Direction facing, boolean lying, Direction.Axis axis) {
+        BlockState state = base.setValue(com.nokhxyr.mostlight.block.OmniLampBlock.FACING, facing);
+        if (base.getBlock() instanceof com.nokhxyr.mostlight.block.RodLampBlock) {
             state = state.setValue(com.nokhxyr.mostlight.block.RodLampBlock.LYING, lying).setValue(com.nokhxyr.mostlight.block.RodLampBlock.AXIS, axis);
         }
         level.setBlock(pos, state, Block.UPDATE_ALL);
     }
 
     /** Ajoute une bande sur la face {@code side} du bloc (en gardant celles déjà posées). */
-    private static void strip(ServerLevel level, LampBlock block, BlockPos pos, Direction side, int slot, boolean rotated) {
+    private static void strip(ServerLevel level, BlockState base, BlockPos pos, Direction side, int slot, boolean rotated) {
         BlockState current = level.getBlockState(pos);
-        BlockState state = current.is(block) ? current : block.defaultBlockState().setValue(LightStripBlock.SIDES.get(Direction.DOWN), false);
+        BlockState state = current.is(base.getBlock()) ? current : base.setValue(LightStripBlock.SIDES.get(Direction.DOWN), false);
         level.setBlock(pos, state.setValue(LightStripBlock.SIDES.get(side), true), Block.UPDATE_ALL);
         if (level.getBlockEntity(pos) instanceof com.nokhxyr.mostlight.block.entity.LampBlockEntity lamp) {
             lamp.setStrip(side, slot, rotated);

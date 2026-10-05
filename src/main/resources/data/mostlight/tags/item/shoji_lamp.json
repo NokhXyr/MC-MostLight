@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:shoji_lamp_white",
-    "mostlight:shoji_lamp_orange",
-    "mostlight:shoji_lamp_magenta",
-    "mostlight:shoji_lamp_light_blue",
-    "mostlight:shoji_lamp_yellow",
-    "mostlight:shoji_lamp_lime",
-    "mostlight:shoji_lamp_pink",
-    "mostlight:shoji_lamp_gray",
-    "mostlight:shoji_lamp_light_gray",
-    "mostlight:shoji_lamp_cyan",
-    "mostlight:shoji_lamp_purple",
-    "mostlight:shoji_lamp_blue",
-    "mostlight:shoji_lamp_brown",
-    "mostlight:shoji_lamp_green",
-    "mostlight:shoji_lamp_red",
-    "mostlight:shoji_lamp_black"
+    "mostlight:shoji_lamp"
   ]
 }

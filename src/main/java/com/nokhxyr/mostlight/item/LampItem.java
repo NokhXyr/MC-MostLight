@@ -18,6 +18,12 @@ public class LampItem extends BlockItem {
         super(block, properties);
     }
 
+    /** One item per model: the name follows the colour (block.mostlight.table_lamp.red). */
+    @Override
+    public net.minecraft.network.chat.Component getName(ItemStack stack) {
+        return net.minecraft.network.chat.Component.translatable(com.nokhxyr.mostlight.item.ItemColor.nameKey(getDescriptionId(), stack));
+    }
+
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         LampFinish finish = stack.getOrDefault(ModComponents.FINISH.get(), ((LampBlock) getBlock()).type().defaultFinish());

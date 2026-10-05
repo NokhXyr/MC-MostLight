@@ -38,7 +38,8 @@ public class LightSwitchBlock extends FaceAttachedHorizontalDirectionalBlock imp
 
     public LightSwitchBlock(Properties properties) {
         super(properties);
-        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.WALL).setValue(ON, false));
+        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.WALL).setValue(ON, false)
+                .setValue(com.nokhxyr.mostlight.block.LampBlock.COLOR, net.minecraft.world.item.DyeColor.WHITE));
     }
 
     @Override
@@ -48,7 +49,7 @@ public class LightSwitchBlock extends FaceAttachedHorizontalDirectionalBlock imp
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, FACE, ON);
+        builder.add(FACING, FACE, ON, com.nokhxyr.mostlight.block.LampBlock.COLOR);
     }
 
     @Override
@@ -91,7 +92,8 @@ public class LightSwitchBlock extends FaceAttachedHorizontalDirectionalBlock imp
 
     @Override
     public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
-        ItemStack stack = super.getCloneItemStack(level, pos, state);
+        ItemStack stack = com.nokhxyr.mostlight.item.ItemColor.with(super.getCloneItemStack(level, pos, state),
+                state.getValue(com.nokhxyr.mostlight.block.LampBlock.COLOR));
         if (level.getBlockEntity(pos) instanceof SwitchBlockEntity entity) {
             stack.applyComponents(entity.collectComponents());
         }

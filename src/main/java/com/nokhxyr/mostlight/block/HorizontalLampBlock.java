@@ -18,8 +18,8 @@ import org.jetbrains.annotations.Nullable;
 public class HorizontalLampBlock extends LampBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public HorizontalLampBlock(LampType type, DyeColor color, Properties properties) {
-        super(type, color, properties);
+    public HorizontalLampBlock(LampType type, Properties properties) {
+        super(type, properties);
         registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH));
     }
 

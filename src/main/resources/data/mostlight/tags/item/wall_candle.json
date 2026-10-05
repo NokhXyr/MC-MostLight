@@ -1,20 +1,5 @@
 {
   "values": [
-    "mostlight:wall_candle_white",
-    "mostlight:wall_candle_orange",
-    "mostlight:wall_candle_magenta",
-    "mostlight:wall_candle_light_blue",
-    "mostlight:wall_candle_yellow",
-    "mostlight:wall_candle_lime",
-    "mostlight:wall_candle_pink",
-    "mostlight:wall_candle_gray",
-    "mostlight:wall_candle_light_gray",
-    "mostlight:wall_candle_cyan",
-    "mostlight:wall_candle_purple",
-    "mostlight:wall_candle_blue",
-    "mostlight:wall_candle_brown",
-    "mostlight:wall_candle_green",
-    "mostlight:wall_candle_red",
-    "mostlight:wall_candle_black"
+    "mostlight:wall_candle"
   ]
 }

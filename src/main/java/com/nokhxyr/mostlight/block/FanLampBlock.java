@@ -20,8 +20,8 @@ import net.minecraft.world.phys.BlockHitResult;
 public class FanLampBlock extends AnimatedLampBlock {
     public static final BooleanProperty FAN = BooleanProperty.create("fan");
 
-    public FanLampBlock(LampType type, DyeColor color, Properties properties) {
-        super(type, color, properties);
+    public FanLampBlock(LampType type, Properties properties) {
+        super(type, properties);
         registerDefaultState(defaultBlockState().setValue(FAN, false));
     }
 
