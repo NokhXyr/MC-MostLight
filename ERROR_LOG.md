@@ -1,5 +1,13 @@
 # Error log
 
+## [2026-10-05 10:23] Create crashed the GameTest server
+
+**Context:** running the GameTests with Create loaded, to test lamps on contraptions.
+**Error:** `UnsupportedOperationException: Payload create:sync_edge_group may not be sent to the client!`, then a server crash.
+**Root cause:** the mock players of the other tests (`makeMockServerPlayerInLevel`) have no negotiated mod channels; Create sends its payloads to every player that joins.
+**Fix:** the Create tests have their own namespace (`mostlight_create`, own empty structure) and their own run (`runGameTestServerCreate`), which enables only that namespace.
+**Prevention:** never mix tests that create mock server players with a mod that talks to every player; give such tests their own run.
+
 ## [2026-10-05 06:50] GameTest mock player always counts as creative
 
 **Context:** exploit tests breaking blocks as a survival player made with `GameTestHelper.makeMockServerPlayerInLevel()`.

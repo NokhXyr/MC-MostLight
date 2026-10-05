@@ -69,6 +69,9 @@ Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
 ### Corrections
 - Piston collant : une lampe tirée garde sa finition et sa teinte (seule la poussée les gardait).
 - Bande LED qui perd un de ses murs : elle tombe avec sa couleur et sa finition au lieu d'une bande blanche.
+- Interrupteurs et télécommande : 1 024 liaisons au plus, aussi à la lecture d'une sauvegarde ou d'un paquet (un objet
+  forgé en créatif ne peut plus en porter des millions).
+- Piston : les données d'une lampe déplacée ne vont qu'à cette lampe, jamais à un autre bloc posé à son arrivée.
 - **Sodium / Iris** : moitiés hautes des lampes de 2 blocs avec une mauvaise texture, ou invisibles selon
   les mods et les shaders.
 - **Sodium** : cadre opaque qui disparaissait derrière le verre.

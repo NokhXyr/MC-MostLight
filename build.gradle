@@ -105,6 +105,13 @@ neoForge {
             gameDirectory = project.file('run-gametest')
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
+        // ./gradlew runGameTestServerCreate: the Create contraption tests (CreateExploitTests) alone.
+        // Create is not a dependency: drop its jar in run-gametest-create/mods first.
+        gameTestServerCreate {
+            type = 'gameTestServer'
+            gameDirectory = project.file('run-gametest-create')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'mostlight_create'
+        }
         // ./gradlew runStressServer : test de charge serveur (20 joueurs simulés, ~36 000 lampes), rapport dans run-stress/stress
         stressServer {
             type = 'gameTestServer'

@@ -126,7 +126,10 @@ vanilla, aucune erreur, lumière exacte (`./gradlew runStressServer` et `./gradl
 Le jar se trouve dans `build/libs/`.
 
 - `./gradlew runClient` : lance le jeu
-- `./gradlew runGameTestServer` : lance les tests automatiques
+- `./gradlew runGameTestServer` : lance les tests automatiques, dont les tests de triche (`ExploitTests` : duplication,
+  perte d'objets, paquets forgés par un client modifié)
+- `./gradlew runGameTestServerCreate` : tests des contraptions de Create (`CreateExploitTests`). Create n'est pas une
+  dépendance : déposer son JAR dans `run-gametest-create/mods` avant
 
 ## Modèles et ressources
 
