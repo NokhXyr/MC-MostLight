@@ -14,6 +14,9 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.client.resources.model.ModelBaker;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.client.resources.model.UnbakedModel;
+import com.mojang.math.Transformation;
+import net.neoforged.neoforge.client.model.SimpleModelState;
+import org.joml.Vector3f;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.neoforged.api.distmarker.Dist;
@@ -37,6 +40,8 @@ import net.neoforged.neoforge.client.model.geometry.IUnbakedGeometry;
 public final class LampModelLoaders {
     private static final int[] NODES = {3, 4, 5};
     private static final int[] ENDS = {0, 1, 2, 6, 7, 8};
+    /** Distance between two LED slots (low, middle, high), in blocks: 6.5 pixels. */
+    private static final float SLOT_STEP = 6.5F / 16F;
 
     private LampModelLoaders() {}
 
@@ -86,11 +91,8 @@ public final class LampModelLoaders {
         public void resolveParents(Function<ResourceLocation, UnbakedModel> modelGetter, IGeometryBakingContext context) {
             modelGetter.apply(block(lamp + "_on")).resolveParents(modelGetter);
             for (String variant : variants) {
-                for (int slot = 0; slot < 3; slot++) {
-                    for (boolean lit : new boolean[] {false, true}) {
-                        int s = slot;
-                        pairs((i, j) -> modelGetter.apply(segment(s, i, j, variant, lit)).resolveParents(modelGetter));
-                    }
+                for (boolean lit : new boolean[] {false, true}) {
+                    pairs((i, j) -> modelGetter.apply(segment(0, i, j, variant, lit)).resolveParents(modelGetter));
                 }
             }
         }
@@ -103,8 +105,10 @@ public final class LampModelLoaders {
                 for (int l = 0; l < 2; l++) {
                     for (int slot = 0; slot < 3; slot++) {
                         int vv = v, ll = l, s = slot;
+                        // only slot 0 is stored: the others are the same pieces shifted along z
+                        ModelState shift = new SimpleModelState(new Transformation(new Vector3f(0, 0, s * SLOT_STEP), null, null, null));
                         pairs((i, j) -> templates[vv][ll][s][i][j] =
-                                baker.bake(segment(s, i, j, variants.get(vv), ll == 1), BlockModelRotation.X0_Y0, sprites));
+                                baker.bake(segment(0, i, j, variants.get(vv), ll == 1), shift, sprites));
                     }
                 }
             }
