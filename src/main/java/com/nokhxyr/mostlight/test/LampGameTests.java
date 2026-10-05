@@ -9,6 +9,8 @@ import com.nokhxyr.mostlight.block.LightStripBlock;
 import com.nokhxyr.mostlight.block.LightTone;
 import com.nokhxyr.mostlight.block.TallLampBlock;
 import com.nokhxyr.mostlight.block.entity.LampBlockEntity;
+import com.nokhxyr.mostlight.debug.LampDoctor;
+import com.nokhxyr.mostlight.link.SwitchBlockEntity;
 import com.nokhxyr.mostlight.link.LampLinks;
 import com.nokhxyr.mostlight.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
@@ -699,6 +701,68 @@ public class LampGameTests {
             helper.assertBlockNotPresent(ModBlocks.lamp(LampType.WALL_SCONCE), lamp.east());
             helper.assertItemEntityPresent(ModBlocks.item(LampType.WALL_SCONCE), lamp.east(), 2.0);
             helper.succeed();
+        });
+    }
+
+    /** /mostlight check and repair: broken data is found, then fixed, and nothing is left to find. */
+    @GameTest(template = "empty", timeoutTicks = 60)
+    public static void doctorFindsAndRepairs(GameTestHelper helper) {
+        net.minecraft.server.level.ServerLevel level = helper.getLevel();
+        // lamp block whose block entity was lost
+        BlockPos bare = new BlockPos(1, 2, 1);
+        helper.setBlock(bare, ModBlocks.state(LampType.LAMP_BLOCK, DyeColor.RED));
+        level.getChunkAt(helper.absolutePos(bare)).removeBlockEntity(helper.absolutePos(bare));
+        // LED connection to a block that is not there
+        BlockPos linked = new BlockPos(1, 2, 4);
+        helper.setBlock(linked, ModBlocks.state(LampType.LAMP_BLOCK, DyeColor.BLUE));
+        ((LampBlockEntity) helper.getBlockEntity(linked)).setConnected(Direction.EAST, true);
+        // floor lamp without its upper half
+        BlockPos tall = new BlockPos(4, 2, 4);
+        helper.setBlock(tall.below(), Blocks.STONE);
+        helper.setBlock(tall, ModBlocks.state(LampType.FLOOR_LAMP, DyeColor.WHITE));
+        // switch linked to a lamp replaced by stone
+        BlockPos sw = new BlockPos(6, 2, 6);
+        helper.setBlock(sw.west(), Blocks.STONE);
+        helper.setBlock(sw, ModBlocks.LIGHT_SWITCH.get().defaultBlockState());
+        ((SwitchBlockEntity) helper.getBlockEntity(sw)).setLinks(java.util.List.of(helper.absolutePos(sw.west())));
+
+        java.util.List<BlockPos> all = java.util.List.of(bare, linked, tall, sw);
+        // let the light engine catch up with the new lamps first
+        helper.runAfterDelay(5, () -> {
+            java.util.List<LampDoctor.Issue> issues = new java.util.ArrayList<>();
+            all.forEach(pos -> issues.addAll(LampDoctor.check(level, helper.absolutePos(pos))));
+            java.util.Set<LampDoctor.Kind> kinds = java.util.EnumSet.noneOf(LampDoctor.Kind.class);
+            issues.forEach(issue -> kinds.add(issue.kind()));
+            helper.assertTrue(kinds.containsAll(java.util.List.of(LampDoctor.Kind.MISSING_ENTITY, LampDoctor.Kind.DEAD_CONNECTION,
+                    LampDoctor.Kind.BROKEN_TALL, LampDoctor.Kind.DEAD_LINK)), "problèmes trouvés : " + kinds);
+            helper.assertTrue(LampDoctor.scan(level, helper.absolutePos(bare), 0).issues()
+                    .contains(new LampDoctor.Issue(LampDoctor.Kind.MISSING_ENTITY, helper.absolutePos(bare))), "scan du chunk");
+            // the commands themselves, as an operator would type them
+            BlockPos abs = helper.absolutePos(bare);
+            net.minecraft.commands.CommandSourceStack source = level.getServer().createCommandSourceStack().withLevel(level)
+                    .withPosition(Vec3.atCenterOf(abs)).withSuppressedOutput();
+            try {
+                var dispatcher = level.getServer().getCommands().getDispatcher();
+                helper.assertTrue(dispatcher.execute(MostLight.MOD_ID + " check 0", source) >= 1, "/mostlight check");
+                helper.assertTrue(dispatcher.execute(MostLight.MOD_ID + " inspect " + abs.getX() + " " + abs.getY() + " " + abs.getZ(), source) >= 1,
+                        "/mostlight inspect");
+            } catch (com.mojang.brigadier.exceptions.CommandSyntaxException e) {
+                helper.fail("commande refusée : " + e.getMessage());
+            }
+            helper.assertTrue(LampDoctor.repair(level, issues) == issues.size(), "tout corrigé");
+
+            helper.assertTrue(level.getChunkAt(helper.absolutePos(bare)).getBlockEntities().containsKey(helper.absolutePos(bare)), "block entity recréée");
+            helper.assertTrue(((LampBlockEntity) helper.getBlockEntity(linked)).connections() == 0, "liaison morte retirée");
+            helper.assertTrue(helper.getBlockState(tall.above()).getBlock() instanceof TallLampBlock
+                    && helper.getBlockState(tall.above()).getValue(TallLampBlock.HALF) == DoubleBlockHalf.UPPER, "moitié haute remise");
+            helper.assertTrue(((SwitchBlockEntity) helper.getBlockEntity(sw)).links().isEmpty(), "lien mort retiré");
+            helper.runAfterDelay(5, () -> {
+                java.util.List<LampDoctor.Issue> left = new java.util.ArrayList<>();
+                all.forEach(pos -> left.addAll(LampDoctor.check(level, helper.absolutePos(pos))));
+                left.addAll(LampDoctor.check(level, helper.absolutePos(tall.above())));
+                helper.assertTrue(left.isEmpty(), "plus rien à corriger : " + left);
+                helper.succeed();
+            });
         });
     }
 }

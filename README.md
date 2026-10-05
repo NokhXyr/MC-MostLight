@@ -90,6 +90,20 @@ Le fichier `config/mostlight-common.toml` est créé au premier lancement :
 | `switches.maxLinks` | 64 | Nombre maximal de lampes liées à un interrupteur ou une télécommande (1 à 1024) |
 | `switches.range` | 64 | Distance maximale en blocs entre un interrupteur et ses lampes (8 à 1024) |
 
+## Commandes de diagnostic
+
+Réservées aux opérateurs (niveau 2). Elles ne lisent que les chunks déjà chargés et ne modifient que les blocs MostLight.
+
+| Commande | Rôle |
+|---|---|
+| `/mostlight inspect [position]` | Tout ce que le mod sait de la lampe ou de l'interrupteur visé : état, lumière émise et mesurée, finition, teinte, mémoire redstone, bandes LED, chaîne, liaisons, problèmes détectés |
+| `/mostlight check [rayon]` | Liste les problèmes dans les chunks autour (rayon en chunks, 4 par défaut, 32 au plus), avec des coordonnées cliquables pour s'y téléporter |
+| `/mostlight repair [rayon]` | Corrige ces problèmes et l'écrit dans les logs du serveur |
+
+Problèmes détectés : block entity manquante, de mauvais type ou restée sans son bloc, lampe de 2 blocs à qui il manque une
+moitié (remise si la place est libre, sinon la lampe tombe en objet), lumière plus faible que celle de la lampe (recalculée),
+liaison LED vers un bloc qui ne la rend pas, interrupteur lié à une lampe disparue.
+
 ## Performances
 
 Test de charge avec 20 joueurs simultanés et près de 37 000 lampes : 20 TPS tenus, coût proche de blocs lumineux
