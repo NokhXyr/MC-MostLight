@@ -27,7 +27,7 @@ public class SwitchBlockEntity extends BlockEntity {
     }
 
     public void setLinks(List<BlockPos> links) {
-        this.links = List.copyOf(links);
+        this.links = List.copyOf(links.subList(0, Math.min(links.size(), ModComponents.MAX_LINKS)));
         setChanged();
     }
 
@@ -47,6 +47,9 @@ public class SwitchBlockEntity extends BlockEntity {
         List<BlockPos> loaded = new ArrayList<>();
         ListTag list = tag.getList("links", Tag.TAG_INT_ARRAY);
         for (Tag entry : list) {
+            if (loaded.size() >= ModComponents.MAX_LINKS) {
+                break;
+            }
             if (entry instanceof net.minecraft.nbt.IntArrayTag array && array.size() == 3) {
                 loaded.add(new BlockPos(array.get(0).getAsInt(), array.get(1).getAsInt(), array.get(2).getAsInt()));
             }

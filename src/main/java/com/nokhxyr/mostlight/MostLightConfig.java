@@ -19,7 +19,7 @@ public final class MostLightConfig {
         builder.push("switches");
         SWITCH_MAX_LINKS = builder
                 .comment("Nombre maximal de lampes liées à un interrupteur ou une télécommande / Max lamps linked to a switch or remote")
-                .defineInRange("maxLinks", 64, 1, 1024);
+                .defineInRange("maxLinks", 64, 1, com.nokhxyr.mostlight.component.ModComponents.MAX_LINKS);
         SWITCH_RANGE = builder
                 .comment("Portée maximale (en blocs) entre un interrupteur et ses lampes / Max distance in blocks between a switch and its lamps")
                 .defineInRange("range", 64, 8, 1024);

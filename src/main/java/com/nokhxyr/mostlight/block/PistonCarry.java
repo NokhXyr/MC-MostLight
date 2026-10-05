@@ -20,7 +20,8 @@ public final class PistonCarry {
     /** Le mouvement d'un piston dure 2 ticks ; au-delà, une donnée en attente n'appartient plus à personne. */
     private static final long MAX_AGE = 6;
 
-    private record Pending(CompoundTag tag, long time) {}
+    /** Data of a moving lamp, the block it belongs to and when it left. */
+    private record Pending(CompoundTag tag, net.minecraft.world.level.block.Block block, long time) {}
 
     private static final Map<ResourceKey<Level>, Map<BlockPos, Pending>> PENDING = new ConcurrentHashMap<>();
 
@@ -52,7 +53,7 @@ public final class PistonCarry {
         pending.values().removeIf(p -> now - p.time() > MAX_AGE);
         for (BlockPos pos : resolver.getToPush()) {
             if (level.getBlockEntity(pos) instanceof LampBlockEntity lamp) {
-                pending.put(pos.relative(move).immutable(), new Pending(lamp.saveWithoutMetadata(level.registryAccess()), now));
+                pending.put(pos.relative(move).immutable(), new Pending(lamp.saveWithoutMetadata(level.registryAccess()), lamp.getBlockState().getBlock(), now));
             }
         }
     }
@@ -65,7 +66,8 @@ public final class PistonCarry {
         }
         Map<BlockPos, Pending> pending = PENDING.get(level.dimension());
         Pending carried = pending == null ? null : pending.remove(lamp.getBlockPos());
-        if (carried != null && level.getGameTime() - carried.time() <= MAX_AGE) {
+        // only onto the lamp that was moved: a block placed there meanwhile does not inherit its data
+        if (carried != null && level.getGameTime() - carried.time() <= MAX_AGE && carried.block() == lamp.getBlockState().getBlock()) {
             lamp.loadWithComponents(carried.tag(), level.registryAccess());
             lamp.afterMove();
         }

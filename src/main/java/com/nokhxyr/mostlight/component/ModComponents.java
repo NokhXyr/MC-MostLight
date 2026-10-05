@@ -24,11 +24,17 @@ public final class ModComponents {
     public static final Supplier<DataComponentType<LightTone>> LIGHT_TONE = COMPONENTS.register("light_tone",
             () -> enumComponent(StringRepresentable.fromEnum(LightTone::values), LightTone.values()));
 
+    /**
+     * Most links an item or a switch can hold: the highest maxLinks the config allows. Also the size limit when reading
+     * one from a save or a packet, so a forged item (creative inventory, modified client) cannot carry millions.
+     */
+    public static final int MAX_LINKS = 1024;
+
     /** Lampes liées à un interrupteur ou une télécommande (positions absolues). */
     public static final Supplier<DataComponentType<List<BlockPos>>> LINKS = COMPONENTS.register("links",
             () -> DataComponentType.<List<BlockPos>>builder()
-                    .persistent(BlockPos.CODEC.listOf())
-                    .networkSynchronized(BlockPos.STREAM_CODEC.apply(ByteBufCodecs.list()))
+                    .persistent(BlockPos.CODEC.listOf(0, MAX_LINKS))
+                    .networkSynchronized(BlockPos.STREAM_CODEC.apply(ByteBufCodecs.list(MAX_LINKS)))
                     .build());
 
     private ModComponents() {}
