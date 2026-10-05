@@ -49,6 +49,7 @@ public final class LampModelLoaders {
     static void register(ModelEvent.RegisterGeometryLoaders event) {
         event.register(ResourceLocation.fromNamespaceAndPath(MostLight.MOD_ID, "strip"), StripGeometry.LOADER);
         event.register(ResourceLocation.fromNamespaceAndPath(MostLight.MOD_ID, "animated"), AnimatedGeometry.LOADER);
+        event.register(ResourceLocation.fromNamespaceAndPath(MostLight.MOD_ID, "lit"), LitGeometry.LOADER);
     }
 
     private static ResourceLocation block(String path) {
