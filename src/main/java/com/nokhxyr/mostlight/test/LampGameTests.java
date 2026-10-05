@@ -84,6 +84,24 @@ public class LampGameTests {
         helper.succeed();
     }
 
+    /** A lamp placed with a custom finish tells clients once; a default lamp sends nothing. */
+    @GameTest(template = "empty")
+    public static void placedLookReachesClients(GameTestHelper helper) {
+        helper.setBlock(GROUND, Blocks.STONE);
+        helper.setBlock(GROUND.east(2), Blocks.STONE);
+        Player player = helper.makeMockPlayer(GameType.CREATIVE);
+        ItemStack verdigris = new ItemStack(ModBlocks.item(LampType.TABLE_LAMP, DyeColor.WHITE));
+        verdigris.set(com.nokhxyr.mostlight.component.ModComponents.FINISH.get(), LampFinish.VERDIGRIS);
+        place(helper, player, verdigris, GROUND, Direction.UP);
+        place(helper, player, new ItemStack(ModBlocks.item(LampType.TABLE_LAMP, DyeColor.WHITE)), GROUND.east(2), Direction.UP);
+        LampBlockEntity custom = (LampBlockEntity) helper.getBlockEntity(LAMP);
+        LampBlockEntity plain = (LampBlockEntity) helper.getBlockEntity(LAMP.east(2));
+        helper.assertTrue(custom.finish() == LampFinish.VERDIGRIS, "finition posée");
+        helper.assertTrue(custom.getUpdatePacket() != null, "la finition part vers les clients");
+        helper.assertTrue(plain.getUpdatePacket() == null, "une lampe par défaut n'envoie rien");
+        helper.succeed();
+    }
+
     /** The brightness is kept in the block entity while the lamp is off. */
     @GameTest(template = "empty")
     public static void brightnessKeptWhenOff(GameTestHelper helper) {

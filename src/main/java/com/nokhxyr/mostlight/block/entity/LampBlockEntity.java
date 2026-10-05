@@ -216,7 +216,16 @@ public class LampBlockEntity extends BlockEntity {
         if (level != null && level.isClientSide) {
             lookVersion++;
             requestModelDataUpdate();
+        } else {
+            // placed by /setblock, a structure or a piston: send a custom look once (a new lamp sends nothing otherwise)
+            lookChanged = customLook();
         }
+    }
+
+    /** True when clients need data beyond the defaults of the lamp model. */
+    private boolean customLook() {
+        LampFinish defaultFinish = getBlockState().getBlock() instanceof LampBlock lamp ? lamp.type().defaultFinish() : finish;
+        return finish != defaultFinish || tone != LightTone.AUTO || stripLayout != DEFAULT_STRIP_LAYOUT || connections != 0;
     }
 
     @Override
@@ -224,6 +233,8 @@ public class LampBlockEntity extends BlockEntity {
         super.applyImplicitComponents(input);
         finish = input.getOrDefault(ModComponents.FINISH.get(), finish);
         tone = input.getOrDefault(ModComponents.LIGHT_TONE.get(), tone);
+        // placed from an item with a finish or a tone: clients only learn it from this first packet
+        lookChanged = customLook();
     }
 
     @Override

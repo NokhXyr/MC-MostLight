@@ -55,3 +55,11 @@
 **Root cause:** Complementary only colours candles with an extra option (COLORED_CANDLE_LIGHT, off by default); the Solas fix had been checked against Complementary Unbound without coloured lighting, where both mappings looked the same.
 **Fix:** `IrisLightColors` checks the active pack: Complementary keeps the vanilla light sources, other packs use the coloured candles.
 **Prevention:** check a shader change with each pack's coloured lighting turned on, not only with its defaults.
+
+## [2026-10-05 02:04] Custom finish of a newly placed lamp not shown on clients
+
+**Context:** recording the CurseForge page, a counter of lamps placed with `/setblock` and a `finish` tag.
+**Error:** the lamps showed their model's default finish in game.
+**Root cause:** the block entity only sends data to clients after a look change (key, dye); a lamp placed with a custom finish, tone or LED setting (item from the finishes tab, `/setblock`, structure) never sent it, so clients kept the defaults until the chunk reloaded.
+**Fix:** `LampBlockEntity` marks a custom look for one packet when it is loaded or placed from an item; default lamps still send nothing. GameTest `placedLookReachesClients`.
+**Prevention:** when a block entity skips sync packets to save bandwidth, test the first placement as well as later changes.
