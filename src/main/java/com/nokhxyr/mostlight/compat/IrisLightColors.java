@@ -45,7 +45,8 @@ public final class IrisLightColors {
         BlockState endRod = Blocks.END_ROD.defaultBlockState().setValue(BlockStateProperties.FACING, Direction.UP);
         refs.put(DyeColor.WHITE, endRod);
         refs.put(DyeColor.LIGHT_GRAY, endRod);
-        refs.put(DyeColor.GRAY, Blocks.SEA_LANTERN.defaultBlockState());
+        // never the sea lantern: Complementary draws its texture's squares and circles of light on the lamp
+        refs.put(DyeColor.GRAY, endRod);
         refs.put(DyeColor.BLACK, Blocks.AMETHYST_CLUSTER.defaultBlockState());
         refs.put(DyeColor.BROWN, Blocks.LANTERN.defaultBlockState());
         refs.put(DyeColor.RED, Blocks.REDSTONE_BLOCK.defaultBlockState());
@@ -55,7 +56,7 @@ public final class IrisLightColors {
         refs.put(DyeColor.GREEN, Blocks.VERDANT_FROGLIGHT.defaultBlockState());
         refs.put(DyeColor.CYAN, Blocks.SOUL_LANTERN.defaultBlockState());
         refs.put(DyeColor.LIGHT_BLUE, Blocks.SOUL_LANTERN.defaultBlockState());
-        refs.put(DyeColor.BLUE, Blocks.SEA_LANTERN.defaultBlockState());
+        refs.put(DyeColor.BLUE, Blocks.SOUL_LANTERN.defaultBlockState());
         refs.put(DyeColor.PURPLE, Blocks.CRYING_OBSIDIAN.defaultBlockState());
         refs.put(DyeColor.MAGENTA, Blocks.PEARLESCENT_FROGLIGHT.defaultBlockState());
         refs.put(DyeColor.PINK, Blocks.PEARLESCENT_FROGLIGHT.defaultBlockState());

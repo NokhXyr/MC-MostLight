@@ -1,5 +1,13 @@
 # Error log
 
+## [2026-10-05 12:40] White squares on blue and gray lamps under Complementary
+
+**Context:** coloured light under Iris: each lit lamp borrows the block ID of a vanilla light source of its colour (`compat/IrisLightColors.java`).
+**Error:** blue and gray lamps showed white squares and circles on their shades, frames and light blocks.
+**Root cause:** both borrowed the sea lantern, and Complementary draws the sea lantern's own pattern of light from the texture of whatever block carries that ID.
+**Fix:** blue borrows the soul lantern, gray the end rod; no colour uses the sea lantern any more.
+**Prevention:** a borrowed ID must come from a block whose glow the pack draws evenly (lanterns, end rod, froglights); check every colour row of `runShowcaseShaders`, not a few lamps.
+
 ## [2026-10-05 10:23] Create crashed the GameTest server
 
 **Context:** running the GameTests with Create loaded, to test lamps on contraptions.

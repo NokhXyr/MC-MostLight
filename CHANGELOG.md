@@ -4,6 +4,12 @@
 
 Every release of MostLight (NeoForge 1.21.1). Newest first.
 
+### Unreleased
+
+#### Fixes
+- **Complementary**: blue and gray lamps showed white squares and circles on their surface. They no longer borrow the
+  sea lantern for their coloured light.
+
 ### 1.0.0 - 2026-10-05
 
 First public release.
@@ -69,6 +75,12 @@ First public release.
 ## Français
 
 Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
+
+### Non publié
+
+#### Corrections
+- **Complementary** : les lampes bleues et grises montraient des carrés et des ronds blancs à leur surface. Elles
+  n'empruntent plus la lanterne aquatique pour leur lumière colorée.
 
 ### 1.0.0 - 2026-10-05
 
