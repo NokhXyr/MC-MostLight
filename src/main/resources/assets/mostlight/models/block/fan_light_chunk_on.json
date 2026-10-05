@@ -1,4 +1,1 @@
-{
-  "loader": "mostlight:animated",
-  "model": "mostlight:block/fan_light_on"
-}
+{"loader":"mostlight:animated","model":"mostlight:block/fan_light_on"}

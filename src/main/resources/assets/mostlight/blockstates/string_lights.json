@@ -1,7 +1,1 @@
-{
-  "variants": {
-    "": {
-      "model": "mostlight:block/string_lights_dynamic"
-    }
-  }
-}
+{"variants":{"":{"model":"mostlight:block/string_lights_dynamic"}}}

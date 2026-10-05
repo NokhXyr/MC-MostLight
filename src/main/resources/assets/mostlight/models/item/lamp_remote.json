@@ -1,6 +1,1 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "mostlight:item/lamp_remote"
-  }
-}
+{"parent":"minecraft:item/generated","textures":{"layer0":"mostlight:item/lamp_remote"}}

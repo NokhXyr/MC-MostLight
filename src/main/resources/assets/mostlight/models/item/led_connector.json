@@ -1,6 +1,1 @@
-{
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "mostlight:item/led_connector"
-  }
-}
+{"parent":"minecraft:item/handheld","textures":{"layer0":"mostlight:item/led_connector"}}
