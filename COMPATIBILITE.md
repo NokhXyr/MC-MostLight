@@ -18,7 +18,7 @@ Légende :
 |---|---|---|
 | Sodium | 0.8.13 | ✅ |
 | Iris | 1.8.14-beta.1 | ✅ |
-| Complementary Reimagined | r5.9.3 | ✅ (lumière colorée : voir plus bas) |
+| Complementary Reimagined | r5.9.3 | ✅ (sans lumière colorée : voir plus bas) |
 | ModernFix | 5.27.24 (option `dynamic_resources` activée) | ✅ |
 | FerriteCore | 7.0.3 | ✅ |
 | Sodium Extra | 0.9.4 | ✅ |
@@ -53,7 +53,8 @@ Une lampe colorée éclaire de sa couleur sous Iris. Au chargement du pack, Most
 | Jaune | grenouillampe ocre |
 | Vert | grenouillampe verdoyante |
 | Cyan, bleu clair | lanterne des âmes |
-| Bleu, gris | lanterne de mer |
+| Bleu | lanterne des âmes |
+| Gris | barre de l'End |
 | Violet | obsidienne pleureuse |
 | Rose, magenta | grenouillampe nacrée |
 | Blanc | barre de l'End |
@@ -62,5 +63,5 @@ Une lampe colorée éclaire de sa couleur sous Iris. Au chargement du pack, Most
 
 Cela marche avec tout pack qui colore la lumière par bloc.
 
-- **Complementary** : son « éclairage coloré » est **désactivé par défaut**. Active-le dans les options du pack : *Colored Lighting*, réglé sur 256 ou plus.
+- **Complementary** : pas de lumière colorée. Ce pack dessine sur la lampe le motif lumineux du bloc emprunté (un carré par face pour les grenouillampes, un rond pour la lanterne de mer...), ce qui tache les abat-jour et les blocs. Sous Complementary, les lampes éclairent donc en lumière chaude ordinaire, avec des surfaces propres.
 - **Limite** : la teinte de lumière choisie à la clé de décorateur (chaude, froide…) ne change pas la couleur sous shaders. Seule la couleur de la lampe compte.

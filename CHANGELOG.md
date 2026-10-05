@@ -7,8 +7,9 @@ Every release of MostLight (NeoForge 1.21.1). Newest first.
 ### Unreleased
 
 #### Fixes
-- **Complementary**: blue and gray lamps showed white squares and circles on their surface. They no longer borrow the
-  sea lantern for their coloured light.
+- **Complementary**: lit lamps showed squares, circles and patches of light on their surface (yellow, green, pink,
+  magenta, blue, gray, black...). Under Complementary, lamps now give a plain warm light and keep clean surfaces;
+  coloured light stays under Solas and other packs.
 
 ### 1.0.0 - 2026-10-05
 
@@ -43,7 +44,7 @@ First public release.
   item; two-block lamps break.
 - **Create** (optional): contraptions carry the lamps attached to the blocks they move.
 - **Coloured light under shaders** (Iris): each lit lamp lights up in its colour with packs that colour light, such as
-  Solas and Complementary (coloured lighting on).
+  Solas.
 - **Sodium, Iris, ModernFix**: lamps, strips and animated lamps render correctly.
 - **JEI**: workbench recipes with their materials and amounts.
 
@@ -79,8 +80,9 @@ Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
 ### Non publié
 
 #### Corrections
-- **Complementary** : les lampes bleues et grises montraient des carrés et des ronds blancs à leur surface. Elles
-  n'empruntent plus la lanterne aquatique pour leur lumière colorée.
+- **Complementary** : les lampes allumées montraient des carrés, des ronds et des taches de lumière sur leur surface
+  (jaune, vert, rose, magenta, bleu, gris, noir...). Sous Complementary, elles donnent maintenant une lumière chaude
+  ordinaire et gardent des surfaces propres ; la lumière colorée reste sous Solas et les autres packs.
 
 ### 1.0.0 - 2026-10-05
 

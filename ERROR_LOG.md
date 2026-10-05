@@ -5,8 +5,9 @@
 **Context:** coloured light under Iris: each lit lamp borrows the block ID of a vanilla light source of its colour (`compat/IrisLightColors.java`).
 **Error:** blue and gray lamps showed white squares and circles on their shades, frames and light blocks.
 **Root cause:** both borrowed the sea lantern, and Complementary draws the sea lantern's own pattern of light from the texture of whatever block carries that ID.
-**Fix:** blue borrows the soul lantern, gray the end rod; no colour uses the sea lantern any more.
-**Prevention:** a borrowed ID must come from a block whose glow the pack draws evenly (lanterns, end rod, froglights); check every colour row of `runShowcaseShaders`, not a few lamps.
+**Fix (first try, not enough):** blue borrowed the soul lantern, gray the end rod. A full before/after comparison of the 83 shots showed every borrowed source draws its own pattern in Complementary (froglights a square per face, amethyst a block pattern, soul lanterns only bright pixels, candles a gradient).
+**Fix:** under Complementary lamps borrow no ID at all (plain light, clean surfaces); Solas keeps coloured light from candles.
+**Prevention:** read the pack's material code (`lib/materials/materialHandling/terrainIPBR.glsl`) for any borrowed ID, and compare every shot of `runShowcaseShaders` against the previous version side by side, never a sample.
 
 ## [2026-10-05 10:23] Create crashed the GameTest server
 

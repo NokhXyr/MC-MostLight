@@ -70,11 +70,13 @@ public final class IrisLightColors {
     }
 
     /**
-     * Complementary (Reimagined, Unbound and packs built on them) colours its light from the vanilla sources without
-     * lighting up whole textures, but leaves coloured candles warm unless an extra option is on: keep the vanilla
-     * references there. Other packs (Solas...) make those sources glow over the whole texture: candles are better.
+     * Complementary (Reimagined, Unbound and packs built on them) draws each borrowed source's own glow on the lamp:
+     * froglights light a square in the middle of every face, the sea lantern a circle, amethyst a pattern by block
+     * position, soul lanterns only their brightest pixels, and coloured candles a gradient down every face. No vanilla
+     * source gives both a coloured light and a clean surface there, so lamps borrow nothing under these packs: they
+     * light like any modded source, with clean surfaces. Other packs (Solas...) keep coloured light from candles.
      */
-    private static boolean prefersVanillaSources() {
+    private static boolean isComplementary() {
         String pack = currentPackName();
         return pack != null && pack.toLowerCase(java.util.Locale.ROOT).contains("complementary");
     }
@@ -94,12 +96,16 @@ public final class IrisLightColors {
         if (ids == null || ids.isEmpty()) {
             return ids;
         }
+        if (!vanillaOnly && isComplementary()) {
+            LOGGER.info("[MostLight] lumière colorée Iris : désactivée sous Complementary (surfaces des lampes sans motif)");
+            return ids;
+        }
         Object2IntMap<BlockState> out = new Object2IntOpenHashMap<>(ids);
         out.defaultReturnValue(ids.defaultReturnValue());
         Map<DyeColor, BlockState> refs = references();
         // bougies colorées seulement si le pack les distingue de la bougie simple (sinon lumière sans couleur)
         BlockState plain = Blocks.CANDLE.defaultBlockState().setValue(CandleBlock.LIT, true);
-        boolean candles = !vanillaOnly && !prefersVanillaSources();
+        boolean candles = !vanillaOnly;
         for (DyeColor color : candles ? DyeColor.values() : new DyeColor[0]) {
             BlockState candle = candle(color);
             if (ids.containsKey(candle) && (!ids.containsKey(plain) || ids.getInt(candle) != ids.getInt(plain))) {

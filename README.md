@@ -70,6 +70,8 @@ Testé avec Sodium 0.8.13, Iris 1.8.14-beta.1 et Complementary Reimagined r5.9.3
 - verre translucide ;
 - couleurs, finitions et teintes.
 
+Sous Complementary, les lampes éclairent en lumière chaude ordinaire : ce pack dessine le motif de chaque bloc emprunté (carrés, ronds) sur leurs surfaces. La lumière colorée est gardée sous Solas et les autres packs.
+
 Pour refaire le test :
 
 1. Dépose les jars de Sodium et d'Iris (NeoForge 1.21.1) dans `run-shaders/mods/`.
