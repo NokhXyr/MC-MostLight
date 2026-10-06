@@ -1,5 +1,13 @@
 # Error log
 
+## [2026-10-06 09:00] images/tools committed by mistake
+
+**Context:** the gallery script `images/tools/gallery.py` was not shown by git status.
+**Error:** the root rule `tools/` was narrowed to `/tools/` so the script would be tracked; the whole page toolkit then went into five commits.
+**Root cause:** the rule `tools/` was meant to keep both `tools/` and `images/tools/` out of git; the ignore was read as an accident instead of a decision.
+**Fix:** rule restored to `tools/`, `images/tools` removed from the whole history (git filter-repo), main and tags force pushed with the user's agreement.
+**Prevention:** a file hidden by .gitignore is a decision until the user says otherwise: ask before changing an ignore rule.
+
 ## [2026-10-05 12:40] White squares on blue and gray lamps under Complementary
 
 **Context:** coloured light under Iris: each lit lamp borrows the block ID of a vanilla light source of its colour (`compat/IrisLightColors.java`).
