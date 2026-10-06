@@ -4,11 +4,14 @@ import com.nokhxyr.mostlight.block.entity.LampBlockEntity;
 import com.nokhxyr.mostlight.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -59,6 +62,64 @@ public class TallLampBlock extends LampBlock {
     /** Vrai si l'état est l'autre moitié d'une lampe du même type (couleur indifférente pendant la recoloration). */
     private boolean isPartner(BlockState other, DoubleBlockHalf expectedHalf) {
         return other.getBlock() instanceof TallLampBlock lamp && lamp.type() == type() && other.getValue(HALF) == expectedHalf;
+    }
+
+    /** True when the other half of this lamp is in place. */
+    public boolean whole(BlockGetter level, BlockPos pos, BlockState state) {
+        DoubleBlockHalf half = state.getValue(HALF);
+        return isPartner(level.getBlockState(otherHalf(pos, state)), half == DoubleBlockHalf.LOWER ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER);
+    }
+
+    /** Puts back the missing half when there is room for it; otherwise removes the lone half and drops the lamp. */
+    public boolean repairHalf(ServerLevel level, BlockPos pos, BlockState state) {
+        if (whole(level, pos, state)) {
+            return false;
+        }
+        boolean lower = state.getValue(HALF) == DoubleBlockHalf.LOWER;
+        BlockPos other = otherHalf(pos, state);
+        if (level.getBlockState(other).canBeReplaced() && level.isInWorldBounds(other)) {
+            BlockState half = state.setValue(HALF, lower ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER)
+                    .setValue(WATERLOGGED, level.getFluidState(other).getType() == Fluids.WATER);
+            level.setBlock(other, half, Block.UPDATE_ALL);
+            if (level.getBlockEntity(pos) instanceof LampBlockEntity from && level.getBlockEntity(other) instanceof LampBlockEntity to) {
+                to.setLook(from.finish(), from.tone());
+            }
+            return true;
+        }
+        removeHalf(level, pos, state);
+        popResource(level, pos, ModBlocks.stack(type(), color(state)));
+        return true;
+    }
+
+    private static void removeHalf(Level level, BlockPos pos, BlockState state) {
+        level.setBlock(pos, state.getValue(WATERLOGGED) ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
+    }
+
+    /**
+     * A half set without its other half (a WorldEdit selection cutting the lamp, a flipped or broken schematic) gets no
+     * neighbor update to fix it: check it on the next tick. A player's placement adds the upper half right after.
+     */
+    @Override
+    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+        super.onPlace(state, level, pos, oldState, movedByPiston);
+        if (!level.isClientSide && !whole(level, pos, state)) {
+            level.scheduleTick(pos, this, 1);
+        }
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (!whole(level, pos, state)) {
+            // a lone lower half is the lamp (it holds its memory and its item): completed, or dropped when there is no
+            // room; a lone upper half is a piece of one, removed without an item (an upside-down paste stays one lamp)
+            if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
+                repairHalf(level, pos, state);
+            } else {
+                removeHalf(level, pos, state);
+            }
+            return;
+        }
+        super.tick(state, level, pos, random);
     }
 
     @Override

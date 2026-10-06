@@ -112,6 +112,13 @@ neoForge {
             gameDirectory = project.file('run-gametest-create')
             systemProperty 'neoforge.enabledGameTestNamespaces', 'mostlight_create'
         }
+        // ./gradlew runGameTestServerWorldEdit: WorldEdit commands typed by a builder on lamps (WorldEditTests) alone.
+        // WorldEdit is not a dependency: drop its jar in run-gametest-worldedit/mods first.
+        gameTestServerWorldEdit {
+            type = 'gameTestServer'
+            gameDirectory = project.file('run-gametest-worldedit')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'mostlight_worldedit'
+        }
         // ./gradlew runStressServer : test de charge serveur (20 joueurs simulés, ~36 000 lampes), rapport dans run-stress/stress
         stressServer {
             type = 'gameTestServer'

@@ -104,3 +104,19 @@
 **Root cause:** the block entity only sends data to clients after a look change (key, dye); a lamp placed with a custom finish, tone or LED setting (item from the finishes tab, `/setblock`, structure) never sent it, so clients kept the defaults until the chunk reloaded.
 **Fix:** `LampBlockEntity` marks a custom look for one packet when it is loaded or placed from an item; default lamps still send nothing. GameTest `placedLookReachesClients`.
 **Prevention:** when a block entity skips sync packets to save bandwidth, test the first placement as well as later changes.
+
+## [2026-10-06 19:44] WorldEdit left half lamps in the world
+
+**Context:** new GameTests driving real WorldEdit commands as an op player (`runGameTestServerWorldEdit`).
+**Error:** a selection cutting a two-block lamp (`//copy` of one half then `//paste`), `//flip up` or a schematic with a lone half left a lower or upper half standing forever, without light or top.
+**Root cause:** halves only check each other in `updateShape`, which runs on a neighbour change. A block set by WorldEdit with no neighbour change around it is never checked.
+**Fix:** `TallLampBlock.onPlace` schedules a tick when the other half is missing; the tick completes a lone lower half (or drops the lamp when there is no room) and removes a lone upper half without an item. Same repair code as `/mostlight repair` (`TallLampBlock.repairHalf`).
+**Prevention:** any multi-block structure must check itself on placement too, not only on neighbour updates: editors and schematics place blocks without the neighbours a player would have.
+
+## [2026-10-06 19:48] Doctor GameTest no longer saw its broken tall lamp
+
+**Context:** after the tall lamp self-repair above, running the main GameTest suite.
+**Error:** `doctorFindsAndRepairs` failed: `BROKEN_TALL` missing from the issues found.
+**Root cause:** the test made its broken lamp with `helper.setBlock`, which now triggers the self-repair one tick later, before the doctor looks.
+**Fix:** the test writes the lone half straight into the chunk section, the way a damaged save holds it.
+**Prevention:** a test of a repair tool must build its broken data below the game's own checks (chunk section, removed block entity), or the game fixes it first.

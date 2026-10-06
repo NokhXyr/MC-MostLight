@@ -6,7 +6,6 @@ import com.nokhxyr.mostlight.block.TallLampBlock;
 import com.nokhxyr.mostlight.block.entity.LampBlockEntity;
 import com.nokhxyr.mostlight.link.LightSwitchBlock;
 import com.nokhxyr.mostlight.link.SwitchBlockEntity;
-import com.nokhxyr.mostlight.registry.ModBlocks;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
@@ -16,15 +15,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.SectionPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.LightLayer;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.chunk.LevelChunkSection;
-import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -224,7 +220,7 @@ public final class LampDoctor {
                 return true;
             }
             case BROKEN_TALL -> {
-                return state.getBlock() instanceof TallLampBlock && fixTall(level, pos, state);
+                return state.getBlock() instanceof TallLampBlock tall && tall.repairHalf(level, pos, state);
             }
             case DARK_LIGHT -> {
                 level.getChunkSource().getLightEngine().checkBlock(pos);
@@ -250,29 +246,5 @@ public final class LampDoctor {
             }
         }
         return false;
-    }
-
-    /** Puts back the missing half when there is room for it; otherwise removes the lone half and drops the lamp. */
-    private static boolean fixTall(ServerLevel level, BlockPos pos, BlockState state) {
-        if (partner(level, pos, state) != null) {
-            return false;
-        }
-        boolean lower = state.getValue(TallLampBlock.HALF) == DoubleBlockHalf.LOWER;
-        BlockPos other = lower ? pos.above() : pos.below();
-        BlockState there = level.getBlockState(other);
-        if (there.canBeReplaced() && level.isInWorldBounds(other)) {
-            BlockState half = state.setValue(TallLampBlock.HALF, lower ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER)
-                    .setValue(LampBlock.WATERLOGGED, level.getFluidState(other).getType() == Fluids.WATER);
-            level.setBlock(other, half, Block.UPDATE_ALL);
-            if (level.getBlockEntity(pos) instanceof LampBlockEntity from && level.getBlockEntity(other) instanceof LampBlockEntity to) {
-                to.setLook(from.finish(), from.tone());
-            }
-            return true;
-        }
-        LampBlock lamp = (LampBlock) state.getBlock();
-        BlockState replacement = state.getValue(LampBlock.WATERLOGGED) ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
-        level.setBlock(pos, replacement, Block.UPDATE_ALL);
-        Block.popResource(level, pos, ModBlocks.stack(lamp.type(), LampBlock.color(state)));
-        return true;
     }
 }

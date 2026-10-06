@@ -132,6 +132,9 @@ Le jar se trouve dans `build/libs/`.
   perte d'objets, paquets forgés par un client modifié)
 - `./gradlew runGameTestServerCreate` : tests des contraptions de Create (`CreateExploitTests`). Create n'est pas une
   dépendance : déposer son JAR dans `run-gametest-create/mods` avant
+- `./gradlew runGameTestServerWorldEdit` : un bâtisseur simulé (opérateur, créatif) tape de vraies commandes WorldEdit
+  sur les lampes (`//copy`, `//rotate`, `//flip`, `//paste`, `//move`, `//set`, `//undo`) et clique les interrupteurs
+  (`WorldEditTests`). WorldEdit n'est pas une dépendance : déposer son JAR dans `run-gametest-worldedit/mods` avant
 
 ## Modèles et ressources
 

@@ -716,10 +716,15 @@ public class LampGameTests {
         BlockPos linked = new BlockPos(1, 2, 4);
         helper.setBlock(linked, ModBlocks.state(LampType.LAMP_BLOCK, DyeColor.BLUE));
         ((LampBlockEntity) helper.getBlockEntity(linked)).setConnected(Direction.EAST, true);
-        // floor lamp without its upper half
+        // floor lamp without its upper half, written straight into the chunk as a damaged save has it (a half placed
+        // normally completes itself on the next tick)
         BlockPos tall = new BlockPos(4, 2, 4);
         helper.setBlock(tall.below(), Blocks.STONE);
-        helper.setBlock(tall, ModBlocks.state(LampType.FLOOR_LAMP, DyeColor.WHITE));
+        BlockPos tallAbs = helper.absolutePos(tall);
+        net.minecraft.world.level.chunk.LevelChunk tallChunk = level.getChunkAt(tallAbs);
+        tallChunk.getSection(tallChunk.getSectionIndex(tallAbs.getY())).setBlockState(tallAbs.getX() & 15, tallAbs.getY() & 15,
+                tallAbs.getZ() & 15, ModBlocks.state(LampType.FLOOR_LAMP, DyeColor.WHITE));
+        level.getChunkSource().blockChanged(tallAbs);
         // switch linked to a lamp replaced by stone
         BlockPos sw = new BlockPos(6, 2, 6);
         helper.setBlock(sw.west(), Blocks.STONE);
