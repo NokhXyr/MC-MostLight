@@ -4,6 +4,19 @@
 
 Every release of MostLight (NeoForge 1.21.1). Newest first.
 
+### 1.0.1 - 2026-10-06
+
+#### Fixes
+- A two-block lamp cut in half by a WorldEdit selection, a `//flip up` or a damaged schematic no longer leaves half a
+  lamp standing: a lone lower half gets its top back (or drops as an item when there is no room), a lone upper half is
+  removed.
+
+#### Compatibility
+- **WorldEdit**: tested with real commands typed by an operator (copy, paste, rotate, flip, move, set, undo). Every
+  lamp keeps its colour, finish, tone and brightness, nothing is duplicated or lost. Known limits: a switch keeps the
+  positions it was linked to (re-link a pasted or moved switch), and after a rotation or a flip LED strips keep their
+  old position on each face and LED connector links have to be redone.
+
 ### 1.0.0 - 2026-10-05
 
 First public release.
@@ -36,11 +49,6 @@ First public release.
 - **Pistons** push and pull lamps with their finish, tone, strips and links. A lamp that loses its support drops as an
   item; two-block lamps break.
 - **Create** (optional): contraptions carry the lamps attached to the blocks they move.
-- **WorldEdit**: copy, paste, rotate, flip, move and undo keep each lamp whole, with its colour, finish, tone and
-  brightness. A selection that cuts a two-block lamp in half leaves no half lamp behind: a lone lower half gets its top
-  back (or drops as an item when there is no room), a lone upper half is removed. Known limits: a switch keeps the
-  positions it was linked to (re-link a pasted or moved switch), and after a rotation or a flip LED strips keep their
-  old position on each face and LED connector links have to be redone.
 - **Coloured light under shaders** (Iris): each lit lamp lights up in its colour with packs that colour light, such as
   Solas.
 - **Complementary**: lamps give a plain warm light with clean surfaces (the pack would draw a borrowed block's light
@@ -54,8 +62,8 @@ First public release.
 - **Diagnostic commands** (operators): `/mostlight inspect` shows everything the mod knows about a lamp or a switch,
   `/mostlight check` lists broken data in the loaded chunks around (missing block entity, two-block lamp cut in half,
   wrong light, dead links), `/mostlight repair` fixes it.
-- Tested against duplication and item loss: breaking, explosions, pistons, Create contraptions, WorldEdit edits,
-  workbench and forged packets from a modified client.
+- Tested against duplication and item loss: breaking, explosions, pistons, Create contraptions, workbench and forged
+  packets from a modified client.
 
 #### Performance
 - One block per lamp model and per switch (74 blocks): the colour is a block property applied to the shared model.
@@ -76,6 +84,20 @@ First public release.
 ## Français
 
 Toutes les versions de MostLight (NeoForge 1.21.1). La plus récente en haut.
+
+### 1.0.1 - 2026-10-06
+
+#### Corrections
+- Une lampe de 2 blocs coupée en deux par une sélection WorldEdit, un `//flip up` ou un schéma abîmé ne laisse plus de
+  moitié de lampe : une moitié basse seule retrouve son haut (ou tombe en objet s'il n'y a pas la place), une moitié
+  haute seule est retirée.
+
+#### Compatibilité
+- **WorldEdit** : testé avec de vraies commandes tapées par un opérateur (copier, coller, tourner, retourner, déplacer,
+  remplir, annuler). Chaque lampe garde sa couleur, sa finition, sa teinte et sa luminosité, rien n'est dupliqué ni
+  perdu. Limites connues : un interrupteur garde les positions auxquelles il a été lié (relier à nouveau un
+  interrupteur collé ou déplacé), et après une rotation ou un retournement les bandes LED gardent leur ancienne
+  position sur chaque face et les liaisons du connecteur LED sont à refaire.
 
 ### 1.0.0 - 2026-10-05
 
@@ -114,12 +136,6 @@ Première sortie publique.
 - **Pistons** : les lampes se poussent et se tirent avec leur finition, leur teinte, leurs bandes et leurs liaisons.
   Une lampe qui perd son support tombe en objet ; les lampes de 2 blocs se cassent.
 - **Create** (facultatif) : les contraptions emportent les lampes attachées aux blocs qu'elles déplacent.
-- **WorldEdit** : copier, coller, tourner, retourner, déplacer et annuler gardent chaque lampe entière, avec sa
-  couleur, sa finition, sa teinte et sa luminosité. Une sélection qui coupe une lampe de 2 blocs ne laisse pas de
-  moitié de lampe : une moitié basse seule retrouve son haut (ou tombe en objet s'il n'y a pas la place), une moitié
-  haute seule est retirée. Limites connues : un interrupteur garde les positions auxquelles il a été lié (relier à
-  nouveau un interrupteur collé ou déplacé), et après une rotation ou un retournement les bandes LED gardent leur
-  ancienne position sur chaque face et les liaisons du connecteur LED sont à refaire.
 - **Lumière colorée sous shaders** (Iris) : chaque lampe allumée éclaire de sa couleur avec les packs qui colorent la
   lumière, comme Solas.
 - **Complementary** : les lampes donnent une lumière chaude ordinaire, avec des surfaces propres (ce pack dessinerait
@@ -133,8 +149,8 @@ Première sortie publique.
 - **Commandes de diagnostic** (opérateurs) : `/mostlight inspect` montre tout ce que le mod sait d'une lampe ou d'un
   interrupteur, `/mostlight check` liste les données cassées dans les chunks chargés autour (block entity manquante,
   lampe de 2 blocs coupée en deux, lumière fausse, liaisons mortes), `/mostlight repair` les corrige.
-- Testé contre la duplication et la perte d'objets : casse, explosions, pistons, contraptions de Create, modifications
-  WorldEdit, établi et paquets forgés par un client modifié.
+- Testé contre la duplication et la perte d'objets : casse, explosions, pistons, contraptions de Create, établi et
+  paquets forgés par un client modifié.
 
 #### Performances
 - Un seul bloc par modèle de lampe et par interrupteur (74 blocs) : la couleur est une propriété du bloc, appliquée au
